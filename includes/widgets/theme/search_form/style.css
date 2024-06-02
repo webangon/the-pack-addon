@@ -1,0 +1,22 @@
+.buildersearch-form {
+    position: relative;
+}
+
+.buildersearch-form .search-field {
+    width: 100%;
+}
+
+.buildersearch-form .search-submit {
+    width: 43px;
+    border: 1px solid #000;
+    background: black;
+    color: white;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-size: 1em;
+    letter-spacing: normal;
+    cursor: pointer;
+}

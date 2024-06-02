@@ -1,0 +1,36 @@
+.parallax-carousel.swiper-container {
+    height: 400px;
+    width: 100%;
+}
+
+.parallax-carousel .swiper-wrapper {
+    will-change: transform;
+}
+
+.parallax-carousel .swiper-slide {
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+}
+
+.parallax-carousel .swiper-slide.swiper-slide-active .slide-image, .parallax-carousel .swiper-slide.swiper-slide-duplicate-active .slide-image {
+    transform: scale3d(1, 1, 1);
+}
+
+@media (min-width: 768px) {
+    .parallax-carousel .swiper-slide.swiper-slide-next .slide-image, .parallax-carousel .swiper-slide.swiper-slide-prev .slide-image, .parallax-carousel .swiper-slide.swiper-slide-duplicate-next .slide-image, .parallax-carousel .swiper-slide.swiper-slide-duplicate-prev .slide-image {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.parallax-carousel .slide-image {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale3d(1.3, 1.3, 1);
+    backface-visibility: hidden;
+    will-change: transform;
+    transition: transform 1400ms ease;
+}

@@ -1,0 +1,15 @@
+ .tp-file-download {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+} 

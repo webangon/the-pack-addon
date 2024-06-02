@@ -1,0 +1,83 @@
+.team1 {
+    float: left;
+}
+
+.team1 .name, .team1 .pos {
+    margin: 0px;
+}
+
+.team1 .team-content {
+    background: beige;
+    padding: 20px;
+}
+
+.team-container, .team-link {
+    position: relative;
+}
+
+.team1 img {
+    width: 100%;
+    display: block;
+}
+
+.team1carou .swiper-pagination-bullet {
+    opacity: 1;
+}
+
+.team1 .team-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0;
+    text-align: center;
+    background: #2f0b81;
+    bottom: -35%;
+    transition: all .3s, bottom .3s;
+    text-align: center;
+    display: block;
+    opacity: 0;
+}
+
+.team1 .team-container {
+    overflow: hidden;
+}
+
+.team1:hover .team-link {
+    opacity: 1;
+    bottom: 10px;
+}
+
+.team1 .team-link a {
+    display: inline-block;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 8px;
+    font-weight: 500;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    margin: 0px 2px;
+    width: 30px;
+    height: 30px;
+}
+
+.team1:hover .featured-img {
+    transform: scale(1.1);
+}
+
+.team1 .featured-img {
+    transition: transform .5s ease;
+}
+
+.team1:hover .inner {
+    -webkit-transform: translate(0, -10px);
+    transform: translate(0, -10px);
+}
+
+.team1 .inner {
+    -webkit-transition: .5s all ease;
+    transition: .5s all ease;
+}

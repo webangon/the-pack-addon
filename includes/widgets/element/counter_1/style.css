@@ -1,0 +1,8 @@
+.tb-process-1 .tb-counter .number::after {
+    position: absolute;
+    content: '';
+}
+
+.tb-process-1 .tb-counter .number {
+    position: relative;
+}

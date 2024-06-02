@@ -1,0 +1,14 @@
+.testimonial-1.tpswiper.style-2 .thumb {
+    display: inline-block;
+}
+
+.testimonial-1 .items .tpquote {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-1 .flexs {
+    flex-direction: column;
+}

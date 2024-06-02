@@ -1,0 +1,37 @@
+.testi5wrap.style-two .testi-thumb {
+    position: relative;
+    text-align: center;
+}
+
+.testi5wrap.style-two .testi-thumb img {
+    display: inline-block;
+}
+
+.testi5wrap.style-two .thumb {
+    text-align: center;
+    position: relative;
+    bottom: -35px;
+    z-index: 1;
+}
+
+.testi5wrap.style-three .testi-thumb {
+    position: relative;
+    top: -34px;
+    text-align: center;
+}
+
+.testi5wrap .slick-slide img {
+    display: inline-block;
+}
+
+.testi5-container .name, .testi5-container .pos {
+    margin: 0;
+}
+
+.testi5wrap.style-one .inr {
+    text-align: center;
+}
+
+.testi5wrap.style-one .inr .info {
+    text-align: left;
+}

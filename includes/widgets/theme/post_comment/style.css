@@ -1,0 +1,106 @@
+.khb-commentwrap .khbcomment-field {
+    width: 33.33%;
+    float: left;
+    padding: 10px;
+}
+
+.khb-commentwrap .khbcomment-field input, .khb-commentwrap .comment-form-comment textarea {
+    width: 100%;
+    border-width: 0px;
+}
+
+.khb-commentwrap .comment-form-comment, .khb-commentwrap .form-submit {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.khb-commentwrap .comment-form {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.khb-commentwrap .submit {
+    border-width: 0px;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.khb-commentwrap .says {
+    display: none;
+}
+
+.khb-commentwrap .details p:last-of-type {
+    margin: 0px;
+}
+
+.khb-commentwrap h3 {
+    margin: 0 0 1em;
+}
+
+.khb-commentwrap > ol {
+    padding-left: 0;
+}
+
+.khb-commentwrap ol {
+    list-style: none;
+}
+
+.khb-commentwrap ol > li:last-child {
+    margin-bottom: 0;
+}
+
+.khb-commentwrap ol > li > ol {
+    margin-left: 28px;
+    padding: 0;
+}
+
+.khb-commentwrap ol > li > ol > li:last-child {
+    margin-bottom: 0 !important;
+}
+
+.khb-commentwrap .article {
+    overflow: hidden;
+    padding: 25px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.khb-commentwrap .article h4 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.khb-commentwrap .article .author-pic {
+    width: 64px;
+    float: left;
+    margin-right: 15px;
+}
+
+@media (max-width: 767px) {
+    .khb-commentwrap .article .author-pic {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+}
+
+.khb-commentwrap .article .details {
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .khb-commentwrap .article .details {
+        width: 100%;
+        float: none;
+    }
+}
+
+.khb-commentwrap .children {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+.khb-commentwrap .logged-in-as,.comment-form-cookies-consent{
+    padding-left: 10px;
+}

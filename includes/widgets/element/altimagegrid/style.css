@@ -1,0 +1,36 @@
+.tb-altimage .itemstb {
+    width: 33.33%;
+    float: left;
+}
+
+.tb-altimage .imghldr, .tb-altimage .contenthldr {
+    height: 350px;
+    background-size: cover;
+    position: relative;
+}
+
+.tb-altimage .imghldr::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.tb-altimage .title {
+    margin: 0px;
+}
+
+.tb-altimage .tbinr {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tb-altimage .clink {
+    display: inline-block;
+    border-style: solid;
+}

@@ -1,0 +1,21 @@
+.tp-cta-link-wrap .tp-cta-link {
+    display: inline-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    transition: all ease .3s;
+    position: relative;
+    width: 100%;
+}
+
+.tp-cta-link-wrap .icon {
+    margin-right: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tp-cta-link-wrap {
+    display: flex;
+}

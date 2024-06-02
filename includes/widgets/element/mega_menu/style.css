@@ -1,0 +1,14 @@
+.xlmega-header .tp-woo-count{
+    position: absolute;
+    font-size: 11px;
+    top: -14px;
+    left: 8px;
+}
+.xlmega-header .cart-cart{
+    position: relative;
+}
+
+.xlmega-header .tpclosetivo{
+    position: absolute;
+    cursor: pointer;    
+}

@@ -1,0 +1,41 @@
+.tp-progress-2 .items {
+    position: relative;
+}
+
+.tp-progress-2 .items:after {
+    width: 100%;
+    height: 8px;
+    background: #f3f4f6;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.tp-progress-2 .items .skillbar {
+    width: 93%;
+    height: 8px;
+    position: relative;
+    background: black;
+    z-index: 3;
+}
+
+.tp-progress-2 .items .dots {
+    width: 25px;
+    left: 93%;
+    height: 25px;
+    background: #eee;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
+    left: -5px;
+    bottom: -7px;
+}
+
+.tp-progress-2 .items .parcent {
+    display: block;
+    margin: 0;
+    right: -70px;
+    bottom: 0;
+    position: absolute;
+}

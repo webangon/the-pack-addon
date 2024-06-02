@@ -1,0 +1,135 @@
+.tp-syntax-highlight .highlight { 
+	background:#FFFFFF;
+	border:1px solid #E0E0E0;
+	overflow: hidden;
+}
+.tp-syntax-highlight .highlight pre{
+	width: 100%;
+	overflow: auto;
+	padding:0;
+	margin:0;
+	font-size:13px;
+	clear: both;
+}
+
+/* tabs */
+.tp-syntax-highlight .highlight ul.tabs {
+	overflow: hidden;
+	padding: 5px 0 5px 0;
+	margin: 0;
+	list-style: none;
+	border-bottom: 1px solid #E0E0E0;
+	width: 100%;
+	position: relative;
+}
+.tp-syntax-highlight .highlight ul.tabs li {
+	padding: 0;
+	margin: 0 5px;
+	float: left;
+	background: none;
+	border-bottom: 1px dashed #CCC;
+	line-height:1.0em;
+	color: #CCC;
+	cursor: pointer;
+}
+.tp-syntax-highlight .highlight ul.tabs li.active {
+	border-bottom: none;
+	cursor: default;
+}
+
+/* pre */
+.tp-syntax-highlight .highlight pre.code ol {
+	margin: 0;
+	padding:0 0 0 45px;
+	background:#e7e5dc; 
+}
+.tp-syntax-highlight .highlight pre.code ul {
+	margin: 0;
+	padding:0;	
+}
+.tp-syntax-highlight .highlight pre.code ol li,
+.tp-syntax-highlight .highlight pre.code ul li {
+	padding:0 0 0 5px;
+	border-left:3px solid #CCC;
+	background:#F8F8F8;
+}
+.tp-syntax-highlight .highlight pre.code ul li {
+	border-left:none;
+}
+.tp-syntax-highlight .highlight pre.code ol li.even,
+.tp-syntax-highlight .highlight pre.code ul li.even {
+	background-color:#FFFFFF;
+}
+.tp-syntax-highlight .highlight pre.source {
+	display: none;
+	padding:0 0 0 5px;
+}
+
+/* highligting */
+.tp-syntax-highlight pre.code .str { 
+	color: #0d0; 
+}
+.tp-syntax-highlight pre.code .var { 
+	color: #d00; 
+}
+
+.tp-syntax-highlight pre.code .kwd,
+.tp-syntax-highlight pre.code .kwd span { 
+	color: #070;
+}
+.tp-syntax-highlight pre.code .com,
+.tp-syntax-highlight pre.code .com span { 
+	color:#008;
+	font-style: italic;
+	font-weight: normal; 
+}
+.tp-syntax-highlight pre.code .typ { 
+	color: #606; 
+}
+.tp-syntax-highlight pre.code .lit { 
+	color: #066;
+}
+.tp-syntax-highlight pre.code .pun { 
+	color: #660; }
+.tp-syntax-highlight pre.code .pln { 
+	color: #000; 
+}
+.tp-syntax-highlight pre.code .tag { 
+	color: #008;
+	font-weight: bold;  
+} 
+.tp-syntax-highlight pre.code .atn { 
+	color: #606; 
+}
+.tp-syntax-highlight pre.code .atv { 
+	color: #080; 
+}
+.tp-syntax-highlight pre.code .dec { 
+	color: #606; 
+}
+.tp-syntax-highlight pre.code .fnc,
+.tp-syntax-highlight pre.code .fnc span { 
+	color: #00b; 
+}
+
+/* css */
+.css pre.code .kwd,
+.css pre.code .kwd span { 
+	color: #008;
+	font-weight: bold; 
+}
+/* php */
+.php pre.code .str,
+.php pre.code .str span { 
+	color: #0d0; 
+}
+.php pre.code .var,
+.php pre.code .var span { 
+	color: #b00; 
+}
+.php pre.code .com,
+.php pre.code .com span { 
+	color:#008;
+	font-style: italic;
+	font-weight: normal; 
+}

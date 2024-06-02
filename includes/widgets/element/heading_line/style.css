@@ -1,0 +1,23 @@
+.tp-heading-line {
+    position: relative;
+    margin: 0;
+}
+
+.tp-heading-line:before {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: red;
+    top: 40px;
+    position: absolute;
+}
+
+.tp-heading-line:after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #eee;
+    left: 0;
+    top: 41px;
+    position: absolute;
+}

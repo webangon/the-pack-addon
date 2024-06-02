@@ -1,0 +1,62 @@
+.xldacdn .accordion {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.xldacdn .accordion li {
+    position: relative;
+}
+
+.xldacdn .accordion li p {
+    display: none;
+}
+
+.xldacdn .accordion .accortitle {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+}
+
+.xldacdn .accordion p {
+    padding: 10px;
+    margin: 0;
+}
+
+.xldacdn .accortitle.active .inactikn {
+    display: block !important;
+}
+
+.xldacdn .accortitle.active .actikn {
+    display: none;
+}
+
+.xldacdn .accortitle .inactikn {
+    display: none;
+}
+
+.xldacdn .accortitle.active .tbxicon.actikn {
+    display: none;
+}
+
+.xldacdn .accortitle .tbxicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    text-align: center;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.xldacdn.left_icon .tbxicon {
+    left: 0;
+    right: auto;
+}

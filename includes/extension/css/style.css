@@ -1,0 +1,29 @@
+.tp-has-beaf > .elementor-widget-container {
+    position: relative;
+}
+
+.tp-has-beaf > .elementor-widget-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.tp-has-beaf > .elementor-widget-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+.tp-section-moving-yes{
+    animation: tpanimatedBackground 30s linear infinite;  
+}
+@keyframes tpanimatedBackground { from { background-position: 0 0; } to { background-position: 100% 0; } }

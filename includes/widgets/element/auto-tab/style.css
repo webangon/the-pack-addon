@@ -1,0 +1,17 @@
+.khbprnx {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    left: 0px;
+}
+.khbprnx.khbprev{
+left:auto;
+right: 0px;
+}

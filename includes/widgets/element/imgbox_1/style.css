@@ -1,0 +1,65 @@
+.tb-imgbox1 .items {
+    width: 33.33%;
+    float: left;
+    padding: 15px;
+}
+
+.tb-imgbox1 .btnimgbx1 {
+    position: relative;
+    color: #222;
+    height: 51px;
+    line-height: 51px;
+    padding: 0 21px;
+    margin: 0;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #eee;
+    position: relative;
+}
+
+.tb-imgbox1 .btnimgbx1-icon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tb-imgbox1 .top-ikon {
+    display: inline-block;
+    background: yellow;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    top: -18px;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tb-imgbox1 .items-wrap figure {
+    overflow: hidden;
+}
+
+.tb-imgbox1 .items-wrap:hover figure img {
+    -webkit-filter: none;
+    filter: none;
+    -webkit-transform: scale(1.09, 1.09);
+    transform: scale(1.09, 1.09);
+    -webkit-filter: brightness(75%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.tb-imgbox1 .items-wrap figure img {
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-filter: brightness(100%);
+}

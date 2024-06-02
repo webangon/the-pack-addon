@@ -1,0 +1,124 @@
+.bari_assex_slider .wrap::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #00000096;
+}
+
+.assex-wrap {
+    margin: 0px auto;
+}
+
+.bari_assex_slider .post-content {
+    height: 200px;
+}
+
+.bari_assex_slider .slider-container {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+.bari_assex_slider .flex-equal {
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+
+.bari_assex_slider::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.bari_assex_slider {
+    position: relative;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.bari_assex_slider .assex-wrap {
+    margin: 0px auto;
+}
+
+.bari_assex_slider .post-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border: 1px solid #fff;
+}
+
+.bari_assex_slider .post-content:hover, .bari_assex_slider .post-item.active .post-content {
+    border: 1px solid #cee002;
+    background: #cee002;
+}
+
+.bari_assex_slider .post-item.active .slider-bg {
+    opacity: 1;
+}
+
+.bari_assex_slider .post-item.active .wrap {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1); /* IE 9 */
+    transform: scale(1.1);
+}
+
+.bari_assex_slider .entry-title {
+    margin: 0px 0px 5px 0px;
+}
+
+.bari_assex_slider .slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.bari_assex_slider .inner {
+    position: relative;
+    height: inherit;
+    overflow: hidden;
+}
+
+.bari_assex_slider .wrap {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+
+@media all and (min-width: 0px) and (max-width: 768px) {
+    .bari_assex_slider {
+        height: initial;
+    }
+}

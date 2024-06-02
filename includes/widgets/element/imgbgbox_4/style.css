@@ -1,0 +1,57 @@
+.tb-imgbgrid4 .imgbg_listing {
+    float: left;
+}
+
+.tb-imgbgrid4 .tbimglyst {
+    height: 200px;
+    background-size: cover;
+    position: relative;
+}
+
+.tb-imgbgrid4 .inneritems {
+    display: block;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0px 6px 60px 0px rgb(31 31 31 / 5%);
+}
+
+.tb-imgbgrid4 .tbicon {
+    position: absolute;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all ease .3s;
+}
+
+.tb-imgbgrid4 .inneritems:hover .tbicon {
+    opacity: 1;
+}
+
+.tb-imgbgrid4 .inneritems:hover {
+    box-shadow: 0px 6px 60px 0px rgb(31 31 31 / 15%);
+    transform: translateY(-10px);
+}
+
+.tb-imgbgrid4 .tbimglyst:before {
+    transition: all ease .3s;
+    width: 100%;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #0000007d;
+    opacity: 0;
+}
+
+.tb-imgbgrid4 .inneritems:hover .tbimglyst:before {
+    opacity: 1;
+}

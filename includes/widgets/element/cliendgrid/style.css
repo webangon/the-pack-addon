@@ -1,0 +1,16 @@
+.tb-clientgrid {
+    display: inline-block;
+}
+
+.tb-clientgrid .items {
+    float: left;
+}
+
+.tb-clientwrap1 img {
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    width: 100%;
+}

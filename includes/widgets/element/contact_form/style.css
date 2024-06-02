@@ -1,0 +1,107 @@
+.tp-contact-wrap {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.tp-contact-wrap .item {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tp-contact-wrap .item i {
+    position: absolute;
+    top: 10px;
+}
+
+.tp-contact-wrap .error {
+    border-color: red;
+}
+
+.tp-contact-wrap .tp-form-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.tp-contact-wrap .tp-form-btn button {
+    width: 100%;
+    padding: 12px 0px;
+    max-width: 195px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.tp-contact-wrap .tp-form-btn .working .loader {
+    display: block;
+}
+
+.tp-contact-wrap .tp-form-btn .loader {
+    display: none;
+}
+
+.tp-contact-wrap .tp-form-btn .working span {
+    visibility: hidden;
+}
+
+.tp-contact-wrap .tp-form-btn .working {
+    pointer-events: none;
+}
+
+.tp-contact-wrap .response {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.tp-contact-wrap .response .error {
+    background: blanchedalmond;
+    padding: 15px;
+}
+
+.tp-contact-wrap .response p {
+    margin: 0px;
+}
+
+.tp-contact-wrap .response .success {
+    background: green;
+    padding: 15px;
+}
+
+.tp-contact-wrap .response .fail {
+    background: yellow;
+    padding: 15px;
+}
+
+.tp-contact-wrap .tp-inline-form {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+    .tp-contact-wrap .tp-inline-form, .tp-contact-wrap {
+        display: block;
+    }
+}

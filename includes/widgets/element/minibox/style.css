@@ -1,0 +1,49 @@
+.minibox-1 .btn-wrap {
+    display: flex;
+    position: absolute;
+    bottom: -21px;
+    width: 100%;
+    left: 0;
+}
+
+.minibox-1 .more-btn {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.minibox-1 .inner {
+    position: relative;
+    top: 0px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.minibox-1 .style-1 .inner:hover {
+    position: relative;
+    top: -10px;
+}
+
+.minibox-1 .style-2 .inner:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    border-bottom: 3px solid red;
+    transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+.minibox-1 .style-2 .inner:hover:before {
+    transform: scaleX(1);
+}
+

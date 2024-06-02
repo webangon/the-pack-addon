@@ -1,0 +1,34 @@
+.countdown.one > span {
+    color: red;
+    position: relative;
+    padding: 0px 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.countdown.two > span {
+    color: red;
+    position: relative;
+    padding: 0px 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.countdown.one > span::before {
+    content: ":";
+    color: red;
+    position: relative;
+    top: 0px;
+    left: -10px
+}
+
+.countdown.one > span:first-child:before {
+    content: '';
+}
+
+.countdown.one span span, .countdown.two span span {
+    clear: both;
+    display: block;
+    position: relative;
+    top: -5px;
+}

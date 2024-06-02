@@ -1,0 +1,56 @@
+.job_listing {
+    display: table;
+    width: 100%;
+    background: #fff;
+
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.job_listing figure {
+    float: left;
+    width: 70px;
+    margin-bottom: 0px;
+    margin-right: 20px !important;
+}
+
+.job_listing figure img {
+    float: left;
+    width: 100%;
+}
+
+.job_listing .joblisting_desc {
+    display: table-cell;
+    vertical-align: middle;
+    border-left: 1px solid #eeebf7;
+    width: 100%;
+    padding-left: 25px;
+}
+
+.job_listing .joblisting_table {
+    display: table;
+    width: 100%;
+}
+
+.job_listing .joblisting_tablecell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 76%;
+}
+
+.job_listing .joblisting_btn {
+    float: right;
+}
+
+.joblisting_btn .theme-btn {
+    color: #5c6789;
+    border: 1px solid #e7e7f6;
+    display: inline-block;
+    padding: 4px 12px;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}

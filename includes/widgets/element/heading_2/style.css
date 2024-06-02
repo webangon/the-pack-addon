@@ -1,0 +1,41 @@
+.tb-heading-two .sub {
+    position: absolute;
+    font-size: 200px;
+    color: #ff000057;
+    top: -28px;
+    left: 0;
+    margin-bottom: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+}
+
+.tb-heading-two.tmplb .sub {
+    right: 0;
+}
+
+.tb-heading-two .inner .heading {
+    font-size: 50px;
+}
+
+.tb-heading-two .inner > span {
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;
+}
+
+.tb-heading-two .line::before, .tb-heading-two.tmplb .line::after {
+    position: absolute;
+    background: #ff5e14;
+    content: "";
+    height: 3px;
+    width: 45px;
+    bottom: 10px;
+}
+
+.tb-heading-two .line::before {
+    left: 0;
+}
+
+.tb-heading-two.tmplb .line::after {
+    right: 0;
+}

@@ -1,0 +1,10 @@
+.tp-dot-heading .dot {
+    position: relative;
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+}
+
+.tp-dot-heading h3 {
+    margin: 0;
+}

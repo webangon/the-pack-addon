@@ -1,0 +1,28 @@
+.cart_totals table td,.cart_totals table th{
+    border: 0px;
+}
+.cart_totals td{
+    text-align: end;
+  }
+  .woocommerce-shipping-calculator{
+    text-align: left;
+  }
+  .cart_totals table.shop_table th, .cart_totals table.shop_table td {
+    padding: 9px 0px;
+}
+.woocommerce .cart_totals ul#shipping_method li input{
+  vertical-align: middle;
+}
+.woocommerce .cart_totals table.shop_table td,.woocommerce .cart_totals table.shop_table th{
+  padding: 9px 0px;  
+  background: transparent !important;
+}
+.woocommerce-cart .cart_totals .wc-proceed-to-checkout{
+  padding:0px 0px 0px 0px;
+}
+.woocommerce-cart .cart_totals .wc-proceed-to-checkout a.checkout-button{
+  margin-bottom: 0px;
+}
+.woocommerce .cart_totals table.shop_table{
+  margin: 0 -1px 10px 0;  
+}

@@ -1,0 +1,57 @@
+.tb_eventlyst .tour_listing {
+    display: table;
+    width: 100%;
+    padding: 20px 0;
+} 
+
+.tb_eventlyst .tour_listing:last-of-type {
+    border-bottom-width: 0px !important;
+}
+
+.tb_eventlyst .tour_listing > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.tb_eventlyst .tbtourtt {
+    width: 42%;
+}
+
+.tb_eventlyst .title {
+    margin: 0px;
+}
+
+.tb_eventlyst .tbtourbtn {
+    text-align: right;
+}
+
+.tb_eventlyst .tbtourbtn a {
+    border: 1px solid #eee;
+    padding: 6px 20px;
+    border-radius: 19px;
+    display: inline-block;
+    text-align: center;
+}
+
+@media all and (min-width: 0px) and (max-width: 960px) {
+
+    .tb_eventlyst .tour_listing, .tb_eventlyst .tour_listing > div {
+        display: block;
+        text-align: left;
+    }
+
+    .tb_eventlyst .tbtourdt, .tb_eventlyst .tbtourdy {
+        display: inline-block;
+        float: left;
+    }
+
+    .tb_eventlyst .tbtourdy span {
+        display: inline-block;
+    }
+
+    .tb_eventlyst .tbtourtt, .tb_eventlyst .tbtourloc {
+        width: 100%;
+        clear: both;
+    }
+
+}

@@ -1,0 +1,24 @@
+.sidebar-link li {
+    position: relative;
+}
+
+.sidebar-link li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.sidebar-link li i {
+    position: relative;
+}
+
+.sidebar-link li i {
+    right: 0px;
+    opacity: 0;
+}
+
+.sidebar-link li:hover i {
+    right: 10px;
+    opacity: 1;
+}

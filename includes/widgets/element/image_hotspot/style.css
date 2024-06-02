@@ -1,0 +1,230 @@
+.xldhotspot1 .tbspotimg {
+    position: relative;
+}
+
+.xldhotspot1 .tbspotimg::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.xldhotspot1 .tb_hotspot {
+    position: absolute;
+}
+
+.xldhotspot1 .tb_hpointwrp {
+    cursor: pointer;
+}
+
+.xldhotspot1 .tb_hotspot_content {
+    position: absolute;
+    padding: 20px;
+    visibility: hidden;
+    width: 250px;
+    opacity: 0;
+    z-index: 2;
+    background: #fff;
+    transition: all .2s ease-in-out;
+}
+
+.xldhotspot1 .tb_hotspot_top {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 14px))
+}
+
+.xldhotspot1 .tb_hotspot:hover .tb_hotspot_top {
+    top: 8px;
+}
+
+.xldhotspot1 .tb_hotspot_right {
+    top: 50%;
+    right: 0;
+    transform: translate(calc(100% + 18px), -50%)
+}
+
+.xldhotspot1 .tb_hotspot:hover .tb_hotspot_right {
+    right: -8px;
+}
+
+.xldhotspot1 .tb_hotspot_bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 14px))
+}
+
+.xldhotspot1 .tb_hotspot:hover .tb_hotspot_bottom {
+    bottom: -8px;
+}
+
+.xldhotspot1 .tb_hotspot_left {
+    top: 50%;
+    left: 0;
+    transform: translate(calc(-100% - 17px), -50%)
+}
+
+.xldhotspot1 .tb_hotspot:hover .tb_hotspot_left {
+    bottom: 8px;
+}
+
+.xldhotspot1 .hotspot_topright {
+    transform: translate(0, calc(-100% - 15px))
+}
+
+.xldhotspot1 .hotspot_topleft {
+    transform: translate(-100%, calc(-100% - 15px))
+}
+
+.xldhotspot1 .hotspot_bottomright {
+    transform: translate(0, calc(100% + 15px))
+}
+
+.xldhotspot1 .hotspot_bottomleft {
+    transform: translate(-100%, calc(100% + 15px))
+}
+
+.xldhotspot1 .tb_hotspot:hover .tb_hotspot_content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.xldhotspot1 .tb_hotspot .hpspot-btn {
+    display: inline-block;
+}
+
+.xldhotspot1 .dot {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.xldhotspot1 .pulse {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+    border-radius: 50%;
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1.0, 1.0);
+        opacity: 0.9;
+    }
+    /*     50% {opacity: 0.85;} */
+    100% {
+        -webkit-transform: scale(2.5, 2.5);
+        opacity: 0.0;
+    }
+}
+
+.xldhotspot1 .hotspot-red {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #FFF;
+    position: absolute;
+    left: auto;
+    top: auto;
+    border-radius: 100%;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.xldhotspot1 .hotspot-red:hover {
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.xldhotspot1 .hotspot-red span {
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 100%;
+    position: absolute;
+    display: block;
+    background: #FFF;
+    left: 50%;
+    top: 50%;
+}
+
+.xldhotspot1 .pulsathotspot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.xldhotspot1 .pulsathotspot:before, .xldhotspot1 .pulsathotspot:after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: inherit;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: box-shadow .3s;
+    -webkit-animation: pulse-aninmation 5s ease-in-out infinite both;
+    animation: pulse-aninmation 5s ease-in-out infinite both;
+}
+
+.xldhotspot1 .pulsathotspot:after {
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+
+.xldhotspot1 .pulsathotspot:hover:before, .xldhotspot1 .pulsathotspot:hover:after {
+    box-shadow: 0 0 .5px .5px #fff;
+}
+
+@-webkit-keyframes pulse-aninmation {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.4);
+        transform: scale(1.4);
+    }
+    100% {
+        -webkit-transform: scale(1.8);
+        transform: scale(1.8);
+    }
+}
+
+@keyframes pulse-aninmation {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(2.2);
+        transform: scale(2.2);
+    }
+    100% {
+        -webkit-transform: scale(1.7);
+        transform: scale(1.7);
+    }
+}

@@ -1,0 +1,47 @@
+
+.folio-carousel1 .one .inner-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 1;
+    transition: .5s all ease;
+}
+
+.folio-carousel1 .slide-inner:hover img {
+    transform: scale(1.1);
+}
+
+.folio-carousel1 .slide-inner img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    transition: .5s all ease;
+}
+
+.folio-carousel1 .slide-inner figure {
+    position: relative;
+    overflow: hidden;
+}
+
+.folio-carousel1 .one .slide-inner figure::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: .5s all ease;
+    opacity: 0;
+    z-index: 1;
+}
+
+.folio-carousel1 .one .slide-inner:hover figure::before {
+    opacity: 1;
+}
+
+.folio-carousel1 .one .slide-inner:hover:hover .inner-wrap {
+    opacity: 1;
+}

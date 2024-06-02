@@ -1,0 +1,86 @@
+.tp-post-1 .grid-content {
+    max-width: 90%;
+    background: white;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin: 0px auto;
+    position: relative;
+    margin-top: -54px;
+    transition: all 0.2s;
+    z-index: 2;
+}
+
+.tp-post-1:hover .grid-content {
+    margin-top: -64px;
+}
+
+.has-zoom-slide .thumb-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.has-zoom-slide .thumb-box:before {
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: translateY(90px, 50px);
+    transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 900ms ease;
+    -o-transition: all 900ms ease;
+    z-index: 1;
+}
+
+.has-zoom-slide:hover .thumb-box:before {
+    opacity: 1;
+    height: 100%;
+}
+
+.has-zoom-slide .thumb-box img {
+    width: 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.has-zoom-slide:hover .thumb-box img {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.tp-thumblink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+}
+
+.grid-item .tp-post-3{
+    position:relative;
+    background-size: cover;
+  }
+  .grid-item .tp-post-3 .grid-content {
+      position: absolute;
+      margin: 20px;
+      bottom: 0;
+      z-index: 1;
+  }
+  .grid-item .tp-post-3 .thumb-box{
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;  
+      background-size: cover;
+  }

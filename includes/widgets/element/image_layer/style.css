@@ -1,0 +1,16 @@
+.tp-layerimage {
+    position: relative;
+}
+
+.tp-layerimage .layeritem {
+    position: absolute;
+    overflow: hidden;
+    animation-iteration-count: infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.elementor .tp-layerimage img{
+    height:inherit;
+    object-fit:cover;
+}

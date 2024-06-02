@@ -1,0 +1,29 @@
+.woocommerce-cart .tp-woo-cart table.cart th {
+    border-top: 0px !important;
+    padding: 9px 0px;
+}
+
+.tp-woo-cart .woocommerce table.shop_table td {
+    padding: 9px 0px;
+    border-top: 0px solid;
+    background: transparent !important;
+}
+
+.tp-woo-cart table td:last-child,
+.tp-woo-cart table th:last-child {
+    padding-right: 0;
+    text-align: right;
+    text-align: end;
+}
+
+.tp-woo-cart .cart .product-price,
+.tp-woo-cart .cart .product-quantity,
+.tp-woo-cart .cart .product-sku,
+.tp-woo-cart .cart .product-stock-status {
+    text-align: center;
+}
+.tp-woo-cart .woocommerce a.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}

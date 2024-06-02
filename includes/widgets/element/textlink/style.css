@@ -1,0 +1,38 @@
+.jl-textlink {
+    display: flex;
+    align-items: center;
+}
+
+.jl-textlink.one .link:before {
+    content: '';
+    position: absolute;
+    transition: transform .5s ease;
+    left: -1px;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    transform: translateX(-100%);
+    background: #000;
+}
+
+.jl-textlink .link {
+    position: relative;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.jl-textlink.one .link:hover:before {
+    transform: translateX(0);
+}
+
+.jl-textlink .link i {
+    position: relative;
+}
+
+.jl-textlink.two .link {
+    border-bottom: 2px solid;
+}

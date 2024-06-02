@@ -1,0 +1,29 @@
+.tp-taxomony {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.tp-taxomony.full li {
+    color: #a0a0a0;
+    position: relative;
+    text-align: left;
+
+}
+
+.tp-taxomony li a {
+    display: block;
+}
+
+.tp-taxomony.full span.count {
+    float: right;
+}
+
+.tp-taxomony.full li:not(:last-child) {
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.tp-taxomony.list li {
+    display: inline-block;
+}

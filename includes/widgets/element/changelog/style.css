@@ -1,0 +1,47 @@
+.tbchangelog::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    height: 100%;
+    width: 1px;
+    background: #e43d3c;
+}
+
+.tbchangelog {
+    position: relative;
+}
+
+.tbchangelog-block .title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: .5;
+}
+
+.tbchangelog .tbchangelog-content, .tbchangelog .title {
+    padding-left: 36px;
+}
+
+.tbchangelog .cglabel {
+    float: left;
+    width: 59px;
+    margin-right: 13px;
+    text-align: center;
+    position: relative;
+    bottom: -6px;
+    color: white;
+}
+
+.tbchangelog .description {
+    overflow: hidden;
+}
+
+.tbchangelog .title:before {
+    content: ' ';
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0px;
+    background-color: #e43d3c;
+    border-radius: 50%;
+}

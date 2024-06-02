@@ -1,0 +1,129 @@
+.flip-wraper1 .tb-flip-outer {
+    width: 100%;
+    height: 395px;
+    float: left;
+}
+
+.flip-wraper1 .tb-card-flipwr {
+    width: 100%;
+    height: inherit;
+}
+
+.flip-wraper1 .tb-card-flipwr {
+    position: relative;
+    transform: perspective(1000px);
+    -webkit-perspective: 1000;
+    -webkit-transform: perspective(1000px);
+    -moz-perspective: 1000;
+    -moz-transform: perspective(1000px);
+    -ms-perspective: 1000;
+    -ms-transform: perspective(1000px);
+    perspective: 1000px;
+}
+
+.flip-wraper1 .tb-card-flipwr .tb-card-front, .flip-wraper1 .tb-card-flipwr:hover .tb-card-back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.flip-wraper1 .tb-card-flipwr .tb-card-front, .flip-wraper1 .tb-card-flipwr .tb-card-back {
+    z-index: 1;
+}
+
+.flip-wraper1 .tb-card-flipwr:hover .tb-card-front {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.flip-wraper1 .tb-card-flipwr .tb-card-back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip-wraper1 .tb-card-front, .flip-wraper1 .tb-card-back {
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-wraper1 .tb-card-front, .flip-wraper1 .tb-card-back {
+    width: 100%;
+    height: 100%;
+}
+
+.flip-wraper1 .tb-card-back-inner, .flip-wraper1 .tb-card-front-inner, .flip-wraper1 .tb-card-front, .flip-wraper1 .tb-card-back {
+    -ms-transition: transform 0.40s cubic-bezier(.6, .4, .4, 1);
+    transition: transform 0.40s cubic-bezier(.6, .4, .4, 1);
+    -webkit-transition: transform 0.40s cubic-bezier(.6, .4, .4, 1);
+}
+
+.flip-wraper1 .tb-card-back-inner {
+    -webkit-transform: translateY(-50%) translateX(640px) translateZ(40px) scale(.88);
+    -ms-transform: translateY(-50%) translateX(640px) translateZ(40px) scale(.88);
+    transform: translateY(-50%) translateX(640px) translateZ(40px) scale(.88);
+}
+
+.flip-wraper1 .tb-card-flipwr:hover .tb-card-back-inner {
+    -webkit-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+    -ms-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+    transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+}
+
+.flip-wraper1 .tb-card-flipwr:hover .tb-card-front-inner {
+    -webkit-transform: translateY(-50%) translateX(-640px) scale(.88);
+    -ms-transform: translateY(-50%) translateX(-640px) scale(.88);
+    transform: translateY(-50%) translateX(-640px) scale(.88);
+}
+
+.flip-wraper1 .tb-card-back-inner, .flip-wraper1 .tb-card-front-inner {
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    top: 50%;
+    z-index: 2;
+}
+
+.flip-wraper1 .tb-card-front-inner {
+    -webkit-transform: translateY(-50%) translateX(0px) scale(1);
+    -ms-transform: translateY(-50%) translateX(0px) scale(1);
+    transform: translateY(-50%) translateX(0px) scale(1);
+}
+
+.flip-wraper1 .tb-card-front::before, .flip-wraper1 .tb-card-back::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.flip-wraper1 .tb-button {
+    background: white;
+    padding: 7px 20px;
+    color: black;
+    position: relative;
+    top: 0px;
+    -ms-transition: top 0.40s cubic-bezier(.6, .4, .4, 1);
+    transition: top 0.40s cubic-bezier(.6, .4, .4, 1);
+    -webkit-transition: top 0.40s cubic-bezier(.6, .4, .4, 1);
+}
+
+.flip-wraper1 .tb-button:hover {
+    top: -5px;
+}

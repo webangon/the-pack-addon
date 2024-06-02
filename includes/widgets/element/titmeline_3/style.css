@@ -1,0 +1,51 @@
+.tb_tymlyn3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 29px;
+    height: 100%;
+    width: 1px;
+    background: gray;
+}
+
+.tb_tymlyn3 {
+    position: relative;
+}
+
+.tb_tymlyn3-block {
+    position: relative;
+}
+
+.tb_tymlyn3-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.tb_tymlyn3-picture img {
+    display: block;
+}
+
+.tb_tymlyn3-content {
+    position: relative;
+    padding-left: 80px;
+}
+
+.tb_tymlyn3-picture .iknwrp {
+    height: inherit;
+    background: aliceblue;
+    text-align: center;
+    line-height: 55px;
+}
+
+.joblisting_btn .theme-btn {
+    color: #5c6789;
+    border: 1px solid #e7e7f6;
+    display: inline-block;
+    padding: 4px 12px;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}

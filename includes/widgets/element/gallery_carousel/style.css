@@ -1,0 +1,4 @@
+.tp-gallery-slider .swiper-slide img{
+    height: inherit;
+    object-fit: cover;    
+}

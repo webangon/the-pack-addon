@@ -1,0 +1,47 @@
+.tb-process2 .procs2 {
+    float: left;
+}
+
+.tb-process2 {
+    overflow: hidden;
+}
+
+.tb-process2 .procs2inr {
+    position: relative;
+}
+
+.tb-process2 .pre {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 37px;
+    background: blue;
+    color: white;
+    text-align: center;
+    line-height: 46px;
+    border-radius: 50%;
+}
+
+.tb-process2 .tb_prcs2btn {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.procs2inr .img-wrap {
+    margin: 0px auto;
+    position: relative;
+}

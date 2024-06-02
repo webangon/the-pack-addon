@@ -1,0 +1,132 @@
+
+.tb-videoimg .top-image {
+    display: flex;
+    position: relative;
+}
+
+.tb-videoimg .first-image {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.tb-videoimg .imgwrap {
+    padding: 10px;
+    width: 50%;
+}
+
+.tb-videoimg .second-image.imgwrap {
+    display: flex;
+    align-items: flex-end;
+}
+
+.tb-videoimg .first-image img, .tb-videoimg .fourth-image img {
+    width: 85%;
+}
+
+.tb-videoimg .third-image img {
+    width: 70%;
+}
+
+.tb-videoimg .bottom-image {
+    display: flex;
+}
+
+.tb-videoimg .bottom-image .third-image {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.tb-videoimg .bottom-image .fourth-image {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.tb-videoimg .video-play {
+    display: inline-flex;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+}
+
+.tb-videoimg .desc {
+    margin: 0px;
+}
+
+.tb-videoimg .video-play .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tb-videoimg .video-play:before {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px dashed red;
+    content: "";
+    border-radius: 50%;
+    -webkit-transition: all 310ms ease;
+    -ms-transition: all 310ms ease;
+    transition: all 310ms ease;
+    animation: spinner-spin 32s linear infinite;
+    -webkit-animation: spinner-spin 32s linear infinite;
+    -ms-animation: spinner-spin 32s linear infinite;
+    -moz-animation: spinner-spin 32s linear infinite;
+}
+
+@-webkit-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

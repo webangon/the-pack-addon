@@ -1,0 +1,15 @@
+.product-single-meta{
+    display: flex;
+}
+.product-single-meta li{
+    display:flex;
+    align-items: center;
+}
+.product-single-meta .product-share{
+    display: inline-flex;
+}
+.product-single-meta .product-share a{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}

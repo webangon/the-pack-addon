@@ -1,0 +1,61 @@
+.tb-imgrid .items {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+.tb-imgrid .item-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.tb-imgrid .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    width: 100%;
+}
+
+.tb-imgrid .items:hover .bgwrap {
+    transform: scale(1.03) translateX(5px);
+}
+
+.tb-imgrid .bgwrap, .tb-imgrid .bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    z-index: 1;
+}
+
+.tb-imgrid .bgwrap {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50%;
+    z-index: 1;
+    will-change: transform;
+}
+
+.tb-imgrid .tbcontent {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.tb-imgrid .btnicon {
+    position: relative;
+}

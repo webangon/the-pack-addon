@@ -1,0 +1,14 @@
+.tp-floating-nav{
+    position: fixed;
+    z-index: 9;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
+}
+
+.tp-floating-nav ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0; 
+}

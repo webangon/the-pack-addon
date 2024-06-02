@@ -1,0 +1,67 @@
+.tpsingle-slide .tp-slider-single-nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.tpsingle-slide .tp-slider-single-nav > div {
+    width: 40px;
+    height: 40px;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.tpsingle-slide.varrow .tp-slider-single-nav {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+.tpsingle-slide .swiper-container:before {
+    width: 100%;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.tpsingle-slide.hpagination .tp-pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: auto;
+    background: white;
+    bottom: -8px;
+}
+
+.tpsingle-slide.vpagination .tp-pagination {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 2;
+}

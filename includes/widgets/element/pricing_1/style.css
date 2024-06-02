@@ -1,0 +1,41 @@
+.tb-pricing1 .pricing_1wrp {
+    float: left;
+}
+
+.tb-pricing1 .pricing_lyst {
+    background: #eee;
+    position: relative;
+    top: 0;
+}
+
+.tb-pricing1 .tbicon {
+    position: absolute;
+    font-size: 30px;
+    right: 46px;
+    top: -2px;
+}
+
+.tb-pricing1 .sub {
+    display: block;
+}
+
+.tb-pricing1 .prcing-btn {
+    display: inline-block;
+    text-align: center;
+}
+
+.tb-pricing1.allshadow .pricing_lyst::before, .tb-pricing1.hshadow .pricing_lyst:hover::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    margin-left: 20px;
+    width: calc(100% - 40px);
+    height: 10px;
+    box-shadow: 0 20px 40px rgba(27, 27, 27, 0.18);
+
+}
+
+.tb-pricing1.raisedh .pricing_1wrp:hover .pricing_lyst {
+    top: -15px;
+}

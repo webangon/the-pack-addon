@@ -1,0 +1,26 @@
+.tb-process-1.two {
+    overflow: hidden;
+}
+
+.tb-process-1 .tbcounterwrp {
+    float: left;
+}
+
+.tb-process-1 .tbcounterwrp .tbinr {
+    overflow: hidden;
+    position: relative;
+}
+
+.tb-process-1 .tbcounterwrp .tbicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tb-process-1 .tbcounterwrp .desc {
+    padding-left: 32px;
+}
+
+.tb-process-1.two .tbcounterwrp:last-child {
+    border-right: 0 !important;
+}

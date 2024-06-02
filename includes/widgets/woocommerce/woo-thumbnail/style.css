@@ -1,0 +1,101 @@
+.woocommerce-page .product .thepack-product-images .images {
+    width: 100%
+}
+
+.woocommerce .product .has-zoom .images .woocommerce-product-gallery__trigger::after,
+.woocommerce .product .has-zoom .images .woocommerce-product-gallery__trigger::before {
+    display: none;
+}
+
+.woocommerce .product .has-zoom .images .woocommerce-product-gallery__trigger {
+    text-indent: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thepack-product-images {
+    position: relative;
+}
+
+.thepack-product-images .flex-direction-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.thepack-product-images .flex-nav-prev {
+    left: 0px;
+}
+
+.thepack-product-images .flex-nav-next {
+    right: 0px;
+}
+
+.thepack-product-images .flex-direction-nav li {
+    position: absolute;
+    top: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.thepack-product-images:hover .flex-nav-prev{
+    left: 10px;
+}
+.thepack-product-images:hover .flex-nav-next{
+    right: 10px;
+}
+.thepack-product-images:hover .flex-direction-nav li{
+  opacity:1;
+}
+
+.thepack-product-images .flex-control-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;    
+}
+
+.thepack-product-images .flex-control-paging li a {
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #666;
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.thepack-product-images .flex-control-paging li a.flex-active {
+    width: 20px;
+}
+.thepack-product-images .flex-direction-nav a{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.woocommerce .product .thepack-product-images .images{
+    margin-bottom: 0; 
+}
+.thepack-product-images .tp-onsale{
+    position: absolute;
+    z-index: 9;
+}

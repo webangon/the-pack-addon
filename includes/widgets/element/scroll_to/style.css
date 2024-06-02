@@ -1,0 +1,43 @@
+.scrollto-wrap .scroll-downs {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    margin: auto;
+    width :34px;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    animation-name: tp_scroll_anim;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;     
+  }
+  .scrollto-wrap .scroll-to{
+    display: flex;
+  }
+  .scrollto-wrap .mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid;
+    border-radius: 25px;
+    cursor: pointer;
+    box-sizing: content-box;
+  }
+  .scrollto-wrap .scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    animation-name: tp_scroll_anim;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+  }
+  @keyframes tp_scroll_anim {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
+  }

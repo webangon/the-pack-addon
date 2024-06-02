@@ -1,0 +1,71 @@
+.tb-tour_listing .tour_listing {
+    display: table;
+    border-bottom: 1px solid #f5f5f5;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.tb-tour_listing .tour_listing > div {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.tb-tour_listing .tbtourdy span {
+    display: block;
+}
+
+.tb-tour_listing .tbtourtt {
+    width: 42%;
+}
+
+.tb-tour_listing .tbtourloc {
+    width: 30%
+}
+
+.tb-tour_listing .title {
+    margin: 0px;
+}
+
+.tb-tour_listing .tbtourbtn {
+    text-align: right;
+}
+
+.tb-tour_listing .tbtourbtn a {
+    border: 1px solid #eee;
+    padding: 6px 20px;
+    border-radius: 19px;
+    display: inline-block;
+    text-align: center;
+}
+
+.tb-tour_listing .tbtourdy, .tb-tour_listing .tbtourdt {
+    width: 50px;
+}
+
+.tb-tour_listing .tbtourloc .tbicon {
+    padding-right: 10px;
+}
+
+@media all and (min-width: 0px) and (max-width: 960px) {
+
+    .tb-tour_listing .tour_listing, .tb-tour_listing .tour_listing > div {
+        display: block;
+        text-align: left;
+    }
+
+    .tb-tour_listing .tbtourdt, .tb-tour_listing .tbtourdy {
+        display: inline-block;
+        float: left;
+    }
+
+    .tb-tour_listing .tbtourdy span {
+        display: inline-block;
+    }
+
+    .tb-tour_listing .tbtourtt, .tb-tour_listing .tbtourloc {
+        width: 100%;
+        clear: both;
+    }
+
+}
