@@ -613,7 +613,7 @@ class thepack_minibox extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/' . $settings['tmpl'] . '.php';
+        require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
     }
 
     private function icon_image($icon)

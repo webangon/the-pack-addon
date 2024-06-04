@@ -328,7 +328,7 @@ class thepack_case_grid extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        include dirname(__FILE__) . '/' . $settings['style'] . '.php';
+        include dirname(__FILE__) . '/' . esc_attr($settings['style']) . '.php';
     }
 }
 

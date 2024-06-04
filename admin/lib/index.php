@@ -116,7 +116,7 @@ if (!class_exists('The_Pack_Cloud_Library')) {
                 $values .= $filter_nav; 
             }
             $nav_array = array_unique(explode(',', $values));
-    
+     
             foreach ($nav_array as $a) {
                 $active = $a == $filter ? 'class="active"' : '';
                 $out .= '<li '.$active.' data-key="'.$key.'" data-filter="'.$a.'">' .$a. '</li>';

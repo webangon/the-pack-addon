@@ -298,7 +298,6 @@ class thepack_accordion_1 extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .accorbody' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
-
             ]
         );
 

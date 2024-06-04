@@ -592,7 +592,7 @@ class thepack_heading_4 extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        include dirname(__FILE__) . '/' . $settings['tmpl'] . '.php';
+        include dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
     }
 
     protected function content_template()

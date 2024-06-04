@@ -453,7 +453,7 @@ class thepack_dualbtn extends Widget_Base
                     'tmpl' => 'three',
                 ],
             ]
-        );
+        );  
 
         $this->add_control(
             'sep_c',
