@@ -161,9 +161,9 @@ function thepack_build_html($option, $tag = '', $cls = '')
     if ($option) {
         $class = $cls ? 'class="' . $cls . '"' : '';
         if ($tag) {
-            return '<' . $tag . ' ' . $class . '>' . $option . '</' . $tag . '>';
+            return '<' . esc_attr($tag) . ' ' . esc_attr($class) . '>' . wp_kses_post($option) . '</' . esc_attr($tag) . '>';
         } else {
-            return $option;
+            return wp_kses_post($option);
         }
     }
 }
@@ -171,9 +171,9 @@ function thepack_build_html($option, $tag = '', $cls = '')
 function thepack_icon_svg($option, $class = '')
 {
     if ($option['library'] == 'svg') {
-        return wp_get_attachment_image($option['value']['id'], 'full');
+        return wp_get_attachment_image(esc_attr($option['value']['id']), 'full');
     } else {
-        return '<i class="' . $class . ' ' . $option['value'] . '"></i>';
+        return '<i class="' . $class . ' ' . esc_attr($option['value']) . '"></i>';
     }
 }
 
@@ -375,10 +375,10 @@ function extract_plyr_video($url, $type)
 {
     if ($type == 'yt') {
         preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
-        $out = '<div class="plyr__video-embed" data-plyr-provider="youtube" data-plyr-embed-id="' . $matches[1] . '"></div>';
+        $out = '<div class="plyr__video-embed" data-plyr-provider="youtube" data-plyr-embed-id="' . esc_attr($matches[1]) . '"></div>';
     } elseif ($type == 'vm') {
         preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $output_array);
-        $out = '<div class="plyr__video-embed" data-plyr-provider="vimeo" data-plyr-embed-id="' . $output_array[5] . '"></div>';
+        $out = '<div class="plyr__video-embed" data-plyr-provider="vimeo" data-plyr-embed-id="' . esc_attr($output_array[5]) . '"></div>';
     } else {
         //self hosted
     }
@@ -593,7 +593,7 @@ function thepack_breadcum($args)
     }
     $breadcrumb_output_link .= '</div></div><!-- .breadcrumbs -->';
 
-    return $breadcrumb_output_link;
+    return thepack_build_html($breadcrumb_output_link);
 }
 
 add_action('wp_ajax_tp_pro_show_video', 'tp_show_video');

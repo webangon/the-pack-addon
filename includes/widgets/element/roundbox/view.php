@@ -5,11 +5,11 @@ $cimg = $settings['cimg']['id'] ? thepack_ft_images($settings['cimg']['id'], 'fu
     <div class="tp-circlebox">
         <div class="tp-circleboximg">
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<?php echo the_pack_html_escaped($cimg); ?>
+			<?php echo thepack_build_html($cimg); ?>
         </div>
         <ul class="tp-circlebox-out">
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<?php echo the_pack_html_escaped($this->content($settings['lists'])); ; ?>
+			<?php echo $this->content($settings['lists']); ; ?>
         </ul>
     </div>
 </div>

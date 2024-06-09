@@ -27,7 +27,7 @@ foreach ( $tcomments as $tcomment ) {
 	';
 	$out .= '
 		<li>
-			'.the_pack_html_escaped($avatar).'
+			'.thepack_build_html($avatar).'
 			<div class="comment-text">
 				'.$rating.'<div class="author-meta">'.$author.$time.'</div>'.$comment.'//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped 
 			</div>

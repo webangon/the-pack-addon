@@ -1,6 +1,6 @@
 <ul class="tb_tlinealt">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($this->content($settings['items'], $settings['anim'])); ?>
+	<?php echo $this->content($settings['items'], $settings['anim']); ?>
 </ul>
 
 <style type="text/css">

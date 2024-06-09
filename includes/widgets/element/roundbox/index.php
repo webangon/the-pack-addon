@@ -453,7 +453,7 @@ class tp_roundbox extends Widget_Base
             $out .= '<li><div ' . $dura . ' class="inner ' . $item['amin'] . '">' . $cont . '</div></li>';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

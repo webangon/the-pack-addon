@@ -18,6 +18,6 @@ if ($settings['tmpl'] == 'one') {
     $btn2 = $settings['txt'] ? '' . $sep . '<div class="dual1wrp"><span class="dual2">' . $settings['txt'] . '</span></div>' : '';
 }
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<div class="dualbtninr ' . esc_attr($settings['tmpl']) . '"><div class="dualbtnwrp">' . the_pack_html_escaped($btn1 . $btn2) . '</div></div>';
+echo '<div class="dualbtninr ' . esc_attr($settings['tmpl']) . '"><div class="dualbtnwrp">' . thepack_build_html($btn1 . $btn2) . '</div></div>';
 
 ?>

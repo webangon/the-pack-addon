@@ -50,7 +50,7 @@ if (comments_open($postid)) {
 
 <div class="khb-commentwrap comments">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    <h3 class="khbcomhead"><?php echo the_pack_html_escaped($write_comments); ?></h3>
+    <h3 class="khbcomhead"><?php echo thepack_build_html($write_comments); ?></h3>
     <ol class="commentlist">
 		<?php
         $comments = get_comments([

@@ -33,7 +33,7 @@ if ($settings['tmpl'] == 'justified') {
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '<div ' . $justcls . ' class="tpoverflow aegrid-gallery gallery ' . $settings['tmpl'] . '">';
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo $out;
+echo thepack_build_html($out);
 echo '</div>';
 ?>
 

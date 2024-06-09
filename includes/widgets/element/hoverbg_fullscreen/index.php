@@ -331,7 +331,7 @@ class tp_hoverbg_full extends Widget_Base
             ';
         }
 
-        return $bg ? $background : $info;
+        return $bg ? thepack_build_html($background) : thepack_build_html($info);
     }
 }
 

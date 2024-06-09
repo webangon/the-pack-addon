@@ -744,7 +744,7 @@ use Elementor\Group_Control_Box_Shadow;
                 $gif = self::elementor_get_setting( 'tp_preloader_img' );
                 $out = $type == 'plain' ? '<div class="loader"></div>' : wp_get_attachment_image($gif['id'],'full');
                 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-                echo '<div class="tp-page-loader-wrap">'.the_pack_html_escaped($out).'</div>';
+                echo '<div class="tp-page-loader-wrap">'.$out.'</div>';
             }
 
         }
@@ -761,7 +761,7 @@ use Elementor\Group_Control_Box_Shadow;
             $backtoposition = self::elementor_get_setting( 'tpbktpos' );
             $backtopicon = the_pack_render_icon( self::elementor_get_setting( 'tpbtpikn' ) );
             //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo the_pack_html_escaped(thepack_social_post_share( $items ));
+            echo thepack_build_html(thepack_social_post_share( $items ));
 
             //$kit = \Elementor\Plugin::$instance->documents->get( \Elementor\Plugin::$instance->kits_manager->get_active_id(), true );
 
@@ -774,7 +774,7 @@ use Elementor\Group_Control_Box_Shadow;
                         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
                     </svg>';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                    <?php echo the_pack_html_escaped($backtopicon);?>
+                    <?php echo $backtopicon;?>
                 </div>                
             <?php }
 
@@ -792,7 +792,7 @@ use Elementor\Group_Control_Box_Shadow;
                     </div>
                     <div class="launcher">';?>
                         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                        <?php echo the_pack_html_escaped($popicon.$popiconclose);?>
+                        <?php echo thepack_build_html($popicon.$popiconclose);?>
                     </div>
                 </div>
             <?php }

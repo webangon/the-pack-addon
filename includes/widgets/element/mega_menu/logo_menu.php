@@ -23,9 +23,9 @@
                     rendor_custom_nav_menu($settings['menus']);
                 } ?>      
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>           
-				<?php echo the_pack_html_escaped($this->out_subs_btn($settings['sub-btn'], $settings['sub-link'])); ?>
+				<?php echo $this->out_subs_btn($settings['sub-btn'], $settings['sub-link']); ?>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php echo the_pack_html_escaped($this->out_icon($settings['tapicon'], $settings['taphide'])); ?>
+				<?php echo $this->out_icon($settings['tapicon'], $settings['taphide']); ?>
             </div>
         </div>
     </div>

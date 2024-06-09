@@ -32,7 +32,7 @@ class thepack_accordion_1 extends Widget_Base
     {
         return 'dashicons dashicons-menu';
     }
-
+ 
     protected function register_controls()
     {
         $this->start_controls_section(

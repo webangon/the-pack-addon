@@ -700,7 +700,7 @@ class thepack_prcs2 extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

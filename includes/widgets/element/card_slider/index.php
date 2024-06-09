@@ -659,7 +659,7 @@ class thepack_cardslider extends Widget_Base
             ';
         }
 
-        return $out1;
+        return thepack_build_html($out1);
     }
 }
 

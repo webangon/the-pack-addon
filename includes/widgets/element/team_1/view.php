@@ -20,12 +20,12 @@ if ($settings['disp'] == 'slider') {
     echo '<div class="swiper-container tpswiper team1carou" data-xld =\'' . wp_json_encode($slider_options) . '\'>
                 <div class="swiper-wrapper">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                    <?php echo the_pack_html_escaped($this->content($settings['items'], $settings['anim'], $settings['disp']));?>
+                    <?php echo $this->content($settings['items'], $settings['anim'], $settings['disp']);?>
                 </div><div class="swiper-pagination"></div>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                <div class="tp-arrow"><?php echo the_pack_html_escaped($previkn . $nextikn);?></div>
+                <div class="tp-arrow"><?php echo thepack_build_html($previkn . $nextikn);?></div>
         ';
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="tbteam1 tpoverflow">' . the_pack_html_escaped($this->content($settings['items'], $settings['anim'], $settings['disp'])) . '</div>';
+    echo '<div class="tbteam1 tpoverflow">' . $this->content($settings['items'], $settings['anim'], $settings['disp']) . '</div>';
 }

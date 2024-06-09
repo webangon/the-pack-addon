@@ -29,4 +29,4 @@ foreach ($settings['items'] as $item) {
     ';
 }
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<div class="tp-case-grid style-two tpoverflow">' . $out1 . '</div>';
+echo '<div class="tp-case-grid style-two tpoverflow">' . thepack_build_html($out1) . '</div>';

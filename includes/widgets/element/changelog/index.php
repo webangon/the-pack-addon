@@ -375,7 +375,7 @@ class thepack_changelog extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

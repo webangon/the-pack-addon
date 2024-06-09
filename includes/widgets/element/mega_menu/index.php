@@ -1422,7 +1422,7 @@ class thepack_cleaning extends Widget_Base
             ';
         }
 
-        return '<ul class="headersocial raw-style">' . $out1 . '</ul>';
+        return '<ul class="headersocial raw-style">' . thepack_build_html($out1) . '</ul>';
     }
 
     private function out_iconbox($content)
@@ -1434,7 +1434,7 @@ class thepack_cleaning extends Widget_Base
             $out .= ' <li>' . $icon . $txt . '</li>';
         }
 
-        return '<ul class="headerinfo raw-style">' . $out . '</ul>';
+        return '<ul class="headerinfo raw-style">' . thepack_build_html($out) . '</ul>';
     }
 
     private function out_subs_btn($label, $link)
@@ -1443,14 +1443,14 @@ class thepack_cleaning extends Widget_Base
         ;
         $out = $label ? '<a ' . $link . ' class="header-cta tbtr">' . $label . '</a>' : '';
 
-        return $out;
+        return thepack_build_html($out);
     }
 
     private function out_icon($icon, $hide)
     {
         $out = $icon['value'] ? '<span class="action-link tp-navbar-toggle ' . $hide . '"><i class="' . $icon['value'] . '"></i></span>' : '';
 
-        return $out; 
+        return thepack_build_html($out); 
     }
 
     private function out_woo_icon($icon, $type){
@@ -1466,7 +1466,7 @@ class thepack_cleaning extends Widget_Base
         
         $out = $icon['value'] ? '<a class="action-link" href="'.wc_get_cart_url().'"><span class="cart-'.$type.'"><i class="' . $icon['value'] . '"></i>'.$cart_count.'</span></a>' : '';
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

@@ -4,7 +4,7 @@ $decimal = $settings['decimal'] ? '<span class="tp-decimal">' . $settings['decim
 $price = $settings['price'] ? '<span class="tp-price">' . $settings['price'] . $decimal . '</span>' : '';
 $currency = $settings['currency'] ? '<span class="tp-currency">' . $settings['currency'] . '</span>' : '';
 $duration = $settings['duration'] ? '<span class="tp-duration">' . $settings['duration'] . '</span>' : '';
-
+//$editor_content = $this->parse_text_editor( $settings['duration'] );
 ?>
 
 <div class="tp-pricing-text">

@@ -21,7 +21,7 @@ switch ($settings['tmpl']) {
 ?>
 <div class="bar-progress-wrap">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($this->content($settings['items'], $settings['tmpl'], $animation)); ?>
+	<?php echo $this->content($settings['items'], $settings['tmpl'], $animation); ?>
 </div>
 
 

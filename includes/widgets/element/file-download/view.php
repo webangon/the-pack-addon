@@ -14,15 +14,15 @@ foreach ($settings['items'] as $item) {
 
 <div class="tp-file-download">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    <div class="img-wrap"><?php echo the_pack_html_escaped($img_icon);?></div>
+    <div class="img-wrap"><?php echo thepack_build_html($img_icon);?></div>
     <div class="media-body">
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-        <?php echo the_pack_html_escaped($title);?>
+        <?php echo thepack_build_html($title);?>
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-        <div class="info"><?php echo the_pack_html_escaped($out);?></div>
+        <div class="info"><?php echo thepack_build_html($out);?></div>
     </div>
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    <?php echo the_pack_html_escaped($btn);?>
+    <?php echo thepack_build_html($btn);?>
 </div>
  
  

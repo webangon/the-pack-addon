@@ -314,7 +314,7 @@ class thepack_breadcum extends Widget_Base
         ];
         if (Plugin::instance()->editor->is_edit_mode()) {
             //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo '<div class="xlbreadcrumb"><div class="inner"><a href="#" rel="v:url" property="v:title">Home</a><span class="delimiter">' . the_pack_html_escaped($delimiter) . '</span><span class="current">About Us 1</span></div></div>';
+            echo '<div class="xlbreadcrumb"><div class="inner"><a href="#" rel="v:url" property="v:title">Home</a><span class="delimiter">' . thepack_build_html($delimiter) . '</span><span class="current">About Us 1</span></div></div>';
         } else {
             //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
             echo thepack_breadcum($args);

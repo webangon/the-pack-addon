@@ -13,7 +13,7 @@ $nextikn = $settings['nextikn'] ? '<div class="khbprnx khbprev"><i class="' . $s
 
 $dots = $settings['arrow'] ? '' : '<div class="tp-arrow">' . $previkn . $nextikn . '</div>';
 
-require dirname(__FILE__) . '/' . $settings['tmpl'] . '.php';
+require dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
 
 ?>
 

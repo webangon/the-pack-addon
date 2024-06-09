@@ -5,7 +5,7 @@ $tap = $settings['btn'] || $settings['tap']  ? '<span class="tp-tap">'.$settings
 
 <div class="tp-off-sidebar xlmega-header">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    <?php echo the_pack_html_escaped($tap);?>
+    <?php echo thepack_build_html($tap);?>
     <div class="offsidebar <?php echo esc_attr($settings['pos']);?>">
         <div class="offmenuwraps">
             <?php

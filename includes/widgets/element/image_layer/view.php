@@ -5,5 +5,5 @@ $main = $settings['img'] ? '<div class="main-img">' . $img . '</div>' : '';
 
 <div class="tp-layerimage">
 	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($main . $this->content($settings['image_layers'])); ?>
+	<?php echo $main . $this->content($settings['image_layers']); ?>
 </div>

@@ -34,7 +34,7 @@ if ($settings['display'] == 'carousel') {
                 <?php echo $this->content($settings['items'], $cls, $settings['bticon'], $settings['img_size']);?>
             </div>
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <?php echo $dot. $nav ;?>     
+            <?php echo thepack_build_html($dot. $nav) ;?>     
     ';
     </div>
 <?php } else {

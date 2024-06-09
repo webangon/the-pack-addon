@@ -9,5 +9,5 @@ $out = $settings['text'] . $slink;
 
 <div class="jl-textlink <?php echo esc_attr($settings['tmpl']); ?>">
 	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($out); ?>
+	<?php echo thepack_build_html($out); ?>
 </div>

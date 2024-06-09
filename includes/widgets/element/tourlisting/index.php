@@ -579,7 +579,7 @@ class thepack_tourlisting extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

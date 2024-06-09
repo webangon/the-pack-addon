@@ -26,9 +26,9 @@ $class = $animation . ' ' . $settings['ico_position'];
                 <span class="figwrap"><?php echo esc_attr($type); ?></span>
                 <div class="service-content">
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo the_pack_html_escaped($title . $sub . $description); ?>
+					<?php echo thepack_build_html($title . $sub . $description); ?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo the_pack_html_escaped($link); ?>
+					<?php echo thepack_build_html($link); ?>
                 </div>
             </div>
         </div>

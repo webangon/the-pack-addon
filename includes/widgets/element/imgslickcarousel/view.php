@@ -30,10 +30,10 @@ foreach ($settings['lists'] as $a) {
 <?php echo '<div class="xldslickcarousel ' . esc_attr($settings['tmpl']) . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
 <div class='single-item'>
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($out); ?>
+	<?php echo thepack_build_html($out); ?>
 </div>
 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-<ul class="slknav"><?php echo the_pack_html_escaped($prev . $nxt); ?></ul>
+<ul class="slknav"><?php echo thepack_build_html($prev . $nxt); ?></ul>
 </div>
 <style type="text/css">
 

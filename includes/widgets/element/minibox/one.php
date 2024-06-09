@@ -1,6 +1,6 @@
 <?php
 $out = '';
-$anim = $settings['anim'];
+$anim = esc_attr($settings['anim']);
 $btn = thepack_icon_svg($settings['btn'], 'plus-link');
 foreach ($settings['items'] as $a) {
     $url = thepack_get_that_link($a['link']);
@@ -9,7 +9,7 @@ foreach ($settings['items'] as $a) {
     $out .= '
 		<div class="items style-1 ' . $anim . '">
 			<div class="inner">
-				' . the_pack_html_escaped($this->icon_image($a) . $title . $link) . '
+				' . thepack_build_html($this->icon_image($a) . $title . $link) . '
 			</div>
 		</div>
 	';

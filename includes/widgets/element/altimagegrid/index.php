@@ -698,7 +698,7 @@ class thepack_altimggrid extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

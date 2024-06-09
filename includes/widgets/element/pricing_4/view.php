@@ -17,8 +17,8 @@ $link = $settings['btn'] ? '<a class="price-btn" ' . $url . '>' . $settings['btn
 		<?php echo thepack_build_html($settings['lbl'], 'span', 'pre');//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
         <h3 class="price-wrap"><?php echo thepack_build_html($settings['prc'], 'span', 'price');//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo thepack_build_html($settings['dur'], 'span', 'duration');//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 		<?php echo thepack_build_html($settings['desc'], 'p', 'desc');//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-        <ul><?php echo the_pack_html_escaped($list);//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?></ul>
-		<?php echo the_pack_html_escaped($link);//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+        <ul><?php echo thepack_build_html($list);//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?></ul>
+		<?php echo thepack_build_html($link);//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
     </div>
 </div>
 

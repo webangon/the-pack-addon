@@ -11,5 +11,5 @@ foreach ($settings['lists'] as $a) {
 
 <ul class="link1 <?php echo esc_attr($settings['tmpl']); ?>">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($html); ?>
+	<?php echo thepack_build_html($html); ?>
 </ul>

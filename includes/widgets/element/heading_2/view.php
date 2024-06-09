@@ -6,7 +6,7 @@ $head = thepack_build_html($settings['head'], 'h2', 'heading');
 
 ?>
 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-<div class="tb-heading-two <?php echo the_pack_html_escaped($settings['tmpl']); ?>">
+<div class="tb-heading-two <?php echo esc_attr($settings['tmpl']); ?>">
     <div class="inner">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php echo thepack_build_html($empha . $pre . $head); ?>

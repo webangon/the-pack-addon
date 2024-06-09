@@ -1,5 +1,5 @@
 <div class="tb_tymlyn3">
 	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($this->content($settings['items'])); ?>
+	<?php echo $this->content($settings['items']); ?>
 </div>
 

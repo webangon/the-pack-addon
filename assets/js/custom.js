@@ -234,7 +234,7 @@
             sliderThumbnails.slick(sliderConfiguration);
         });
     };
-
+ 
     var Tpaccordion1 = function ($scope, $) {
         $scope.find('.xldacdn').each(function () {
             var settings = $(this).data('xld');
@@ -1552,7 +1552,7 @@
 
         });
     };
-
+ 
 
 
     $(window).on('elementor/frontend/init', function () {

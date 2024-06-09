@@ -57,13 +57,13 @@ if ($settings['disp'] == 'slider') {
     echo '<div class="imgbx4carou swiper-container tpswiper" data-thop =\'' . wp_json_encode($slider_options) . '\'>
                 <div class="swiper-wrapper">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                    <?php echo the_pack_html_escaped($out1);?>
+                    <?php echo thepack_build_html($out1);?>
                 </div>
                 <div class="swiper-pagination"></div>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                <div class="tp-arrow"><?php echo the_pack_html_escaped($previkn . $nextikn);?></div>
+                <div class="tp-arrow"><?php echo thepack_build_html($previkn . $nextikn);?></div>
         ';
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="imgbx4wrap tpoverflow">' . the_pack_html_escaped($out1) . '</div>';
+    echo '<div class="imgbx4wrap tpoverflow">' . thepack_build_html($out1) . '</div>';
 }

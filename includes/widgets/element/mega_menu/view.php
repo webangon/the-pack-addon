@@ -1,6 +1,6 @@
 <?php
 $abscls = $settings['abspos'] ? 'abspos' : 'realtivepos';
-$close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . $settings['tpoffclose']['value'] . '"></i>' : '';
+$close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . esc_attr($settings['tpoffclose']['value']) . '"></i>' : '';
 ?>
 
 <div class="xlmega-header <?php echo esc_attr($abscls); ?>">
@@ -12,7 +12,7 @@ $close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . $setti
                     if ($value['sticky']) {
                         echo '<div class="xlmega-sticky-wrapper">';
                     }
-                    include_once plugin_dir_path(__FILE__) . $value['lbl'] . '.php';
+                    include_once plugin_dir_path(__FILE__) . esc_attr($value['lbl']) . '.php';
                     if ($value['sticky']) {
                         echo '</div>';
                     }
@@ -25,7 +25,7 @@ $close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . $setti
         <div class="offmenuwraps">
 			<?php
             //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo the_pack_html_escaped($close_sidebar);
+            echo $close_sidebar;
             if ($settings['mobile']) {
                 wp_nav_menu([
                     'menu' => $settings['mobile'],
@@ -36,7 +36,7 @@ $close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . $setti
             }
             ?> 
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
-			<?php echo the_pack_html_escaped($this->out_social_link($settings['socials'])); ?>
+			<?php echo $this->out_social_link($settings['socials']); ?>
         </div>
     </div>
     <div class="click-capture"></div>

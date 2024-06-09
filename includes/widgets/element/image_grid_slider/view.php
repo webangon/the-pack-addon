@@ -39,7 +39,7 @@ if ($settings['display'] == 'carousel') {
     </div>;
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="tp-img-grid-slider tpoverflow">' .the_pack_html_escaped( $this->content($settings['items'], $cls, $settings['bticon'], $settings['img_size'])) . '</div>';
+    echo '<div class="tp-img-grid-slider tpoverflow">' .$this->content($settings['items'], $cls, $settings['bticon'], $settings['img_size']) . '</div>';
 }
 
 ?>

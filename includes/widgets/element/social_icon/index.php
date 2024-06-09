@@ -462,11 +462,11 @@ class thepack_social_1 extends Widget_Base
             ';
         }
         if ($template == 'one') {
-            return $out1;
+            return thepack_build_html($out1);
         } elseif ($template == 'two') {
-            return '<ul>' . $out2 . '</ul>';
+            return '<ul>' . thepack_build_html($out2) . '</ul>';
         } elseif ($template == 'three') {
-            return '<ul>' . $out3 . '</ul>';
+            return '<ul>' . thepack_build_html($out3) . '</ul>';
         } else {
         }
     }

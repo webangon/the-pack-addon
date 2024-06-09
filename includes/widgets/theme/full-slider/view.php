@@ -72,6 +72,6 @@ $loop = new \WP_Query($query_args); ?>
       <?php endif;?>
   </div>
   <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-  <?php echo the_pack_html_escaped($arrow.$dot);?>
+  <?php echo thepack_build_html($arrow.$dot);?>
 </div>
 

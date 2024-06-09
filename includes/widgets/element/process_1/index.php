@@ -457,7 +457,7 @@ class thepack_process_1 extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

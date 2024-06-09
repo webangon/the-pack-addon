@@ -990,7 +990,7 @@ class thepack_imgbox1 extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

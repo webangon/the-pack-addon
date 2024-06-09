@@ -21,13 +21,13 @@ if ($settings['disp'] == 'slider') {
     echo '<div class="tbteam2 hascarou ' . esc_attr($settings['styl']) . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>
                 <div class="swiper-wrapper">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                    <?php echo the_pack_html_escaped($this->content($settings['items'], $settings['animation'], $settings['disp'], $settings['img_size']));?>
+                    <?php echo $this->content($settings['items'], $settings['animation'], $settings['disp'], $settings['img_size']);?>
                 </div>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                <?php echo the_pack_html_escaped($pagi . $navi);?>
+                <?php echo thepack_build_html($pagi . $navi);?>
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped 
-    echo '<div class="tbteam2 ' . esc_attr($settings['styl']) . '">' . the_pack_html_escaped($this->content($settings['items'], $settings['animation'], $settings['disp'], $settings['img_size'])) . '</div>';
+    echo '<div class="tbteam2 ' . esc_attr($settings['styl']) . '">' . $this->content($settings['items'], $settings['animation'], $settings['disp'], $settings['img_size']) . '</div>';
 }
 ?>
 

@@ -769,7 +769,7 @@ class thepack_team2 extends Widget_Base
             ';
         }
 
-        return $out1;
+        return thepack_build_html($out1);
     }
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 $out = '';
-$anim = $settings['anim'];
+$anim = esc_attr($settings['anim']);
 $btn = thepack_icon_svg($settings['btn'], 'plus-link');
 foreach ($settings['items'] as $a) {
     $url = thepack_get_that_link($a['link']);
@@ -9,7 +9,7 @@ foreach ($settings['items'] as $a) {
     $out .= '
 		<div class="items style-2 ' . $anim . '">
 			<div class="inner">
-				' . the_pack_html_escaped($this->icon_image($a) . $title) . '
+				' . $this->icon_image($a) . $title . '
 			</div>
 		</div>
 	';
@@ -18,5 +18,5 @@ foreach ($settings['items'] as $a) {
 ?>
 <div class="minibox-1 tpoverflow">
 	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo the_pack_html_escaped($out); ?>
+	<?php echo thepack_build_html($out); ?>
 </div>

@@ -349,7 +349,7 @@ class thepack_timeline_alt extends Widget_Base
             ';
         }
 
-        return $out;
+        return thepack_build_html($out);
     }
 }
 

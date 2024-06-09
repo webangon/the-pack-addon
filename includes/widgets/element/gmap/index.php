@@ -458,12 +458,12 @@ class thepack_gmap extends Widget_Base
         $cls = $settings['bgmap'] ? 'yes-tpmap' : 'no-tpmap'; ?>
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php echo '<div ' . $bg . ' class="ae-gmap lazyload ' . $cls . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
-        <div id="google-container-<?php echo the_pack_html_escaped($this->get_id()); ?>"></div>
+        <div id="google-container-<?php echo $this->get_id(); ?>"></div>
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php echo the_pack_html_escaped($zoom); ?>
+		<?php echo thepack_build_html($zoom); ?>
 		<?php if ($settings['style'] == 'style_two') { ?>
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <div class="map-info"><?php the_pack_html_escaped($this->show_info($settings['items'])); ?></div>
+            <div class="map-info"><?php $this->show_info($settings['items']); ?></div>
 		<?php } ?>
 
         </div>

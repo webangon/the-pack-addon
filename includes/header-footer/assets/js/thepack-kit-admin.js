@@ -3,7 +3,7 @@
 
     $(function (){ 
         var $elementor_root_menu = $('#menu-posts-elementor_library.wp-has-current-submenu'),
-            $thepack_kit_root_menu = $('#toplevel_page_the-pack');
+            $thepack_kit_root_menu = $('#toplevel_page_the-pack-demo');
 
         if($elementor_root_menu.length && $elementor_root_menu.find('a.current').length == 0 && $thepack_kit_root_menu.length > 0){
             $elementor_root_menu.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');

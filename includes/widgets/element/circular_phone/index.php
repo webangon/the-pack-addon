@@ -324,7 +324,7 @@ class thepack_cphone extends Widget_Base
 
             <div class="inner-content">
                  <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php echo the_pack_html_escaped($label . $icon); ?>
+				<?php echo thepack_build_html($label . $icon); ?>
             </div>
 
         </div>

@@ -36,12 +36,12 @@ if ($settings['disp'] == 'slider') {
     echo '<div class="swiper-container tpswiper clientslide" data-xld =\'' . wp_json_encode($slider_options) . '\'>
                 <div class="swiper-wrapper tb-clientwrap1">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
-                    <?php echo the_pack_html_escaped($this->content($settings['items'], $cls));?>
+                    <?php echo thepack_build_html($this->content($settings['items'], $cls));?>
                 </div>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                <?php the_pack_html_escaped($arrow . $dot);?>
+                <?php echo thepack_build_html($arrow . $dot);?>
             </div>';
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="tb-clientwrap1"><div class="tb-clientgrid">' . the_pack_html_escaped($this->content($settings['items'], $cls)) . '</div></div>';
+    echo '<div class="tb-clientwrap1"><div class="tb-clientgrid">' . thepack_build_html($this->content($settings['items'], $cls)) . '</div></div>';
 }

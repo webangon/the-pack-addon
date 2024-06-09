@@ -442,7 +442,7 @@ function thepack_build_postmeta($metas = '', $excerpt_length = '', $readmore = '
             }
 
             if (!empty($meta)) {
-                $outz .= $out;
+                $outz .= thepack_build_html($out);
             }
         }
         //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -487,7 +487,7 @@ function thepack_pro_single_title($arg)
         $title = esc_html__('Archives', 'the-pack-addon');
     }
 
-    return $title;
+    return thepack_build_html($title);
 } 
  
 function thepack_drop_cat($tax='')
@@ -560,7 +560,7 @@ function thepack_folio_cat($taxonomy)
             $output .= '<span class="gallery-cat">' . $term->name . '</span>' . $separator;
         }
         //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-        echo the_pack_html_escaped(trim($output, $separator));
+        echo thepack_build_html(trim($output, $separator));
     }
 }
 

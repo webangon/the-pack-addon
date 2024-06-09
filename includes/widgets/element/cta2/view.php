@@ -32,7 +32,7 @@ switch ($settings['tmpl']) {
     <div class="inner">
         <div class="tbcta2wrap">
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<?php echo the_pack_html_escaped($btn); ?>
+			<?php echo thepack_build_html($btn); ?>
         </div>
     </div>
 </div>

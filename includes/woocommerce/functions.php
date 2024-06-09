@@ -207,7 +207,7 @@ class The_Pack_Woo_Helper {
 			$out = $option['label'];
 		  }
 		  //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		  echo '<span class="tp-onsale tp-dinflex">'.the_pack_html_escaped($out).'</span>';
+		  echo '<span class="tp-onsale tp-dinflex">'.thepack_build_html($out).'</span>';
 	}
 
 	static function product_cat($id){

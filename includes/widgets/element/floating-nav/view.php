@@ -10,5 +10,5 @@
 
 <div class="tp-floating-nav">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    <ul class="tp-float-nav"><?php echo the_pack_html_escaped($nav);?></ul>
+    <ul class="tp-float-nav"><?php echo thepack_build_html($nav);?></ul>
 </div>

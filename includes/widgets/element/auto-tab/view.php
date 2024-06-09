@@ -29,15 +29,15 @@
     <div class="swiper swiper-sync">
         <div class="swiper-wrapper">
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <?php echo the_pack_html_escaped($nav);?> 
+            <?php echo thepack_build_html($nav);?> 
         </div> 
     </div>    
     <div class="swiper swiper-default">
         <div class="swiper-wrapper">
             <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <?php echo the_pack_html_escaped($main);?>
+            <?php echo thepack_build_html($main);?>
         </div>
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-        <?php echo the_pack_html_escaped($arrow); ?>
+        <?php echo thepack_build_html($arrow); ?>
     </div>
 </div>

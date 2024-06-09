@@ -27,7 +27,7 @@ $out = '
 
 <div class="tp-circle-counter">
     <div class="counter_content">
-		<?php the_pack_html_escaped($out); ?>
+		<?php echo thepack_build_html($out); ?>
     </div>
 </div>
 

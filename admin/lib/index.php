@@ -188,7 +188,7 @@ if (!class_exists('The_Pack_Cloud_Library')) {
 							<div class='lib-footer'>
 									<p class="lib-name"><?php echo esc_attr($product['name']); ?></p>
                                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>    
-								<?php echo the_pack_html_escaped($btn); ?>
+								<?php echo thepack_build_html($btn); ?>
 							</div>
 
 						</div>

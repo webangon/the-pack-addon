@@ -6,14 +6,14 @@ class The_Pack_Demo_Sites_Dash {
 
 	public function admin_pages() {
 
-		$temp = 'Starter Sites';
-		add_submenu_page( 
-			'the-pack',
-			$temp, 
-			$temp,
+		add_menu_page( 
+			__( 'The Pack Sites', 'textdomain' ),
+			'The Pack Sites',
 			'manage_options',
 			$this->importer_page,
-			[ $this, 'display_import_page' ]
+			[ $this, 'display_import_page' ],
+			THE_PACK_PLUGIN_URL. 'admin/inc/icon.png', 
+			6
 		);
 	}
  
@@ -113,7 +113,7 @@ class The_Pack_Demo_Sites_Dash {
 				<div class="centerhead">
 					<?php if ($data){
 						//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo the_pack_html_escaped($this->create_nav($data['sites']));
+						echo thepack_build_html($this->create_nav($data['sites']));
 						}?>
 				</div> 
 				<div class="rhead"></div>
@@ -121,14 +121,14 @@ class The_Pack_Demo_Sites_Dash {
 			<div class="tp-container">
 			<div class="tp-loader"></div>
 			<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	    	<div data-table="<?php echo the_pack_html_escaped($data_key);?>" class="demo-inner">
+	    	<div data-table="<?php echo esc_attr($data_key);?>" class="demo-inner">
 	    		<?php 
 					if (!$data){
 						echo '<div class="no-data">Something went wrong ! Please <a class="reload-lib" href="#">Reload</a> library</div>';
 						return;
 					}
 					//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-	    			echo the_pack_html_escaped($out);
+	    			echo thepack_build_html($out);
 	    		?> 
 	    	</div>
 
@@ -143,11 +143,11 @@ class The_Pack_Demo_Sites_Dash {
 					for ($page_number = 1; $page_number <= $total_pages; $page_number++) {
 						if ($page_number == $cur_page) {?>
 								<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-								<li class="page-item active"><a class="page-link" href="#" data-page-number="<?php echo the_pack_html_escaped($page_number); ?>"><?php echo the_pack_html_escaped($page_number); ?></a></li>
+								<li class="page-item active"><a class="page-link" href="#" data-page-number="<?php echo esc_attr($page_number); ?>"><?php echo esc_attr($page_number); ?></a></li>
 							<?php } else {
 							if ($page_number <= $ends_count || ($cur_page && $page_number >= $cur_page - $middle_count && $page_number <= $cur_page + $middle_count) || $page_number > $total_pages - $ends_count) { ?>
 									<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-									<li class="page-item"><a class="page-link" href="#" data-page-number="<?php echo the_pack_html_escaped($page_number); ?>"><?php echo the_pack_html_escaped($page_number); ?></a></li>
+									<li class="page-item"><a class="page-link" href="#" data-page-number="<?php echo esc_attr($page_number); ?>"><?php echo esc_attr($page_number); ?></a></li>
 								<?php $dots = true;
 								} elseif ($dots) {
 									echo '<li><a>&hellip;</a></li>';
@@ -179,6 +179,7 @@ class The_Pack_Demo_Sites_Dash {
 			 wp_enqueue_style('thepack-sites', THE_PACK_PLUGIN_URL.'admin/inc/assets/admin.css', [], THE_PACK_PLUGIN_VERSION);
 			 wp_localize_script('thepack-sites', 'thepack_site_data', $data );
 		 }
+		
 	}
 
 	public function the_pack_import_xml(){
@@ -259,6 +260,14 @@ class The_Pack_Demo_Sites_Dash {
 		$this->the_pack_clean_data();
 		wp_die();
 	}
+	
+	public function custom_css(){
+		echo '<style>
+		.toplevel_page_the-pack-demo img {
+		width: 16px;
+	  	} 
+		</style>';
+	}
 
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'admin_pages' ], 600 );
@@ -266,6 +275,7 @@ class The_Pack_Demo_Sites_Dash {
 		add_action( 'wp_ajax_the_pack_import_xml', array( $this, 'the_pack_import_xml' ), 10 );
 		add_action( 'wp_ajax_display_import_page', array($this,'display_import_page')); 
 		add_action( 'wp_ajax_thepack_clean_site', [$this, 'clean_site' ], 10 );
+		add_action( 'admin_head', [$this, 'custom_css' ], 10 );
 
 	}
 }

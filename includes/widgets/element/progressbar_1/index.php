@@ -350,11 +350,11 @@ class thepack_progressbars extends Widget_Base
             ';
         }
         if ($template == 'one') {
-            return $out1;
+            return thepack_build_html($out1);
         } elseif ($template == 'two') {
-            return $out2;
+            return thepack_build_html($out2);
         } elseif ($template == 'three') {
-            return $out3;
+            return thepack_build_html($out3);
         } else {
         }
     }

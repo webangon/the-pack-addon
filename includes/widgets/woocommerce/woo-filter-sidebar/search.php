@@ -8,5 +8,5 @@ $form .= $btn;
 $form .= '<input type="hidden" name="post_type" value="product" />';
 $form .= '</form>';
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<div class="filter-item">'.the_pack_html_escaped($title.$form).'</div>';
+echo '<div class="filter-item">'.thepack_build_html($title.$form).'</div>';
 ?>

@@ -25,11 +25,11 @@ $carticon = isset($settings['carticon']) ? $settings['carticon'] : '';
         <div class="khbnavright"> 
             <div class="inrwrpr">
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
-				<?php echo the_pack_html_escaped($this->out_subs_btn($settings['sub-btn'], $settings['sub-link'])); ?>
+				<?php echo $this->out_subs_btn($settings['sub-btn'], $settings['sub-link']); ?>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
 				<?php echo $this->out_woo_icon( $carticon, 'cart'); ?>
                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
-                <?php echo the_pack_html_escaped($this->out_icon($settings['tapicon'], $settings['taphide'])); ?>
+                <?php echo $this->out_icon($settings['tapicon'], $settings['taphide']); ?>
             </div>
         </div>
     </div>

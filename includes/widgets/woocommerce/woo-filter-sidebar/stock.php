@@ -35,5 +35,5 @@
 		</div>			
 	';
 	//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo the_pack_html_escaped($out);
+	echo thepack_build_html($out);
 ?>

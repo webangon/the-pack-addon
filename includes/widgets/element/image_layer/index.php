@@ -580,7 +580,7 @@ class thepack_image_layer extends Widget_Base
             $out1 .= '<div class="elementor-repeater-item-' . $item['_id'] . ' layeritem ' . $item['animation'] . '">' . $img . '</div>';
         }
 
-        return $out1;
+        return thepack_build_html($out1);
     }
 }
 

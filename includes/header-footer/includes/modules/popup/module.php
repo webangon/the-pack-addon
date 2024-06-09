@@ -99,7 +99,7 @@ class Module extends \Elementor\Core\Base\Module {
 	 *
 	 */
 	public function register_admin_menu() {
-        add_submenu_page(
+        add_submenu_page( 
             'edit.php?post_type=elementor_library',
             '',
             esc_html__( 'Popups', 'thepack' ),

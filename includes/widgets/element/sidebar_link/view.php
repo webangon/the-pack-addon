@@ -14,6 +14,6 @@ foreach ($settings['lists'] as $a) {
 <div class="sidebar-link">
     <ul class="raw-style <?php echo esc_attr($settings['tmpl']); ?>">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php echo the_pack_html_escaped($html); ?>
+		<?php echo thepack_build_html($html); ?>
     </ul>
 </div>

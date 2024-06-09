@@ -499,7 +499,7 @@ class thepack_counter_2 extends Widget_Base
         if ($template == 'three') {
             return $out3;
         } else {
-            return $out;
+            return thepack_build_html($out);
         }
     }
 }

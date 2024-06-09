@@ -8,4 +8,4 @@ foreach ($terms as $term) {
     $output .= '<li class="' . esc_attr($settings['taxonomy']) . '"><a class="tag-cat" href="' . esc_url($term_link) . '"><span class="label">' . $term->name . '</span><span class="count">(' . esc_attr($count) . ')</span>' . '</a></li>';
 }
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<ul class="tp-taxomony ' . esc_attr($settings['style']) . '">' .the_pack_html_escaped( $output ). '</ul>';
+echo '<ul class="tp-taxomony ' . esc_attr($settings['style']) . '">' .thepack_build_html( $output ). '</ul>';

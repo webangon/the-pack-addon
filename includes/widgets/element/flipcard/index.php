@@ -468,7 +468,7 @@ class thepack_flipcard extends Widget_Base
             ';
         }
 
-        return $out1;
+        return thepack_build_html($out1);
     }
 }
 

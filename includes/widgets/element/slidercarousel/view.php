@@ -16,16 +16,16 @@ $nextikn = $settings['nicon']['value'] ? '<div class="khbprnx khbprev"><i class=
 $arrow = $settings['arrow'] ? '<div class="tp-arrow">' . $previkn . $nextikn . '</div>' : '';
 
 $out1 = '';
-require dirname(__FILE__) . '/' . $settings['tmpl'] . '.php';
+require dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
 ?>
 
 <div class="folio-carousel1">
 	<?php echo '<div class="swiper-container tpswiper ' . esc_attr($settings['tmpl']) . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
     <div class="swiper-wrapper">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php echo the_pack_html_escaped($out1); ?>
+		<?php echo thepack_build_html($out1); ?>
     </div>
   <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>  
-	<?php echo the_pack_html_escaped($pagi . $arrow); ?>
+	<?php echo thepack_build_html($pagi . $arrow); ?>
 </div>
 </div>
