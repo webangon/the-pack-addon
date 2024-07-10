@@ -424,18 +424,6 @@ class jl_section_overlay
                     'jl_ov_enable' => 'yes',
                     'background_overlay_background' => ['classic', 'gradient'],
                 ],
-                'device_args' => [
-                    Controls_Stack::RESPONSIVE_TABLET => [
-                        'selectors' => [
-                            $selector => 'height: {{SIZE}}{{UNIT}};',
-                        ],
-                    ],
-                    Controls_Stack::RESPONSIVE_MOBILE => [
-                        'selectors' => [
-                            $selector => 'height: {{SIZE}}{{UNIT}};',
-                        ],
-                    ],
-                ],
             ]
         );
 
