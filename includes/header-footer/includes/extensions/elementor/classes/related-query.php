@@ -87,7 +87,8 @@ class Related_Query extends Post_Query {
 
 		if ( $this->related_post_id ) {
 			$post_not_in = isset( $this->query_args['post__not_in'] ) ? $this->query_args['post__not_in'] : [];
-			$post_not_in[] = $this->related_post_id;
+			$post_not_in[] = $this->related_post_id; 
+			//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in
 			$this->query_args['post__not_in'] = $post_not_in;
 		}
 	}

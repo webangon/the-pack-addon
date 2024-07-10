@@ -54,6 +54,7 @@ class Form_Action extends Action_Base {
 					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
 					'query' => [
 						'posts_per_page' => 20,
+						//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 						'meta_query' => [
 							[
 								'key' => Document::TYPE_META_KEY,

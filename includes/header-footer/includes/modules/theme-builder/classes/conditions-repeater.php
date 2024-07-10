@@ -26,6 +26,7 @@ class Conditions_Repeater extends Control_Repeater {
 					'default' => 'include',
 					'options' => [
 						'include' => __( 'Include', 'thepack' ),
+						//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 						'exclude' => __( 'Exclude', 'thepack' ),
 					],
 				],

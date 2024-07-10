@@ -169,6 +169,7 @@ if(!class_exists('The_Pack_Kit')){
         }
 
         public function is_elementor_preview(){
+            //phpcs:disable WordPress.Security.NonceVerification.Recommended
             return (!empty( $_GET['elementor_library'] ) && !empty( $_GET['preview_id'] ) && !empty( $_GET['preview'] ));
         }
 
@@ -251,7 +252,8 @@ if(!class_exists('The_Pack_Kit')){
                 'thepack-kit-admin',
                 $this->plugin_url('assets/js/thepack-kit-admin.js'),
                 array( 'jquery' ),
-                $this->get_version()
+                $this->get_version(),
+                true
             );
         }
 

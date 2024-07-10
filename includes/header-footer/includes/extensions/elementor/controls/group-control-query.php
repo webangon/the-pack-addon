@@ -155,7 +155,7 @@ class Group_Control_Query extends Group_Control_Base {
 				],
 			],
 		];
-
+		//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 		$fields['exclude'] = [
 			'label' => __( 'Exclude By', 'thepack' ),
 			'type' => Controls_Manager::SELECT2,
@@ -186,6 +186,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'multiple' => true,
 			'filter_type' => 'by_id',
 			'condition' => [
+				//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => 'manual_selection',
 				'post_type!' => [
 					'by_id',
@@ -207,6 +208,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'filter_type' => 'taxonomy',
 			'include_type' => true,
 			'condition' => [
+				//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => 'terms',
 				'post_type!' => [
 					'by_id',
@@ -228,6 +230,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'filter_type' => 'author',
 			'include_type' => true,
 			'condition' => [
+				//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => 'authors',
 				'post_type!' => [
 					'by_id',
@@ -442,7 +445,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'include_term_ids',
 			'include_authors',
 		] );
-
+		//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude	
 		static::$presets['exclude'] = array_merge( $tabs, [
 			'exclude',
 			'exclude_ids',

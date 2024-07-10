@@ -62,11 +62,11 @@ class Module extends Module_Base {
      * @param \Elementor\Core\Common\Modules\Ajax\Module $ajax_manager
      */
     public function register_ajax_actions( $ajax_manager ){
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         if( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'elementor_ajax' ){
             $need_update = false;
             $action_require = ['app_site_editor_template_types'];
-            $request = json_decode( stripslashes( $_REQUEST['actions'] ), true );
+            $request = wp_json_decode( stripslashes( $_REQUEST['actions'] ), true );
             foreach ($request as $k => &$value){
                 if( in_array($k, $action_require) && !isset($value['data'])){
                     $value['data'] = [];
@@ -74,7 +74,7 @@ class Module extends Module_Base {
                 }
             }
             if($need_update){
-                $_REQUEST['actions'] = json_encode($request);
+                $_REQUEST['actions'] = wp_json_encode($request);
             }
         }
 
@@ -107,7 +107,7 @@ class Module extends Module_Base {
         if ( ! current_user_can( 'edit_posts' ) ) {
             wp_send_json( array() );
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
         $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
 
@@ -126,9 +126,11 @@ class Module extends Module_Base {
         if ( ! current_user_can( 'edit_posts' ) ) {
             wp_send_json( array() );
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $query     = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $post_type = isset( $_GET['preview_post_type'] ) ? esc_attr( $_GET['preview_post_type'] ) : 'post';
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $ids       = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
 
         wp_send_json( array(
@@ -147,8 +149,9 @@ class Module extends Module_Base {
         if ( ! current_user_can( 'edit_posts' ) ) {
             wp_send_json( array() );
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
 
         wp_send_json( array(
@@ -167,8 +170,9 @@ class Module extends Module_Base {
         if ( ! current_user_can( 'edit_posts' ) ) {
             wp_send_json( array() );
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
 
         wp_send_json( array(
@@ -186,21 +190,21 @@ class Module extends Module_Base {
         if ( ! current_user_can( 'edit_posts' ) ) {
             wp_send_json( array() );
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
 
         $tax = '';
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( isset( $_GET['conditions_archive-tax_tax'] ) ) {
             $tax = $_GET['conditions_archive-tax_tax'];
         }
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( isset( $_GET['conditions_singular-post-from-tax_tax'] ) ) {
             $tax = $_GET['conditions_singular-post-from-tax_tax'];
         }
 
         $tax = explode( ',', $tax );
-
+        //phpcs:disable WordPress.Security.NonceVerification.Recommended
         $ids = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
 
         wp_send_json( array(

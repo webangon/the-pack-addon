@@ -167,6 +167,7 @@ class Conditions_Manager {
 		$is_saved = $this->save_conditions( $request['editor_post_id'], $request['conditions'] );
 
 		if ( ! $is_saved ) {
+			//phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			throw new \Exception( 'Error while saving conditions.', Exceptions::INTERNAL_SERVER_ERROR );
 		}
 	}
@@ -397,8 +398,10 @@ class Conditions_Manager {
 		$location_manager = $theme_builder_module->get_locations_manager();
 
 		// In case the user want to preview any page with a theme_template_id,
-		// like http://domain.com/any-post/?preview=1&theme_template_id=6453
+		// like http://domain.com/any-post/?preview=1&theme_template_id=6453 
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET['theme_template_id'] ) ) {
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
 			$force_template_id = $_GET['theme_template_id'];
 			$document = $theme_builder_module->get_document( $force_template_id );
 			// e.g. header / header

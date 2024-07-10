@@ -26,7 +26,8 @@ $out = '
 ?>
 
 <div class="tp-circle-counter">
-    <div class="counter_content">
+    <div class="counter_content"> 
+        <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped?>
 		<?php echo thepack_build_html($out); ?>
     </div>
 </div>

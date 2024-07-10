@@ -185,7 +185,7 @@ class Query_Control {
     private function ajax_posts_filter_autocomplete_new( $data ){
         $query_data = $this->autocomplete_query_data( $data );
         if ( is_wp_error( $query_data ) ) {
-            /** @var \WP_Error $query_data */
+            //phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped
             throw new \Exception( $query_data->get_error_code() . ':' . $query_data->get_error_message() );
         }
 

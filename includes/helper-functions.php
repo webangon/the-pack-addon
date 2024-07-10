@@ -159,7 +159,7 @@ function thepack_builder_btn($link, $text)
 function thepack_build_html($option, $tag = '', $cls = '')
 {
     if ($option) {
-        $class = $cls ? 'class="' . $cls . '"' : '';
+        $class = $cls ? 'class=' . $cls . '' : '';
         if ($tag) {
             return '<' . esc_attr($tag) . ' ' . esc_attr($class) . '>' . wp_kses_post($option) . '</' . esc_attr($tag) . '>';
         } else {

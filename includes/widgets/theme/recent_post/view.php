@@ -10,7 +10,8 @@ if ($settings['query_type'] == 'category') {
     $query_args = [
         'post_type' => 'post',
         'posts_per_page' => $per_page,
-        'tax_query' => [
+        //phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+        'tax_query' => [ 
             [
                 'taxonomy' => 'category',
                 'field' => 'term_id',

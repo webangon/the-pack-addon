@@ -65,6 +65,7 @@ class Archive extends Archive_Single_Base {
 			$post_type_object = get_post_type_object( $post_type );
 
 			if ( $post_type_object->has_archive ) {
+				/* Translators: %s post type archive */
 				$post_type_archives[ 'post_type_archive/' . $post_type ] = sprintf( __( '%s Archive', 'thepack' ), $post_type_object->label );
 			}
 
@@ -76,6 +77,7 @@ class Archive extends Archive_Single_Base {
 			] );
 
 			foreach ( $post_type_taxonomies as $slug => $object ) {
+				/* Translators: %s post type archive */
 				$taxonomies[ 'taxonomy/' . $slug ] = sprintf( __( '%s Archive', 'thepack' ), $object->label );
 			}
 		}

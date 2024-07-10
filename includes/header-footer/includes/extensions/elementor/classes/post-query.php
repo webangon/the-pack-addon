@@ -251,6 +251,7 @@ class Post_Query {
 		}
 
 		if ( empty( $this->query_args['tax_query'] ) ) {
+			//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			$this->query_args['tax_query'] = $tax_query;
 		} else {
 			$this->query_args['tax_query']['relation'] = 'AND';

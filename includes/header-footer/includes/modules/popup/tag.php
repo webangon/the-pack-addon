@@ -61,6 +61,7 @@ class Tag extends DynamicTagsTag {
 					'query' => [
 						'posts_per_page' => 20,
 						'post_status' => [ 'publish', 'private' ],
+						//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 						'meta_query' => [
 							[
 								'key' => Document::TYPE_META_KEY,

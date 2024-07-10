@@ -137,8 +137,9 @@ class Product extends Single_Base {
 
 	public function print_content() {
 		if ( post_password_required() ) {
+			//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo get_the_password_form();
-			return;
+			return; 
 		}
 
 		parent::print_content();

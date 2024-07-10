@@ -53,7 +53,7 @@ $option = [
 		echo '<a data-id="'.$id.'" class="tp-quick-view" href="#"><i class="tivo ti-search" aria-hidden="true"></i></a>';//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped 
 	echo '</div>';
 	/**
-	 * Hook: woocommerce_shop_loop_item_title. 
+	 * Hook: woocommerce_shop_loop_item_title.    
 	 *
 	 * @hooked woocommerce_template_loop_product_title - 10
 	 */

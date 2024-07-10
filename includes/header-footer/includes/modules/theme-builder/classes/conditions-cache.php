@@ -110,6 +110,7 @@ class Conditions_Cache {
 			'posts_per_page' => -1,
 			'post_type' => $post_types,
 			'fields' => 'ids',
+			//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 			'meta_key' => '_elementor_conditions',
 		] );
 

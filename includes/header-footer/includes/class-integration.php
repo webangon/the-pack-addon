@@ -63,6 +63,7 @@ if ( ! class_exists( 'ThePack_Kit_Integration' ) ) {
             $result = false;
 
             if ( wp_doing_ajax() ) {
+                //phpcs:disable WordPress.Security.NonceVerification.Recommended
                 $result = ( isset( $_REQUEST['action'] ) && 'elementor_ajax' === $_REQUEST['action'] );
             } elseif ( Elementor\Plugin::instance()->editor->is_edit_mode()
                 && 'wp_enqueue_scripts' === current_filter() ) {

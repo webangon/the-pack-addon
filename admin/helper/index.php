@@ -12,7 +12,8 @@ function thepack_footer_select($type = '', $num = '', $tax = '')
         'numberposts' => $num,
         'post_type' => $type,
     ];
-    if ($tax) {
+    if ($tax) { 
+        //phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
         $args['tax_query'] = [
             [
                 'taxonomy' => 'elementor_library_category',

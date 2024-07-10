@@ -1610,7 +1610,7 @@
             'tp_woothumb': Tpwoo_Gallery,
             'tp_wooaddtocart': Tpwoo_AddTo_Cart,
             'tp_wooarch': Tpwoo_Archive,
-            'tp_wooprode': Tpwoo_ProDesign,
+            'tp_wooprode': Tpwoo_ProDesign, 
             'tp_woocat': Tpwoo_ProDesign,
             'tp_woorelated': Tpwoo_ProDesign,
 

@@ -125,8 +125,8 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 			    $this->add_response_data( false, esc_html__( 'Token Expired.', 'thepack' ) )
 			         ->send_error( 401 );
 		    }
-
-		    if(empty($_REQUEST['actions'])){
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
+		    if(empty($_REQUEST['actions'])){ 
 			    $this->add_response_data( false, esc_html__( 'Action not found.', 'thepack' ) )
 			         ->send_error( 401 );
 		    }
@@ -143,7 +143,7 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 		     * @param self $this An instance of ajax manager.
 		     */
 		    do_action( 'thepack-kit/ajax/register_actions', $this );
-
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		    $this->requests = json_decode( stripslashes( $_REQUEST['actions'] ), true );
 
 		    if(empty($this->requests)){

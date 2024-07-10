@@ -29,6 +29,6 @@ class Post_ID extends Tag {
 	}
 
 	public function render() {
-		echo get_the_ID();
+		echo esc_attr(get_the_ID());
 	}
 }

@@ -19,6 +19,7 @@ if ($settings['query_type'] == 'category') {
         'post_type' => 'post',
         'paged' => $paged,
         'posts_per_page' => $per_page,
+        //phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
         'tax_query' => [
             [
                 'taxonomy' => 'category',

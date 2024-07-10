@@ -1,12 +1,9 @@
 <?php
 namespace ThePackKitThemeBuilder\Modules\ThemeBuilder;
-
 use Elementor\Core\Admin\Admin_Notices;
 use Elementor\Core\App\App;
 use Elementor\Core\Base\Document;
 use Elementor\TemplateLibrary\Source_Local;
-
-
 use ThePackKitThemeBuilder\Modules\ThemeBuilder\Classes;
 use ThePackKitThemeBuilder\Modules\ThemeBuilder\Documents\Single;
 use ThePackKitThemeBuilder\Modules\ThemeBuilder\Documents\Theme_Document;
@@ -98,7 +95,9 @@ class Module extends \Elementor\Core\Base\Module {
 				'display_conditions' => __( 'Display Conditions', 'thepack' ),
 				'choose' => __( 'Choose', 'thepack' ),
 				'add_condition' => __( 'Add Condition', 'thepack' ),
+				/* Translators: %s condition title. */
 				'conditions_title' => __( 'Where Do You Want to Display Your %s?', 'thepack' ),
+				/* Translators: %s condition description */
 				'conditions_description' => __( 'Set the conditions that determine where your %s is used throughout your site.', 'thepack' ) . '<br>' . __( 'For example, choose \'Entire Site\' to display the template across your site.', 'thepack' ),
 				'conditions_publish_screen_description' => __( 'Apply current template to these pages.', 'thepack' ),
 				'save_and_close' => __( 'Save & Close', 'thepack' ),
@@ -178,17 +177,17 @@ class Module extends \Elementor\Core\Base\Module {
 		?>
 		<div id="elementor-new-template__form__location__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__location" class="elementor-form-field__label">
-				<?php echo __( 'Select a Location', 'thepack' ); ?>
+				<?php echo esc_attr( 'Select a Location', 'thepack' ); ?> 
 			</label>
 			<div class="elementor-form-field__select__wrapper">
 				<select id="elementor-new-template__form__location" class="elementor-form-field__select" name="meta_location">
 					<option value="">
-						<?php echo __( 'Select...', 'thepack' ); ?>
+						<?php echo esc_attr( 'Select...', 'thepack' ); ?>
 					</option>
 					<?php
 
 					foreach ( $locations as $location => $settings ) {
-						echo sprintf( '<option value="%1$s">%2$s</option>', $location, $settings['label'] );
+						echo sprintf( '<option value="%1$s">%2$s</option>', esc_attr($location), esc_attr($settings['label']) );
 					}
 					?>
 				</select>
@@ -208,12 +207,12 @@ class Module extends \Elementor\Core\Base\Module {
 		?>
 		<div id="elementor-new-template__form__post-type__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__post-type" class="elementor-form-field__label">
-				<?php echo __( 'Select Post Type', 'thepack' ); ?>
+				<?php echo esc_attr( 'Select Post Type', 'thepack' ); ?>
 			</label>
 			<div class="elementor-form-field__select__wrapper">
-				<select id="elementor-new-template__form__post-type" class="elementor-form-field__select" name="<?php echo Single::REMOTE_CATEGORY_META_KEY; ?>">
+				<select id="elementor-new-template__form__post-type" class="elementor-form-field__select" name="<?php echo esc_attr(Single::REMOTE_CATEGORY_META_KEY); ?>">
 					<option value="">
-						<?php echo __( 'Select', 'thepack' ); ?>...
+						<?php echo esc_attr( 'Select', 'thepack' ); ?>...
 					</option>
 					<?php
 
@@ -225,12 +224,12 @@ class Module extends \Elementor\Core\Base\Module {
 
 						if ( $is_base_page ) {
 							$post_type_object = get_post_type_object( $post_type );
-							echo sprintf( '<option value="%1$s">%2$s</option>', $post_type, $post_type_object->labels->singular_name );
+							echo sprintf( '<option value="%1$s">%2$s</option>', esc_attr($post_type), esc_attr($post_type_object->labels->singular_name) );
 						}
 					}
 
-					// 404.
-					echo sprintf( '<option value="%1$s">%2$s</option>', 'not_found404', __( '404 Page', 'thepack' ) );
+					//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo sprintf( '<option value="%1$s">%2$s</option>', 'not_found404', esc_attr( '404 Page', 'thepack' ) );
 
 					?>
 				</select>

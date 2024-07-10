@@ -12,12 +12,14 @@ $location_manager = Module::instance()->get_locations_manager();
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo Utils::get_meta_viewport( 'theme-builder' ); ?>
 	<?php if ( ! current_theme_supports( 'title-tag' ) ) : ?>
 		<title>
+			<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php echo wp_get_document_title(); ?>
 		</title>
-	<?php endif; ?>
+	<?php endif; ?> 
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

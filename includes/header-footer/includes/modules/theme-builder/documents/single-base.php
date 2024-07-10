@@ -66,7 +66,7 @@ abstract class Single_Base extends Archive_Single_Base {
 			$attributes['class'] .= ' ' . implode( ' ', $post_classes );
 		}
 
-		return $attributes;
+		return $attributes; 
 	}
 
 	public function print_content() {
@@ -79,9 +79,10 @@ abstract class Single_Base extends Archive_Single_Base {
 			 * show a placeholder instead of content.
 			 */
 			if ( $requested_document && ! $requested_document instanceof Section && $requested_document->get_location() !== $this->get_location() ) {
-				echo '<div class="elementor-theme-builder-content-area">' . __( 'Content Area', 'thepack' ) . '</div>';
+				//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<div class="elementor-theme-builder-content-area">' . __esc_html( 'Content Area', 'thepack' ) . '</div>';
 
-				return;
+				return; 
 			}
 		}
 

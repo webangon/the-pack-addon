@@ -14,9 +14,10 @@ class Child_Of_Term extends Taxonomy {
 	}
 
 	public function get_label() {
+		 /* Translators: %s direct child. */
 		return sprintf( __( 'Direct Child %s Of', 'thepack' ), $this->taxonomy->labels->singular_name );
 	}
-
+ 
 	public function __construct( $data ) {
 		parent::__construct( $data );
 

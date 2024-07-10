@@ -41,8 +41,9 @@ abstract class Archive_Single_Base extends Theme_Page_Document {
 
 	private function save_sub_type_condition() {
 		$conditions_manager = ThemeBuilderModule::instance()->get_conditions_manager();
-
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_REQUEST[ self::REMOTE_CATEGORY_META_KEY ] ) ) {
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
 			$sub_type = $_REQUEST[ self::REMOTE_CATEGORY_META_KEY ];
 
 			if ( $conditions_manager->get_condition( $sub_type ) ) {

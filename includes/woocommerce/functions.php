@@ -215,7 +215,7 @@ class The_Pack_Woo_Helper {
 		echo '<div class="tp-product-cat">'.wc_get_product_category_list( $id ).'</div>';
 	}
 
-	static function product_thumbnail($size=''){
+	static function product_thumbnail($size=''){   
 		//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '<a href="'.esc_attr(get_permalink()).'">'.woocommerce_get_product_thumbnail($size).'</a>';
 	}
@@ -313,8 +313,9 @@ class The_Pack_Woo_Helper {
 			)';
 	
 		$sql = apply_filters( 'woocommerce_price_filter_sql', $sql, $meta_query_sql, $tax_query_sql );
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-		return $wpdb->get_row( $sql );//phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
+		//phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
+		return $wpdb->get_row( $sql );
 	} 
 	
 	static function show_per_page_opt(){?>

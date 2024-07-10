@@ -30,6 +30,7 @@ class Post_Type_By_Author extends Condition_Base {
 	}
 
 	public function get_label() {
+		/* Translators: %s post type author. */
 		return sprintf( __( '%s By Author', 'thepack' ), $this->post_type->label );
 	}
 

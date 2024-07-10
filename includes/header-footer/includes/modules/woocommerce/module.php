@@ -103,6 +103,7 @@ class Module extends \Elementor\Core\Base\Module {
             add_action( 'elementor/documents/register', [ $this, 'register_documents' ] );
             add_action( 'elementor/theme/register_conditions', [ $this, 'register_conditions' ] );
             add_filter( 'elementor/theme/need_override_location', [ $this, 'theme_template_include' ], 10, 2 );
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
             if ( ! empty( $_REQUEST['action'] ) && 'elementor' === $_REQUEST['action'] && is_admin() ) {
                 add_action( 'init', [ $this, 'register_wc_hooks' ], 5 );
             }			

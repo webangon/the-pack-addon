@@ -14,6 +14,7 @@ class Any_Child_Of_Term extends Child_Of_Term {
 	}
 
 	public function get_label() {
+		/* Translators: %s child term. */
 		return sprintf( __( 'Any Child %s Of', 'thepack' ), $this->taxonomy->labels->singular_name );
 	}
 

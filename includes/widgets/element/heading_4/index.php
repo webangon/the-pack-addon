@@ -43,6 +43,37 @@ class thepack_heading_4 extends Widget_Base
         );
 
         $this->add_control(
+            'heading',
+            [
+                'type' => Controls_Manager::TEXTAREA,
+                'label' => esc_html__('Title', 'the-pack-addon'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'sub',
+            [
+                'type' => Controls_Manager::TEXTAREA,
+                'label' => esc_html__('Sub title', 'the-pack-addon'),
+                'label_block' => true,
+                'condition' => [
+                    'tmpl' => ['one', 'three'],
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_general',
+            [
+                'label' => esc_html__('General', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
             'tmpl',
             [
                 'label' => esc_html__('Template', 'the-pack-addon'),
@@ -90,27 +121,6 @@ class thepack_heading_4 extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .headwrp' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'heading',
-            [
-                'type' => Controls_Manager::TEXTAREA,
-                'label' => esc_html__('Title', 'the-pack-addon'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'sub',
-            [
-                'type' => Controls_Manager::TEXTAREA,
-                'label' => esc_html__('Sub title', 'the-pack-addon'),
-                'label_block' => true,
-                'condition' => [
-                    'tmpl' => ['one', 'three'],
                 ],
             ]
         );

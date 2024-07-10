@@ -34,10 +34,12 @@ class Post_Type_Archive extends Condition_Base {
 	}
 
 	public function get_label() {
+		/* Translators: %s archive term. */
 		return sprintf( __( '%s Archive', 'thepack' ), $this->post_type->label );
 	}
 
 	public function get_all_label() {
+		/* Translators: %s archive term. */
 		return sprintf( __( '%s Archive', 'thepack' ), $this->post_type->label );
 	}
 

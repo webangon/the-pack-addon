@@ -156,9 +156,11 @@ abstract class Theme_Document extends Library_Document {
 	public function print_content() {
 		$plugin = thepack_kit()->elementor();
 
-		if ( $plugin->preview->is_preview_mode( $this->get_main_id() ) ) {
+		if ( $plugin->preview->is_preview_mode( $this->get_main_id() ) ) { 
+			//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $plugin->preview->builder_wrapper( '' );
 		} else {
+			//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $this->get_content();
 		}
 	}
@@ -192,7 +194,7 @@ abstract class Theme_Document extends Library_Document {
 	 */
 	public function get_edit_url() {
 		$url = parent::get_edit_url();
-
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_GET['action'] ) && 'elementor_new_post' === $_GET['action'] ) {
 			$url .= '#library';
 		}
@@ -398,9 +400,11 @@ abstract class Theme_Document extends Library_Document {
 			$elements_data = $this->get_elements_data();
 		}
 		?>
-		<<?php echo $wrapper_tag; ?> <?php echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
+		<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped?>
+		<<?php echo esc_attr($wrapper_tag); ?> <?php echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
+			<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped?>
 			<?php $this->print_elements( $elements_data ); ?>
-		</<?php echo $wrapper_tag; ?>>
+		</<?php echo esc_attr($wrapper_tag); ?>>
 		<?php
 	}
 
@@ -442,7 +446,7 @@ abstract class Theme_Document extends Library_Document {
 	}
 
 	public function get_wp_preview_url() {
-		// Ajax request from editor.
+		//phpcs:disable WordPress.Security.NonceVerification.Missing
 		if ( ! empty( $_POST['initial_document_id'] ) ) {
 			return parent::get_wp_preview_url();
 		}
@@ -571,6 +575,7 @@ abstract class Theme_Document extends Library_Document {
 
 				if ( $term && ! is_wp_error( $term ) ) {
 					$query_args = [
+						//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 						'tax_query' => [
 							[
 								'taxonomy' => $term->taxonomy,

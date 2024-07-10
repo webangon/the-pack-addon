@@ -124,10 +124,10 @@ class Control_Search extends \Elementor\Base_Data_Control {
 		$control_uid = $this->get_control_uid();
 		?>
 		<div class="elementor-control-field">
-			<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+			<label for="<?php echo esc_attr($control_uid); ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<div class="elementor-control-input-wrapper">
 				<# var multiple = ( data.multiple ) ? 'multiple' : ''; #>
-				<select id="<?php echo $control_uid; ?>" class="elementor-select2" type="select2" {{ multiple }} data-setting="{{ data.name }}">
+				<select id="<?php echo esc_attr($control_uid); ?>" class="elementor-select2" type="select2" {{ multiple }} data-setting="{{ data.name }}">
 					<# if ( multiple ) { #>
 						<# _.each( data.controlValue, function( value ) {
 							#>

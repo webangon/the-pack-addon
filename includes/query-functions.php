@@ -81,10 +81,7 @@ if (!function_exists('thepack_postedd_on')) :
             esc_attr(get_the_date('c')),
             esc_html(get_the_date())
         );
-        /* Translators: %s post date. */
-        $posted_on = sprintf(_x('%s','the-pack-addon'), $time_string);
-
-        return '<span class="magnews-posted-on leffect-1"><i class="dashicons dashicons-calendar-alt"></i>' . $posted_on . '</span>';
+        return '<span class="magnews-posted-on leffect-1"><i class="dashicons dashicons-calendar-alt"></i>' . $time_string . '</span>';
     }
 endif;
 

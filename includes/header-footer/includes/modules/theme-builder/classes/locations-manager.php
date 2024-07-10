@@ -444,8 +444,10 @@ class Locations_Manager {
 		return $location_exits;
 	}
 
-	public function filter_add_location_meta_on_create_new_post( $meta ) {
+	public function filter_add_location_meta_on_create_new_post( $meta ) { 
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET['meta_location'] ) ) {
+			//phpcs:disable WordPress.Security.NonceVerification.Recommended
 			$meta[ Theme_Document::LOCATION_META_KEY ] = $_GET['meta_location'];
 		}
 
