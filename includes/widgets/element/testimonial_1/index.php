@@ -1043,7 +1043,9 @@ class thepack_testim_1 extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        include dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
+        if (ctype_alnum($settings['tmpl']) ){
+            require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+        }
     }
 }
 

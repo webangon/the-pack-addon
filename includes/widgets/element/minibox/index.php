@@ -613,13 +613,15 @@ class thepack_minibox extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+        if (ctype_alnum($settings['tmpl']) ){
+            require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+        }
     }
-
+    
     private function icon_image($icon)
     {
         $type = $icon['type'];
-        if ($type == 'image') {
+        if ($type == 'image') { 
             $id = $icon['img'];
 
             return '<span class="img-wrap">' . wp_get_attachment_image($id['id'], 'full') . '</span>';

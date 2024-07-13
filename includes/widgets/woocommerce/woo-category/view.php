@@ -32,7 +32,11 @@ echo '<div data-xld =\'' . wp_json_encode($slider_options) . '\' class="'.esc_at
 echo '<div class="'.esc_attr($main_cls).'">';
 
 ?> 
-	<?php include_once plugin_dir_path(__FILE__) . 'style_'.esc_attr($settings['style']) . '.php';?>
+	<?php 
+	if (ctype_alnum($settings['style']) ){
+		require plugin_dir_path(__FILE__) . 'style_'.esc_attr($settings['style']) . '.php';
+	}
+	?>
   </div>
 </div>	
 <style>

@@ -66,7 +66,7 @@ class Module extends Module_Base {
         if( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'elementor_ajax' ){
             $need_update = false;
             $action_require = ['app_site_editor_template_types'];
-            $request = wp_json_decode( stripslashes( $_REQUEST['actions'] ), true );
+            $request = json_decode( stripslashes( $_REQUEST['actions'] ), true );
             foreach ($request as $k => &$value){
                 if( in_array($k, $action_require) && !isset($value['data'])){
                     $value['data'] = [];

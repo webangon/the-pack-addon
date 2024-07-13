@@ -199,7 +199,9 @@ class thepack_scroll_to_section extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/' . $settings['tmpl'] . '.php';
+        if (ctype_alnum($settings['tmpl']) ){
+            require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+        }
     }
 }
 

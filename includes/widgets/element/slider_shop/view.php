@@ -17,7 +17,9 @@ $slider_options = [
 $previkn = $settings['picon']['value'] ? '<div class="khbprnx khbnxt"><i class="' . $settings['picon']['value'] . '"></i></div>' : '';
 $nextikn = $settings['nicon']['value'] ? '<div class="khbprnx khbprev"><i class="' . $settings['nicon']['value'] . '"></i></div>' : '';
 $out = '';
-require dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
+if (ctype_alnum($settings['tmpl']) ){
+  require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+}
 ?>
 
 <div class="tb-shopslide">

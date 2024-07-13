@@ -16,7 +16,9 @@ $nextikn = $settings['nicon']['value'] ? '<div class="khbprnx khbprev"><i class=
 $arrow = $settings['arrow'] ? '<div class="tp-arrow">' . $previkn . $nextikn . '</div>' : '';
 
 $out1 = '';
-require dirname(__FILE__) . '/' . esc_attr($settings['tmpl']) . '.php';
+if (ctype_alnum($settings['tmpl']) ){
+  require dirname(__FILE__) . '/' .esc_attr($settings['tmpl']).'.php';
+}
 ?>
 
 <div class="folio-carousel1">

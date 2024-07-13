@@ -316,7 +316,7 @@ class The_Pack_Woo_Helper {
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 		//phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
 		return $wpdb->get_row( $sql );
-	} 
+	}  
 	
 	static function show_per_page_opt(){?>
 		<?php $perpage = isset($_GET['perpage']) ? sanitize_text_field($_GET['perpage']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended ?>
