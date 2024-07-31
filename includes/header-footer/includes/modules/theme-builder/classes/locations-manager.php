@@ -26,7 +26,7 @@ class Locations_Manager {
 
 		add_filter( 'the_content', [ $this, 'builder_wrapper' ], 9999999 ); // 9999999 = after preview->builder_wrapper
 		//TODO:template proirity 11 doesnot work for tutor lms
-		add_filter( 'template_include', [ $this, 'template_include' ], 9999999 ); // 11 = after WooCommerce.
+		add_filter( 'template_include', [ $this, 'template_include' ], 999 ); // 11 = after WooCommerce.
 		add_action( 'template_redirect', [ $this, 'register_locations' ] );
 
 		add_filter( 'elementor/admin/create_new_post/meta', [ $this, 'filter_add_location_meta_on_create_new_post' ] );

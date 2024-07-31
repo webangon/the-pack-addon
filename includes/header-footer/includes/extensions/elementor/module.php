@@ -74,7 +74,7 @@ class Module extends Module_Base {
                 }
             }
             if($need_update){
-                $_REQUEST['actions'] = wp_json_encode($request);
+                $_REQUEST['actions'] = json_encode($request);
             }
         }
 
