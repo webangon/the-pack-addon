@@ -18,11 +18,11 @@ $fields = [
         [
             'author' => '<div class="comment-form-author khbcomment-field"><input id="author" class="form-control" name="author" type="text" value="' . $commenter['comment_author'] . '" placeholder="' . $settings['name'] . '"/></div>',
             'email' => '<div class="comment-form-email khbcomment-field"><input id="email" name="email" class="form-control" type="text" value="' . $commenter['comment_author_email'] . '" placeholder="' . $settings['email'] . '"/></div>',
-            'url' => '<div class="comment-form-url khbcomment-field"><input id="url" name="url" class="form-control" type="text" value="' . $commenter['comment_author_url'] . '" placeholder="' . $settings['website'] . '"/></div>',
+            'url' => '<div class="comment-form-url khbcomment-field"><input id="url" name="url" class="form-control" type="text" value="' . $commenter['comment_author_url'] . '" placeholder="' . esc_attr($settings['website']) . '"/></div>',
         ]
     ),
     'comment_field' => '<div class="comment-form-comment">' .
-                              '<textarea id="comment" name="comment" placeholder="' . $settings['comment'] . '" cols="45" rows="8" aria-required="true"></textarea>' .
+                              '<textarea id="comment" name="comment" placeholder="' . esc_attr($settings['comment']) . '" cols="45" rows="8" aria-required="true"></textarea>' .
                               '</div>',
     'comment_notes_after' => '',
     'title_reply' => '',
