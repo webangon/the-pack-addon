@@ -46,6 +46,6 @@ $data = [
 $icon = $this->generate_icon($element['icon']);
 
 $output = '
-    <div data-xld =\'' . wp_json_encode($data) . '\' class="item elementor-repeater-item-' . $element['_id'] . '">' . $icon . '<span class="tp-label">' . $element['field_label'] . '</span><input class="tp-input" name="' . $element['field_label'] . '" type="' . $field_tyle . '"  placeholder="' . $element['placeholder'] . '" ></div>';
+   <div data-xld =\'' . wp_json_encode($data) . '\' class="item elementor-repeater-item-' . $element['_id'] . '">' . $icon . '<span class="tp-label">' . $element['field_label'] . '</span><input class="tp-input" name="' . $element['field_label'] . '" type="' . $field_tyle . '"  placeholder="' . $element['placeholder'] . '" ></div>';
 
-return $output;
+return $output; 

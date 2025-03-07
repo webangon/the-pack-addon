@@ -14,6 +14,6 @@ switch ($settings['type']) {
 	  $type = $product->get_short_description();
 	  break;
 }
-
-echo sprintf( "<%s class='product_title_desc'>%s</%s>", esc_attr($settings['tag']), esc_attr($type), esc_attr($settings['tag'])  );
-?>
+$tag = tp_allow_html_tag($settings['tag']); 
+echo sprintf( "<%s class='product_title_desc'>%s</%s>", $tag, esc_attr($type), $tag  );
+?>   

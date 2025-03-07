@@ -34,6 +34,7 @@ foreach ($settings['tabs'] as $a) {
 <?php echo '<div class="xldacdn ' . esc_attr($cls . $settings['lfticn']) . '" data-xld =\'' . wp_json_encode($options) . '\'>'; ?>
 <ul class="accordion <?php echo esc_attr($id); ?>">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo thepack_build_html($tabti); ?>
+	<?php echo $tabti; ?>
 </ul>
 </div>
+

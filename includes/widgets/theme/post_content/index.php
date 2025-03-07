@@ -273,7 +273,8 @@ class The_Pack_Pro_Post_Content extends Widget_Base
 
         echo '<div class="tp-post-content">';
         //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-        echo get_post_field('post_content', $id);
+        $html =  get_post_field('post_content', $id);
+        echo str_replace( '<img', '<img loading="lazy"', $html );
         echo '</div>';
     }
 }

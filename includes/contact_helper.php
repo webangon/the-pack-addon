@@ -51,14 +51,14 @@ function tp_process_contact_form()
         $required = isset($item['required']) && empty($item['value']) ? 'yes' : '';
 
         if (isset($item['type']) == 'email') {
-            $msg_error .= filter_var($item['value'], FILTER_VALIDATE_EMAIL) ? '' : 'yes';
+            $msg_error .= '';
         //$required = 'yes';
         } else {
             $msg_error .= isset($item['required']) && empty($item['value']) ? 'yes' : '';
         }
 
-        $placeholder = isset($item['placeholder'])&& empty($item['placeholder']) ? $item['placeholder'] : '';
-        $value = isset($item['value'])&& empty($item['value']) ? $item['value'] : '';
+        $placeholder = $item['placeholder'] ;
+        $value = $item['value'];
         $data_mess[] = [
 
             'id' => isset($item['id'])&& empty($item['id']) ? $item['id'] : '',
@@ -86,7 +86,7 @@ function tp_process_contact_form()
         $subject = $subject_mail;
         $body = $body_msg;
         $headers[] = 'Content-Type: text/html; charset=UTF-8';
-
+        //$headers[] = 'From: Sender <me@example.net>';
         if (wp_mail($to, $subject, $body, $headers)) {
             $data_mess['success'] = $success_msg;
         } else {

@@ -10,7 +10,7 @@ use Elementor\Group_Control_Border;
 if (!defined('ABSPATH')) {
     exit;
 }
-
+ 
 class The_Pack_Heading_Extra_Control
 {
     public static function init()

@@ -729,7 +729,7 @@ class thepack_blog_list_intro extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/view.php';
+        require dirname(__FILE__) . '/view.php'; 
     }
 
     protected function content_template()

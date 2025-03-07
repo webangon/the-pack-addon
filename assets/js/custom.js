@@ -1026,7 +1026,6 @@
                     var options = $(this).data("xld");
                     var form_value = $(this).find(":input").val();
                     var placeholder = $(this).find(":input").attr('placeholder');
-
                     mf.push({
                         'id': options['id'],
                         'type': options['type'],
@@ -1036,7 +1035,7 @@
                     });
                 });
 
-                mf.push({
+                mf.push({ 
                     'to': settings['email'],
                     'success_msg': settings['success'],
                     'fail_msg': settings['fail'],
@@ -1216,7 +1215,7 @@
                             slider_elem.parents('html').find('.popwrap').empty();
                         });
                         slider_elem.parents('html').find('.popwrap').html(result);
-
+                        $('.loader').hide();
                         $('iframe').mediaWrapper({
                             intrinsic: false,
                             baseWidth: 16,
@@ -1232,10 +1231,6 @@
     };
 
     function tp_global_function() {
-
-        $('.launcher').on('click', function () {
-            $('.tp-quick-pop').toggleClass("show"); //you can list several class names 
-        });
 
         $(document).on("scroll", function () {
             var pixels = $(document).scrollTop();
@@ -1363,17 +1358,18 @@
     var TpAutoTab = function ($scope, $) {
         $scope.find('.auto-tab').each(function () {
             var settings = $(this).data('xld');
-            var sliderContainer = $(this).find('.swiper-default');
+            var sliderContainer = $(this).find('.swiper-default')[0];
             var nxt = $(this).find('.khbprev');
             var prv = $(this).find('.khbnxt');
 
             var sliderSettings = {
                 'loop': true,
+                'centeredSlides': settings['center'],
                 'spaceBetween': 0,
                 'effect': 'fade',
                 'navigation': {
-                    nextEl: nxt,
-                    prevEl: prv,
+                    nextEl: nxt[0],
+                    prevEl: prv[0],
                 },
                 'autoplay': {
                     delay: settings['speed'],
@@ -1392,7 +1388,7 @@
                 },
             };
 
-            var thumbsContainer = $(this).find('.swiper-sync');
+            var thumbsContainer = $(this).find('.swiper-sync')[0];
             var thumbsSettings = {
                 'loop': true,
                 'spaceBetween': settings['space'],
@@ -1595,7 +1591,7 @@
             'tpmegamenu': TpHeader,
             'tpbgheader-1': TpHeader,
             'tp-contact': TpContact,
-            'tbbgvid': TpProVideoPop, 
+            'tbbgvid': TpProVideoPop,  
             'tp-scrollto': TpScrollTo,
             'tp-syn-hightlighter': TpSynHighlighter,
             'tp-offmenu': TpOffSidebar,

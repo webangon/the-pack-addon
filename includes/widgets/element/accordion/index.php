@@ -548,7 +548,7 @@ class thepack_accordion_1 extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/view.php';
+        require dirname(__FILE__) . '/view.php';  
     }
 }
 

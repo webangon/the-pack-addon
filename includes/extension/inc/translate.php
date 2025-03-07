@@ -27,7 +27,7 @@ class Tp_Translate_Element
         add_action('elementor/frontend/widget/before_render', [ __CLASS__,'before_render_options'], 10, 2);
     }
 
-    public static function before_render_options($element)
+    public static function before_render_options($element) 
     {
         $settings = $element->get_settings_for_display();
 
@@ -40,7 +40,7 @@ class Tp_Translate_Element
             if ( $settings['tp_v_axis']) {
                 $element->add_render_attribute('_wrapper', 'data-rellax-vertical-scroll-axis',$settings['tp_v_axis']);
             }
-            
+             
         }
         if (isset($settings['anim']) && $settings['anim']) {
             $element->add_render_attribute('_wrapper', 'data-aos',$settings['anim']);

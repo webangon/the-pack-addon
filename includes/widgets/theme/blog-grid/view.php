@@ -39,9 +39,9 @@ if ($settings['query_type'] == 'individual') {
         'orderby' => 'post__in'
     ];
 }
-
-$loop_style = $settings['tmpl'] ? $settings['tmpl'] : '1';
-
+ 
+$loop_style = $settings['tmpl'] ? absint($settings['tmpl']) : '1';
+   
 $hide_thumb = isset($settings['hide_thumb']) ? $settings['hide_thumb'] : '';
 
 $loop = new \WP_Query($query_args); ?>  

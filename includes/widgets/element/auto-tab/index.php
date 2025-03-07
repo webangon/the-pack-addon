@@ -1,6 +1,5 @@
 <?php
 namespace ThePackAddon\Widgets;
-
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -14,11 +13,22 @@ if (!defined('ABSPATH')) {
 
 class thepack_auto_tab extends Widget_Base
 {
+
+	// Enqueue styles
+	public function get_style_depends() {
+		return array( ['swiper','e-swiper'] );
+	}
+
+	// Enqueue scripts
+	public function get_script_depends() {
+		return array( 'swiper' );
+	}
+
     public function get_name()
     {
         return 'tp-auto-tab';
     }
-
+  
     public function get_title()
     {
         return esc_html__('Auto Tab', 'the-pack-addon');

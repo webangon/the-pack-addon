@@ -16,7 +16,7 @@ class The_Pack_Contact_Form extends Widget_Base
     public function get_name()
     {
         return 'tp-contact';
-    }
+    } 
 
     public function get_title()
     {
@@ -170,38 +170,9 @@ class The_Pack_Contact_Form extends Widget_Base
                         ],
                     ],
                 ],
-                'selectors' => [
+                'selectors' => [ 
                     '{{WRAPPER}} {{CURRENT_ITEM}} .tp-label' => 'display: none;',
                 ],                
-            ]
-        );
-        $repeater->add_control(
-            'label_position',
-            [
-                'label' => esc_html__('Label Position', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'above' => esc_html__('Above', 'the-pack-addon'),
-                    'inline' => esc_html__('Inline', 'the-pack-addon'),
-                ],
-                'default' => 'above',
-                'conditions' => [
-                    'terms' => [
-                        [
-                            'name' => 'show_label',
-                            'value' => 'true',
-                        ],
-                        [
-                            'name' => 'field_type',
-                            'operator' => '!in',
-                            'value' => [
-                                'radio',
-                                'recaptcha',
-                                'checkbox',
-                            ],
-                        ],
-                    ],
-                ],
             ]
         );
 

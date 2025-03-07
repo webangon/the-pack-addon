@@ -12,7 +12,10 @@ $close_sidebar = $settings['tpoffclose']['value'] ? '<i class="tpclose' . esc_at
                     if ($value['sticky']) {
                         echo '<div class="xlmega-sticky-wrapper">';
                     }
-                    include_once plugin_dir_path(__FILE__) . esc_attr($value['lbl']) . '.php';
+                    if (!preg_match("/[^[:alnum:]_\/-]/",$value['lbl'])) {
+                        include_once plugin_dir_path(__FILE__) . esc_attr($value['lbl']) . '.php';
+                    }	
+                    
                     if ($value['sticky']) {
                         echo '</div>';
                     }

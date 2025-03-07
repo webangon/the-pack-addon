@@ -1776,6 +1776,7 @@ ul.momenu-list{
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    position: relative;
 }
 
 .tp-pop-response .close {
@@ -1905,33 +1906,6 @@ ul.momenu-list{
     background: #2481CC;
 }
 
-/*Quick popups*/
-.tp-quick-pop .launcher {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.tp-quick-pop .quick-content {
-    position: fixed;
-    width: 100%;
-    display: none;
-}
-
-.tp-quick-pop.show .quick-content {
-    display: block;
-}
-
-.tp-quick-pop .close,
-.tp-quick-pop.show .open {
-    display: none;
-}
-
-.tp-quick-pop.show .close {
-    display: block;
-}
 /*Image gallery*/
 .elementor-image-gallery .gallery-item{
     position: relative;

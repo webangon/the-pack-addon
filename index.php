@@ -7,7 +7,7 @@ Author: Webangon
 Author URI: https://webangon.com
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Version: 2.0.9
+Version: 2.1.1
 Text Domain: the-pack-addon
 Domain Path: /languages/
 */
@@ -50,11 +50,12 @@ if (!class_exists('thepack_elementor_addon_widget')) {
         {   
             if( !function_exists('get_plugin_data') ){
                 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-            }            
-            $plugin_data = get_plugin_data( __FILE__ );
+            }           
+            //TODO: this trigger text domain error - https://stackoverflow.com/questions/79198701/notice-function-load-textdomain-just-in-time-was-called-incorrectly 
+            //$plugin_data = get_plugin_data( __FILE__ );
 
             if (!defined('THE_PACK_PLUGIN_VERSION')) {
-                define('THE_PACK_PLUGIN_VERSION', $plugin_data['Version']);
+                define('THE_PACK_PLUGIN_VERSION', 3);
             }
 
             if (!defined('THE_PACK_PLUGIN_DIR')) {
@@ -348,5 +349,3 @@ function run_the_pack_addon()
 }
 
 add_action( 'plugins_loaded', 'run_the_pack_addon' );
-
-

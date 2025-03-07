@@ -3,6 +3,8 @@
         <div class="thumb-box">
             <a class="tp-thumblink" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"></a>
         <?php if (!$hide_thumb){
+          
+          //echo thepack_ft_images(get_post_thumbnail_id(), $settings['img_size']);
           the_post_thumbnail($settings['img_size']);
         } ?>   
         </div>

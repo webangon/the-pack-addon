@@ -16,7 +16,7 @@ if (!function_exists('thepack_insert_elementor')) {
 
         $response = Plugin::instance()->frontend->get_builder_content_for_display($post_id);
 
-        return $response;
+        return $response; 
     }
 }
 

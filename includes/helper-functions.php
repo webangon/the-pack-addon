@@ -10,6 +10,19 @@ function the_pack_html_escaped($html) {
     return wp_kses_post($html);
 }
 
+function tp_only_alpha_num($string){
+    if (!preg_match("/[^[:alnum:]_\/-]/",$string)) {
+        return $string;
+    }
+}
+
+function tp_allow_html_tag($string){
+    $allowed = ['h1','h2','h3','h4','h5','h6','p','span'];
+    if (in_array($string, $allowed)){
+        return $string;
+    }
+}
+
 function the_render_attribute($data,$value,$element){
 
     $value =  isset($value) && $value ? $value : '';
@@ -137,7 +150,6 @@ function thepack_get_that_link($link)
     $ext = isset($link['is_external']) && $link['is_external'] ? ' target= "_blank" ' : '';
     $nofollow = isset($link['nofollow']) && $link['nofollow'] ? ' rel= "nofollow" ' : '';
     $link = $url . $ext . $nofollow;
-
     return $link;
 }
 
@@ -161,15 +173,15 @@ function thepack_build_html($option, $tag = '', $cls = '')
     if ($option) {
         $class = $cls ? 'class=' . $cls . '' : '';
         if ($tag) {
-            return '<' . esc_attr($tag) . ' ' . esc_attr($class) . '>' . wp_kses_post($option) . '</' . esc_attr($tag) . '>';
+            return '<' . esc_attr($tag) . ' ' . esc_attr($class) . '>' . $option . '</' . esc_attr($tag) . '>';
         } else {
-            return wp_kses_post($option);
+            return $option;
         }
     }
 }
 
 function thepack_icon_svg($option, $class = '')
-{
+{ 
     if ($option['library'] == 'svg') {
         return wp_get_attachment_image(esc_attr($option['value']['id']), 'full');
     } else {
@@ -352,9 +364,11 @@ function thepack_overlay_link($url)
 
 function thepack_ft_images($id = '', $thumb = '')
 {
-    return wp_get_attachment_image($id, $thumb);
+    //return wp_get_attachment_image($id, $thumb);
+    $img_src = wp_get_attachment_image_url( $id, $thumb ); 
+    return '<img class="lazyload" data-src="'.$img_src.'" alt="" />';
 }
-
+ 
 function thepack_human_size_byte($bytes, $base = '1024')
 {
     if ($bytes == '0') {
@@ -609,4 +623,12 @@ function tp_show_video()
     echo wp_oembed_get($vid_url);
     exit();
 }
+
+add_filter( 'post_thumbnail_html', 'wpdd_modify_post_thumbnail_html', 10, 5 );
+
+function wpdd_modify_post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr )
+{
+    return str_replace( '<img', '<img loading="lazy"', $html );
+}
+
 
