@@ -19,7 +19,15 @@ class The_Pack_Woo_Product_Design extends Widget_Base
     {
         return 'tp_wooprode';
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_title()
     {
         return esc_html__('Product design', 'the-pack-addon');

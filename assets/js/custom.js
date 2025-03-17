@@ -81,12 +81,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider, options);
+                var swiper = new Swiper(slider[0], options);
             }
 
         });
@@ -133,12 +133,12 @@
             };
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper($(this), options).then((newSwiperInstance) => {
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper($(this), options);
+                var swiper = new Swiper($(this)[0], options);
             }
 
         });
@@ -163,12 +163,12 @@
             };
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper($(this), options).then((newSwiperInstance) => {
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper($(this), options);
+                var swiper = new Swiper($(this)[0], options);
             }
 
         });
@@ -289,12 +289,12 @@
             };
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider_elem, options);
+                var swiper = new Swiper(slider_elem[0], options);
             }
 
         });
@@ -342,12 +342,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider_elem, options);
+                var swiper = new Swiper(slider_elem[0], options);
             }
         });
     };
@@ -392,12 +392,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider_elem, options);
+                var swiper = new Swiper(slider_elem[0], options);
             }
 
         });
@@ -539,12 +539,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider_elem, options);
+                var swiper = new Swiper(slider_elem[0], options);
             }
         });
     };
@@ -585,12 +585,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper($(this), options).then((newSwiperInstance) => {
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper($(this), options);
+                var swiper = new Swiper($(this)[0], options);
             }
         });
     };
@@ -698,12 +698,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem, options).then((newSwiperInstance) => {
+                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(slider_elem, options);
+                var swiper = new Swiper(slider_elem[0], options);
             }
 
         });
@@ -996,12 +996,12 @@
 
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper($(this), options).then((newSwiperInstance) => {
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper($(this), options);
+                var swiper = new Swiper($(this)[0], options);
             }
 
 
@@ -1113,12 +1113,12 @@
             };
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(main_wrap, options).then((newSwiperInstance) => {
+                new asyncSwiper(main_wrap[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper(main_wrap, options);
+                var swiper = new Swiper(main_wrap[0], options);
             }
             if (jQuery().jarallax && settings['parallax']) {
                 $('.slide-bg-image').jarallax({ imgPosition: '0% ' + settings['bgpos'] + '%' });
@@ -1343,7 +1343,7 @@
             });
         });
     };
-
+ 
     var TpImgGallery = function ($scope, $) {
         $scope.find('.elementor-widget-container').each(function () {
             var settings = $(this).parent().data('tpimgallery');
@@ -1470,12 +1470,12 @@
             };
             if ('undefined' === typeof Swiper) {
                 const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper($(this), options).then((newSwiperInstance) => {
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
 
             } else {
-                var swiper = new Swiper($(this), options);
+                var swiper = new Swiper($(this)[0], options);
             }
 
         });

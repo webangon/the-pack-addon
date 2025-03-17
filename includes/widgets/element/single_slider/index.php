@@ -17,11 +17,19 @@ class thepack_galslk_sync extends Widget_Base
     {
         return 'tp_imgslide';
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_title()
     {
         return esc_html__('Image Slide', 'the-pack-addon');
-    }
+    } 
 
     public function get_icon()
     {

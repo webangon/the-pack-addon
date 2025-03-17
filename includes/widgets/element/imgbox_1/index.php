@@ -18,7 +18,15 @@ class thepack_imgbox1 extends Widget_Base
     {
         return 'tb_imgbox1';
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_title()
     {
         return esc_html__('Imagebox 1', 'the-pack-addon');

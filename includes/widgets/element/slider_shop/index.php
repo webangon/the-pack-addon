@@ -18,6 +18,16 @@ class thepack_slidershop extends Widget_Base
     {
         return 'tp-slidershop';
     }
+    
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
+
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
 
     public function get_title()
     {

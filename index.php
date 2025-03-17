@@ -7,7 +7,7 @@ Author: Webangon
 Author URI: https://webangon.com
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Version: 2.1.1
+Version: 2.1.2
 Text Domain: the-pack-addon
 Domain Path: /languages/
 */

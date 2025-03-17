@@ -23,7 +23,15 @@ class thepack_team1 extends Widget_Base
     {
         return esc_html__('Team 1', 'the-pack-addon');
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_icon()
     {
         return 'dashicons dashicons-post-status';

@@ -17,7 +17,15 @@ class thepack_full_slider_post extends Widget_Base
     {
         return 'tpfullslide';
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_title()
     {
         return esc_html__('Full slider', 'the-pack-addon');

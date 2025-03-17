@@ -17,7 +17,15 @@ class thepack_fsrnslk extends Widget_Base
     {
         return 'tp-fsslider';
     }
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
 
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
     public function get_title()
     {
         return esc_html__('Parallax Slide', 'the-pack-addon');
