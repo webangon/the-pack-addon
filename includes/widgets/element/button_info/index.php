@@ -64,7 +64,7 @@ class thepack_button_app extends Widget_Base
         $this->add_control(
             'flink',
             [
-                'label' => esc_html__('Link', 'elementor'),
+                'label' => esc_html__('Link', 'the-pack-addon'),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'http://your-link.com',
                 'default' => [
@@ -103,7 +103,7 @@ class thepack_button_app extends Widget_Base
         $this->add_control(
             'slink',
             [
-                'label' => esc_html__('Second button link', 'elementor'),
+                'label' => esc_html__('Second button link', 'the-pack-addon'),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'http://your-link.com',
                 'default' => [

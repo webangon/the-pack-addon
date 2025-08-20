@@ -55,7 +55,7 @@ class Taxonomy extends Condition_Base {
 				'section' => 'settings',
 				'type' => QueryModule::QUERY_CONTROL_ID,
 				'options' => [
-					'' => __( 'All', 'thepack' ),
+					'' => __( 'All', 'the-pack-addon'  ),
 				],
 				'autocomplete' => [
 					'object' => QueryModule::QUERY_OBJECT_TAX,

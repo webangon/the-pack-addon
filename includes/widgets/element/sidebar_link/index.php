@@ -79,7 +79,7 @@ class thepack_sidebar_link extends Widget_Base
         $repeater->add_control(
             'link',
             [
-                'label' => esc_html__('Link', 'elementor'),
+                'label' => esc_html__('Link', 'the-pack-addon' ),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'http://your-link.com',
                 'default' => [
@@ -147,7 +147,7 @@ class thepack_sidebar_link extends Widget_Base
                         'title' => esc_html__('Center', 'the-pack-addon'),
                         'icon' => 'eicon-v-align-top',
                     ],
-                    'flex-start' => [
+                    'flex-end' => [
                         'title' => esc_html__('End', 'the-pack-addon'),
                         'icon' => 'eicon-h-align-right',
                     ],

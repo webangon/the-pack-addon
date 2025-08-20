@@ -304,7 +304,7 @@ class thepack_breadcum extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        $delimiter = $settings['del_type'] == 'text' ? $settings['del'] : the_pack_render_icon($settings['del_icon'], 'tp-icon');
+        $delimiter = $settings['del_type'] == 'text' ? $settings['del'] : the_pack_render_icon($settings['del_icon'], 'tp-icon'); 
         $args = [
             'home' => $settings['hme'],
             'author_archive' => $settings['auarc'],

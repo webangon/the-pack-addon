@@ -26,11 +26,11 @@ class Singular extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Singular', 'thepack' );
+		return __( 'Singular', 'the-pack-addon'  );
 	}
 
 	public function get_all_label() {
-		return __( 'All Singular', 'thepack' );
+		return __( 'All Singular', 'the-pack-addon'  );
 	}
 
 	public function register_sub_conditions() {

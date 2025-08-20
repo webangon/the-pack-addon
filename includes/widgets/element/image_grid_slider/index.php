@@ -77,7 +77,7 @@ class The_Pack_Image_Grid_Slider extends Widget_Base
         $repeater1->add_control(
             'color',
             [
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'type' => Controls_Manager::COLOR,
                 'label_block' => true,
                 'selectors' => [
@@ -316,7 +316,7 @@ class The_Pack_Image_Grid_Slider extends Widget_Base
         $this->add_control(
             'h_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -357,7 +357,7 @@ class The_Pack_Image_Grid_Slider extends Widget_Base
         $this->add_control(
             'desc_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

@@ -5,6 +5,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\utils;
 
 if (!defined('ABSPATH')) {
@@ -12,7 +13,7 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 class thepack_testim_1 extends Widget_Base
-{
+{ 
     public function get_name()
     {
         return 'tb_testim_1';
@@ -64,6 +65,10 @@ class thepack_testim_1 extends Widget_Base
                         'title' => esc_html__('Text clip', 'the-pack-addon'),
                         'icon' => 'eicon-image',
                     ],
+                    'three' => [
+                        'title' => esc_html__('Text clip', 'the-pack-addon'),
+                        'icon' => 'eicon-image',
+                    ],                    
                 ],
                 'default' => 'one',
             ]
@@ -187,6 +192,19 @@ class thepack_testim_1 extends Widget_Base
         );
 
         $this->add_control(
+            'disp',
+            [
+                'label' => esc_html__('Vertical', 'thepackpro'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'thepackpro'),
+                'label_off' => esc_html__('No', 'thepackpro'),
+                'return_value' => 'slider',
+                'default' => 'slider',
+                'classes' =>'hidden-control'
+            ]
+        );
+
+        $this->add_control(
             'align',
             [
                 'label' => esc_html__('Alignment', 'the-pack-addon'),
@@ -219,6 +237,15 @@ class thepack_testim_1 extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .items-wrap' => 'background: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'hbxdw',
+                'label' => esc_html__('Box shadow', 'the-pack-addon'),
+                'selector' => '{{WRAPPER}} .items-wrap',
             ]
         );
 
@@ -282,7 +309,7 @@ class thepack_testim_1 extends Widget_Base
         $this->start_controls_tab(
             'qt1',
             [
-                'label' => esc_html__('Title', 'xltab'),
+                'label' => esc_html__('Title', 'the-pack-addon' ),
             ]
         );
 
@@ -300,7 +327,7 @@ class thepack_testim_1 extends Widget_Base
         $this->add_control(
             'h_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -323,7 +350,7 @@ class thepack_testim_1 extends Widget_Base
         $this->start_controls_tab(
             'qt2',
             [
-                'label' => esc_html__('Rating', 'xltab'),
+                'label' => esc_html__('Rating', 'the-pack-addon' ),
             ]
         );
 
@@ -365,7 +392,7 @@ class thepack_testim_1 extends Widget_Base
         $this->start_controls_tab(
             'qt3',
             [
-                'label' => esc_html__('Content', 'xltab'),
+                'label' => esc_html__('Content', 'the-pack-addon' ),
             ]
         );
         $this->add_control(
@@ -382,7 +409,7 @@ class thepack_testim_1 extends Widget_Base
         $this->add_control(
             'q_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -459,6 +486,16 @@ class thepack_testim_1 extends Widget_Base
                 ],
             ]
         );
+        $this->add_responsive_control(
+            'qifs',
+            [
+                'label' => esc_html__('Size', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .items .tpquote' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->add_responsive_control(
             'qiht',
@@ -480,17 +517,48 @@ class thepack_testim_1 extends Widget_Base
                     'px' => [
                         'min' => -400,
                         'max' => 400,
-                        'step' => 1,
                     ],
 
                 ],
-                'size_units' => ['%', 'px'],
                 'selectors' => [
                     '{{WRAPPER}} .items .tpquote' => 'top: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
+        $this->add_responsive_control(
+            'qibts',
+            [
+                'label' => esc_html__('Bottom spacing', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -400,
+                        'max' => 400,
+                    ],
 
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .items .tpquote' => 'bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'qirss',
+            [
+                'label' => esc_html__('Right spacing', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -400,
+                        'max' => 400,
+                    ],
+
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .items .tpquote' => 'right: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -506,7 +574,7 @@ class thepack_testim_1 extends Widget_Base
         $this->start_controls_tab(
             'av1',
             [
-                'label' => esc_html__('Thumb', 'xltab'),
+                'label' => esc_html__('Thumb', 'the-pack-addon' ),
             ]
         );
 
@@ -595,7 +663,7 @@ class thepack_testim_1 extends Widget_Base
         $this->start_controls_tab(
             'av2',
             [
-                'label' => esc_html__('Content', 'xltab'),
+                'label' => esc_html__('Content', 'the-pack-addon' ),
             ]
         );
 
@@ -635,7 +703,7 @@ class thepack_testim_1 extends Widget_Base
         $this->add_responsive_control(
             'pos_pad',
             [
-                'label' => esc_html__('Position Padding', 'elementor'),
+                'label' => esc_html__('Position Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -665,387 +733,11 @@ class thepack_testim_1 extends Widget_Base
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
-
+ 
         $this->end_controls_section();
 
-        $this->start_controls_section(
-            'section_carou',
-            [
-                'label' => esc_html__('Carousel', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
+        do_action('the_pack_swiper_control', $this,true);
 
-        $this->add_responsive_control(
-            'swbpd',
-            [
-                'label' => esc_html__('Bottom padding', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 500,
-                        'step' => 1,
-                    ],
-
-                ],
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-container' => 'padding-bottom:{{SIZE}}{{UNIT}};',
-                ],
-
-            ]
-        );
-
-        $this->add_control(
-            'fcwe',
-            [
-                'label' => esc_html__('Full width carousel', 'the-pack-addon'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'hidden' => [
-                        'title' => esc_html__('Hidden', 'the-pack-addon'),
-                        'icon' => 'eicon-tabs',
-                    ],
-                    'inherit' => [
-                        'title' => esc_html__('Inherit', 'the-pack-addon'),
-                        'icon' => 'eicon-text-field',
-                    ]
-
-                ],
-                'default' => 'hidden',                
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-container' => 'overflow:{{VALUE}};',
-                ], 
-            ]
-        );
-
-        $this->add_control(
-            'arrow',
-            [
-                'label' => esc_html__('Hide arrow', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'selectors' => [
-                    '{{WRAPPER}} .tp-arrow' => 'display:none;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dot',
-            [
-                'label' => esc_html__('Hide dot', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination' => 'display:none !important;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'auto',
-            [
-                'label' => esc_html__('Autoplay', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'speed',
-            [
-                'label' => esc_html__('Slide speed', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'condition' => [
-                    'auto' => 'yes',
-                ],
-                'default' => [
-                    'size' => 2000,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 8000,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-            ]
-        );
-
-        $this->add_control(
-            'space',
-            [
-                'label' => esc_html__('Spacing', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 10,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 500,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-            ]
-        );
-
-        $this->add_control(
-            'item',
-            [
-                'label' => esc_html__('Items', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 10,
-                        'step' => 1,
-                    ],
-                ],
-                'default' => [
-                    'size' => 3,
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'itemtab',
-            [
-                'label' => esc_html__('Items tablet', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 10,
-                        'step' => 1,
-                    ],
-                ],
-                'default' => [
-                    'size' => 2,
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_arow',
-            [
-                'label' => esc_html__('Arrow', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'arrow!' => 'yes',
-                ],
-            ]
-        );
-        $this->add_control(
-            'previkn',
-            [
-                'label' => esc_html__('Previous icon', 'the-pack-addon'),
-                'type' => Controls_Manager::ICONS,
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'nextikn',
-            [
-                'label' => esc_html__('Next icon', 'the-pack-addon'),
-                'type' => Controls_Manager::ICONS,
-                'label_block' => true,
-            ]
-        );
-        $this->add_responsive_control(
-            'ar_wh',
-            [
-                'label' => esc_html__('Width & height', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arbg',
-            [
-                'label' => esc_html__('Background', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arclr',
-            [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arhbg',
-            [
-                'label' => esc_html__('Hover background', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx:hover' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arhclr',
-            [
-                'label' => esc_html__('Hover color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dbclr',
-            [
-                'label' => esc_html__('Border color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'border:1px solid {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'arrad',
-            [
-                'label' => esc_html__('Border radius', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'arfx',
-            [
-                'label' => esc_html__('Font size', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .khbprnx' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_caroucs',
-            [
-                'label' => esc_html__('Dot', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'dot!' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dal',
-            [
-                'label' => esc_html__('Alignment', 'the-pack-addon'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'the-pack-addon'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-right',
-                    ]
-                ],
-                'default' => 'center',
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'dot_sp',
-            [
-                'label' => esc_html__('Spacing', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination-bullets .swiper-pagination-bulle' => 'margin:0px {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'dvp',
-            [
-                'label' => esc_html__('Vertical position', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => -500,
-                        'max' => 500,
-                        'step' => 1,
-                    ],
-
-                ],
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination' => 'bottom:{{SIZE}}{{UNIT}};',
-                ],
-
-            ]
-        );
-
-        $this->add_control(
-            'dt-m',
-            [
-                'label' => esc_html__('Main color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination span' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dt-s',
-            [
-                'label' => esc_html__('Active color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .swiper-pagination span.swiper-pagination-bullet-active' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
     }
 
     protected function render()

@@ -11,7 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<# screens.forEach( function( screen ) { #>
 		<div class="elementor-publish__tab" data-screen="{{ screen.name }}">
 			<div class="elementor-publish__tab__image">
-				<img src="{{ screen.image }}">
+				<?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
+				<img src="{{ screen.image }}"> 
 			</div>
 			<div class="elementor-publish__tab__content">
 				<div class="elementor-publish__tab__title">{{{ screen.title }}}</div>
@@ -30,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<# jQuery.each( tabs, ( tab, args ) => { #>
 		<div class="elementor-component-tab elementor-publish__tab" data-tab="{{ tab }}">
 			<div class="elementor-publish__tab__image">
+				<?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
 				<img src="{{ args.image }}">
 			</div>
 			<div class="elementor-publish__tab__content">
@@ -45,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-elementor-theme-builder-conditions-view">
 	<div class="elementor-template-library-blank-icon">
+		<?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
 		<img src="<?php echo esc_url(thepack_kit()->plugin_url('includes/modules/theme-builder/assets/images/conditions-tab.svg')); ?>">
 	</div>
 	<div class="elementor-template-library-blank-title">{{{ LaStudioKitPro.translate( 'conditions_title', [ elementor.config.document.post_type_title ] ) }}}</div>
@@ -58,24 +61,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="elementor-theme-builder-conditions-repeater-row-controls"></div>
 	<div class="elementor-repeater-row-tool elementor-repeater-tool-remove">
 		<i class="eicon-close" aria-hidden="true"></i>
-		<span class="elementor-screen-only"><?php esc_html_e( 'Remove this item', 'thepack' ); ?></span>
+		<span class="elementor-screen-only"><?php esc_html_e( 'Remove this item', 'the-pack-addon'  ); ?></span>
 	</div>
 </script>
 
 <script type="text/template" id="tmpl-elementor-theme-builder-button-preview">
-	<i class="eicon-preview-medium tooltip-target" aria-hidden="true"  data-tooltip="<?php esc_attr_e( 'Preview Changes', 'thepack' ); ?>"></i>
+	<i class="eicon-preview-medium tooltip-target" aria-hidden="true"  data-tooltip="<?php esc_attr_e( 'Preview Changes', 'the-pack-addon'  ); ?>"></i>
 	<span class="elementor-screen-only">
-		<?php esc_attr_e( 'Preview Changes', 'thepack' ); ?>
+		<?php esc_attr_e( 'Preview Changes', 'the-pack-addon'  ); ?>
 	</span>
 	<div class="elementor-panel-footer-sub-menu-wrapper">
 		<div class="elementor-panel-footer-sub-menu">
 			<div onclick="$e.run( 'theme-builder-publish/preview-settings' );" id="elementor-panel-footer-theme-builder-button-preview-settings" class="elementor-panel-footer-sub-menu-item">
 				<i class="eicon-wrench" aria-hidden="true"></i>
-				<span class="elementor-title"><?php esc_html_e( 'Settings', 'thepack' ); ?></span>
+				<span class="elementor-title"><?php esc_html_e( 'Settings', 'the-pack-addon'  ); ?></span>
 			</div>
 			<div onclick="$e.run( 'editor/documents/preview', { id: elementor.documents.getCurrent().id, force: true } );" id="elementor-panel-footer-theme-builder-button-open-preview" class="elementor-panel-footer-sub-menu-item">
 				<i class="eicon-editor-external-link" aria-hidden="true"></i>
-				<span class="elementor-title"><?php esc_html_e( 'Preview', 'thepack' ); ?></span>
+				<span class="elementor-title"><?php esc_html_e( 'Preview', 'the-pack-addon'  ); ?></span>
 			</div>
 		</div>
 	</div>

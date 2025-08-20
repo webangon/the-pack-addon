@@ -26,7 +26,7 @@ foreach ($settings['items'] as $item) {
 
 ?>
 
-<?php echo '<div class="testi5-container" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
+<?php echo '<div class="testi5-container" data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'>'; ?>
 <div style="display:none" class="testi5wrap style-two">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo thepack_build_html($out); ?>

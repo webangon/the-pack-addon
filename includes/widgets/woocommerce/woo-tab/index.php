@@ -80,10 +80,10 @@ class Woo_Product_Tabs extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
 				'options' => [
-					'woocommerce_product_description_tab' => esc_html__( 'Description', 'textdomain' ),
-					'tp_woo_comments_template' => esc_html__( 'Reviews', 'textdomain' ),
-                    'woocommerce_product_additional_information_tab' => esc_html__( 'Additional information', 'textdomain' ),
-					'template' => esc_html__( 'Elementor template', 'textdomain' ),
+					'woocommerce_product_description_tab' => esc_html__( 'Description', 'the-pack-addon'  ),
+					'tp_woo_comments_template' => esc_html__( 'Reviews', 'the-pack-addon'  ),
+                    'woocommerce_product_additional_information_tab' => esc_html__( 'Additional information', 'the-pack-addon'  ),
+					'template' => esc_html__( 'Elementor template', 'the-pack-addon'  ),
 				],				
             ]
         );
@@ -713,7 +713,7 @@ class Woo_Product_Tabs extends Widget_Base {
         $settings = $this->get_settings();
         global $product;
         $this->the_hooks($settings);
-        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field($_GET['preview']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field(wp_unslash($_GET['preview'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
         if (Plugin::instance()->editor->is_edit_mode() | $preview == 'true' ) {
             $this->product_page_script();
             $product = wc_get_product($settings['preview']);

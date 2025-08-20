@@ -1,0 +1,68 @@
+.tp-line-animated {
+    width:100vw;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.tp-line-animated>span {
+    width: 1px;
+    height: 100%;
+    position: relative;
+    left: 0%;
+    top: 0
+}
+
+.tp-line-animated>span:before {
+    content: "";
+    width: 1px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: -1;
+    animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: bottom-top;
+    animation-name: bottom-top
+}
+
+.tp-line-animated>span:nth-child(even):before {
+    content: "";
+    -webkit-animation-name: top-bottom;
+    animation-name: top-bottom
+}
+
+
+.tp-line-animated>span:nth-child(odd):before {
+    content: "";
+    -webkit-animation-name: bottom-top;
+    animation-name: bottom-top
+}
+
+@keyframes top-bottom {
+    from {
+        top: 0
+    }
+    to {
+        top: 100%
+    }
+}
+
+@keyframes bottom-top {
+    from {
+        top: 100%
+    }
+    to {
+        top: 0
+    }
+} 

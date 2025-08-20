@@ -4,7 +4,7 @@ namespace ThePackAddon\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Utils;
 
@@ -295,6 +295,7 @@ class thepack_nav_menu extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .tp-menu-wrap>li>a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .drop-icon path' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -333,6 +334,27 @@ class thepack_nav_menu extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'chwpt',
+            [
+                'label' => esc_html__('Wrapper padding', 'the-pack-addon'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'selectors' => [
+                    '{{WRAPPER}} .sub-menu' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'chbrd',
+            [
+                'label' => esc_html__('Border radius', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .sub-menu' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_responsive_control(
             'chwid',
             [
@@ -381,7 +403,16 @@ class thepack_nav_menu extends Widget_Base
             ]
         );
 
-                $this->start_controls_tabs('csty');
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'sbxd',
+                'selector' => '{{WRAPPER}} .sub-menu',
+                'label' => esc_html__('Box shadow', 'the-pack-addon'),
+            ]
+        );
+
+        $this->start_controls_tabs('csty');
 
         $this->start_controls_tab(
             'c1',

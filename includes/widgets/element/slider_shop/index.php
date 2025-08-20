@@ -172,7 +172,7 @@ class thepack_slidershop extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'overlay_color',
-                'label' => esc_html__('Overlay', 'elementor'),
+                'label' => esc_html__('Overlay', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .tbcontent:after,{{WRAPPER}} .two .inner',
             ]
@@ -257,7 +257,7 @@ class thepack_slidershop extends Widget_Base
         $this->add_responsive_control(
             'cpd',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -269,7 +269,7 @@ class thepack_slidershop extends Widget_Base
         $this->add_responsive_control(
             'cmr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -342,7 +342,7 @@ class thepack_slidershop extends Widget_Base
         $this->add_responsive_control(
             't_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -383,7 +383,7 @@ class thepack_slidershop extends Widget_Base
         $this->add_control(
             'd_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

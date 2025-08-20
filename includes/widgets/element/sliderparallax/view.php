@@ -1,11 +1,11 @@
 <?php
 
 $slider_options = [
-    'speed' => $settings['speed']['size'],
+    'speed' => esc_attr($settings['speed']['size']),
     'arrow' => ('yes' === $settings['arrow']),
     'auto' => ('yes' === $settings['auto']),
-    'parallax' => $settings['prlx'],
-    'bgpos' => $settings['bgpos']['size'],
+    'parallax' => esc_attr($settings['prlx']),
+    'bgpos' => esc_attr($settings['bgpos']['size']),
 ];
 
 $previkn = $settings['picon']['value'] && $settings['arrow'] ? '<div class="swiper-button-prev prnx"><i class="' . $settings['picon']['value'] . '"></i></div>' : '';
@@ -17,7 +17,7 @@ foreach ($settings['lists'] as $item) {
     $btn1 = $item['btn1'] ? '<a ' . thepack_get_that_link($item['url1']) . '>' . $item['btn1'] . '</a>' : '';
     $btn2 = $item['btn2'] ? '<a ' . thepack_get_that_link($item['url2']) . '>' . $item['btn2'] . '</a>' : '';
     $main .= '
-              <div class="swiper-slide  elementor-repeater-item-' . $item['_id'] . '">
+              <div class="swiper-slide  elementor-repeater-item-' . esc_attr($item['_id']) . '">
                 <div class="slide-inner">
                   <div ' . $img . ' class="slide-bg-image"></div>
                   <div class="content-wrap"><div class="content-inner">
@@ -34,7 +34,7 @@ foreach ($settings['lists'] as $item) {
         ';
 }
 
-echo '<div class="tp-main-slider ' . esc_attr($settings['trnsl']) . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>';
+echo '<div class="tp-main-slider ' . esc_attr($settings['trnsl']) . '" data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'>';
 ?>
 <div class="swiper-container">
     <div class="swiper-wrapper">

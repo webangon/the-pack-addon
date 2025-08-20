@@ -122,12 +122,12 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 
 			    $this->current_action_id = 'error';
 
-			    $this->add_response_data( false, esc_html__( 'Token Expired.', 'thepack' ) )
+			    $this->add_response_data( false, esc_html__( 'Token Expired.', 'the-pack-addon'  ) )
 			         ->send_error( 401 );
 		    }
 			//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		    if(empty($_REQUEST['actions'])){ 
-			    $this->add_response_data( false, esc_html__( 'Action not found.', 'thepack' ) )
+			    $this->add_response_data( false, esc_html__( 'Action not found.', 'the-pack-addon'  ) )
 			         ->send_error( 401 );
 		    }
 
@@ -144,10 +144,10 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 		     */
 		    do_action( 'thepack-kit/ajax/register_actions', $this );
 			//phpcs:disable WordPress.Security.NonceVerification.Recommended
-		    $this->requests = json_decode( stripslashes( $_REQUEST['actions'] ), true );
-
-		    if(empty($this->requests)){
-			    $this->add_response_data( false, esc_html__( 'Action not found.', 'thepack' ) )
+		    $this->requests = json_decode( stripslashes( sanitize_text_field(wp_unslash($_REQUEST['actions'])) ), true );
+ 
+		    if(empty($this->requests)){ 
+			    $this->add_response_data( false, esc_html__( 'Action not found.', 'the-pack-addon'  ) )
 			         ->send_error( 401 );
 		    }
 
@@ -155,7 +155,7 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 			    $this->current_action_id = $id;
 
 			    if ( ! isset( $this->ajax_actions[ $action_data['action'] ] ) ) {
-				    $this->add_response_data( false, esc_html__( 'Action not found.', 'thepack' ), 400 );
+				    $this->add_response_data( false, esc_html__( 'Action not found.', 'the-pack-addon'  ), 400 );
 
 				    continue;
 			    }
@@ -222,7 +222,7 @@ if (!class_exists('Thepack_Kit_Ajax_Manager')) {
 	     * @return bool True if request nonce verified, False otherwise.
 	     */
 	    public function verify_request_nonce() {
-		    return ! empty( $_REQUEST['_nonce'] ) && wp_verify_nonce( $_REQUEST['_nonce'], self::NONCE_KEY );
+		    return ! empty( $_REQUEST['_nonce'] ) && wp_verify_nonce( sanitize_text_field(wp_unslash($_REQUEST['_nonce'])), self::NONCE_KEY );
 	    }
 
 	    /**

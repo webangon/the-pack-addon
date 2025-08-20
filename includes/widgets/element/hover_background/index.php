@@ -219,7 +219,7 @@ class thepack_folio_hover extends Widget_Base
         $this->add_responsive_control(
             'box-spacing',
             [
-                'label' => esc_html__('Box spacing', 'elementor'),
+                'label' => esc_html__('Box spacing', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -296,7 +296,7 @@ class thepack_folio_hover extends Widget_Base
         $this->add_responsive_control(
             'itmpads',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em'],
                 /*'allowed_dimensions'=>['left','right'],*/
@@ -319,7 +319,7 @@ class thepack_folio_hover extends Widget_Base
         $this->add_control(
             't_mar',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

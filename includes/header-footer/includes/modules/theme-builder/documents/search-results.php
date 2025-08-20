@@ -20,7 +20,7 @@ class Search_Results extends Archive {
 	}
 
 	public static function get_title() {
-		return __( 'Search Results', 'thepack' );
+		return __( 'Search Results', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -29,9 +29,9 @@ class Search_Results extends Archive {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a Search Results Template?', 'thepack' ),
-			'content' => __( 'You can easily control the layout and design of the Search Results page with the Search Results template, which is simply a special archive template just for displaying search results.', 'thepack' ),
-			'tip' => __( 'You can customize the message if there are no results for the search term.', 'thepack' ),
+			'title' => __( 'What is a Search Results Template?', 'the-pack-addon'  ),
+			'content' => __( 'You can easily control the layout and design of the Search Results page with the Search Results template, which is simply a special archive template just for displaying search results.', 'the-pack-addon'  ),
+			'tip' => __( 'You can customize the message if there are no results for the search term.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-search-results',
 			'video_url' => 'https://www.youtube.com/embed/KKkIU_L5sDo',
 		];
@@ -43,12 +43,12 @@ class Search_Results extends Archive {
 
 	public static function get_preview_as_options() {
 		$options = [
-			'search' => __( 'Search Results', 'thepack' ),
+			'search' => __( 'Search Results', 'the-pack-addon'  ),
 		];
 
 		return [
 			'archive' => [
-				'label' => __( 'Archive', 'thepack' ),
+				'label' => __( 'Archive', 'the-pack-addon'  ),
 				'options' => $options,
 			],
 		];

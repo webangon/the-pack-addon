@@ -25,9 +25,9 @@ class Conditions_Repeater extends Control_Repeater {
 					'type' => Controls_Manager::SELECT,
 					'default' => 'include',
 					'options' => [
-						'include' => __( 'Include', 'thepack' ),
+						'include' => __( 'Include', 'the-pack-addon'  ),
 						//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
-						'exclude' => __( 'Exclude', 'thepack' ),
+						'exclude' => __( 'Exclude', 'the-pack-addon'  ),
 					],
 				],
 				[
@@ -36,7 +36,7 @@ class Conditions_Repeater extends Control_Repeater {
 					'default' => 'general',
 					'groups' => [
 						[
-							'label' => __( 'General', 'thepack' ),
+							'label' => __( 'General', 'the-pack-addon'  ),
 							'options' => [],
 						],
 					],
@@ -45,7 +45,7 @@ class Conditions_Repeater extends Control_Repeater {
 					'name' => 'sub_name',
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'' => __( 'All', 'thepack' ),
+						'' => __( 'All', 'the-pack-addon'  ),
 					],
 					'conditions' => [
 						'terms' => [
@@ -61,7 +61,7 @@ class Conditions_Repeater extends Control_Repeater {
 					'name' => 'sub_id',
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'' => __( 'All', 'thepack' ),
+						'' => __( 'All', 'the-pack-addon'  ),
 					],
 					'conditions' => [
 						'terms' => [

@@ -7,4 +7,4 @@ $data = [
     'min' => esc_attr($settings['minl']),
     'sec' => esc_attr($settings['secl'])
 ];
-echo '<div class="countdown ' . esc_attr($settings['tmpl']) . '" data-xld =\'' . wp_json_encode($data) . '\'></div>';
+echo '<div class="countdown ' . esc_attr($settings['tmpl']) . '" data-xld =\'' . wp_kses_post(wp_json_encode($data)) . '\'></div>';

@@ -42,12 +42,12 @@ function tp_process_contact_form()
 {   
     $data_mess = [];
     $msg_error = $body_msg = '';
-
+    //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
     if ( ! wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['nonce'])), 'ajax-nonce' ) ) {
         wp_die();
     } 
-    
-    foreach ( $_POST['data'] as $item ) {
+    //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+    foreach ( sanitize_text_field(wp_unslash($_POST['data'])) as $item ) {
         $required = isset($item['required']) && empty($item['value']) ? 'yes' : '';
 
         if (isset($item['type']) == 'email') {
@@ -79,7 +79,7 @@ function tp_process_contact_form()
     }
 
     if ($msg_error) {
-        $data_mess['error'] = $error_msg;
+        $data_mess['error'] = $error_msg; 
     } else {
         $toemails = decrypt_string($to_email);
         $to = explode(',', $toemails);

@@ -16,7 +16,7 @@ class Contact_URL extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Contact URL', 'thepack' );
+		return esc_html__( 'Contact URL', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -31,21 +31,21 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'link_type',
 			[
-				'label' => esc_html__( 'Type', 'thepack' ),
+				'label' => esc_html__( 'Type', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => '— ' . esc_html__( 'Select', 'thepack' ) . ' —',
-					'email' => esc_html__( 'Email', 'thepack' ),
-					'tel' => esc_html__( 'Tel', 'thepack' ),
-					'sms' => esc_html__( 'SMS', 'thepack' ),
-					'whatsapp' => esc_html__( 'WhatsApp', 'thepack' ),
-					'skype' => esc_html__( 'Skype', 'thepack' ),
-					'messenger' => esc_html__( 'Messenger', 'thepack' ),
-					'viber' => esc_html__( 'Viber', 'thepack' ),
-					'waze' => esc_html__( 'Waze', 'thepack' ),
-					'google_calendar' => esc_html__( 'Google Calendar', 'thepack' ),
-					'outlook_calendar' => esc_html__( 'Outlook Calendar', 'thepack' ),
-					'yahoo_calendar' => esc_html__( 'Yahoo Calendar', 'thepack' ),
+					'' => '— ' . esc_html__( 'Select', 'the-pack-addon'  ) . ' —',
+					'email' => esc_html__( 'Email', 'the-pack-addon'  ),
+					'tel' => esc_html__( 'Tel', 'the-pack-addon'  ),
+					'sms' => esc_html__( 'SMS', 'the-pack-addon'  ),
+					'whatsapp' => esc_html__( 'WhatsApp', 'the-pack-addon'  ),
+					'skype' => esc_html__( 'Skype', 'the-pack-addon'  ),
+					'messenger' => esc_html__( 'Messenger', 'the-pack-addon'  ),
+					'viber' => esc_html__( 'Viber', 'the-pack-addon'  ),
+					'waze' => esc_html__( 'Waze', 'the-pack-addon'  ),
+					'google_calendar' => esc_html__( 'Google Calendar', 'the-pack-addon'  ),
+					'outlook_calendar' => esc_html__( 'Outlook Calendar', 'the-pack-addon'  ),
+					'yahoo_calendar' => esc_html__( 'Yahoo Calendar', 'the-pack-addon'  ),
 				],
 			]
 		);
@@ -53,7 +53,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_to',
 			[
-				'label' => esc_html__( 'Email', 'thepack' ),
+				'label' => esc_html__( 'Email', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => 'email',
@@ -64,7 +64,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_subject',
 			[
-				'label' => esc_html__( 'Subject', 'thepack' ),
+				'label' => esc_html__( 'Subject', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -76,7 +76,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'mail_body',
 			[
-				'label' => esc_html__( 'Message', 'thepack' ),
+				'label' => esc_html__( 'Message', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXTAREA,
 				'condition' => [
 					'link_type' => 'email',
@@ -87,7 +87,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'tel_number',
 			[
-				'label' => esc_html__( 'Number', 'thepack' ),
+				'label' => esc_html__( 'Number', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => [
@@ -103,7 +103,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'username',
 			[
-				'label' => esc_html__( 'Username', 'thepack' ),
+				'label' => esc_html__( 'Username', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'link_type' => [ 'skype', 'messenger' ],
@@ -114,11 +114,11 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'viber_action',
 			[
-				'label' => esc_html__( 'Action', 'thepack' ),
+				'label' => esc_html__( 'Action', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'contact' => esc_html__( 'Contact', 'thepack' ),
-					'add' => esc_html__( 'Add', 'thepack' ),
+					'contact' => esc_html__( 'Contact', 'the-pack-addon'  ),
+					'add' => esc_html__( 'Add', 'the-pack-addon'  ),
 				],
 				'default' => 'contact',
 				'condition' => [
@@ -130,14 +130,14 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'skype_action',
 			[
-				'label' => esc_html__( 'Action', 'thepack' ),
+				'label' => esc_html__( 'Action', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'call' => esc_html__( 'Call', 'thepack' ),
-					'chat' => esc_html__( 'Chat', 'thepack' ),
-					'userinfo' => esc_html__( 'Show Profile', 'thepack' ),
-					'add' => esc_html__( 'Add to Contacts', 'thepack' ),
-					'voicemail' => esc_html__( 'Send Voice Mail', 'thepack' ),
+					'call' => esc_html__( 'Call', 'the-pack-addon'  ),
+					'chat' => esc_html__( 'Chat', 'the-pack-addon'  ),
+					'userinfo' => esc_html__( 'Show Profile', 'the-pack-addon'  ),
+					'add' => esc_html__( 'Add to Contacts', 'the-pack-addon'  ),
+					'voicemail' => esc_html__( 'Send Voice Mail', 'the-pack-addon'  ),
 				],
 				'default' => 'call',
 				'condition' => [
@@ -149,7 +149,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'waze_address',
 			[
-				'label' => esc_html__( 'Location', 'thepack' ),
+				'label' => esc_html__( 'Location', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -161,7 +161,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_title',
 			[
-				'label' => esc_html__( 'Title', 'thepack' ),
+				'label' => esc_html__( 'Title', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -177,7 +177,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_description',
 			[
-				'label' => esc_html__( 'Description', 'thepack' ),
+				'label' => esc_html__( 'Description', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXTAREA,
 				'condition' => [
 					'link_type' => [
@@ -192,7 +192,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_location',
 			[
-				'label' => esc_html__( 'Location', 'thepack' ),
+				'label' => esc_html__( 'Location', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition' => [
@@ -208,7 +208,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_start_date',
 			[
-				'label' => esc_html__( 'Start', 'thepack' ),
+				'label' => esc_html__( 'Start', 'the-pack-addon'  ),
 				'type' => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'link_type' => [
@@ -223,7 +223,7 @@ class Contact_URL extends Tag {
 		$this->add_control(
 			'event_end_date',
 			[
-				'label' => esc_html__( 'End', 'thepack' ),
+				'label' => esc_html__( 'End', 'the-pack-addon'  ),
 				'type' => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'link_type' => [

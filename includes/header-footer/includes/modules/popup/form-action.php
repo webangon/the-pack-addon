@@ -17,14 +17,14 @@ class Form_Action extends Action_Base {
 	}
 
 	public function get_label() {
-		return esc_html__( 'Popup', 'thepack' );
+		return esc_html__( 'Popup', 'the-pack-addon'  );
 	}
 
 	public function register_settings_section( $widget ) {
 		$widget->start_controls_section(
 			'section_popup',
 			[
-				'label' => esc_html__( 'Popup', 'thepack' ),
+				'label' => esc_html__( 'Popup', 'the-pack-addon'  ),
 				'condition' => [
 					'submit_actions' => $this->get_name(),
 				],
@@ -34,12 +34,12 @@ class Form_Action extends Action_Base {
 		$widget->add_control(
 			'popup_action',
 			[
-				'label' => esc_html__( 'Action', 'thepack' ),
+				'label' => esc_html__( 'Action', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Choose', 'thepack' ),
-					'open' => esc_html__( 'Open Popup', 'thepack' ),
-					'close' => esc_html__( 'Close Popup', 'thepack' ),
+					'' => esc_html__( 'Choose', 'the-pack-addon'  ),
+					'open' => esc_html__( 'Open Popup', 'the-pack-addon'  ),
+					'close' => esc_html__( 'Close Popup', 'the-pack-addon'  ),
 				],
 			]
 		);
@@ -47,7 +47,7 @@ class Form_Action extends Action_Base {
 		$widget->add_control(
 			'popup_action_popup_id',
 			[
-				'label' => esc_html__( 'Popup', 'thepack' ),
+				'label' => esc_html__( 'Popup', 'the-pack-addon'  ),
 				'type' => QueryControlModule::QUERY_CONTROL_ID,
 				'label_block' => true,
 				'autocomplete' => [
@@ -72,7 +72,7 @@ class Form_Action extends Action_Base {
 		$widget->add_control(
 			'popup_action_do_not_show_again',
 			[
-				'label' => esc_html__( 'Don\'t Show Again', 'thepack' ),
+				'label' => esc_html__( 'Don\'t Show Again', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
 					'popup_action' => 'close',

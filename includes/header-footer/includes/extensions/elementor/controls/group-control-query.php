@@ -41,11 +41,11 @@ class Group_Control_Query extends Group_Control_Base {
 		$fields = [];
 
 		$fields['post_type'] = [
-			'label' => __( 'Source', 'thepack' ),
+			'label' => __( 'Source', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'options' => [
-				'by_id' => __( 'Manual Selection', 'thepack' ),
-				'current_query' => __( 'Current Query', 'thepack' ),
+				'by_id' => __( 'Manual Selection', 'the-pack-addon'  ),
+				'current_query' => __( 'Current Query', 'the-pack-addon'  ),
 			],
 		];
 
@@ -59,7 +59,7 @@ class Group_Control_Query extends Group_Control_Base {
 
 		$fields['query_include'] = [
 			'type' => Controls_Manager::TAB,
-			'label' => __( 'Include', 'thepack' ),
+			'label' => __( 'Include', 'the-pack-addon'  ),
 			'tabs_wrapper' => $tabs_wrapper,
 			'condition' => [
 				'post_type!' => [
@@ -70,7 +70,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['posts_ids'] = [
-			'label' => __( 'Search & Select', 'thepack' ),
+			'label' => __( 'Search & Select', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -86,12 +86,12 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['include'] = [
-			'label' => __( 'Include By', 'thepack' ),
+			'label' => __( 'Include By', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT2,
 			'multiple' => true,
 			'options' => [
-				'terms' => __( 'Term', 'thepack' ),
-				'authors' => __( 'Author', 'thepack' ),
+				'terms' => __( 'Term', 'the-pack-addon'  ),
+				'authors' => __( 'Author', 'the-pack-addon'  ),
 			],
 			'condition' => [
 				'post_type!' => [
@@ -105,7 +105,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['include_term_ids'] = [
-			'label' => __( 'Term', 'thepack' ),
+			'label' => __( 'Term', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -125,7 +125,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['include_authors'] = [
-			'label' => __( 'Author', 'thepack' ),
+			'label' => __( 'Author', 'the-pack-addon'  ),
 			'label_block' => true,
 			'type' => 'thepackkit-query',
 			'multiple' => true,
@@ -146,7 +146,7 @@ class Group_Control_Query extends Group_Control_Base {
 
 		$fields['query_exclude'] = [
 			'type' => Controls_Manager::TAB,
-			'label' => __( 'Exclude', 'thepack' ),
+			'label' => __( 'Exclude', 'the-pack-addon'  ),
 			'tabs_wrapper' => $tabs_wrapper,
 			'condition' => [
 				'post_type!' => [
@@ -157,14 +157,14 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 		//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 		$fields['exclude'] = [
-			'label' => __( 'Exclude By', 'thepack' ),
+			'label' => __( 'Exclude By', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT2,
 			'multiple' => true,
 			'options' => [
-				'current_post' => __( 'Current Post', 'thepack' ),
-				'manual_selection' => __( 'Manual Selection', 'thepack' ),
-				'terms' => __( 'Term', 'thepack' ),
-				'authors' => __( 'Author', 'thepack' ),
+				'current_post' => __( 'Current Post', 'the-pack-addon'  ),
+				'manual_selection' => __( 'Manual Selection', 'the-pack-addon'  ),
+				'terms' => __( 'Term', 'the-pack-addon'  ),
+				'authors' => __( 'Author', 'the-pack-addon'  ),
 			],
 			'condition' => [
 				'post_type!' => [
@@ -178,7 +178,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['exclude_ids'] = [
-			'label' => __( 'Search & Select', 'thepack' ),
+			'label' => __( 'Search & Select', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -199,7 +199,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['exclude_term_ids'] = [
-			'label' => __( 'Term', 'thepack' ),
+			'label' => __( 'Term', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -221,7 +221,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['exclude_authors'] = [
-			'label' => __( 'Author', 'thepack' ),
+			'label' => __( 'Author', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -243,10 +243,10 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['avoid_duplicates'] = [
-			'label' => __( 'Avoid Duplicates', 'thepack' ),
+			'label' => __( 'Avoid Duplicates', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SWITCHER,
 			'default' => '',
-			'description' => __( 'Set to Yes to avoid duplicate posts from showing up. This only effects the frontend.', 'thepack' ),
+			'description' => __( 'Set to Yes to avoid duplicate posts from showing up. This only effects the frontend.', 'the-pack-addon'  ),
 			'tabs_wrapper' => $tabs_wrapper,
 			'inner_tab' => $exclude_wrapper,
 			'condition' => [
@@ -258,7 +258,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['offset'] = [
-			'label' => __( 'Offset', 'thepack' ),
+			'label' => __( 'Offset', 'the-pack-addon'  ),
 			'type' => Controls_Manager::NUMBER,
 			'default' => 0,
 			'condition' => [
@@ -267,23 +267,23 @@ class Group_Control_Query extends Group_Control_Base {
 					'current_query',
 				],
 			],
-			'description' => __( 'Use this setting to skip over posts (e.g. \'2\' to skip over 2 posts).', 'thepack' ),
+			'description' => __( 'Use this setting to skip over posts (e.g. \'2\' to skip over 2 posts).', 'the-pack-addon'  ),
 			'tabs_wrapper' => $tabs_wrapper,
 			'inner_tab' => $exclude_wrapper,
 		];
 
 		$fields['select_date'] = [
-			'label' => __( 'Date', 'thepack' ),
+			'label' => __( 'Date', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'post_type' => '',
 			'options' => [
-				'anytime' => __( 'All', 'thepack' ),
-				'today' => __( 'Past Day', 'thepack' ),
-				'week' => __( 'Past Week', 'thepack' ),
-				'month'  => __( 'Past Month', 'thepack' ),
-				'quarter' => __( 'Past Quarter', 'thepack' ),
-				'year' => __( 'Past Year', 'thepack' ),
-				'exact' => __( 'Custom', 'thepack' ),
+				'anytime' => __( 'All', 'the-pack-addon'  ),
+				'today' => __( 'Past Day', 'the-pack-addon'  ),
+				'week' => __( 'Past Week', 'the-pack-addon'  ),
+				'month'  => __( 'Past Month', 'the-pack-addon'  ),
+				'quarter' => __( 'Past Quarter', 'the-pack-addon'  ),
+				'year' => __( 'Past Year', 'the-pack-addon'  ),
+				'exact' => __( 'Custom', 'the-pack-addon'  ),
 			],
 			'default' => 'anytime',
 			'label_block' => false,
@@ -300,14 +300,14 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['date_before'] = [
-			'label' => __( 'Before', 'thepack' ),
+			'label' => __( 'Before', 'the-pack-addon'  ),
 			'type' => Controls_Manager::DATE_TIME,
 			'post_type' => '',
 			'label_block' => false,
 			'multiple' => false,
 			'filter_type' => 'date',
 			'include_type' => true,
-			'placeholder' => __( 'Choose', 'thepack' ),
+			'placeholder' => __( 'Choose', 'the-pack-addon'  ),
 			'condition' => [
 				'select_date' => 'exact',
 				'post_type!' => [
@@ -315,18 +315,18 @@ class Group_Control_Query extends Group_Control_Base {
 					'current_query',
 				],
 			],
-			'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'thepack' ),
+			'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'the-pack-addon'  ),
 		];
 
 		$fields['date_after'] = [
-			'label' => __( 'After', 'thepack' ),
+			'label' => __( 'After', 'the-pack-addon'  ),
 			'type' => Controls_Manager::DATE_TIME,
 			'post_type' => '',
 			'label_block' => false,
 			'multiple' => false,
 			'filter_type' => 'date',
 			'include_type' => true,
-			'placeholder' => __( 'Choose', 'thepack' ),
+			'placeholder' => __( 'Choose', 'the-pack-addon'  ),
 			'condition' => [
 				'select_date' => 'exact',
 				'post_type!' => [
@@ -334,18 +334,18 @@ class Group_Control_Query extends Group_Control_Base {
 					'current_query',
 				],
 			],
-			'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'thepack' ),
+			'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'the-pack-addon'  ),
 		];
 
 		$fields['orderby'] = [
-			'label' => __( 'Order By', 'thepack' ),
+			'label' => __( 'Order By', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'default' => 'post_date',
 			'options' => [
-				'post_date' => __( 'Date', 'thepack' ),
-				'post_title' => __( 'Title', 'thepack' ),
-				'menu_order' => __( 'Menu Order', 'thepack' ),
-				'rand' => __( 'Random', 'thepack' ),
+				'post_date' => __( 'Date', 'the-pack-addon'  ),
+				'post_title' => __( 'Title', 'the-pack-addon'  ),
+				'menu_order' => __( 'Menu Order', 'the-pack-addon'  ),
+				'rand' => __( 'Random', 'the-pack-addon'  ),
 			],
 			'condition' => [
 				'post_type!' => 'current_query',
@@ -353,12 +353,12 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['order'] = [
-			'label' => __( 'Order', 'thepack' ),
+			'label' => __( 'Order', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'default' => 'desc',
 			'options' => [
-				'asc' => __( 'ASC', 'thepack' ),
-				'desc' => __( 'DESC', 'thepack' ),
+				'asc' => __( 'ASC', 'the-pack-addon'  ),
+				'desc' => __( 'DESC', 'the-pack-addon'  ),
 			],
 			'condition' => [
 				'post_type!' => 'current_query',
@@ -366,7 +366,7 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['posts_per_page'] = [
-			'label' => __( 'Posts Per Page', 'thepack' ),
+			'label' => __( 'Posts Per Page', 'the-pack-addon'  ),
 			'type' => Controls_Manager::NUMBER,
 			'default' => 3,
 			'condition' => [
@@ -375,20 +375,20 @@ class Group_Control_Query extends Group_Control_Base {
 		];
 
 		$fields['ignore_sticky_posts'] = [
-			'label' => __( 'Ignore Sticky Posts', 'thepack' ),
+			'label' => __( 'Ignore Sticky Posts', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SWITCHER,
 			'default' => 'yes',
 			'condition' => [
 				'post_type' => 'post',
 			],
-			'description' => __( 'Sticky-posts ordering is visible on frontend only', 'thepack' ),
+			'description' => __( 'Sticky-posts ordering is visible on frontend only', 'the-pack-addon'  ),
 		];
 
 		$fields['query_id'] = [
-			'label' => __( 'Query ID', 'thepack' ),
+			'label' => __( 'Query ID', 'the-pack-addon'  ),
 			'type' => Controls_Manager::TEXT,
 			'default' => '',
-			'description' => __( 'Give your Query a custom unique id to allow server side filtering', 'thepack' ),
+			'description' => __( 'Give your Query a custom unique id to allow server side filtering', 'the-pack-addon'  ),
 			'separator' => 'before',
 		];
 
@@ -517,7 +517,7 @@ class Group_Control_Query extends Group_Control_Base {
 			$post_type_args['post_type'] = $args['post_type'];
 		}
 
-		$post_types = lastudio_kit_helper()->get_post_types( $post_type_args );
+		$post_types = thepack_addon_kit_helper()->get_post_types( $post_type_args );
 
 		$fields['post_type']['options'] = array_merge( $post_types, $fields['post_type']['options'] );
 		$fields['post_type']['default'] = key( $post_types );

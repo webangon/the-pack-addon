@@ -15,7 +15,7 @@ class Page_Title extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Page Title', 'thepack' );
+		return esc_html__( 'Page Title', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -28,16 +28,16 @@ class Page_Title extends Tag {
 
 	public function render() {
 		if ( is_home() && 'yes' !== $this->get_settings( 'show_home_title' ) ) {
-			return;
+			return; 
 		}
 
 		if ( thepack_kit()->elementor()->common ) {
 			$current_action_data = thepack_kit()->elementor()->common->get_component( 'ajax' )->get_current_action_data();
 
 			if ( $current_action_data && 'render_tags' === $current_action_data['action'] ) {
-				// Override the global $post for the render.
+				//phpcs:disable WordPress.WP.DiscouragedFunctions.query_posts_query_posts
 				query_posts(
-					[
+					[ 
 						'p' => get_the_ID(),
 						'post_type' => 'any',
 					]
@@ -47,7 +47,7 @@ class Page_Title extends Tag {
 
 		$include_context = 'yes' === $this->get_settings( 'include_context' );
 
-		$title = lastudio_kit_helper()->get_page_title( $include_context );
+		$title = thepack_addon_kit_helper()->get_page_title( $include_context );
 
 		echo wp_kses_post( $title );
 	}
@@ -56,7 +56,7 @@ class Page_Title extends Tag {
 		$this->add_control(
 			'include_context',
 			[
-				'label' => esc_html__( 'Include Context', 'thepack' ),
+				'label' => esc_html__( 'Include Context', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
@@ -64,7 +64,7 @@ class Page_Title extends Tag {
 		$this->add_control(
 			'show_home_title',
 			[
-				'label' => esc_html__( 'Show Home Title', 'thepack' ),
+				'label' => esc_html__( 'Show Home Title', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);

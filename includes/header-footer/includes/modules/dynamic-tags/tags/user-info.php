@@ -16,7 +16,7 @@ class User_Info extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'User Info', 'thepack' );
+		return esc_html__( 'User Info', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -71,19 +71,19 @@ class User_Info extends Tag {
 		$this->add_control(
 			'type',
 			[
-				'label' => esc_html__( 'Field', 'thepack' ),
+				'label' => esc_html__( 'Field', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Choose', 'thepack' ),
-					'id' => esc_html__( 'ID', 'thepack' ),
-					'display_name' => esc_html__( 'Display Name', 'thepack' ),
-					'login' => esc_html__( 'Username', 'thepack' ),
-					'first_name' => esc_html__( 'First Name', 'thepack' ),
-					'last_name' => esc_html__( 'Last Name', 'thepack' ),
-					'description' => esc_html__( 'Bio', 'thepack' ),
-					'email' => esc_html__( 'Email', 'thepack' ),
-					'url' => esc_html__( 'Website', 'thepack' ),
-					'meta' => esc_html__( 'User Meta', 'thepack' ),
+					'' => esc_html__( 'Choose', 'the-pack-addon'  ),
+					'id' => esc_html__( 'ID', 'the-pack-addon'  ),
+					'display_name' => esc_html__( 'Display Name', 'the-pack-addon'  ),
+					'login' => esc_html__( 'Username', 'the-pack-addon'  ),
+					'first_name' => esc_html__( 'First Name', 'the-pack-addon'  ),
+					'last_name' => esc_html__( 'Last Name', 'the-pack-addon'  ),
+					'description' => esc_html__( 'Bio', 'the-pack-addon'  ),
+					'email' => esc_html__( 'Email', 'the-pack-addon'  ),
+					'url' => esc_html__( 'Website', 'the-pack-addon'  ),
+					'meta' => esc_html__( 'User Meta', 'the-pack-addon'  ),
 				],
 			]
 		);
@@ -91,7 +91,7 @@ class User_Info extends Tag {
 		$this->add_control(
 			'meta_key',
 			[
-				'label' => esc_html__( 'Meta Key', 'thepack' ),
+				'label' => esc_html__( 'Meta Key', 'the-pack-addon'  ),
 				'condition' => [
 					'type' => 'meta',
 				],

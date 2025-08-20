@@ -20,7 +20,7 @@ class Not_Found404 extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( '404 Page', 'thepack' );
+		return __( '404 Page', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

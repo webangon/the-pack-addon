@@ -1,0 +1,81 @@
+.thepack-marquee-service{
+    display: flex;    
+}
+.thepack-marquee-service .service-inner {
+    position: relative;
+    overflow: hidden;
+}
+.thepack-marquee-service .service-img {
+    position: relative;
+    opacity: 0;
+}
+.thepack-marquee-service .service-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    flex-flow: nowrap;
+    display: flex;
+    flex-direction: column;
+}
+.thepack-marquee-service .service-img:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+.thepack-marquee-service .service-img img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    top: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+    display: block;
+}
+
+.thepack-marquee-service .content-text {
+    position: relative;
+    margin-top: auto;
+}
+.thepack-marquee-service .text-line {
+    white-space: nowrap;
+    width: max-content;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    transform: translateX(-105px);
+}
+.thepack-marquee-service .text-line span {
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.thepack-marquee-service .service-items:hover .service-img{
+   opacity: 1;
+}
+.thepack-marquee-service .service-items:hover .text-line span{
+animation-name: marquee;    
+}
+@media screen and (max-width: 767px) {
+    .thepack-marquee-service{
+        flex-direction: column;
+    }
+    .thepack-marquee-service .service-items,.thepack-marquee-service .service-items:hover {
+        width: unset !important;
+    }    
+    .thepack-marquee-service .text-line span{
+        animation-name: marquee;
+    }
+}
+@keyframes marquee{100%{transform:translate(-100%)}}

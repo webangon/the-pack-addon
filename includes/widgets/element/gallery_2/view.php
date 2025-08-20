@@ -22,7 +22,7 @@ foreach ($settings['galleries'] as $image) {
 
 if ($settings['tmpl'] == 'justified') {
     $t = $settings['strip'] ? 'true' : 'false';
-    $data_h = 'data-height="' . $settings['jght']['size'] . '"';
+    $data_h = 'data-height="' . esc_attr($settings['jght']['size']) . '"';
     $truncate = 'data-truncate="' . $t . '"';
 
     $justcls = $data_h . ' ' . $truncate;
@@ -31,7 +31,7 @@ if ($settings['tmpl'] == 'justified') {
     $out = $html;
 }
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<div ' . $justcls . ' class="tpoverflow aegrid-gallery gallery ' . $settings['tmpl'] . '">';
+echo '<div ' . $justcls . ' class="tpoverflow aegrid-gallery gallery ' . esc_attr($settings['tmpl']) . '">';
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 echo thepack_build_html($out);
 echo '</div>';

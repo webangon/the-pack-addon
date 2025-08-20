@@ -27,7 +27,7 @@ class Group_Control_Related extends Group_Control_Query {
 		$tabs_wrapper = $name . '_query_args';
 		$include_wrapper = $name . '_query_include';
 
-		$fields['post_type']['options']['related'] = __( 'Related', 'thepack' );
+		$fields['post_type']['options']['related'] = __( 'Related', 'the-pack-addon'  );
 		$fields['include_term_ids']['condition']['post_type!'][] = 'related';
 		$fields['related_taxonomies']['condition']['post_type'][] = 'related';
 		$fields['include_authors']['condition']['post_type!'][] = 'related';
@@ -36,7 +36,7 @@ class Group_Control_Related extends Group_Control_Query {
 		$fields['offset']['condition']['post_type!'][] = 'related';
 
 		$related_taxonomies = [
-			'label' => __( 'Term', 'thepack' ),
+			'label' => __( 'Term', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT2,
 			'options' => $this->get_supported_taxonomies(),
 			'label_block' => true,
@@ -52,15 +52,15 @@ class Group_Control_Related extends Group_Control_Query {
 		];
 
 		$related_fallback = [
-			'label' => __( 'Fallback', 'thepack' ),
+			'label' => __( 'Fallback', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'options' => [
-				'fallback_none' => __( 'None', 'thepack' ),
-				'fallback_by_id' => __( 'Manual Selection', 'thepack' ),
-				'fallback_recent' => __( 'Recent Posts', 'thepack' ),
+				'fallback_none' => __( 'None', 'the-pack-addon'  ),
+				'fallback_by_id' => __( 'Manual Selection', 'the-pack-addon'  ),
+				'fallback_recent' => __( 'Recent Posts', 'the-pack-addon'  ),
 			],
 			'default' => 'fallback_none',
-			'description' => __( 'Displayed if no relevant results are found. Manual selection display order is random', 'thepack' ),
+			'description' => __( 'Displayed if no relevant results are found. Manual selection display order is random', 'the-pack-addon'  ),
 			'condition' => [
 				'post_type' => 'related',
 			],
@@ -68,7 +68,7 @@ class Group_Control_Related extends Group_Control_Query {
 		];
 
 		$fallback_ids = [
-			'label' => __( 'Search & Select', 'thepack' ),
+			'label' => __( 'Search & Select', 'the-pack-addon'  ),
 			'type' => 'thepackkit-query',
 			'post_type' => '',
 			'options' => [],
@@ -92,7 +92,7 @@ class Group_Control_Related extends Group_Control_Query {
 	protected function get_supported_taxonomies() {
 		$supported_taxonomies = [];
 
-		$public_types = lastudio_kit_helper()->get_post_types();
+		$public_types = thepack_addon_kit_helper()->get_post_types();
 
 		foreach ( $public_types as $type => $title ) {
 			$taxonomies = get_object_taxonomies( $type, 'objects' );

@@ -21,11 +21,11 @@ class General extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'General', 'thepack' );
+		return __( 'General', 'the-pack-addon'  );
 	}
 
 	public function get_all_label() {
-		return __( 'Entire Site', 'thepack' );
+		return __( 'Entire Site', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

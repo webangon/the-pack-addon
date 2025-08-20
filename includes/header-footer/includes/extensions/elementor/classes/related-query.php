@@ -141,7 +141,7 @@ class Related_Query extends Post_Query {
 		$this->set_fallback_arg_by_settings( 'post_status', 'publish' );
 		$this->set_fallback_arg_by_settings( 'cache_wp_query', true );
 
-		$post_types = lastudio_kit_helper()->get_post_types();
+		$post_types = thepack_addon_kit_helper()->get_post_types();
 		$post_types = array_keys( $post_types );
 
 		$this->set_fallback_arg_by_settings( 'post_type', $post_types );

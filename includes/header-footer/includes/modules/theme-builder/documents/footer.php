@@ -20,7 +20,7 @@ class Footer extends Header_Footer_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Footer', 'thepack' );
+		return __( 'Footer', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -29,9 +29,9 @@ class Footer extends Header_Footer_Base {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a Footer Template?', 'thepack' ),
-			'content' => __( 'The footer template allows you to easily design and edit custom WordPress footers without the limits of your theme’s footer design constraints', 'thepack' ),
-			'tip' => __( 'You can create multiple footers, and assign each to different areas of your site.', 'thepack' ),
+			'title' => __( 'What is a Footer Template?', 'the-pack-addon'  ),
+			'content' => __( 'The footer template allows you to easily design and edit custom WordPress footers without the limits of your theme’s footer design constraints', 'the-pack-addon'  ),
+			'tip' => __( 'You can create multiple footers, and assign each to different areas of your site.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-footer',
 			'video_url' => 'https://www.youtube.com/embed/xa8DoR4tQrY',
 		];

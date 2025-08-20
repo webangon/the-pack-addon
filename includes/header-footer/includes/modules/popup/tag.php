@@ -17,7 +17,7 @@ class Tag extends DynamicTagsTag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Popup', 'thepack' );
+		return esc_html__( 'Popup', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -40,13 +40,13 @@ class Tag extends DynamicTagsTag {
 		$this->add_control(
 			'action',
 			[
-				'label' => esc_html__( 'Action', 'thepack' ),
+				'label' => esc_html__( 'Action', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'open',
 				'options' => [
-					'open' => esc_html__( 'Open Popup', 'thepack' ),
-					'close' => esc_html__( 'Close Popup', 'thepack' ),
-					'toggle' => esc_html__( 'Toggle Popup', 'thepack' ),
+					'open' => esc_html__( 'Open Popup', 'the-pack-addon'  ),
+					'close' => esc_html__( 'Close Popup', 'the-pack-addon'  ),
+					'toggle' => esc_html__( 'Toggle Popup', 'the-pack-addon'  ),
 				],
 			]
 		);
@@ -54,7 +54,7 @@ class Tag extends DynamicTagsTag {
 		$this->add_control(
 			'popup',
 			[
-				'label' => esc_html__( 'Popup', 'thepack' ),
+				'label' => esc_html__( 'Popup', 'the-pack-addon'  ),
 				'type' => QueryControlModule::QUERY_CONTROL_ID,
 				'autocomplete' => [
 					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
@@ -80,7 +80,7 @@ class Tag extends DynamicTagsTag {
 		$this->add_control(
 			'do_not_show_again',
 			[
-				'label' => esc_html__( 'Don\'t Show Again', 'thepack' ),
+				'label' => esc_html__( 'Don\'t Show Again', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
 					'action' => 'close',

@@ -18,7 +18,7 @@ class zxp
     private function thepack_hooks()
     {
         add_action('elementor/preview/enqueue_scripts', [$this, 'ooohboi_register_scripts_front']);
-        add_action('elementor/frontend/after_enqueue_styles', [$this, 'thepack_frontend_styles']);
+        add_action('wp_enqueue_scripts', [$this, 'thepack_frontend_styles']);
     }
 
     private function thepack_includes()
@@ -28,6 +28,7 @@ class zxp
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/translate.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/column.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/container.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/container-hover.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/icon_box.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/icon.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/icon-list.php';
@@ -38,8 +39,13 @@ class zxp
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/tp-parallax.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/shape-divider.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/thepack-extension.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/cursor-scroll.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/sticky.php';
         require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/video.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/editor.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/tab.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/counter.php';
+        require_once THE_PACK_PLUGIN_DIR . 'includes/extension/inc/motion.php';
     }
 
     public function ooohboi_register_scripts_front()

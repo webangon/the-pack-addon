@@ -28,11 +28,11 @@ class Archive extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Archives', 'thepack' );
+		return __( 'Archives', 'the-pack-addon'  );
 	}
 
 	public function get_all_label() {
-		return __( 'All Archives', 'thepack' );
+		return __( 'All Archives', 'the-pack-addon'  );
 	}
 
 	public function register_sub_conditions() {

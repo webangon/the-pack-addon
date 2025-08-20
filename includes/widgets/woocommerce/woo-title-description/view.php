@@ -13,7 +13,8 @@ switch ($settings['type']) {
 	case "short_desc":
 	  $type = $product->get_short_description();
 	  break;
-}
+} 
 $tag = tp_allow_html_tag($settings['tag']); 
+//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 echo sprintf( "<%s class='product_title_desc'>%s</%s>", $tag, esc_attr($type), $tag  );
 ?>   

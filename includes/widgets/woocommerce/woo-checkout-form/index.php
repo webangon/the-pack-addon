@@ -45,6 +45,14 @@ class The_Pack_Woo_Billing_Form extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'hideshid',
+            [
+                'label' => esc_html__('Hide shipping address', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -613,9 +621,13 @@ class The_Pack_Woo_Billing_Form extends Widget_Base
         add_action( 'woocommerce_checkout_fields', [ $this, 'override_billing_checkout_fields' ] ,20,1);
         add_filter( 'woocommerce_default_address_fields', [ $this, 'override_default_address_checkout_fields' ] ,20,1);
 
+        if ($settings['hideshid']) {
+            add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false');
+        }
+
         require dirname(__FILE__) . '/view.php';
         if (Plugin::instance()->editor->is_edit_mode()) {
-            $this->product_page_script();
+            $this->product_page_script(); 
         }
     }
 }

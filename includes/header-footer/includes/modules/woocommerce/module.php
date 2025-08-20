@@ -39,7 +39,7 @@ class Module extends \Elementor\Core\Base\Module {
         $module = thepack_kit()->elementor()->dynamic_tags;
 
         $module->register_group( self::WOOCOMMERCE_GROUP, [
-            'title' => esc_html__( 'WooCommerce', 'thepack' ),
+            'title' => esc_html__( 'WooCommerce', 'the-pack-addon'  ),
         ] );
 
         foreach ( $tags as $tag ) {

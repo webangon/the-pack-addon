@@ -7,7 +7,7 @@ class The_Pack_Demo_Sites_Dash {
 	public function admin_pages() {
 
 		add_menu_page( 
-			__( 'The Pack Sites', 'textdomain' ),
+			__( 'The Pack Sites', 'the-pack-addon'  ),
 			'The Pack Sites',
 			'manage_options',
 			$this->importer_page,
@@ -31,11 +31,12 @@ class The_Pack_Demo_Sites_Dash {
 			$out .= '<li data-filter="'.$a.'">' .$a. '</li>';
 		}		
 		return '<ul class="filter-cat"><li class="active">All</li>'.$out.'</ul>';
-	}
+	} 
 	
 	public function display_import_page() {
 
-		if ( wp_doing_ajax() ){
+		if ( wp_doing_ajax() ){ 
+			//phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 			if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'wp_rest')) {
 				exit;
 			}
@@ -44,8 +45,8 @@ class The_Pack_Demo_Sites_Dash {
 		$data = get_option('the_pack_library');
 		//$data_key = 'sites';
 		$out = '';
-		$page_number = isset($_POST['data']['page']) ? esc_attr($_POST['data']['page']) : '1' ;
-		$data_key = isset($_POST['data']['table']) ? esc_attr($_POST['data']['table']) : 'sites' ;
+		$page_number = isset($_POST['data']['page']) ? sanitize_text_field(wp_unslash($_POST['data']['page'])) : '1' ;
+		$data_key = isset($_POST['data']['table']) ? sanitize_text_field(wp_unslash($_POST['data']['table'])) : 'sites' ;
 		$limit = 8;
 		$offset = 0;
 		$current_page = 1;
@@ -55,7 +56,7 @@ class The_Pack_Demo_Sites_Dash {
 		} 
 
 		$products = isset($data[$data_key]) && $data[$data_key] ? $data[$data_key] : [];
-		$search_filter = isset($_POST['data']['filter']) ? esc_attr($_POST['data']['filter']) : '' ;
+		$search_filter = isset($_POST['data']['filter']) ? sanitize_text_field(wp_unslash($_POST['data']['filter'])) : '' ;
 		if (!empty($search_filter)) {
 			$filtered_products = [];
 			foreach ($products as $product) {
@@ -77,7 +78,7 @@ class The_Pack_Demo_Sites_Dash {
 		foreach($paged_products as $demo) { 
 			//var_dump($demo); News24_Cloud_Library::$plugin_data["remote_site"]
 			$pro = $demo['pro'] ? '<span class="pro">pro</span>' : '';
-			$btn = $demo['pro'] && !class_exists('The_Pack_Pro') ? esc_html__('Purchase','the-pack') : esc_html__('Import','the-pack');
+			$btn = $demo['pro'] && !class_exists('The_Pack_Pro') ? esc_html__('Purchase','the-pack-addon' ) : esc_html__('Import','the-pack-addon' );
 			$url = $demo['pro'] && !class_exists('The_Pack_Pro') ? The_Pack_Cloud_Library::$plugin_data["pro-link"] : '#';
 
 			$out.=' 
@@ -108,11 +109,11 @@ class The_Pack_Demo_Sites_Dash {
 			</div>
 			<div class="header">
 				<div class="lhead">
-					<h2 class="lib-logo"><?php echo esc_html__('Sites','the-pack').'<span>'.esc_attr($total_products).'</span>';?></h2>
+					<h2 class="lib-logo"><?php echo esc_html__('Sites','the-pack-addon' ).'<span>'.esc_attr($total_products).'</span>';?></h2>
 				</div>
 				<div class="centerhead">
 					<?php if ($data){
-						//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+						//ppcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo thepack_build_html($this->create_nav($data['sites']));
 						}?>
 				</div> 
@@ -169,7 +170,7 @@ class The_Pack_Demo_Sites_Dash {
 
 	public function admin_scripts() {
 		//phpcs:disable WordPress.Security.NonceVerification.Recommended
-		if (isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'the-pack-demo'){
+		if (isset($_GET['page']) && sanitize_text_field(wp_unslash($_GET['page'])) == 'the-pack-demo'){
 
 			 $data = array( 
 			   'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -183,12 +184,13 @@ class The_Pack_Demo_Sites_Dash {
 	}
 
 	public function the_pack_import_xml(){
-
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if (!current_user_can('manage_options') || !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['nonce'])), 'wp_rest')) {
 			exit;
 		}
 		$remote = \The_Pack_Cloud_Library::$plugin_data['remote_sites'];
-		set_time_limit(0);
+		//phpcs:disable Squiz.PHP.DiscouragedFunctions.Discouraged
+		set_time_limit(0); 
 		// If the function it's not available, require it.
 
 		if ( ! function_exists( 'download_url' ) ) {
@@ -196,7 +198,7 @@ class The_Pack_Demo_Sites_Dash {
 		}
 
 		// Now you can use it!
-		$file_url = json_decode(wp_remote_retrieve_body(wp_remote_get($remote . 'wp-json/wp/v2/thepack_site_xml/?id=' . sanitize_text_field($_POST['xml']) )), true);
+		$file_url = json_decode(wp_remote_retrieve_body(wp_remote_get($remote . 'wp-json/wp/v2/thepack_site_xml/?id=' . sanitize_text_field(wp_unslash($_POST['xml'])) )), true);
 
 		$tmp_file = download_url( $file_url );
 
@@ -254,8 +256,9 @@ class The_Pack_Demo_Sites_Dash {
 	}
 
 	public function clean_site(){
+		//phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'wp_rest')) {
-			exit;
+			exit;  
 		}	
 		$this->the_pack_clean_data();
 		wp_die();

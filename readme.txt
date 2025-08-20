@@ -1,9 +1,9 @@
-=== The Pack Elementor addons (Header Footer & WooCommerce Builder,  Template Library) ===
+=== The Pack Elementor addon ===
 Contributors: webangon
 Tags:addons, elementor, elementor widgets, header footer,template library
 Requires at least: 5.0
-Tested up to: 6.5
-Stable tag: 2.1.2
+Tested up to: 6.8
+Stable tag: 2.1.5
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

@@ -23,7 +23,7 @@ class Module extends \Elementor\Core\Base\Module {
 
 	public static function get_public_post_types( $args = [] ) {
     
-	    $post_types = lastudio_kit_helper()->get_post_types();
+	    $post_types = thepack_addon_kit_helper()->get_post_types();
 
 		// Product form WooCommerce are handled separately.
 		if ( class_exists( 'woocommerce' ) ) {
@@ -90,19 +90,19 @@ class Module extends \Elementor\Core\Base\Module {
 	public function localize_settings( $settings ) {
 		$settings = array_replace_recursive( $settings, [
 			'i18n' => [
-				'publish_settings' => __( 'Publish Settings', 'thepack' ),
-				'conditions' => __( 'Conditions', 'thepack' ),
-				'display_conditions' => __( 'Display Conditions', 'thepack' ),
-				'choose' => __( 'Choose', 'thepack' ),
-				'add_condition' => __( 'Add Condition', 'thepack' ),
+				'publish_settings' => __( 'Publish Settings', 'the-pack-addon'  ),
+				'conditions' => __( 'Conditions', 'the-pack-addon'  ),
+				'display_conditions' => __( 'Display Conditions', 'the-pack-addon'  ),
+				'choose' => __( 'Choose', 'the-pack-addon'  ),
+				'add_condition' => __( 'Add Condition', 'the-pack-addon'  ),
 				/* Translators: %s condition title. */
-				'conditions_title' => __( 'Where Do You Want to Display Your %s?', 'thepack' ),
+				'conditions_title' => __( 'Where Do You Want to Display Your %s?', 'the-pack-addon'  ),
 				/* Translators: %s condition description */
-				'conditions_description' => __( 'Set the conditions that determine where your %s is used throughout your site.', 'thepack' ) . '<br>' . __( 'For example, choose \'Entire Site\' to display the template across your site.', 'thepack' ),
-				'conditions_publish_screen_description' => __( 'Apply current template to these pages.', 'thepack' ),
-				'save_and_close' => __( 'Save & Close', 'thepack' ),
-				'open_site_editor' => __( 'Open Site Editor', 'thepack' ),
-				'view_live_site' => __( 'View Live Site', 'thepack' ),
+				'conditions_description' => __( 'Set the conditions that determine where your %s is used throughout your site.', 'the-pack-addon'  ) . '<br>' . __( 'For example, choose \'Entire Site\' to display the template across your site.', 'the-pack-addon'  ),
+				'conditions_publish_screen_description' => __( 'Apply current template to these pages.', 'the-pack-addon'  ),
+				'save_and_close' => __( 'Save & Close', 'the-pack-addon'  ),
+				'open_site_editor' => __( 'Open Site Editor', 'the-pack-addon'  ),
+				'view_live_site' => __( 'View Live Site', 'the-pack-addon'  ),
 			],
             'urls' => [
                 'modules' => thepack_kit()->plugin_url('/includes/modules/')
@@ -177,12 +177,12 @@ class Module extends \Elementor\Core\Base\Module {
 		?>
 		<div id="elementor-new-template__form__location__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__location" class="elementor-form-field__label">
-				<?php echo esc_attr( 'Select a Location', 'thepack' ); ?> 
+				<?php echo esc_attr( 'Select a Location', 'the-pack-addon'  ); ?> 
 			</label>
 			<div class="elementor-form-field__select__wrapper">
 				<select id="elementor-new-template__form__location" class="elementor-form-field__select" name="meta_location">
 					<option value="">
-						<?php echo esc_attr( 'Select...', 'thepack' ); ?>
+						<?php echo esc_attr( 'Select...', 'the-pack-addon'  ); ?>
 					</option>
 					<?php
 
@@ -207,12 +207,12 @@ class Module extends \Elementor\Core\Base\Module {
 		?>
 		<div id="elementor-new-template__form__post-type__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__post-type" class="elementor-form-field__label">
-				<?php echo esc_attr( 'Select Post Type', 'thepack' ); ?>
+				<?php echo esc_attr( 'Select Post Type', 'the-pack-addon'  ); ?>
 			</label>
 			<div class="elementor-form-field__select__wrapper">
 				<select id="elementor-new-template__form__post-type" class="elementor-form-field__select" name="<?php echo esc_attr(Single::REMOTE_CATEGORY_META_KEY); ?>">
 					<option value="">
-						<?php echo esc_attr( 'Select', 'thepack' ); ?>...
+						<?php echo esc_attr( 'Select', 'the-pack-addon'  ); ?>...
 					</option>
 					<?php
 
@@ -229,7 +229,7 @@ class Module extends \Elementor\Core\Base\Module {
 					}
 
 					//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo sprintf( '<option value="%1$s">%2$s</option>', 'not_found404', esc_attr( '404 Page', 'thepack' ) );
+					echo sprintf( '<option value="%1$s">%2$s</option>', 'not_found404', esc_attr( '404 Page', 'the-pack-addon'  ) );
 
 					?>
 				</select>
@@ -290,7 +290,7 @@ class Module extends \Elementor\Core\Base\Module {
 
 	public function add_finder_items( array $categories ) {
 		$categories['create']['items']['theme-template'] = [
-			'title' => __( 'Add New Theme Template', 'thepack' ),
+			'title' => __( 'Add New Theme Template', 'the-pack-addon'  ),
 			'icon' => 'plus-circle-o',
 			'url' => $this->get_admin_templates_url() . '#add_new',
 			'keywords' => [ 'template', 'theme', 'new', 'create' ],
@@ -308,7 +308,7 @@ class Module extends \Elementor\Core\Base\Module {
 	 * @access public
 	 */
 	public function admin_menu() {
-		add_submenu_page( 'edit.php?post_type=elementor_library', '', __( 'Theme Builder', 'thepack' ), 'publish_posts', $this->get_admin_templates_url( true ) );
+		add_submenu_page( 'edit.php?post_type=elementor_library', '', __( 'Theme Builder', 'the-pack-addon'  ), 'publish_posts', $this->get_admin_templates_url( true ) );
 	}
 
 	public function print_new_theme_builder_promotion( $views ) {
@@ -324,10 +324,10 @@ class Module extends \Elementor\Core\Base\Module {
 			$admin_notices = thepack_kit()->elementor()->admin->get_component( 'admin-notices' );
 
 			$admin_notices->print_admin_notice( [
-				'title' => __( 'Meet the New Theme Builder: More Intuitive and Visual Than Ever', 'thepack' ),
-				'description' => __( 'With the new Theme Builder you can visually manage every part of your site intuitively, making the task of designing a complete website that much easier', 'thepack' ),
+				'title' => __( 'Meet the New Theme Builder: More Intuitive and Visual Than Ever', 'the-pack-addon'  ),
+				'description' => __( 'With the new Theme Builder you can visually manage every part of your site intuitively, making the task of designing a complete website that much easier', 'the-pack-addon'  ),
 				'button' => [
-					'text' => __( 'Try it Now', 'thepack' ),
+					'text' => __( 'Try it Now', 'the-pack-addon'  ),
 					'class' => 'elementor-button elementor-button-success',
 					'url' => thepack_kit()->elementor()->app->get_settings( 'menu_url' ),
 				],

@@ -952,7 +952,6 @@ class The_Pack_Woo_Product_Design extends Widget_Base
 
         $wp_query = $main_query;
         $post     = $main_post;
-        wp_reset_query();
         wp_reset_postdata(); 
                 
     }

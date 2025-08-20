@@ -14,7 +14,7 @@ class Site_Title extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Site Title', 'thepack' );
+		return esc_html__( 'Site Title', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

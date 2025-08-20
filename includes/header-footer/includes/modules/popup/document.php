@@ -40,11 +40,11 @@ class Document extends Theme_Section_Document {
 	}
 
 	public static function get_title() {
-		return esc_html__( 'Popup', 'thepack' );
+		return esc_html__( 'Popup', 'the-pack-addon'  );
 	}
 
 	public static function get_plural_title() {
-		return esc_html__( 'Popups', 'thepack' );
+		return esc_html__( 'Popups', 'the-pack-addon'  );
 	}
 
 	public function get_display_settings() {
@@ -153,7 +153,7 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_section(
 			'popup_layout',
 			[
-				'label' => esc_html__( 'Layout', 'thepack' ),
+				'label' => esc_html__( 'Layout', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_SETTINGS,
 			]
 		);
@@ -161,7 +161,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'width',
 			[
-				'label' => esc_html__( 'Width', 'thepack' ),
+				'label' => esc_html__( 'Width', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -186,13 +186,13 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'height_type',
 			[
-				'label' => esc_html__( 'Height', 'thepack' ),
+				'label' => esc_html__( 'Height', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'auto',
 				'options' => [
-					'auto' => esc_html__( 'Fit To Content', 'thepack' ),
-					'fit_to_screen' => esc_html__( 'Fit To Screen', 'thepack' ),
-					'custom' => esc_html__( 'Custom', 'thepack' ),
+					'auto' => esc_html__( 'Fit To Content', 'the-pack-addon'  ),
+					'fit_to_screen' => esc_html__( 'Fit To Screen', 'the-pack-addon'  ),
+					'custom' => esc_html__( 'Custom', 'the-pack-addon'  ),
 				],
 				'selectors_dictionary' => [
 					'fit_to_screen' => '100vh',
@@ -206,7 +206,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label' => esc_html__( 'Custom Height', 'thepack' ),
+				'label' => esc_html__( 'Custom Height', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -234,13 +234,13 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'content_position',
 			[
-				'label' => esc_html__( 'Content Position', 'thepack' ),
+				'label' => esc_html__( 'Content Position', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => [
-					'top' => esc_html__( 'Top', 'thepack' ),
-					'center' => esc_html__( 'Center', 'thepack' ),
-					'bottom' => esc_html__( 'Bottom', 'thepack' ),
+					'top' => esc_html__( 'Top', 'the-pack-addon'  ),
+					'center' => esc_html__( 'Center', 'the-pack-addon'  ),
+					'bottom' => esc_html__( 'Bottom', 'the-pack-addon'  ),
 				],
 				'condition' => [
 					'height_type!' => 'auto',
@@ -258,7 +258,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'position_heading',
 			[
-				'label' => esc_html__( 'Position', 'thepack' ),
+				'label' => esc_html__( 'Position', 'the-pack-addon'  ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -267,21 +267,21 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'horizontal_position',
 			[
-				'label' => esc_html__( 'Horizontal', 'thepack' ),
+				'label' => esc_html__( 'Horizontal', 'the-pack-addon'  ),
 				'type' => Controls_Manager::CHOOSE,
 				'toggle' => false,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'thepack' ),
+						'title' => esc_html__( 'Left', 'the-pack-addon'  ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'thepack' ),
+						'title' => esc_html__( 'Center', 'the-pack-addon'  ),
 						'icon' => 'eicon-h-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'thepack' ),
+						'title' => esc_html__( 'Right', 'the-pack-addon'  ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -298,21 +298,21 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'vertical_position',
 			[
-				'label' => esc_html__( 'Vertical', 'thepack' ),
+				'label' => esc_html__( 'Vertical', 'the-pack-addon'  ),
 				'type' => Controls_Manager::CHOOSE,
 				'toggle' => false,
 				'default' => 'center',
 				'options' => [
 					'top' => [
-						'title' => esc_html__( 'Top', 'thepack' ),
+						'title' => esc_html__( 'Top', 'the-pack-addon'  ),
 						'icon' => 'eicon-v-align-top',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'thepack' ),
+						'title' => esc_html__( 'Center', 'the-pack-addon'  ),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => esc_html__( 'Bottom', 'thepack' ),
+						'title' => esc_html__( 'Bottom', 'the-pack-addon'  ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -329,10 +329,10 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'overlay',
 			[
-				'label' => esc_html__( 'Overlay', 'thepack' ),
+				'label' => esc_html__( 'Overlay', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'thepack' ),
-				'label_on' => esc_html__( 'Show', 'thepack' ),
+				'label_off' => esc_html__( 'Hide', 'the-pack-addon'  ),
+				'label_on' => esc_html__( 'Show', 'the-pack-addon'  ),
 				'default' => 'yes',
 				'selectors' => [
 					'{{WRAPPER}}' => 'pointer-events: all',
@@ -344,10 +344,10 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_button',
 			[
-				'label' => esc_html__( 'Close Button', 'thepack' ),
+				'label' => esc_html__( 'Close Button', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'thepack' ),
-				'label_on' => esc_html__( 'Show', 'thepack' ),
+				'label_off' => esc_html__( 'Hide', 'the-pack-addon'  ),
+				'label_on' => esc_html__( 'Show', 'the-pack-addon'  ),
 				'default' => 'yes',
 				'selectors' => [
 					// Using flex to make sure that each icon type (i or SVG) will be vertically aligned.
@@ -359,7 +359,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'entrance_animation',
 			[
-				'label' => esc_html__( 'Entrance Animation', 'thepack' ),
+				'label' => esc_html__( 'Entrance Animation', 'the-pack-addon'  ),
 				'type' => Controls_Manager::ANIMATION,
 				'frontend_available' => true,
 				'separator' => 'before',
@@ -369,7 +369,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'exit_animation',
 			[
-				'label' => esc_html__( 'Exit Animation', 'thepack' ),
+				'label' => esc_html__( 'Exit Animation', 'the-pack-addon'  ),
 				'type' => Controls_Manager::EXIT_ANIMATION,
 				'frontend_available' => true,
 			]
@@ -378,7 +378,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'entrance_animation_duration',
 			[
-				'label' => esc_html__( 'Animation Duration', 'thepack' ) . ' (sec)',
+				'label' => esc_html__( 'Animation Duration', 'the-pack-addon'  ) . ' (sec)',
 				'type' => Controls_Manager::SLIDER,
 				'frontend_available' => true,
 				'default' => [
@@ -419,7 +419,7 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_section(
 			'section_page_style',
 			[
-				'label' => esc_html__( 'Popup', 'thepack' ),
+				'label' => esc_html__( 'Popup', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -443,7 +443,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'thepack' ),
+				'label' => esc_html__( 'Border Radius', 'the-pack-addon'  ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -479,7 +479,7 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_section(
 			'section_overlay',
 			[
-				'label' => esc_html__( 'Overlay', 'thepack' ),
+				'label' => esc_html__( 'Overlay', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'overlay' => 'yes',
@@ -509,7 +509,7 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_section(
 			'section_close_button',
 			[
-				'label' => esc_html__( 'Close Button', 'thepack' ),
+				'label' => esc_html__( 'Close Button', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'close_button!' => '',
@@ -520,11 +520,11 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_button_position',
 			[
-				'label' => esc_html__( 'Position', 'thepack' ),
+				'label' => esc_html__( 'Position', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Inside', 'thepack' ),
-					'outside' => esc_html__( 'Outside', 'thepack' ),
+					'' => esc_html__( 'Inside', 'the-pack-addon'  ),
+					'outside' => esc_html__( 'Outside', 'the-pack-addon'  ),
 				],
 				'frontend_available' => true,
 			]
@@ -533,7 +533,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'close_button_vertical',
 			[
-				'label' => esc_html__( 'Vertical Position', 'thepack' ),
+				'label' => esc_html__( 'Vertical Position', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px' ],
 				'range' => [
@@ -565,7 +565,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'close_button_horizontal',
 			[
-				'label' => esc_html__( 'Horizontal Position', 'thepack' ),
+				'label' => esc_html__( 'Horizontal Position', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px' ],
 				'range' => [
@@ -601,14 +601,14 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_tab(
 			'tab_x_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'thepack' ),
+				'label' => esc_html__( 'Normal', 'the-pack-addon'  ),
 			]
 		);
 
 		$this->add_control(
 			'close_button_color',
 			[
-				'label' => esc_html__( 'Color', 'thepack' ),
+				'label' => esc_html__( 'Color', 'the-pack-addon'  ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dialog-close-button i' => 'color: {{VALUE}}',
@@ -620,7 +620,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_button_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'thepack' ),
+				'label' => esc_html__( 'Background Color', 'the-pack-addon'  ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dialog-close-button' => 'background-color: {{VALUE}}',
@@ -633,14 +633,14 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_tab(
 			'tab_x_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'thepack' ),
+				'label' => esc_html__( 'Hover', 'the-pack-addon'  ),
 			]
 		);
 
 		$this->add_control(
 			'close_button_hover_color',
 			[
-				'label' => esc_html__( 'Color', 'thepack' ),
+				'label' => esc_html__( 'Color', 'the-pack-addon'  ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dialog-close-button:hover i' => 'color: {{VALUE}}',
@@ -651,7 +651,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_button_hover_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'thepack' ),
+				'label' => esc_html__( 'Background Color', 'the-pack-addon'  ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dialog-close-button:hover' => 'background-color: {{VALUE}}',
@@ -666,7 +666,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__( 'Size', 'thepack' ),
+				'label' => esc_html__( 'Size', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .dialog-close-button' => 'font-size: {{SIZE}}{{UNIT}}',
@@ -680,7 +680,7 @@ class Document extends Theme_Section_Document {
 		$this->start_controls_section(
 			'section_advanced',
 			[
-				'label' => esc_html__( 'Advanced', 'thepack' ),
+				'label' => esc_html__( 'Advanced', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_ADVANCED,
 			]
 		);
@@ -688,7 +688,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_button_delay',
 			[
-				'label' => esc_html__( 'Show Close Button After', 'thepack' ) . ' (sec)',
+				'label' => esc_html__( 'Show Close Button After', 'the-pack-addon'  ) . ' (sec)',
 				'type' => Controls_Manager::NUMBER,
 				'min' => 0.1,
 				'max' => 60,
@@ -703,7 +703,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'close_automatically',
 			[
-				'label' => esc_html__( 'Automatically Close After', 'thepack' ) . ' (sec)',
+				'label' => esc_html__( 'Automatically Close After', 'the-pack-addon'  ) . ' (sec)',
 				'type' => Controls_Manager::NUMBER,
 				'min' => 0.1,
 				'max' => 60,
@@ -715,7 +715,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'prevent_close_on_background_click',
 			[
-				'label' => esc_html__( 'Prevent Closing on Overlay', 'thepack' ),
+				'label' => esc_html__( 'Prevent Closing on Overlay', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 			]
@@ -724,7 +724,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'prevent_close_on_esc_key',
 			[
-				'label' => esc_html__( 'Prevent Closing on ESC key', 'thepack' ),
+				'label' => esc_html__( 'Prevent Closing on ESC key', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 			]
@@ -733,7 +733,7 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'prevent_scroll',
 			[
-				'label' => esc_html__( 'Disable Page Scrolling', 'thepack' ),
+				'label' => esc_html__( 'Disable Page Scrolling', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 			]
@@ -742,9 +742,9 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'avoid_multiple_popups',
 			[
-				'label' => esc_html__( 'Avoid Multiple Popups', 'thepack' ),
+				'label' => esc_html__( 'Avoid Multiple Popups', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
-				'description' => esc_html__( 'If the user has seen another popup on the page hide this popup', 'thepack' ),
+				'description' => esc_html__( 'If the user has seen another popup on the page hide this popup', 'the-pack-addon'  ),
 				'frontend_available' => true,
 			]
 		);
@@ -752,10 +752,10 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'open_selector',
 			[
-				'label' => esc_html__( 'Open By Selector', 'thepack' ),
+				'label' => esc_html__( 'Open By Selector', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( '#id, .class', 'thepack' ),
-				'description' => esc_html__( 'In order to open a popup on selector click, please set your Popup Conditions', 'thepack' ),
+				'placeholder' => esc_html__( '#id, .class', 'the-pack-addon'  ),
+				'description' => esc_html__( 'In order to open a popup on selector click, please set your Popup Conditions', 'the-pack-addon'  ),
 				'frontend_available' => true,
 				'dynamic' => [
 					'active' => true,
@@ -766,7 +766,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'margin',
 			[
-				'label' => esc_html__( 'Margin', 'thepack' ),
+				'label' => esc_html__( 'Margin', 'the-pack-addon'  ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator' => 'before',
@@ -779,7 +779,7 @@ class Document extends Theme_Section_Document {
 		$this->add_responsive_control(
 			'padding',
 			[
-				'label' => esc_html__( 'Padding', 'thepack' ),
+				'label' => esc_html__( 'Padding', 'the-pack-addon'  ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -791,9 +791,9 @@ class Document extends Theme_Section_Document {
 		$this->add_control(
 			'classes',
 			[
-				'label' => esc_html__( 'CSS Classes', 'thepack' ),
+				'label' => esc_html__( 'CSS Classes', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
-				'title' => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'thepack' ),
+				'title' => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'the-pack-addon'  ),
 				'frontend_available' => true,
 			]
 		);

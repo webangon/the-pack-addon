@@ -12,7 +12,7 @@ class Single_Post extends Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Single Post', 'thepack' );
+		return __( 'Single Post', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -21,9 +21,9 @@ class Single_Post extends Single_Base {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a Single Post Template?', 'thepack' ),
-			'content' => __( 'A single post template allows you to easily design the layout and style of posts, ensuring a design consistency throughout all your blog posts, for example.', 'thepack' ),
-			'tip' => __( 'You can create multiple single post templates, and assign each to a different category.', 'thepack' ),
+			'title' => __( 'What is a Single Post Template?', 'the-pack-addon'  ),
+			'content' => __( 'A single post template allows you to easily design the layout and style of posts, ensuring a design consistency throughout all your blog posts, for example.', 'the-pack-addon'  ),
+			'tip' => __( 'You can create multiple single post templates, and assign each to a different category.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-post',
 			'video_url' => 'https://www.youtube.com/embed/8Fk-Edu7DL0',
 		];

@@ -15,7 +15,7 @@ class Shortcode extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Shortcode', 'thepack' );
+		return esc_html__( 'Shortcode', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -35,7 +35,7 @@ class Shortcode extends Tag {
 		$this->add_control(
 			'shortcode',
 			[
-				'label' => esc_html__( 'Shortcode', 'thepack' ),
+				'label' => esc_html__( 'Shortcode', 'the-pack-addon'  ),
 				'type'  => Controls_Manager::TEXTAREA,
 			]
 		);

@@ -15,7 +15,7 @@ class Post_Gallery extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post Image Attachments', 'thepack' );
+		return esc_html__( 'Post Image Attachments', 'the-pack-addon'  );
 	}
 
 	public function get_categories() {

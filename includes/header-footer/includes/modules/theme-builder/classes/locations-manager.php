@@ -262,7 +262,7 @@ class Locations_Manager {
 		}
 
 		if ( is_singular() ) {
-			lastudio_kit_helper()->set_global_authordata();
+			thepack_addon_kit_helper()->set_global_authordata();
 		}
 
 		/**
@@ -353,7 +353,7 @@ class Locations_Manager {
 				$location_settings = $this->get_location( $document_location );
 				// If is a `content` document or the theme is not support the document location (header/footer and etc.).
 				if ( $location_settings && ! $location_settings['edit_in_content'] ) {
-					$content = '<div class="elementor-theme-builder-content-area">' . __( 'Content Area', 'thepack' ) . '</div>';
+					$content = '<div class="elementor-theme-builder-content-area">' . __( 'Content Area', 'the-pack-addon'  ) . '</div>';
 				}
 			}
 		}
@@ -426,7 +426,7 @@ class Locations_Manager {
 	public function register_core_location( $location, $args = [] ) {
 		if ( ! isset( $this->core_locations[ $location ] ) ) {
 			/* translators: %s: Location name. */
-			wp_die( esc_html( sprintf( __( 'Location \'%s\' is not a core location.', 'thepack' ), $location ) ) );
+			wp_die( esc_html( sprintf( __( 'Location \'%s\' is not a core location.', 'the-pack-addon'  ), $location ) ) );
 		}
 
 		$args = array_replace_recursive( $this->core_locations[ $location ], $args );
@@ -448,7 +448,7 @@ class Locations_Manager {
 		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET['meta_location'] ) ) {
 			//phpcs:disable WordPress.Security.NonceVerification.Recommended
-			$meta[ Theme_Document::LOCATION_META_KEY ] = $_GET['meta_location'];
+			$meta[ Theme_Document::LOCATION_META_KEY ] = sanitize_text_field(wp_unslash($_GET['meta_location']));
 		}
 
 		return $meta;
@@ -459,26 +459,26 @@ class Locations_Manager {
 			'header' => [
 				'is_core' => true,
 				'public' => false,
-				'label' => __( 'Header', 'thepack' ),
+				'label' => __( 'Header', 'the-pack-addon'  ),
 				'edit_in_content' => false,
 			],
 			'footer' => [
 				'is_core' => true,
 				'public' => false,
-				'label' => __( 'Footer', 'thepack' ),
+				'label' => __( 'Footer', 'the-pack-addon'  ),
 				'edit_in_content' => false,
 			],
 			'archive' => [
 				'is_core' => true,
 				'public' => false,
 				'overwrite' => true,
-				'label' => __( 'Archive', 'thepack' ),
+				'label' => __( 'Archive', 'the-pack-addon'  ),
 				'edit_in_content' => true,
 			],
 			'single' => [
 				'is_core' => true,
 				'public' => false,
-				'label' => __( 'Single', 'thepack' ),
+				'label' => __( 'Single', 'the-pack-addon'  ),
 				'edit_in_content' => true,
 			],
 		];

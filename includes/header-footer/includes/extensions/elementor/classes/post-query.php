@@ -137,7 +137,7 @@ class Post_Query {
 
 		$post_type = $this->get_widget_settings( 'post_type' );
 		if ( 'by_id' === $post_type ) {
-			$post_types = lastudio_kit_helper()->get_post_types();
+			$post_types = thepack_addon_kit_helper()->get_post_types();
 			$this->query_args['post_type'] = array_keys( $post_types );
 		} else {
 			$this->query_args['post_type'] = $post_type;

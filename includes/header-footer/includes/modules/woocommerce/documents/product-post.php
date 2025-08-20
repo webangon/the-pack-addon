@@ -34,11 +34,11 @@ class Product_Post extends Post {
 	 * @static
 	 */
 	public static function get_title() {
-		return __( 'Product Post', 'thepack' );
+		return __( 'Product Post', 'the-pack-addon'  );
 	}
 
 	public static function get_plural_title() {
-		return __( 'Product Posts', 'thepack' );
+		return __( 'Product Posts', 'the-pack-addon'  );
 	}
 
 	protected static function get_editor_panel_categories() {
@@ -51,7 +51,7 @@ class Product_Post extends Post {
 			'theme-elements',
 			[
 				'woocommerce-elements-single' => [
-					'title' => __( 'Product', 'thepack' ),
+					'title' => __( 'Product', 'the-pack-addon'  ),
 					'active' => false,
 				],
 			]

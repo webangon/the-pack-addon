@@ -430,7 +430,7 @@ class jl_section_overlay
         $element->add_responsive_control(
             'jl_ov_x_pos',
             [
-                'label' => esc_html__('Position - X', 'the-pack-addon'),
+                'label' => esc_html__('Left', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -468,7 +468,7 @@ class jl_section_overlay
         $element->add_responsive_control(
             'jl_ov_y_pos',
             [
-                'label' => esc_html__('Position - Y', 'the-pack-addon'),
+                'label' => esc_html__('Top', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -495,6 +495,58 @@ class jl_section_overlay
                 ],
                 'selectors' => [
                     $selector => 'top: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'jl_ov_enable' => 'yes',
+                    'background_overlay_background' => ['classic', 'gradient'],
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jl_ov_r_pos',
+            [
+                'label' => esc_html__('Right', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => -500,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => -100,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    $selector => 'right: {{SIZE}}{{UNIT}};left:auto;',
+                ],
+                'condition' => [
+                    'jl_ov_enable' => 'yes',
+                    'background_overlay_background' => ['classic', 'gradient'],
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'jl_ov_b_pos',
+            [
+                'label' => esc_html__('Bottom', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => -500,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => -100,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    $selector => 'bottom: {{SIZE}}{{UNIT}};top:auto;',
                 ],
                 'condition' => [
                     'jl_ov_enable' => 'yes',

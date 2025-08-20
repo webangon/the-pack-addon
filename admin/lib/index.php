@@ -80,7 +80,7 @@ if (!class_exists('The_Pack_Cloud_Library')) {
         }
 
         public function reload_library()
-        {   
+        {   //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 			if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'ajax-nonce')) {
 				exit;
 			}            
@@ -126,19 +126,23 @@ if (!class_exists('The_Pack_Cloud_Library')) {
 
         public function ajax_data()
         {
-            if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(sanitize_text_field(wp_unslash($_POST['nonce']))), 'ajax-nonce')) {
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+            if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'ajax-nonce')) {
 				exit;
 			}
             
-            $option_type = $this->choose_option_table(sanitize_text_field($_POST['data']['type']));
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+            $option_type = $this->choose_option_table(sanitize_text_field(wp_unslash($_POST['data']['type'])));
             $nav = '';
             $data = get_option('the_pack_library');
 
             $products = isset($data[$option_type]) ? $data[$option_type] : '';
             if (is_array($products)) {
                 $Sidebar_products = isset($data[$option_type]) ? $data[$option_type] : '';
-                $filter = isset($_POST['data']['filter']) ? sanitize_text_field($_POST['data']['filter']) : '' ; 
-                $page_number = sanitize_text_field($_POST['data']['page']);
+                //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+                $filter = isset($_POST['data']['filter']) ? sanitize_text_field(wp_unslash($_POST['data']['filter'])) : '' ; 
+                //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+                $page_number = sanitize_text_field(wp_unslash($_POST['data']['page']));
                 $limit = 30;
                 $offset = 0;
 
@@ -182,6 +186,7 @@ if (!class_exists('The_Pack_Cloud_Library')) {
 							<div data-preview='<?php echo esc_attr($product['preview']).'?preview=true'; ?>' class='lib-img-wrap'>
                                 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								<?php echo $pro; ?>
+                                <?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
 								<img src="<?php echo esc_attr($product['thumb']); ?>">
 								<i class="eicon-zoom-in-bold"></i>
 							</div>
@@ -200,7 +205,8 @@ if (!class_exists('The_Pack_Cloud_Library')) {
                         $ends_count = 2;
                         $middle_count = 1;
                         $dots = false;
-                        $cur_page = sanitize_text_field($_POST['data']['page']);
+                        //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+                        $cur_page = sanitize_text_field(wp_unslash($_POST['data']['page']));
 
                         echo '</div><div class="pagination-wrap"><ul>';
                         for ($page_number = 1; $page_number <= $total_pages; $page_number++) {

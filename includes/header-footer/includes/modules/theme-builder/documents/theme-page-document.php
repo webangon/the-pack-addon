@@ -42,12 +42,12 @@ abstract class Theme_Page_Document extends Theme_Document {
 		$this->add_control(
 			'page_template',
 			[
-				'label' => __( 'Page Layout', 'thepack' ),
+				'label' => __( 'Page Layout', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'thepack' ),
-					PageTemplatesModule::TEMPLATE_CANVAS => __( 'Elementor Canvas', 'thepack' ),
-					PageTemplatesModule::TEMPLATE_HEADER_FOOTER => __( 'Elementor Full Width', 'thepack' ),
+					'' => __( 'Default', 'the-pack-addon'  ),
+					PageTemplatesModule::TEMPLATE_CANVAS => __( 'Elementor Canvas', 'the-pack-addon'  ),
+					PageTemplatesModule::TEMPLATE_HEADER_FOOTER => __( 'Elementor Full Width', 'the-pack-addon'  ),
 				],
 			]
 		);
@@ -56,7 +56,7 @@ abstract class Theme_Page_Document extends Theme_Document {
 			'page_template_default_description',
 			[
 				'type' => Controls_Manager::RAW_HTML,
-				'raw' => __( 'Default Page Template from your theme', 'thepack' ),
+				'raw' => __( 'Default Page Template from your theme', 'the-pack-addon'  ),
 				'separator' => 'none',
 				'content_classes' => 'elementor-descriptor',
 				'condition' => [
@@ -69,7 +69,7 @@ abstract class Theme_Page_Document extends Theme_Document {
 			'page_template_canvas_description',
 			[
 				'type' => Controls_Manager::RAW_HTML,
-				'raw' => __( 'No header, no footer, just Elementor', 'thepack' ),
+				'raw' => __( 'No header, no footer, just Elementor', 'the-pack-addon'  ),
 				'separator' => 'none',
 				'content_classes' => 'elementor-descriptor',
 				'condition' => [
@@ -82,7 +82,7 @@ abstract class Theme_Page_Document extends Theme_Document {
 			'page_template_header_footer_description',
 			[
 				'type' => Controls_Manager::RAW_HTML,
-				'raw' => __( 'This template includes the header, full-width content and footer', 'thepack' ),
+				'raw' => __( 'This template includes the header, full-width content and footer', 'the-pack-addon'  ),
 				'separator' => 'none',
 				'content_classes' => 'elementor-descriptor',
 				'condition' => [

@@ -226,7 +226,7 @@ class thepack_imgrid extends Widget_Base
         $this->add_responsive_control(
             'ttlmr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -276,7 +276,7 @@ class thepack_imgrid extends Widget_Base
         $this->add_responsive_control(
             'sbmr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

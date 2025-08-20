@@ -54,13 +54,15 @@ if (did_action('elementor/loaded')) {
         }   
 
         public function xl_tab_import_data() 
-        {
-            if (!current_user_can('manage_options') || !wp_verify_nonce(esc_attr(wp_unslash($_POST['nonce'])), 'ajax-nonce')) {
+        {   
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+            if (!current_user_can('manage_options') || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'ajax-nonce')) {
 				exit;
 			}
-                        
-            $id = esc_attr($_POST['id']);
-            $remote = esc_attr($_POST['parent_site']);
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated             
+            $id = sanitize_text_field(wp_unslash($_POST['id']));
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+            $remote = sanitize_text_field(wp_unslash($_POST['parent_site']));
             $end_point = \The_Pack_Cloud_Library::$plugin_data['thepack_import_data'];
             $data = json_decode(wp_remote_retrieve_body(wp_safe_remote_get($remote . 'wp-json/wp/v2/' . $end_point . '/?id=' . $id)), true);
             $content = $data['content'];

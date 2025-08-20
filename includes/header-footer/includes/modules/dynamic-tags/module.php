@@ -43,25 +43,25 @@ class Module extends TagsModule {
 	public function get_groups() {
 		return [
 			self::POST_GROUP => [
-				'title' => esc_html__( 'Post', 'thepack' ),
+				'title' => esc_html__( 'Post', 'the-pack-addon'  ),
 			],
 			self::ARCHIVE_GROUP => [
-				'title' => esc_html__( 'Archive', 'thepack' ),
+				'title' => esc_html__( 'Archive', 'the-pack-addon'  ),
 			],
 			self::SITE_GROUP => [
-				'title' => esc_html__( 'Site', 'thepack' ),
+				'title' => esc_html__( 'Site', 'the-pack-addon'  ),
 			],
 			self::MEDIA_GROUP => [
-				'title' => esc_html__( 'Media', 'thepack' ),
+				'title' => esc_html__( 'Media', 'the-pack-addon'  ),
 			],
 			self::ACTION_GROUP => [
-				'title' => esc_html__( 'Actions', 'thepack' ),
+				'title' => esc_html__( 'Actions', 'the-pack-addon'  ),
 			],
 			self::AUTHOR_GROUP => [
-				'title' => esc_html__( 'Author', 'thepack' ),
+				'title' => esc_html__( 'Author', 'the-pack-addon'  ),
 			],
 			self::COMMENTS_GROUP => [
-				'title' => esc_html__( 'Comments', 'thepack' ),
+				'title' => esc_html__( 'Comments', 'the-pack-addon'  ),
 			],
 		];
 	}

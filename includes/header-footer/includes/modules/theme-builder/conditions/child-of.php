@@ -22,7 +22,7 @@ class Child_Of extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Direct Child Of', 'thepack' );
+		return __( 'Direct Child Of', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

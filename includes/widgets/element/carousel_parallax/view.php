@@ -1,10 +1,10 @@
 <?php
 
 $slider_options = [
-    'item' => $settings['item']['size'],
-    'item_tab' => $settings['itemtab']['size'],
-    'speed' => $settings['speed']['size'],
-    'space' => $settings['space']['size'],
+    'item' => esc_attr($settings['item']['size']),
+    'item_tab' => esc_attr($settings['itemtab']['size']),
+    'speed' => esc_attr($settings['speed']['size']),
+    'space' => esc_attr($settings['space']['size']),
     'auto' => ('yes' === $settings['auto']),
     'center' => ('yes' === $settings['center']),
     'mouse' => ('yes' === $settings['mouse']),
@@ -22,7 +22,7 @@ foreach ($settings['items'] as $item) {
 }
 ?>
 
-<?php echo '<div class="swiper-container parallax-carousel" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
+<?php echo '<div class="swiper-container parallax-carousel" data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'>'; ?>
 <div class="swiper-wrapper">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo thepack_build_html($out); ?>

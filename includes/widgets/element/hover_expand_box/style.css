@@ -1,0 +1,26 @@
+.tb-imgbgrid2 .item {
+  position: relative;
+  z-index: 1;
+}
+
+.tb-imgbgrid2 .item:hover .desc,.tb-imgbgrid2 .item.active .desc{
+     transform: translateY(0px);  
+         opacity: 1;
+}
+.tb-imgbgrid2 .desc{
+transform: translateY(20px);
+opacity:0;
+}
+.tb-imgbgrid2 .item:hover .bticon,.tb-imgbgrid2 .item.active .bticon{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+}
+.tb-imgbgrid2 .fullink{
+    z-index: 1;
+}
+@media (max-width: 767px) {
+    .tb-imgbgrid2{
+    flex-wrap: wrap;
+    }
+}

@@ -270,7 +270,7 @@ class thepack_imgbx4 extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'fover',
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .team-container::before',
             ]

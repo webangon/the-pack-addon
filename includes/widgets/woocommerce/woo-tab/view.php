@@ -54,7 +54,11 @@ $class = $settings['tbstyle'].' '.$no_attribute;
             foreach ($product_tabs as $key => $tab) {
                 if ($tab['callback']=='template'){
                     echo '<div class="tab-content">'.do_shortcode('[THEPACK_INSERT_TPL id="' . $tab['template'] . '"]').'</div>';
-                } else {
+                } elseif($tab['callback']=='woocommerce_product_additional_information_tab'){
+					global $post;
+					$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+					echo '<div class="tab-content">'.$short_description.'</div>';
+				} else {
                     echo '<div class="tab-content">';?>
                     <?php call_user_func($tab['callback'],$settings);?>
                     <?php echo '</div>';

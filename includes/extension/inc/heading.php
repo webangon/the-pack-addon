@@ -37,7 +37,7 @@ class The_Pack_Heading_Extra_Control
                 'label' => esc_html__('Display inline', 'the-pack-addon'),
                 'type' => Controls_Manager::SWITCHER,
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-heading-title' => 'display: inline-block;',
+                    '{{WRAPPER}} .elementor-heading-title' => 'display: inline-block;position:relative;z-index:1;',
                 ],
             ]
         );
@@ -136,7 +136,7 @@ class The_Pack_Heading_Extra_Control
                 ],
                 'size_units' => ['px', '%'],                
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-heading-title' => 'max-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .elementor-heading-title' => 'width: {{SIZE}}{{UNIT}};',
                 ]
 
             ]
@@ -170,9 +170,13 @@ class The_Pack_Heading_Extra_Control
             [
                 'name' => 'clipbg',
                 'selector' => '{{WRAPPER}} .elementor-heading-title',
-                'label' => esc_html__('Background', 'the-pack-addon'),
+				'fields_options' => [
+					'background' => [
+						'label' => esc_html__( 'Background','the-pack-addon' ),
+					]
+				]                  
             ]
-        );
+        ); 
 
         $element->add_control(
             'clips',

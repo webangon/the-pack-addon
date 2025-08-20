@@ -25,7 +25,7 @@ class TP_Container_Extra
             __CLASS__,
             'tp_element_translate'
         ], 10, 2);
-        add_action('elementor/frontend/column/before_render', [
+        add_action('elementor/frontend/container/before_render', [
             __CLASS__,
             'before_render_options'
         ], 10, 2);
@@ -33,13 +33,16 @@ class TP_Container_Extra
 
     public static function before_render_options($element)
     {
-        $settings = $element->get_settings_for_display();
+        $settings = $element->get_settings();
 
-        if (isset($settings['cont_url'], $settings['cont_url']['url']) && !empty($settings['cont_url']['url'])) {
+        if (isset($settings['cont_url']['url']) && !empty($settings['cont_url']['url'])) {
             $element->add_render_attribute('_wrapper', 'class', 'tp-clickable-column');
             $element->add_render_attribute('_wrapper', 'style', 'cursor: pointer;');
-            $element->add_render_attribute('_wrapper', 'data-column-clickable', $settings['url']['url']);
-            $element->add_render_attribute('_wrapper', 'data-column-clickable-blank', $settings['url']['is_external'] ? '_blank' : '_self');
+            $element->add_render_attribute('_wrapper', 'data-column-clickable', $settings['cont_url']['url']);
+            $element->add_render_attribute('_wrapper', 'data-column-clickable-blank', $settings['cont_url']['is_external'] ? '_blank' : '_self');
+        }
+        if (isset($settings['con_anim']) && !empty($settings['con_anim'])) {
+            $element->add_render_attribute('_wrapper', 'class', $settings['con_anim']);
         }
     }
 
@@ -50,7 +53,7 @@ class TP_Container_Extra
         $element->start_controls_section(
             'container_colextra',
             [
-                'label' => esc_html__('Column Extra', 'the-pack-addon'),
+                'label' => esc_html__('Container Extra', 'the-pack-addon'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -58,11 +61,30 @@ class TP_Container_Extra
         $element->add_control(
             'con_anim',
             [
-                'label' => esc_html__('Animation', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => thepack_animations(),
-                'prefix_class' => '',
-                'label_block' => true
+                'label' => esc_html__('Scroll animation', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'reveal-top' => [
+                        'title' => esc_html__('Top', 'the-pack-addon'),
+                        'icon' => 'eicon-arrow-up',
+                    ],
+
+                    'reveal-bottom' => [
+                        'title' => esc_html__('Bottom', 'the-pack-addon'),
+                        'icon' => 'eicon-arrow-down',
+                    ],
+
+                    'reveal-left' => [
+                        'title' => esc_html__('Left', 'the-pack-addon'),
+                        'icon' => 'eicon-arrow-left',
+                    ],
+
+                    'reveal-right' => [
+                        'title' => esc_html__('Right', 'the-pack-addon'),
+                        'icon' => 'eicon-arrow-right',
+                    ],
+
+                ],
             ]
         );
 
@@ -88,7 +110,7 @@ class TP_Container_Extra
         $element->add_responsive_control(
             'contvctras',
             [
-                'label' => esc_html__('Vertical translate', 'the-pack-addon'),
+                'label' => esc_html__('Left position', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -110,9 +132,33 @@ class TP_Container_Extra
         );
 
         $element->add_responsive_control(
+            'conrpos',
+            [
+                'label' => esc_html__('Right position', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -1000,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}}' => 'right:{{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
             'conthctras',
             [
-                'label' => esc_html__('Horizontal translate', 'the-pack-addon'),
+                'label' => esc_html__('Top position', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -129,6 +175,30 @@ class TP_Container_Extra
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}}' => 'top:{{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $element->add_responsive_control(
+            'conbpd',
+            [
+                'label' => esc_html__('Bottom position', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -1000,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}}' => 'bottom:{{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -161,153 +231,119 @@ class TP_Container_Extra
             ]
         );
 
-        $element->end_controls_section();
-
-        $element->start_controls_section(
-            'container_coltxtov',
+        $element->add_responsive_control(
+            'tp_con_x_wid',
             [
-                'label' => esc_html__('Text Overlay', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'label' => esc_html__('Extra width', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}}' => 'width: calc(100% + {{SIZE}}{{UNIT}});',
+                ],
+
             ]
         );
 
         $element->add_control(
-            'contxt',
+            'full_pad',
             [
-                'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Text', 'the-pack-addon'),
-                'label_block' => true,
-                'selectors' => [
-                    '{{WRAPPER}}:before' => 'content:"{{VALUE}}";',
+                'label' => esc_html__('Full padding', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'condition' => [
+                    'content_width' => 'full',
                 ],
-            ]
-        );
-
-        $element->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'conttxtyp',
-                'label' => esc_html__('Typography', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}}:before',
-            ]
-        );
-
-        $element->add_control(
-            'conttxtklr',
-            [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}}:before' => 'color: {{VALUE}};',
+                'options' => [
+                    'padding-left' => [
+                        'title' => esc_html__('Left', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'padding-right' => [
+                        'title' => esc_html__('Right', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
                 ],
-            ]
-        );
-
-        $element->add_control(
-            'conttxtstk',
-            [
-                'label' => esc_html__('Text stroke color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}}:before' => '-webkit-text-stroke:1px {{VALUE}};',
-                ],
+                'prefix_class' => 'tp-full-',
             ]
         );
 
         $element->add_responsive_control(
-            'conttxtop',
+            'pad_max_width',
             [
-                'label' => esc_html__('Top position', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => -1500,
-                        'max' => 1500,
-                        'step' => 1,
-                    ],
-
-                    '%' => [
-                        'min' => -200,
-                        'max' => 200,
-                        'step' => 1,
-                    ],
-
+                'label' => esc_html__('Max width', 'the-pack-addon'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'condition' => [
+                    'full_pad!' => '',
                 ],
                 'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}}:before' => 'top: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $element->add_responsive_control(
-            'conttxlps',
-            [
-                'label' => esc_html__('Left position', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
-                        'min' => -1500,
-                        'max' => 1500,
-                        'step' => 1,
-                    ],
-
-                    '%' => [
-                        'min' => -200,
-                        'max' => 200,
-                        'step' => 1,
+                        'min' => 0,
+                        'max' => 2000,
                     ],
                 ],
-                'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}}:before' => 'left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.tp-full-padding-left >.e-con-full' => 'padding-left: calc((100% - {{SIZE}}{{UNIT}}) / 2)',
+                    '{{WRAPPER}}.tp-full-padding-right >.e-con-full' => 'padding-right: calc((100% - {{SIZE}}{{UNIT}}) / 2)',
                 ],
             ]
         );
 
         $element->add_control(
-            'conttxabs',
+            'abs_pos',
             [
-                'label' => esc_html__('Center position', 'the-pack-addon'),
+                'label' => esc_html__('Absolute position', 'the-pack-addon'),
                 'type' => Controls_Manager::SWITCHER,
                 'selectors' => [
-                    '{{WRAPPER}}:before' => 'transform: translate(-50%, -50%);',
+                    '{{WRAPPER}}' => 'position:absolute;',
                 ],
             ]
         );
 
-        $element->add_responsive_control(
-            'conttxrt',
+        $element->add_control(
+            'no_b_spy',
             [
-                'label' => esc_html__('Rotate', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => -360,
-                        'max' => 360,
-                        'step' => 1,
-                    ],
-
-                ],
-                'size_units' => ['px'],
+                'label' => esc_html__('Absolute center', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
                 'selectors' => [
-                    '{{WRAPPER}}:before' => 'transform: rotate({{SIZE}}deg);',
+                    '{{WRAPPER}}' => 'transform: translate(-50%,-50%);',
                 ],
+            ]
+        );   
+
+        $element->add_control(
+            'tp_stik_sidebar',
+            [
+                'label' => esc_html__('Sticky sidebar', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+                'selectors' => [
+                    '{{WRAPPER}}.e-con.e-child' => 'position:sticky;top:0px;',
+                ],                    
+            ]
+        );
+
+        $element->add_control(
+            'tp_hurt',
+            [
+                'label' => esc_html__('Hue rotate animation', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+                'selectors' => [
+                    '{{WRAPPER}}.e-con' => 'animation: tp-hueRotate 10s linear infinite; ',
+                ],                    
             ]
         );
 
         $element->add_responsive_control(
-            'contexzind',
+            'tpbdf',
             [
-                'label' => esc_html__('Z index', 'the-pack-addon'),
+                'label' => esc_html__('Backdrop blur', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'selectors' => [
-                    '{{WRAPPER}}:before' => 'z-index: {{SIZE}};',
+                    '{{WRAPPER}}' => 'backdrop-filter:blur({{SIZE}}{{UNIT}});-webkit-backdrop-filter:blur({{SIZE}}{{UNIT}});',
                 ],
             ]
         );
 
         $element->end_controls_section();
+        
     }
 }
 

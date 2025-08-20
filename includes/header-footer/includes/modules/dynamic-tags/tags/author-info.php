@@ -16,7 +16,7 @@ class Author_Info extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Author Info', 'thepack' );
+		return esc_html__( 'Author Info', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -47,13 +47,13 @@ class Author_Info extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => esc_html__( 'Field', 'thepack' ),
+				'label' => esc_html__( 'Field', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'description',
 				'options' => [
-					'description' => esc_html__( 'Bio', 'thepack' ),
-					'email' => esc_html__( 'Email', 'thepack' ),
-					'url' => esc_html__( 'Website', 'thepack' ),
+					'description' => esc_html__( 'Bio', 'the-pack-addon'  ),
+					'email' => esc_html__( 'Email', 'the-pack-addon'  ),
+					'url' => esc_html__( 'Website', 'the-pack-addon'  ),
 				],
 			]
 		);

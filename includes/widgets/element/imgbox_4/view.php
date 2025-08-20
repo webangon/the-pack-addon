@@ -1,10 +1,10 @@
 <?php
 
 $slider_options = [
-    'item' => $settings['item']['size'],
-    'item_tab' => $settings['item_tab']['size'],
-    'speed' => $settings['speed']['size'],
-    'space' => $settings['space']['size'],
+    'item' => esc_attr($settings['item']['size']),
+    'item_tab' => esc_attr($settings['item_tab']['size']),
+    'speed' => esc_attr($settings['speed']['size']),
+    'space' => esc_attr($settings['space']['size']),
     'mouse' => ('yes' === $settings['mouse']),
     'auto' => ('yes' === $settings['auto']),
 ];
@@ -54,7 +54,7 @@ foreach ($settings['items'] as $item) {
 }
 
 if ($settings['disp'] == 'slider') {
-    echo '<div class="imgbx4carou swiper-container tpswiper" data-thop =\'' . wp_json_encode($slider_options) . '\'>
+    echo '<div class="imgbx4carou swiper-container tpswiper" data-thop =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'>
                 <div class="swiper-wrapper">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php echo thepack_build_html($out1);?>

@@ -78,7 +78,7 @@ class thepack_link1 extends Widget_Base
         $repeater->add_control(
             'link',
             [
-                'label' => esc_html__('Link', 'elementor'),
+                'label' => esc_html__('Link', 'the-pack-addon' ),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'http://your-link.com',
                 'default' => [

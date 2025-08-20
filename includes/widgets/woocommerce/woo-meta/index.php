@@ -82,12 +82,12 @@ class The_Pack_Woo_Meta extends Widget_Base
                 'type' => Controls_Manager::SELECT2,
                 'label_block' => true,
 				'options' => [ 
-					'cat' => esc_html__( 'Category', 'textdomain' ),
-					'tag' => esc_html__( 'Tag', 'textdomain' ),
-                    'sku' => esc_html__( 'SKU', 'textdomain' ),
-					'stock' => esc_html__( 'Stock', 'textdomain' ),
-                    'review' => esc_html__( 'Review', 'textdomain' ),
-                    'share' => esc_html__( 'Share', 'textdomain' ),
+					'cat' => esc_html__( 'Category', 'the-pack-addon'  ),
+					'tag' => esc_html__( 'Tag', 'the-pack-addon'  ),
+                    'sku' => esc_html__( 'SKU', 'the-pack-addon'  ),
+					'stock' => esc_html__( 'Stock', 'the-pack-addon'  ),
+                    'review' => esc_html__( 'Review', 'the-pack-addon'  ),
+                    'share' => esc_html__( 'Share', 'the-pack-addon'  ),
 				],				
             ]
         );
@@ -388,7 +388,7 @@ class The_Pack_Woo_Meta extends Widget_Base
     {
         $settings = $this->get_settings();
         global $product;
-        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field($_GET['preview']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field(wp_unslash($_GET['preview'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
         if (Plugin::instance()->editor->is_edit_mode() | $preview == 'true' ) {
             $product = wc_get_product($settings['preview']);  
         }

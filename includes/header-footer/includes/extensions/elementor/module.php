@@ -66,7 +66,8 @@ class Module extends Module_Base {
         if( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'elementor_ajax' ){
             $need_update = false;
             $action_require = ['app_site_editor_template_types'];
-            $request = json_decode( stripslashes( $_REQUEST['actions'] ), true );
+            //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+            $request = json_decode( stripslashes( sanitize_text_field(wp_unslash($_REQUEST['actions']) )), true );
             foreach ($request as $k => &$value){
                 if( in_array($k, $action_require) && !isset($value['data'])){
                     $value['data'] = [];
@@ -108,11 +109,11 @@ class Module extends Module_Base {
             wp_send_json( array() );
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
-        $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
+        $query = isset( $_GET['q'] ) ? sanitize_text_field(wp_unslash( $_GET['q'] )) : '';
+        $ids   = isset( $_GET['ids'] ) ? sanitize_text_field(wp_unslash( $_GET['ids'] )) : array();
 
         wp_send_json( array(
-            'results' => lastudio_kit_helper()->search_posts_by_type( 'page', $query, $ids ),
+            'results' => thepack_addon_kit_helper()->search_posts_by_type( 'page', $query, $ids ),
         ) );
     }
 
@@ -127,14 +128,14 @@ class Module extends Module_Base {
             wp_send_json( array() );
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $query     = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        $query     = isset( $_GET['q'] ) ? sanitize_text_field(wp_unslash( $_GET['q'] )) : '';
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $post_type = isset( $_GET['preview_post_type'] ) ? esc_attr( $_GET['preview_post_type'] ) : 'post';
+        $post_type = isset( $_GET['preview_post_type'] ) ? sanitize_text_field(wp_unslash( $_GET['preview_post_type'] )) : 'post';
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $ids       = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
+        $ids       = isset( $_GET['ids'] ) ? sanitize_text_field(wp_unslash( $_GET['ids'] )) : array();
 
         wp_send_json( array(
-            'results' => lastudio_kit_helper()->search_posts_by_type( $post_type, $query, $ids )
+            'results' => thepack_addon_kit_helper()->search_posts_by_type( $post_type, $query, $ids )
         ) );
 
     }
@@ -150,12 +151,12 @@ class Module extends Module_Base {
             wp_send_json( array() );
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        $query = isset( $_GET['q'] ) ? sanitize_text_field(wp_unslash( $_GET['q'] )) : '';
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
+        $ids   = isset( $_GET['ids'] ) ? sanitize_text_field(wp_unslash( $_GET['ids'] )) : array();
 
         wp_send_json( array(
-            'results' => lastudio_kit_helper()->search_terms_by_tax( 'category', $query, $ids ),
+            'results' => thepack_addon_kit_helper()->search_terms_by_tax( 'category', $query, $ids ),
         ) );
 
     }
@@ -171,12 +172,12 @@ class Module extends Module_Base {
             wp_send_json( array() );
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        $query = isset( $_GET['q'] ) ? sanitize_text_field(wp_unslash( $_GET['q'] )) : '';
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $ids   = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
+        $ids   = isset( $_GET['ids'] ) ? sanitize_text_field(wp_unslash( $_GET['ids'] )) : array();
 
         wp_send_json( array(
-            'results' => lastudio_kit_helper()->search_terms_by_tax( 'post_tag', $query, $ids ),
+            'results' => thepack_addon_kit_helper()->search_terms_by_tax( 'post_tag', $query, $ids ),
         ) );
 
     }
@@ -191,24 +192,24 @@ class Module extends Module_Base {
             wp_send_json( array() );
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $query = isset( $_GET['q'] ) ? esc_attr( $_GET['q'] ) : '';
+        $query = isset( $_GET['q'] ) ? sanitize_text_field(wp_unslash( $_GET['q'] )) : '';
 
         $tax = '';
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( isset( $_GET['conditions_archive-tax_tax'] ) ) {
-            $tax = $_GET['conditions_archive-tax_tax'];
+            $tax = sanitize_text_field(wp_unslash($_GET['conditions_archive-tax_tax']));
         }
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( isset( $_GET['conditions_singular-post-from-tax_tax'] ) ) {
-            $tax = $_GET['conditions_singular-post-from-tax_tax'];
+            $tax = sanitize_text_field(wp_unslash($_GET['conditions_singular-post-from-tax_tax']));
         }
 
         $tax = explode( ',', $tax );
         //phpcs:disable WordPress.Security.NonceVerification.Recommended
-        $ids = isset( $_GET['ids'] ) ? esc_attr( $_GET['ids'] ) : array();
+        $ids = isset( $_GET['ids'] ) ? sanitize_text_field(wp_unslash( $_GET['ids'] )) : array();
 
         wp_send_json( array(
-            'results' => lastudio_kit_helper()->search_terms_by_tax( $tax, $query, $ids ),
+            'results' => thepack_addon_kit_helper()->search_terms_by_tax( $tax, $query, $ids ),
         ) );
 
     }

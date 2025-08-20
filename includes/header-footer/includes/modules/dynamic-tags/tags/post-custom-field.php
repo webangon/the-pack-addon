@@ -16,7 +16,7 @@ class Post_Custom_Field extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post Custom Field', 'thepack' );
+		return esc_html__( 'Post Custom Field', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -44,7 +44,7 @@ class Post_Custom_Field extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => esc_html__( 'Key', 'thepack' ),
+				'label' => esc_html__( 'Key', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_custom_keys_array(),
 			]
@@ -53,7 +53,7 @@ class Post_Custom_Field extends Tag {
 		$this->add_control(
 			'custom_key',
 			[
-				'label' => esc_html__( 'Custom Key', 'thepack' ),
+				'label' => esc_html__( 'Custom Key', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'placeholder' => 'key',
 				'condition' => [
@@ -84,7 +84,7 @@ class Post_Custom_Field extends Tag {
 		$custom_keys = get_post_custom_keys();
 
 		$options = [
-			'' => esc_html__( 'Select...', 'thepack' ),
+			'' => esc_html__( 'Select...', 'the-pack-addon'  ),
 		];
 
 		if ( ! empty( $custom_keys ) ) {

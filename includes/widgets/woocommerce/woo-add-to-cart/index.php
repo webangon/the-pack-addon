@@ -24,7 +24,7 @@ class The_Pack_Woo_Add_To_Cart extends Widget_Base
     {
         return esc_html__('Woo add to cart', 'the-pack-addon');
     }
-
+ 
     public function get_icon()
     {
         return 'dashicons dashicons-admin-network';
@@ -56,9 +56,30 @@ class The_Pack_Woo_Add_To_Cart extends Widget_Base
         );
 
         $this->add_control(
+            'action',
+            [
+                'label' => esc_html__('Click action', 'the-pack-addon'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__('Do nothing', 'the-pack-addon'),
+                    'cart' => esc_html__('Redirect to cart', 'the-pack-addon'),
+                    'checkout' => esc_html__('Redirect to checkout', 'the-pack-addon'),
+                ]
+            ]
+        );
+
+        $this->add_control(
             'hide_stock',
             [
                 'label' => esc_html__('Hide stock message', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+            ] 
+        );
+
+        $this->add_control(
+            'btnuz',
+            [
+                'label' => esc_html__('Use as single product', 'the-pack-addon'),
                 'type' => Controls_Manager::SWITCHER,
             ] 
         );
@@ -126,6 +147,17 @@ class The_Pack_Woo_Add_To_Cart extends Widget_Base
                     '{{WRAPPER}} .single_add_to_cart_button' => 'height: {{SIZE}}{{UNIT}};',
                 ],
 
+            ]
+        );
+
+        $this->add_control(
+            'hdqt',
+            [
+                'label' => esc_html__('Hide quantity', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+                'selectors' => [
+                    '{{WRAPPER}} .quantity' => 'display: none;',
+                ],
             ]
         );
 
@@ -339,7 +371,7 @@ class The_Pack_Woo_Add_To_Cart extends Widget_Base
     
                 break;
                 default:
-                    return esc_html__( 'Read More', 'wctext' );
+                    return esc_html__( 'Read More', 'the-pack-addon' );
             }
         }
     }
@@ -364,8 +396,8 @@ class The_Pack_Woo_Add_To_Cart extends Widget_Base
             add_action( 'woocommerce_product_single_add_to_cart_text', [ $this, 'single_add_cart' ] ,9);
         }
 
-        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field($_GET['preview']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
-        if (Plugin::instance()->editor->is_edit_mode() | $preview == 'true' ) {
+        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field(wp_unslash($_GET['preview'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+        if (Plugin::instance()->editor->is_edit_mode() || $preview == 'true' || $settings['btnuz'] ) {
             $product = wc_get_product($settings['preview']);
         }        
         require dirname(__FILE__) . '/view.php';

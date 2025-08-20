@@ -4,8 +4,8 @@ $options = [
     'id' => $id, 
     'collpased' => ('yes' === $settings['collpased']),
 ];
-$icon = $settings['actikn'] ? '<i class="actikn ' . $settings['actikn']['value'] . '"></i>' : '';
-$inacon = $settings['iactikn'] ? '<i class="inactikn ' . $settings['iactikn']['value'] . '"></i>' : '';
+$icon = $settings['actikn'] ? the_pack_render_icon($settings['actikn'], 'actikn') : '';
+$inacon = $settings['iactikn'] ? the_pack_render_icon($settings['iactikn'], 'inactikn') : '';
 $indicator = '<span class="tbxicon">' . $icon . $inacon . '</span>';
 $cls = $tabti = '';
 switch ($settings['tmpl']) {
@@ -25,13 +25,13 @@ switch ($settings['tmpl']) {
 }
 
 foreach ($settings['tabs'] as $a) {
-    $title = $a['title'] ? '<div class="accortitle">' . $a['title'] . $indicator . '</div>' : '';
-    $content = '<p class="accorbody">' . $a['content'] . '</p>';
+    $title = $a['title'] ? '<div class="accortitle">' . wp_kses_post($a['title']) . $indicator . '</div>' : '';
+    $content = '<p class="accorbody">' . wp_kses_post($a['content']) . '</p>';
     $tabti .= '<li>' . $title . $content . '</li>';
 }
 ?>
 
-<?php echo '<div class="xldacdn ' . esc_attr($cls . $settings['lfticn']) . '" data-xld =\'' . wp_json_encode($options) . '\'>'; ?>
+<?php echo '<div class="xldacdn ' . esc_attr($cls . $settings['lfticn']) . '" data-xld =\'' . wp_kses_post(wp_json_encode($options)) . '\'>'; ?>
 <ul class="accordion <?php echo esc_attr($id); ?>">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo $tabti; ?>

@@ -1,38 +1,19 @@
 <?php
 
-$anim = $settings['anim'];
-switch ($settings['tmpl']) {
-    case 'one':
-        $btn = '<ul class="tpfirst socials ' . $anim . '">' . $this->soicial($settings['items']) . '</ul><div class="tpsecond ' . $anim . '">' . thepack_build_html($settings['txt'], 'span', 'tbtxt') . '</div>';
-        break;
-
-    case 'two':
-        $btn = '<div class="tpfirst ' . $anim . '">' . thepack_build_html($settings['txt'], 'span', 'tbtxt') . '</div><div class="tpsecond tpflexvertical ' . $anim . '">' . $this->button($settings['url'], $settings['btn']) . '</div>';
-        break;
-
-    case 'three':
-        $btn = '<div class="tpfirst tpflexvertical ' . $anim . '">' . thepack_build_html($settings['txt'], 'span', 'tbtxt') . '</div><ul class="tpsecond tpimages ' . $anim . '">' . $this->imgs($settings['imgs']) . '</ul>';
-        break;
-
-    case 'four':
-        $btn = '<div class="tpfirst tpflexvertical imagebox ' . $anim . '">' . $this->avatar_info($settings['avatr'], $settings['name'], $settings['pos']) . '</div><div class="tpsecond ' . $anim . '">' . $this->button($settings['url'], $settings['btn']) . '</div>';
-        break;
-
-    case 'five':
-        $btn = '<div class="tpfirst tpflexvertical iconbox ' . $anim . '">' . $this->icon_info($settings['icon'], $settings['pre'], $settings['ttl']) . '</div><div class="tpsecond tpflexvertical avatarwrap ' . $anim . '">' . $this->avatar_info($settings['avatr'], $settings['name'], $settings['pos']) . '</div>';
-        break;
-
-    case 'six':
-        $btn = '<div class="tpfirst tpflexvertical iconbox ' . $anim . '">' . $this->icon_info($settings['icon'], $settings['pre'], $settings['ttl']) . '</div><div class="tpsecond tpflexvertical avatarwrap ' . $anim . '">' . $this->avatar_info($settings['avatr'], $settings['name'], $settings['pos']) . '</div>';
-        break;
-}
-
+    $icn = thepack_icon_svg($settings['icon']);
+    $link = thepack_get_that_link($settings['url']);
+    $link = $icn ? '<a class="tpbtn tbtr tp-dinflex"' . $link . '>'.$icn.'</a>' : '';
+    $img = thepack_ft_images($settings['img']['id'],'full');
 ?>
-<div class="tpcta2">
-    <div class="inner">
-        <div class="tbcta2wrap">
-            <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<?php echo thepack_build_html($btn); ?>
+<div class="tp-service-hover-bg tp-no-overflow tp-pos-rel">
+    <div class="bg tbtr"><?php echo $img;?></div>
+    <div class="tp-content tp-d-flex tp-pos-rel">
+        <div class="tp-title tbtr">
+            <?php echo thepack_build_html($settings['pre'],'span','pre'); ?>
+            <?php echo thepack_build_html($settings['ttl'],'h3','title'); ?>
         </div>
-    </div>
+        <div class="tp-desc tp-d-flex">
+            <?php echo thepack_build_html($settings['desc'],'span','desc').$link; ?>
+        </div>        
+    </div>   
 </div>

@@ -12,7 +12,7 @@ class Any_Child_Of extends Child_Of {
 	}
 
 	public function get_label() {
-		return __( 'Any Child Of', 'thepack' );
+		return __( 'Any Child Of', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

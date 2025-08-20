@@ -14,7 +14,7 @@ class Site_Tagline extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Site Tagline', 'thepack' );
+		return esc_html__( 'Site Tagline', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

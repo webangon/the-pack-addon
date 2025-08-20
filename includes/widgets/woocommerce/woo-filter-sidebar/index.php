@@ -63,10 +63,10 @@ class The_Pack_Filter_Sidebar extends Widget_Base
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
 				'options' => [
-					'cat' => esc_html__( 'Category filter', 'textdomain' ),
-					'stock' => esc_html__( 'Stock filter', 'textdomain' ),
-                    'price' => esc_html__( 'Price filter', 'textdomain' ),
-					'search' => esc_html__( 'Search filter', 'textdomain' ),
+					'cat' => esc_html__( 'Category filter', 'the-pack-addon'  ),
+					'stock' => esc_html__( 'Stock filter', 'the-pack-addon'  ),
+                    'price' => esc_html__( 'Price filter', 'the-pack-addon'  ),
+					'search' => esc_html__( 'Search filter', 'the-pack-addon'  ),
 				],				
             ]
         );

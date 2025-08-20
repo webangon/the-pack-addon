@@ -3,7 +3,7 @@
     $title = $value['lbl'] ? '<h3>'.$value['lbl'].'</h3>' : '';
 	if(is_product_category()){
 		$term_children = get_term_children( get_queried_object()->term_id, 'product_cat' );
-		if($term_children){
+		if($term_children){ 
 		$exclude = $value['ex_cat'];
 		$out .= '<div class="filter-item">';
         $out .= $title; 
@@ -27,7 +27,7 @@
         $exclude = $value['ex_cat'];
         $terms = get_terms( array(
             'taxonomy' => 'product_cat',
-            'hide_empty' => false,
+            'hide_empty' => true,
             'parent'    => 0,
             'exclude'   => $exclude,//phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
         ) );

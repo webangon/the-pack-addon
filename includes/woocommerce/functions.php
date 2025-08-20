@@ -21,7 +21,16 @@ class The_Pack_Woo_Helper {
 
 		add_action('wp_ajax_the_pack_quickview',[__CLASS__,'the_pack_quickview']);
 		add_action('wp_ajax_nopriv_the_pack_quickview',[__CLASS__,'the_pack_quickview']);
+		add_filter('woocommerce_add_to_cart_fragments',[__CLASS__,'cart_count_fragments']);
 
+	}
+
+	static function cart_count_fragments( $fragments ) {
+		global $woocommerce;
+		$count = $woocommerce->cart->cart_contents_count;
+
+		$fragments['.cart-count'] = '<span class="cart-count">'.$count.'</span>';
+		return $fragments;
 	}
 
 	static function get_cookie_name() {
@@ -34,7 +43,7 @@ class The_Pack_Woo_Helper {
 
 	static function get_compared_products() {
         $cookie_name = self::get_cookie_name();
-        return isset( $_COOKIE[ $cookie_name ] ) ? json_decode( wp_unslash( $_COOKIE[ $cookie_name ] ), true ) : array();
+        return isset( $_COOKIE[ $cookie_name ] ) ? json_decode( sanitize_text_field(wp_unslash( $_COOKIE[ $cookie_name ] )), true ) : array();
     }
 
 	static function is_product_in_compare( $id ) {
@@ -63,14 +72,14 @@ class The_Pack_Woo_Helper {
     }
 
 	static function the_pack_quickview(){
-
+		//phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		if ( ! wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['nonce'])), 'ajax-nonce' ) ) {
             wp_die();
         } 
 
-		if ( isset( $_POST['id'] ) && (int) sanitize_text_field($_POST['id']) ) {
+		if ( isset( $_POST['id'] ) && (int) sanitize_text_field(wp_unslash($_POST['id'])) ) {
             global $post, $product, $woocommerce;
-            $id      = ( int ) sanitize_text_field($_POST['id']);
+            $id      = ( int ) sanitize_text_field(wp_unslash($_POST['id']));
             $post    = get_post( $id );
             $product = wc_get_product( $id );
 			$popcontent = '2082';
@@ -82,8 +91,8 @@ class The_Pack_Woo_Helper {
 		wp_die();
 	}
 	static function product_per_page(){
-
-		$getopt  = isset( $_GET['perpage'] ) ? sanitize_text_field($_GET['perpage']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$getopt  = isset( $_GET['perpage'] ) ? sanitize_text_field(wp_unslash($_GET['perpage'])) : '';
 		if($getopt){
 			return $getopt;
 		}
@@ -91,7 +100,7 @@ class The_Pack_Woo_Helper {
 	}
 
 	static function tp_on_sale(){
-		$on_sale  = isset( $_GET['on_sale'] ) ? sanitize_text_field($_GET['on_sale']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$on_sale  = isset( $_GET['on_sale'] ) ? sanitize_text_field(wp_unslash($_GET['on_sale'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
 	
 		if($on_sale == 'onsale'){
 			return $on_sale;
@@ -99,7 +108,7 @@ class The_Pack_Woo_Helper {
 	}
 	
 	static function tp_stock_status(){
-		$stock_status  = isset( $_GET['stock_status'] ) ? sanitize_text_field($_GET['stock_status']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$stock_status  = isset( $_GET['stock_status'] ) ? sanitize_text_field(wp_unslash($_GET['stock_status'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
 	
 		if($stock_status == 'instock'){
 			return $stock_status;
@@ -129,7 +138,7 @@ class The_Pack_Woo_Helper {
 				$tax_query[] = array(
 					'taxonomy' => 'product_cat',
 					'field' 	=> 'id',
-					'terms' 	=> explode(',',sanitize_text_field($_GET['filter_cat'])),//phpcs:disable WordPress.Security.NonceVerification.Recommended
+					'terms' 	=> explode(',',sanitize_text_field(wp_unslash($_GET['filter_cat']))),//phpcs:disable WordPress.Security.NonceVerification.Recommended
 				);
 			}
 		}
@@ -252,7 +261,7 @@ class The_Pack_Woo_Helper {
 		}
 		 
 		if(isset($_GET['filter_cat'])){//phpcs:disable WordPress.Security.NonceVerification.Recommended
-			$explode_old = explode(',',sanitize_text_field($_GET['filter_cat']));//phpcs:disable WordPress.Security.NonceVerification.Recommended
+			$explode_old = explode(',',sanitize_text_field(wp_unslash($_GET['filter_cat'])));//phpcs:disable WordPress.Security.NonceVerification.Recommended
 			$explode_termid = explode(',',$termid);
 			
 			if(in_array($termid, $explode_old)){
@@ -313,13 +322,13 @@ class The_Pack_Woo_Helper {
 			)';
 	
 		$sql = apply_filters( 'woocommerce_price_filter_sql', $sql, $meta_query_sql, $tax_query_sql );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
-		//phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
+
+		//phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.NotPrepared
 		return $wpdb->get_row( $sql );
-	}  
+	}   
 	
 	static function show_per_page_opt(){?>
-		<?php $perpage = isset($_GET['perpage']) ? sanitize_text_field($_GET['perpage']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended ?>
+		<?php $perpage = isset($_GET['perpage']) ? sanitize_text_field(wp_unslash($_GET['perpage'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended ?> 
 		<?php $defaultperpage = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page(); ?>
 		<?php $options = array($defaultperpage,$defaultperpage*2,$defaultperpage*3,$defaultperpage*4); ?>
 		<div class="per-page-products">
@@ -347,8 +356,8 @@ class The_Pack_Woo_Helper {
 		$icon = the_pack_render_icon( $opt['cfltr'] );
 	
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
-		$min_price = isset( $_GET['min_price'] ) ? wc_clean( sanitize_text_field($_GET['min_price'] )) : 0;//phpcs:disable WordPress.Security.NonceVerification.Recommended 
-		$max_price = isset( $_GET['max_price'] ) ? wc_clean( sanitize_text_field($_GET['max_price'] )) : 0;//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+		$min_price = isset( $_GET['min_price'] ) ? wc_clean( sanitize_text_field(wp_unslash($_GET['min_price']) )) : 0;//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+		$max_price = isset( $_GET['max_price'] ) ? wc_clean( sanitize_text_field(wp_unslash($_GET['max_price']) )) : 0;//phpcs:disable WordPress.Security.NonceVerification.Recommended 
 	
 		if(! empty( $_chosen_attributes ) || isset($_GET['filter_cat']) || 0 < $min_price || 0 < $max_price || self::tp_stock_status() == 'instock' || self::tp_on_sale() == 'onsale'){//phpcs:disable WordPress.Security.NonceVerification.Recommended
 	
@@ -370,7 +379,7 @@ class The_Pack_Woo_Helper {
 						$term = get_term_by( 'slug', $term_slug, $taxonomy );
 						
 						$filter_name    = 'filter_' . wc_attribute_taxonomy_slug( $taxonomy );
-						$explode_old = explode(',',sanitize_text_field($_GET[$filter_name]));
+						$explode_old = explode(',',sanitize_text_field(wp_unslash($_GET[$filter_name])));
 						$explode_termid = explode(',',$term->slug);
 						$klbdata = array_diff( $explode_old, $explode_termid);
 						$klbdataimplode = implode(',',$klbdata);
@@ -408,7 +417,7 @@ class The_Pack_Woo_Helper {
 					'taxonomy' => 'product_cat',
 					'hide_empty' => false,
 					'parent'    => 0,
-					'include' 	=> explode(',',sanitize_text_field($_GET['filter_cat'])),
+					'include' 	=> explode(',',sanitize_text_field(wp_unslash($_GET['filter_cat']))),
 				) );
 				
 				foreach ( $terms as $term ) {

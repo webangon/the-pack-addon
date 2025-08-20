@@ -10,7 +10,7 @@ class User_Profile_Picture extends Author_Profile_Picture {
 		return 'user-profile-picture';
 	}
 	public function get_title() {
-		return esc_html__( 'User Profile Picture', 'thepack' );
+		return esc_html__( 'User Profile Picture', 'the-pack-addon'  );
 	}
 	public function get_value( array $options = [] ) {
 		return [

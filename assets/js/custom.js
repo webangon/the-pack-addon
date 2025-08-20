@@ -299,58 +299,7 @@
 
         });
     };
-    var Team1 = function ($scope, $) {
-        $scope.find('.team1carou').each(function () {
-            var slider_elem = $(this);
-            var settings = slider_elem.data('xld');
-            var options = {
-                paginationClickable: true,
-                spaceBetween: settings['space'],
-                navigation: {
-                    nextEl: '.khbprev',
-                    prevEl: '.khbnxt',
-                },
-                breakpoints: {     
-                    1025: {
-                        slidesPerView: settings['item'],
-                    },
-                    768: {
-                        slidesPerView: settings['item_tab'],
-                    },
-                    480: {
-                        slidesPerView: 1,
-                    },
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                    type: 'bullets',
-                },
-                loop: true,
-                autoplay: {
-                    delay: settings['speed'],
-                },
-                mousewheel: settings['mouse'],
-                on: {
-                    init: function () {
-                        if (settings['center']) {
-                            slider_elem.find('.swiper-slide').addClass("centermode");
-                        }
-                    },
-                },
-            };
 
-            if ('undefined' === typeof Swiper) {
-                const asyncSwiper = elementorFrontend.utils.swiper;
-                new asyncSwiper(slider_elem[0], options).then((newSwiperInstance) => {
-                    var swiper = newSwiperInstance;
-                });
-
-            } else {
-                var swiper = new Swiper(slider_elem[0], options);
-            }
-        });
-    };
     var Team2 = function ($scope, $) {
         $scope.find('.tbteam2.hascarou').each(function () {
             var slider_elem = $(this);
@@ -550,27 +499,39 @@
     };
 
     var Testimonial = function ($scope, $) {
-        $scope.find('.testimonial-1').each(function () {
+        $scope.find('.tpswiper').each(function () {
             var settings = $(this).data('xld');
-
             var options = {
-                slidesPerView: 1,
+                //slidesPerView: "auto",
+                //init: false,
+                autoHeight: true,
+                direction: settings['direction'],
+                effect: settings['effect'],
                 pagination: {
                     el: $(this).find('.swiper-pagination')[0],
                     clickable: true,
                 },
+                coverflowEffect: {
+                    rotate: 15,
+                    slideShadows: false,
+                },  
+                cardEffect: {
+                    slideShadows: false,
+                },                                              
+                speed: parseInt(settings['speed']),
                 autoplay: {
-                    delay: settings['speed'],
+                    delay: parseInt(settings['delay']),
                     enabled: settings['auto'],
+                    reverseDirection: settings['reverse'],
+                    disableOnInteraction: false,
                 },
-                spaceBetween: settings['space'],
-
+                spaceBetween: parseInt(settings['space']),
                 breakpoints: {
                     1140: {
-                        slidesPerView: settings['item'],
+                        slidesPerView: parseInt(settings['item']),
                     },
                     768: {
-                        slidesPerView: settings['itemtab'],
+                        slidesPerView: parseInt(settings['itemtab']),
                     },
                     1: {
                         slidesPerView: 1,
@@ -578,8 +539,8 @@
                 },
                 loop: true,
                 navigation: {
-                    nextEl: $(this).find('.khbprev'),
-                    prevEl: $(this).find('.khbnxt'),
+                    nextEl: $(this).find('.khbprev')[0],
+                    prevEl: $(this).find('.khbnxt')[0],
                 }
             };
 
@@ -588,10 +549,12 @@
                 new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
                     var swiper = newSwiperInstance;
                 });
-
             } else {
                 var swiper = new Swiper($(this)[0], options);
-            }
+                //swiper.params.autoplay.enabled = true;
+                //swiper.init();
+            }  
+
         });
     };
 
@@ -655,9 +618,9 @@
             var slider_elem = $(this);
             var settings = slider_elem.data('thop');
             var options = {
-                slidesPerView: settings['item'],
-                spaceBetween: settings['space'],
-                centeredSlides: settings['center'],
+                slidesPerView: parseInt(settings['item']),
+                spaceBetween: parseInt(settings['space']),
+                centeredSlides: parseInt(settings['center']),
                 mousewheel: settings['mouse'],
                 pagination: {
                     el: '.swiper-pagination',
@@ -672,15 +635,15 @@
                     slideShadows: false,
                 },
                 autoplay: {
-                    delay: settings['speed'],
+                    delay: parseInt(settings['speed']),
                     enabled: settings['auto'],
                 },
                 breakpoints: {
                     1140: {
-                        slidesPerView: settings['item'],
+                        slidesPerView: parseInt(settings['item']),
                     },
                     768: {
-                        slidesPerView: settings['item_tab'],
+                        slidesPerView: parseInt(settings['item_tab']),
                     },
                     1: {
                         slidesPerView: 1,
@@ -1016,8 +979,6 @@
                 e.preventDefault();
                 var this_form = $(this);
                 var settings = this_form.data('xld');
-
-
                 this_form.find('.tp-form-btn button').addClass('working');
                 var mf = [];
                 this_form.find('.item').each(function () {
@@ -1335,6 +1296,28 @@
         });
     };
 
+    var Tp_Swiper_Arrow = function ($scope, $) {
+        $scope.find('.tp-swiper-arrow').each(function () {
+            var _parent = $(this).data('slider');
+            var prev = $(this).find(".prev");
+            var nxt = $(this).find(".next");
+
+            var prev_arrow = $(_parent).find(".khbnxt");
+            var nxt_arrow = $(_parent).find(".khbprev");
+            $(_parent).find(".tpswiper").addClass('arrow-disabled');
+
+            prev.click(function(){
+                prev_arrow.click(); 
+                return false;
+            });
+            nxt.click(function(){
+                nxt_arrow.click(); 
+                return false;
+            });
+
+        });
+    };
+
     var TpFloatingNav = function ($scope, $) {
         $scope.find('.tp-floating-nav').each(function () {
             var settings = $(this).data('xld');
@@ -1352,6 +1335,53 @@
                 $(this).find('.gallery-icon a').append(icon);
 
             }
+        });
+    };
+
+    var TP_Icon_Effect = function ($scope, $) {
+        
+        $scope.each(function () {
+            var _This = $(this).hasClass("tp_icon_slide_yes")
+            var _Parent = $(this).find('.elementor-icon')
+            var _Icon = $(this).find('.elementor-icon i')
+            if(_This){
+                var $button = _Icon.clone();
+                _Parent.append($button);
+            }
+        })
+    };
+
+    var TP_Button_Effect = function ($scope, $) {
+        
+        $scope.each(function () {
+            var _This = $(this).hasClass("tp-btn-slthover-yes")
+            var _Parent = $(this).find('.elementor-button-content-wrapper')
+            var _Icon = $(this).find('.elementor-button-text')
+            if(_This){
+                var $button = _Icon.clone();
+                _Parent.append($button);
+            }
+        })
+    };
+
+    var TpCircleTxt = function ($scope, $) {
+        $scope.find('.tp-circle-txt').each(function () {
+            var text = $(this).find('.text')[0];
+            text.innerHTML = text.innerText
+                .split("")
+                .map(
+                    (char, i) => `<span style="transform:rotate(${i * 10.3}deg)">${char}</span>`
+                )
+                .join("");
+        });
+    };
+
+    var TpHoverActive = function ($scope, $) {
+        $scope.find('.tp-mousenter').each(function () {
+            $(".tp-mousenter").on('mouseenter', function () {
+                $(".tp-mousenter").removeClass("active");
+                $(this).addClass("active");
+            });
         });
     };
 
@@ -1509,7 +1539,10 @@
 
                 let $thisBtn = $(this),
                     product_id = $thisBtn.val() || '',
-                    cartFormData = $form.serialize();
+                    cartFormData = $form.serialize(),
+                    product_qty = $('input[name="quantity"]').val() || '',
+                    cart_num = $('.tp-quick-cart .cart-count').text() || '',
+                    total_cart = parseInt(cart_num)+parseInt(product_qty);
 
                 $.ajax({
                     type: 'POST', 
@@ -1527,18 +1560,22 @@
 
                             return;
                         }
-
+                        
                         setTimeout(function () {
                             $thisBtn.removeClass('added');
                         }, 1000);
 
-                        $(document.body).trigger('wc_fragment_refresh');
+                        $('.tp-quick-cart .cart-count').text(total_cart);
+
+                        $(document.body).trigger('wc_fragments_refreshed');
                         $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisBtn]);
 
                         if (typeof wc_add_to_cart_params === 'undefined') {
                             return false;
                         }
-
+                        if(settings['redirect']){
+                            window.location.href = settings['redirect'];
+                        }
                         var currentCartCount = parseInt($('.wpr-mini-cart-icon-count').text());
                         var updatedCartCount = parseInt($scope.find('.wpr-quantity-wrapper .qty').val());
                         $('.wpr-mini-cart-icon-count').text(currentCartCount + updatedCartCount);
@@ -1550,28 +1587,90 @@
     };
  
 
+    var TPSwiperSlider = function ($scope, $) {
+        $scope.find('.tpswiper').each(function () {
+            var settings = $(this).data('xld');
+            var options = {
+                slidesPerView: "auto",
+                //init: false,
+                direction: settings['direction'],
+                //centeredSlides: true,
+                effect: settings['effect'],
+                pagination: {
+                    el: $(this).find('.swiper-pagination')[0],
+                    clickable: true,
+                },
+                coverflowEffect: {
+                    rotate: 15,
+                    slideShadows: false,
+                },  
+                cardEffect: {
+                    slideShadows: false,
+                },                                              
+                speed: parseInt(settings['speed']),
+                autoplay: {
+                    delay: parseInt(settings['delay']),
+                    enabled: settings['auto'],
+                    reverseDirection: settings['reverse'],
+                    disableOnInteraction: false,
+                },
+                spaceBetween: parseInt(settings['space']),
+                breakpoints: {
+                    1140: {
+                        slidesPerView: parseInt(settings['item']),
+                    },
+                    768: {
+                        slidesPerView: parseInt(settings['itemtab']),
+                    },
+                    1: {
+                        slidesPerView: 1,
+                    },
+                },
+                loop: true,
+                navigation: {
+                    nextEl: $(this).find('.khbprev')[0],
+                    prevEl: $(this).find('.khbnxt')[0],
+                }
+            };
+
+            if ('undefined' === typeof Swiper) {
+                const asyncSwiper = elementorFrontend.utils.swiper;
+                new asyncSwiper($(this)[0], options).then((newSwiperInstance) => {
+                    var swiper = newSwiperInstance;
+                });
+            } else {
+                var swiper = new Swiper($(this)[0], options);
+                //swiper.params.autoplay.enabled = true;
+                //swiper.init();
+            }  
+
+        });
+    };
 
     $(window).on('elementor/frontend/init', function () {
 
         var widgets = {
 
             'ae-accor1': Tpaccordion1,
-
-            'tb_testim_1': Testimonial,
+            'tb_testim_1': Testimonial,  
             'tb_gallery1': ImgCarousel,
             'tb_imgbx4': ImgCarousel,
             'tb_imgbox1': ImgCarousel,
-
+            'tp-swiper-arrow': Tp_Swiper_Arrow,
+            'tp_case_grid':TPSwiperSlider,
             'tp-carousel1': FolioCarousel,
             'tp-slidershop': FolioCarousel,
             'tp-typing1': Typing1,
             'tp-slkcrsl': SlickImgCar,
             'wa-gallery': Gallery2,
             'tb_foliohvr': HvrFolio,
-            'tb_team1': Team1,
+            'tb_team1': Testimonial,
             'tb_team2': Team2,
-            'tb_team3': Team1,
+            //'tb_team3': Team1,
             'tb_caroparlx': CaroPrlx,
+
+            'icon': TP_Icon_Effect,
+            'button': TP_Button_Effect,
 
 
             'tb_testim_5': Testi5,
@@ -1601,6 +1700,10 @@
             'tp-auto-tab': TpAutoTab,
             'tp-floating-nav': TpFloatingNav,
             'image-gallery': TpImgGallery,
+            'tpcircletext': TpCircleTxt,
+            'tbimgbgbox_2': TpHoverActive,
+            'tp_hxpand': TpHoverActive,
+            'tpmqsrv': TpHoverActive,
 
             'tp-woo-tabs': Tpwoo_tabs,
             'tp_woothumb': Tpwoo_Gallery,
@@ -1634,9 +1737,28 @@
 
     });
 
-    AOS.init({
-        easing: 'ease-in-out-sine'
-    });
+    if (typeof ScrollReveal !== 'undefined' && $.isFunction(ScrollReveal)) {
+        window.sr = ScrollReveal();
+        sr.reveal('.reveal-top, .reveal-bottom, .reveal-left, .reveal-right', {
+            delay: 300,
+            easing: 'ease',
+            duration: 700,
+            scale: 0,
+            reset: true,
+        });
+        sr.reveal('.reveal-top', {
+            origin: 'top',
+        }, 250);
+        sr.reveal('.reveal-bottom', {
+            origin: 'bottom',
+        }, 250);
+        sr.reveal('.reveal-left', {
+            origin: 'left',
+        }, 250);
+        sr.reveal('.reveal-right', {
+            origin: 'right',
+        }, 250);
+    }
 
     var tbtops = document.querySelector(".tp-progress-wrap");
     if (tbtops) {
@@ -1679,8 +1801,50 @@
             });
         });
     }
+    
+    $(window).on('scroll', function () {
+        var t, r, o, a;
+        (t=document.documentElement.scrollTop)>200?$(".tp-scroll-bar").addClass("visible"): $(".tp-scroll-bar").removeClass("visible"), r=document.documentElement.scrollHeight, o=document.documentElement.clientHeight, a=(t=document.documentElement.scrollTop)/(r-o-200)*100, $(".tp-scroll-indicate").css("height", Math.min(a, 100)+"%")
+    })
+    
+	$('.tphovmoveyes>.elementor-widget-container').each(function () {
+        var $this = $(this);
+        var dampingFactor = 0.3;
+ 
+        function handleMouseMove(e) {
+            var offset = $this.offset();
+            var mouseX = e.pageX - offset.left;
+            var mouseY = e.pageY - offset.top;
+            var translateX = (mouseX - $this.width() / 2) * dampingFactor;
+            var translateY = (mouseY - $this.height() / 2) * dampingFactor;
 
-    // Page loader
+            var translateTransform = 'translate(' + translateX + 'px, ' + translateY + 'px)';
+            $this.css({
+                'transform': translateTransform,
+                'transition': 'transform 0.1s ease-out'  // Adjust the duration and easing as needed
+            });
+        }
+
+        function resetTransform() {
+            $this.css({
+                'transform': 'none',
+                'transition': 'transform 0.3s ease-out'  // Adjust the duration and easing as needed
+            });
+        }
+
+        if ($this.closest('.xb-parent-element-parallax').length) {
+            var pare2 = $this.closest('.xb-parent-element-parallax');
+            pare2.mousemove(function (e) {
+                handleMouseMove(e);
+            });
+            pare2.mouseleave(resetTransform);
+        } else {
+            $this.mousemove(handleMouseMove);
+            $this.mouseleave(resetTransform);
+        }
+    });
+
+    // Page loader parallax 
     $(".tp-page-loader-wrap").fadeOut("slow");
 
     $(document).on('click', '.quantity .minus', function () {
@@ -1694,7 +1858,53 @@
         return false;
     });
 
+        if ($(".tp-cursor-helper").length) {
 
+            var cursor = document.querySelector('.cursor-helper-outer');
+            var cursorinner = document.querySelector('.cursor-helper-inner');
+            var a = document.querySelectorAll('a');
+            var swiper_wrap = document.querySelectorAll('.swiper-wrapper>div');
+            
+            document.addEventListener('mousemove', function (e) {
+              cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+            });
+
+            document.addEventListener('mousemove', function (e) {
+              var x = e.clientX;
+              var y = e.clientY;
+              cursorinner.style.left = x + 'px';
+              cursorinner.style.top = y + 'px';
+            });
+
+            document.addEventListener('mousedown', function () {
+              cursor.classList.add('click');
+              cursorinner.classList.add('cursor-helper-innerhover')
+            });
+
+            document.addEventListener('mouseup', function () {
+              cursor.classList.remove('click')
+              cursorinner.classList.remove('cursor-helper-innerhover')
+            });
+
+            a.forEach(item => {
+              item.addEventListener('mouseover', () => {
+                cursor.classList.add('cursor-link');
+              });
+              item.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-link');
+              });
+            });
+
+            swiper_wrap.forEach(item => {
+              item.addEventListener('mouseover', () => {
+                cursor.classList.add('cursor-slider');
+              });
+              item.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-slider');
+              });
+            });
+
+        }
 
     $(document).on('click', '.quantity .plus', function () {
         var $input = $(this).parent().find('input');
@@ -1761,9 +1971,40 @@
         $('.tp-pop-response').find('.popwrap').html('');
     });
 
-    function tp_add_to_cart($btn){
-        console.log($btn);
+    $('body').on('added_to_cart',function(e, fragments, cart_hash, this_button){
+        alert('Product added');
+    });
+
+    //TODO Swiper curve slider
+    const multiplier = {
+      translate: 0.1,
+      rotate: 0.02,
+    };
+
+    function calculateWheel() {
+      const slides = document.querySelectorAll(".swiper-slide");
+      slides.forEach((slide, i) => {
+        const rect = slide.getBoundingClientRect();
+        const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
+        let ty =
+          Math.abs(r) * multiplier.translate -
+          rect.width * multiplier.translate;
+
+        if (ty < 0) {
+          ty = 0;
+        }
+        const transformOrigin = r < 0 ? "left top" : "right top";
+        slide.style.transform = `translate(0, ${ty}px) rotate(${
+          -r * multiplier.rotate
+        }deg)`;
+        slide.style.transformOrigin = transformOrigin;
+      });
     }
+    function raf() {
+      requestAnimationFrame(raf);
+      calculateWheel();
+    }
+    //raf();
 
     ////
 })(jQuery);

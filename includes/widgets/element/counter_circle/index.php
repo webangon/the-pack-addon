@@ -19,7 +19,7 @@ class ae_counter extends Widget_Base
 
     public function get_title()
     {
-        return esc_html__('Circle counter', 'webangon');
+        return esc_html__('Circle counter', 'the-pack-addon' );
     }
 
     public function get_icon()
@@ -37,7 +37,7 @@ class ae_counter extends Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('General', 'webangon'),
+                'label' => esc_html__('General', 'the-pack-addon' ),
             ]
         );
 
@@ -116,7 +116,7 @@ class ae_counter extends Widget_Base
         $this->start_controls_section(
             'section_settings',
             [
-                'label' => esc_html__('Styling', 'webangon'),
+                'label' => esc_html__('Styling', 'the-pack-addon' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -246,7 +246,7 @@ class ae_counter extends Widget_Base
         $this->start_controls_section(
             'section_cnt',
             [
-                'label' => esc_html__('Circle', 'webangon'),
+                'label' => esc_html__('Circle', 'the-pack-addon' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );

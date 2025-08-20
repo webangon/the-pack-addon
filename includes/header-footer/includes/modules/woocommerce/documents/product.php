@@ -24,11 +24,11 @@ class Product extends Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Single Product', 'thepack' );
+		return __( 'Single Product', 'the-pack-addon'  );
 	}
 
 	public static function get_plural_title() {
-		return __( 'Single Products', 'thepack' );
+		return __( 'Single Products', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -37,9 +37,9 @@ class Product extends Single_Base {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a Single Product Template?', 'thepack' ),
-			'content' => __( 'A single product template allows you to easily design the layout and style of WooCommerce single product pages, and apply that template to various conditions that you assign.', 'thepack' ),
-			'tip' => __( 'You can create multiple single product templates, and assign each to different types of products, enabling a custom design for each group of similar products.', 'thepack' ),
+			'title' => __( 'What is a Single Product Template?', 'the-pack-addon'  ),
+			'content' => __( 'A single product template allows you to easily design the layout and style of WooCommerce single product pages, and apply that template to various conditions that you assign.', 'the-pack-addon'  ),
+			'tip' => __( 'You can create multiple single product templates, and assign each to different types of products, enabling a custom design for each group of similar products.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-product',
 			'video_url' => 'https://www.youtube.com/embed/PjhoB1RWkBM',
 		];
@@ -155,7 +155,7 @@ class Product extends Single_Base {
 		$categories = [
 			// Move to top as active.
 			'thepackkit-woo-product' => [
-				'title' => __( 'LaStudio Kit Product', 'thepack' ),
+				'title' => __( 'LaStudio Kit Product', 'the-pack-addon'  ),
 				'active' => true,
 			],
 		];

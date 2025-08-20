@@ -51,8 +51,8 @@ if ( empty( $product ) ) {
         return;
     }
 
-    $current_min_price = isset( $_GET['min_price'] ) ? floor( floatval( wp_unslash( sanitize_text_field($_GET['min_price'] ) )) / $step ) * $step : $min_price;//phpcs:disable WordPress.Security.NonceVerification.Recommended
-    $current_max_price = isset( $_GET['max_price'] ) ? ceil( floatval( wp_unslash( sanitize_text_field($_GET['max_price'] ) )) / $step ) * $step : $max_price;//phpcs:disable WordPress.Security.NonceVerification.Recommended
+    $current_min_price = isset( $_GET['min_price'] ) ? floor( floatval( wp_unslash($_GET['min_price'])) / $step ) * $step : $min_price;//phpcs:disable WordPress.Security.NonceVerification.Recommended
+    $current_max_price = isset( $_GET['max_price'] ) ? ceil( floatval( wp_unslash($_GET['max_price'])) / $step ) * $step : $max_price;//phpcs:disable WordPress.Security.NonceVerification.Recommended
 
     if ( '' === get_option( 'permalink_structure' ) ) {
         $form_action = remove_query_arg( array( 'page', 'paged', 'product-page' ), add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );

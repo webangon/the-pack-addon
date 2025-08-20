@@ -17,7 +17,16 @@ class thepack_case_grid extends Widget_Base
     public function get_name()
     {
         return 'tp_case_grid';
-    }
+    } 
+    // Enqueue styles
+	public function get_style_depends() {
+		return ['swiper','e-swiper'];
+	}
+
+	// Enqueue scripts
+	public function get_script_depends() {
+		return ['swiper'];
+	}
 
     public function get_title()
     {
@@ -66,7 +75,7 @@ class thepack_case_grid extends Widget_Base
         );
 
         $repeater1->add_control(
-            'fimgs',
+            'img',
             [
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -77,30 +86,6 @@ class thepack_case_grid extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
-            'img_size',
-            [
-                'label' => esc_html__('Image size', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'label_block' => true,
-                'options' => thepack_image_size_choose(),
-                'multiple' => false,
-            ]
-        );
-
-        $repeater1->add_control(
-            'img_pos',
-            [
-                'label' => esc_html__('Image position', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'label_block' => true,
-                'options' => thepack_background_position(),
-                'multiple' => false,
-                'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .inner' => 'background-position: {{VALUE}};',
-                ],
-            ]
-        );
 
         $repeater1->add_control(
             'url',
@@ -124,6 +109,15 @@ class thepack_case_grid extends Widget_Base
                     ]
                 ],
                 'title_field' => '{{{name}}}',
+            ]
+        );
+
+        $this->add_control(
+            'ikn',
+            [
+                'label' => esc_html__('Button icon', 'the-pack-addon'),
+                'type' => Controls_Manager::ICONS,
+                'label_block' => true,
             ]
         );
 
@@ -156,10 +150,59 @@ class thepack_case_grid extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'disp',
+            [
+                'label' => esc_html__('Display', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'grid' => [
+                        'title' => esc_html__('Grid', 'the-pack-addon'),
+                        'icon' => 'eicon-gallery-grid',
+                    ],
+                    'slider' => [
+                        'title' => esc_html__('Slider', 'the-pack-addon'),
+                        'icon' => 'eicon-slider-album',
+                    ]
+                ],
+                'default' => 'grid',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'wdidth',
+            [
+                'label' => esc_html__('Column width', 'the-pack-addon'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => '33.33',
+                'selectors' => [
+                    '{{WRAPPER}} .tp-df-33' => 'width: {{VALUE}}%;flex:0 0 {{VALUE}}%;', 
+                ],
+                'condition' => [
+                    'disp' => 'grid', 
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'gap',
+            [
+                'label' => esc_html__('Gap', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .tp-gutter' => 'margin: -{{SIZE}}{{UNIT}} 0 0 -{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tp-gutter>div[class^="tp-df-"]' => 'padding: {{SIZE}}{{UNIT}} 0 0 {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'disp' => 'grid',
+                ],                
+            ]
+        );
+
         $this->add_responsive_control(
             'bht',
             [
-                'label' => esc_html__('Big grid height', 'the-pack-addon'),
+                'label' => esc_html__('Height', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -170,49 +213,8 @@ class thepack_case_grid extends Widget_Base
                 ],
                 'size_units' => ['px'],
                 'selectors' => [
-                    '{{WRAPPER}} .case-big .inner' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .card-image-wrapper img' => 'height: {{SIZE}}{{UNIT}};',
                 ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'sht',
-            [
-                'label' => esc_html__('Small grid height', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 1000,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-                'selectors' => [
-                    '{{WRAPPER}} .case-mid .inner,{{WRAPPER}} .case-small .inner' => 'height: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'gsp',
-            [
-                'label' => esc_html__('Grid spacing', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .case-wrap' => 'padding: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .tp-case-grid' => 'margin-left: -{{SIZE}}{{UNIT}};margin-right: -{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'animation',
-            [
-                'label' => esc_html__('Animation', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => thepack_animations(),
-                'label_block' => true,
             ]
         );
 
@@ -220,9 +222,9 @@ class thepack_case_grid extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'fover',
-                'label' => esc_html__('Background overlay', 'elementor'),
+                'label' => esc_html__('Background overlay', 'the-pack-addon'),
                 'types' => ['none', 'classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .inner::before',
+                'selector' => '{{WRAPPER}} .card-image-wrapper::before',
             ]
         );
 
@@ -236,6 +238,31 @@ class thepack_case_grid extends Widget_Base
             ]
         );
 
+        $this->add_responsive_control(
+            'inpalign',
+            [
+                'label' => esc_html__('Text alignment', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'the-pack-addon'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .service-card-content' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->add_control(
             'c_pad',
             [
@@ -243,7 +270,58 @@ class thepack_case_grid extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .case-wrap .case-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .service-card-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'bps',
+            [
+                'label' => esc_html__('Bottom position', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                ],
+                'size_units' => ['px'],
+                'selectors' => [
+                    '{{WRAPPER}} .service-card-content' => 'bottom: -{{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'bphs',
+            [
+                'label' => esc_html__('Hover Bottom position', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .tp-img-card .item:hover .service-card-content' => 'bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cbgt',
+            [
+                'label' => esc_html__('Background', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .item:hover .service-card-content' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'bdf',
+            [
+                'label' => esc_html__('Backdrop blur', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .item:hover .service-card-content' => 'backdrop-filter:blur({{SIZE}}{{UNIT}});-webkit-backdrop-filter:blur({{SIZE}}{{UNIT}});',
                 ],
             ]
         );
@@ -263,7 +341,7 @@ class thepack_case_grid extends Widget_Base
                 'label' => esc_html__('Color', 'the-pack-addon'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .name' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .title,{{WRAPPER}} .title a' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -275,7 +353,7 @@ class thepack_case_grid extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -285,7 +363,7 @@ class thepack_case_grid extends Widget_Base
             [
                 'name' => 'q_typo',
                 'label' => esc_html__('Typography', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}} .name',
+                'selector' => '{{WRAPPER}} .title',
             ]
         );
 
@@ -298,31 +376,27 @@ class thepack_case_grid extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'p_clr',
+        do_action('the_pack_typo', $this,'dsc_','.desc',['margin']);
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'm3',
             [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pos' => 'color: {{VALUE}};',
-                ],
+                'label' => esc_html__('Button', 'the-pack-addon'),
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'p_typo',
-                'label' => esc_html__('Typography', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}} .pos',
-            ]
-        );
+        do_action('the_pack_typo', $this,'bg_','.link',['bg','width','height','radius','border']);
 
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        do_action('the_pack_swiper_control', $this,true);
+
     }
 
     protected function render()

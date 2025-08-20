@@ -35,7 +35,7 @@ class In_Taxonomy extends Condition_Base {
 
 	public function get_label() {
 		/* translators: %s: Taxonomy label. */
-		return sprintf( __( 'In %s', 'thepack' ), $this->taxonomy->labels->singular_name );
+		return sprintf( __( 'In %s', 'the-pack-addon'  ), $this->taxonomy->labels->singular_name );
 	}
 
 	public function check( $args ) {

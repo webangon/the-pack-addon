@@ -26,4 +26,5 @@
 .tp-section-moving-yes{
     animation: tpanimatedBackground 30s linear infinite;  
 }
+
 @keyframes tpanimatedBackground { from { background-position: 0 0; } to { background-position: 100% 0; } }

@@ -20,7 +20,7 @@ class Search extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Search Results', 'thepack' );
+		return __( 'Search Results', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

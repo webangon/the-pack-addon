@@ -492,7 +492,7 @@ class thepack_post_comment extends Widget_Base
         $this->add_control(
             'in_bdwd',
             [
-                'label' => esc_html__('Border width', 'elementor'),
+                'label' => esc_html__('Border width', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .khbcomment-field input,{{WRAPPER}} textarea' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};border-style:solid;',
@@ -551,7 +551,7 @@ class thepack_post_comment extends Widget_Base
         $this->add_control(
             'bt_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

@@ -1,7 +1,4 @@
 <?php
-
-$animation = $settings['animation'];
-
 switch ($settings['tmpl']) {
     case 'one':
         $cls = 'bar-progress-wrap';
@@ -21,7 +18,7 @@ switch ($settings['tmpl']) {
 ?>
 <div class="bar-progress-wrap">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<?php echo $this->content($settings['items'], $settings['tmpl'], $animation); ?>
+	<?php echo $this->content($settings['items'], $settings['tmpl']); ?>
 </div>
 
 

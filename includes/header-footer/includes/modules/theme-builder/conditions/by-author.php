@@ -22,7 +22,7 @@ class By_Author extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'By Author', 'thepack' );
+		return __( 'By Author', 'the-pack-addon'  );
 	}
 
 	public function check( $args = null ) {

@@ -110,7 +110,7 @@ class thepack_imgbox1 extends Widget_Base
         $repeater1->add_control(
             'icon',
             [
-                'label' => esc_html__('Icon', 'elementor'),
+                'label' => esc_html__('Icon', 'the-pack-addon' ),
                 'type' => Controls_Manager::ICONS,
                 'label_block' => true,
                 'condition' => [
@@ -490,7 +490,7 @@ class thepack_imgbox1 extends Widget_Base
         $this->add_control(
             'h_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -531,7 +531,7 @@ class thepack_imgbox1 extends Widget_Base
         $this->add_control(
             'desc_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

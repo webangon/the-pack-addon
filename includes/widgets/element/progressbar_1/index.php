@@ -114,17 +114,6 @@ class thepack_progressbars extends Widget_Base
         );
 
         $this->add_control(
-            'animation',
-            [
-                'label' => esc_html__('Animation', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => thepack_animations(),
-                'multiple' => false,
-                'label_block' => true
-            ]
-        );
-
-        $this->add_control(
             'bar_margin',
             [
                 'label' => esc_html__('Bottom margin', 'the-pack-addon'),
@@ -149,7 +138,7 @@ class thepack_progressbars extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'pri_color',
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .bar',
             ]
@@ -241,7 +230,7 @@ class thepack_progressbars extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'pcen_bg',
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .bar-percentage',
             ]
@@ -307,14 +296,14 @@ class thepack_progressbars extends Widget_Base
         require dirname(__FILE__) . '/view.php';
     }
 
-    private function content($content, $template, $column)
+    private function content($content, $template)
     {
         $out1 = $out2 = $out3 = '';
 
-        foreach ($content as $item) {
+        foreach ($content as $item) { 
             $out1 .= '
 
-                <div class="bar-progress ' . $column . '">
+                <div class="bar-progress">
                     <div class="bar-label">' . $item['title'] . '</div>
                         <div class="bar-percentage" data-percentage="' . $item['percent']['size'] . '">' . $item['percent']['size'] . '%</div>
                         <div class="bar-container">
@@ -326,7 +315,7 @@ class thepack_progressbars extends Widget_Base
 
             $out2 .= '
 
-                <div class="bar-progress ' . $column . '">
+                <div class="bar-progress">
                     <div class="bar-label">' . $item['title'] . '</div>
                         <div class="bar-percentage tri" data-percentage="' . $item['percent']['size'] . '">' . $item['percent']['size'] . '%</div>
                         <div class="bar-container">
@@ -338,7 +327,7 @@ class thepack_progressbars extends Widget_Base
 
             $out3 .= '
 
-                <div class="bar-progress ' . $column . '">
+                <div class="bar-progress">
                     <div class="bar-label">' . $item['title'] . '</div>
                         <div class="bar-container">
                             <div class="bar" style="width:' . $item['percent']['size'] . '%;">

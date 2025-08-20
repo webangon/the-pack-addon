@@ -23,7 +23,7 @@ class Archive extends Archive_Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Archive', 'thepack' );
+		return __( 'Archive', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -32,9 +32,9 @@ class Archive extends Archive_Single_Base {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is an Archive Template?', 'thepack' ),
-			'content' => __( 'An archive template allows you to easily design the layout and style of archive pages - those pages that show a list of posts (e.g. a blog’s list of recent posts), which may be filtered by terms such as authors, categories, tags, search results, etc.', 'thepack' ),
-			'tip' => __( 'If you’d like a different style for a specific category, it’s easy to create a separate archive template whose condition is to only display when users are viewing that category’s list of posts.', 'thepack' ),
+			'title' => __( 'What is an Archive Template?', 'the-pack-addon'  ),
+			'content' => __( 'An archive template allows you to easily design the layout and style of archive pages - those pages that show a list of posts (e.g. a blog’s list of recent posts), which may be filtered by terms such as authors, categories, tags, search results, etc.', 'the-pack-addon'  ),
+			'tip' => __( 'If you’d like a different style for a specific category, it’s easy to create a separate archive template whose condition is to only display when users are viewing that category’s list of posts.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-archive',
 			'video_url' => 'https://www.youtube.com/embed/wxElpEh9bfA',
 		];
@@ -43,7 +43,7 @@ class Archive extends Archive_Single_Base {
 	protected static function get_editor_panel_categories() {
 		$categories = [
 			'theme-elements-archive' => [
-				'title' => __( 'Archive', 'thepack' ),
+				'title' => __( 'Archive', 'the-pack-addon'  ),
 			],
 		];
 
@@ -66,7 +66,7 @@ class Archive extends Archive_Single_Base {
 
 			if ( $post_type_object->has_archive ) {
 				/* Translators: %s post type archive */
-				$post_type_archives[ 'post_type_archive/' . $post_type ] = sprintf( __( '%s Archive', 'thepack' ), $post_type_object->label );
+				$post_type_archives[ 'post_type_archive/' . $post_type ] = sprintf( __( '%s Archive', 'the-pack-addon'  ), $post_type_object->label );
 			}
 
 			$post_type_taxonomies = get_object_taxonomies( $post_type, 'objects' );
@@ -78,22 +78,22 @@ class Archive extends Archive_Single_Base {
 
 			foreach ( $post_type_taxonomies as $slug => $object ) {
 				/* Translators: %s post type archive */
-				$taxonomies[ 'taxonomy/' . $slug ] = sprintf( __( '%s Archive', 'thepack' ), $object->label );
+				$taxonomies[ 'taxonomy/' . $slug ] = sprintf( __( '%s Archive', 'the-pack-addon'  ), $object->label );
 			}
 		}
 
 		$options = [
-			'archive/recent_posts' => __( 'Recent Posts', 'thepack' ),
-			'archive/date' => __( 'Date Archive', 'thepack' ),
-			'archive/author' => __( 'Author Archive', 'thepack' ),
-			'search' => __( 'Search Results', 'thepack' ),
+			'archive/recent_posts' => __( 'Recent Posts', 'the-pack-addon'  ),
+			'archive/date' => __( 'Date Archive', 'the-pack-addon'  ),
+			'archive/author' => __( 'Author Archive', 'the-pack-addon'  ),
+			'search' => __( 'Search Results', 'the-pack-addon'  ),
 		];
 
 		$options += $taxonomies + $post_type_archives;
 
 		return [
 			'archive' => [
-				'label' => __( 'Archive', 'thepack' ),
+				'label' => __( 'Archive', 'the-pack-addon'  ),
 				'options' => $options,
 			],
 		];

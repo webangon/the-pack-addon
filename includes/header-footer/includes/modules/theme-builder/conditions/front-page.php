@@ -20,7 +20,7 @@ class Front_Page extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Front Page', 'thepack' );
+		return __( 'Front Page', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

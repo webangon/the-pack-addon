@@ -1,7 +1,7 @@
 <?php
 
 $slider_options = [
-    'speed' => $settings['speed']['size'],
+    'speed' => esc_attr($settings['speed']['size']),
     'auto' => ('yes' === $settings['auto']),
 ];
 
@@ -37,7 +37,7 @@ foreach ($settings['lists'] as $a) {
 	    </div>
 	';
 }
-echo '<div class="bari_assex_slider" data-xld =\'' . wp_json_encode($slider_options) . '\'><div class="flex-equal assex-wrap">';
+echo '<div class="bari_assex_slider" data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'><div class="flex-equal assex-wrap">';
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 echo thepack_build_html($out);
 echo '</div></div>';

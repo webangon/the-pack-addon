@@ -696,7 +696,7 @@ class thepack_iknbox extends Widget_Base
         $this->add_responsive_control(
             'btn_padding',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -708,7 +708,7 @@ class thepack_iknbox extends Widget_Base
         $this->add_responsive_control(
             'btn_margin',
             [
-                'label' => esc_html__('Button Margin', 'elementor'),
+                'label' => esc_html__('Button Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [

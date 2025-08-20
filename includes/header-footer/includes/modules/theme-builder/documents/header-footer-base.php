@@ -21,7 +21,7 @@ abstract class Header_Footer_Base extends Theme_Section_Document {
 		$this->update_control(
 			'section_page_style',
 			[
-				'label' => __( 'Style', 'thepack' ),
+				'label' => __( 'Style', 'the-pack-addon'  ),
 			]
 		);
 	}

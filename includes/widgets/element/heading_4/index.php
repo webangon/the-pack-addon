@@ -100,7 +100,7 @@ class thepack_heading_4 extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'align',
             [
                 'label' => esc_html__('Text align', 'the-pack-addon'),
@@ -122,6 +122,17 @@ class thepack_heading_4 extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .headwrp' => 'text-align: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'dinb',
+            [
+                'label' => esc_html__('Inline display', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+                'selectors' => [
+                    '{{WRAPPER}} .main-head' => 'display: inline-block;',
+                ]
             ]
         );
 
@@ -202,7 +213,7 @@ class thepack_heading_4 extends Widget_Base
             'titbrad',
             [
                 'label' => esc_html__('Border radius', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
+                'type' => Controls_Manager::SLIDER,   
                 'selectors' => [
                     '{{WRAPPER}} .main-head' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
@@ -475,6 +486,30 @@ class thepack_heading_4 extends Widget_Base
         );
 
         $this->add_control(
+            'sprbdr',
+            [
+                'label' => esc_html__('Border radius' , 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .main-head i' => 'border-radius:{{SIZE}}{{UNIT}};',
+                ],
+
+            ]
+        );
+
+        $this->add_responsive_control(
+            'spde',
+            [
+                'label' => esc_html__('Padding', 'the-pack-addon'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .main-head i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
             'gradbg',
             [
                 'label' => esc_html__('Gradient text', 'the-pack-addon'),
@@ -520,6 +555,23 @@ class thepack_heading_4 extends Widget_Base
                 'name' => 'spetyp',
                 'label' => esc_html__('Typography', 'the-pack-addon'),
                 'selector' => '{{WRAPPER}} .main-head i',
+            ]
+        );
+        $this->add_control(
+            'svpdf',
+            [
+                'label' => esc_html__('Vertical position' , 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                    ],
+                ],                
+                'selectors' => [
+                    '{{WRAPPER}} .main-head i' => 'top:{{SIZE}}{{UNIT}};',
+                ],
+
             ]
         );
 

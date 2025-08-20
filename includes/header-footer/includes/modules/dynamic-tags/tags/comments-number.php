@@ -16,7 +16,7 @@ class Comments_Number extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Comments Number', 'thepack' );
+		return esc_html__( 'Comments Number', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -34,36 +34,36 @@ class Comments_Number extends Tag {
 		$this->add_control(
 			'format_no_comments',
 			[
-				'label' => esc_html__( 'No Comments Format', 'thepack' ),
-				'default' => esc_html__( 'No Responses', 'thepack' ),
+				'label' => esc_html__( 'No Comments Format', 'the-pack-addon'  ),
+				'default' => esc_html__( 'No Responses', 'the-pack-addon'  ),
 			]
 		);
 
 		$this->add_control(
 			'format_one_comments',
 			[
-				'label' => esc_html__( 'One Comment Format', 'thepack' ),
-				'default' => esc_html__( 'One Response', 'thepack' ),
+				'label' => esc_html__( 'One Comment Format', 'the-pack-addon'  ),
+				'default' => esc_html__( 'One Response', 'the-pack-addon'  ),
 			]
 		);
 
 		$this->add_control(
 			'format_many_comments',
 			[
-				'label' => esc_html__( 'Many Comment Format', 'thepack' ),
-				'default' => esc_html__( '{number} Responses', 'thepack' ),
+				'label' => esc_html__( 'Many Comment Format', 'the-pack-addon'  ),
+				'default' => esc_html__( '{number} Responses', 'the-pack-addon'  ),
 			]
 		);
 
 		$this->add_control(
 			'link_to',
 			[
-				'label' => esc_html__( 'Link', 'thepack' ),
+				'label' => esc_html__( 'Link', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => esc_html__( 'None', 'thepack' ),
-					'comments_link' => esc_html__( 'Comments Link', 'thepack' ),
+					'' => esc_html__( 'None', 'the-pack-addon'  ),
+					'comments_link' => esc_html__( 'Comments Link', 'the-pack-addon'  ),
 				],
 			]
 		);

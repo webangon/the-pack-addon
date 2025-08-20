@@ -22,7 +22,7 @@ class Shop_Page extends ThemeBuilder\Conditions\Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Shop Page', 'thepack' );
+		return __( 'Shop Page', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

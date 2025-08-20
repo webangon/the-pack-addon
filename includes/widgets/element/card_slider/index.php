@@ -184,10 +184,10 @@ class thepack_cardslider extends Widget_Base
         $this->add_responsive_control(
             'g_pd',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
+                'selectors' => [ 
                     '{{WRAPPER}} .blog-slider' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -196,7 +196,7 @@ class thepack_cardslider extends Widget_Base
         $this->add_responsive_control(
             'c_pd',
             [
-                'label' => esc_html__('Content Padding', 'elementor'),
+                'label' => esc_html__('Content Padding', 'the-pack-addon'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

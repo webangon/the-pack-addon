@@ -36,11 +36,11 @@ class Product_Archive extends ThemeBuilder\Conditions\Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Product Archive', 'thepack' );
+		return __( 'Product Archive', 'the-pack-addon'  );
 	}
 
 	public function get_all_label() {
-		return __( 'All Product Archives', 'thepack' );
+		return __( 'All Product Archives', 'the-pack-addon'  );
 	}
 
 	public function register_sub_conditions() {

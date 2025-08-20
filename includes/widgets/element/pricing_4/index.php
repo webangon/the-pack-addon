@@ -119,7 +119,7 @@ class thepack_price_4 extends Widget_Base
         $this->add_control(
             'link',
             [
-                'label' => esc_html__('Link', 'elementor'),
+                'label' => esc_html__('Link', 'the-pack-addon' ),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'http://your-link.com',
                 'default' => [

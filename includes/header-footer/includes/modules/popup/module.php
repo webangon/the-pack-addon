@@ -63,7 +63,7 @@ class Module extends \Elementor\Core\Base\Module {
 		$location_manager->register_location(
 			'popup',
 			[
-				'label' => esc_html__( 'Popup', 'thepack' ),
+				'label' => esc_html__( 'Popup', 'the-pack-addon'  ),
 				'multiple' => true,
 				'public' => false,
 				'edit_in_content' => false,
@@ -102,7 +102,7 @@ class Module extends \Elementor\Core\Base\Module {
         add_submenu_page( 
             'edit.php?post_type=elementor_library',
             '',
-            esc_html__( 'Popups', 'thepack' ),
+            esc_html__( 'Popups', 'the-pack-addon'  ),
             'publish_posts',
             $this->get_admin_url( true )
         );
@@ -111,7 +111,7 @@ class Module extends \Elementor\Core\Base\Module {
 
 	public function add_finder_items( array $categories ) {
 		$categories['general']['items']['popups'] = [
-			'title' => esc_html__( 'Popups', 'thepack' ),
+			'title' => esc_html__( 'Popups', 'the-pack-addon'  ),
 			'icon' => 'library-save',
 			'url' => $this->get_admin_url(),
 			'keywords' => [ 'template', 'popup', 'library' ],
@@ -120,7 +120,7 @@ class Module extends \Elementor\Core\Base\Module {
 		// Backwards compatibility - Remove after ED-4826 is merged.
 		if ( empty( $categories['create']['items']['popup'] ) ) {
 			$categories['create']['items']['popups'] = [
-				'title' => esc_html__( 'Add New Popup', 'thepack' ),
+				'title' => esc_html__( 'Add New Popup', 'the-pack-addon'  ),
 				'icon' => 'plus-circle-o',
 				'url' => $this->get_admin_url() . '#add_new',
 				'keywords' => [ 'template', 'theme', 'popup', 'new', 'create' ],

@@ -74,7 +74,7 @@ class The_Pack_Elementor_Parallax_Layer
                     'px' => [
                         'min' => 0,
                         'max' => 360,
-                    ]
+                    ]  
                 ],
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}}' => 'transform: rotate({{SIZE}}deg);',
@@ -311,6 +311,7 @@ class The_Pack_Elementor_Parallax_Layer
             <# _.each( settings.tp_parallax_layer, function( item, index ) { #>
 
             <div data-depth="0.2" class="elementor-repeater-item-{{ item._id }} tp-section-child-layer">
+                <?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
                 <img src="{{item.repeater_bg_image.url}}">
             </div>
             <# }); #>

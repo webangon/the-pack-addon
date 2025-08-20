@@ -14,7 +14,7 @@ class Post_ID extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post ID', 'thepack' );
+		return esc_html__( 'Post ID', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

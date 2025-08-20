@@ -26,7 +26,7 @@ abstract class Theme_Section_Document extends Theme_Document {
 	public static function get_preview_as_options() {
 		return array_merge(
 			[
-				'' => __( 'Select...', 'thepack' ),
+				'' => __( 'Select...', 'the-pack-addon'  ),
 			],
 			Archive::get_preview_as_options(),
 			Single::get_preview_as_options()

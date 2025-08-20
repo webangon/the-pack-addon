@@ -1,9 +1,9 @@
 <?php
 
-$speed = $settings['speed']['size'];
-$space = $settings['space']['size'];
-$item = $settings['item']['size'];
-$item_tab = $settings['item_tab']['size'];
+$speed = esc_attr($settings['speed']['size']);
+$space = esc_attr($settings['space']['size']);
+$item = esc_attr($settings['item']['size']);
+$item_tab = esc_attr($settings['item_tab']['size']);
 
 $slider_options = [
     'item' => $item,
@@ -18,7 +18,7 @@ $pagi = $settings['dot'] ? '<div class="swiper-pagination"></div>' : '';
 $navi = $settings['arrow'] ? '<div class="swiper-button-prev no-bg"><i class="tbicon ' . $settings['picon'] . '"></i></div><div class="swiper-button-next no-bg"><i class="tbicon ' . $settings['nicon'] . '"></i></div>' : '';
 
 if ($settings['disp'] == 'slider') {
-    echo '<div class="tbteam2 hascarou ' . esc_attr($settings['styl']) . '" data-xld =\'' . wp_json_encode($slider_options) . '\'>
+    echo '<div class="tbteam2 hascarou ' . esc_attr($settings['styl']) . '" data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\'>
                 <div class="swiper-wrapper">';?>
                     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php echo $this->content($settings['items'], $settings['animation'], $settings['disp'], $settings['img_size']);?>

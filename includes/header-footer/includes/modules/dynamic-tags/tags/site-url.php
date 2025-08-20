@@ -15,7 +15,7 @@ class Site_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Site URL', 'thepack' );
+		return esc_html__( 'Site URL', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

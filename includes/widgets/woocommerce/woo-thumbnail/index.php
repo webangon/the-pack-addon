@@ -669,7 +669,7 @@ class The_Pack_Woo_Thumbnail extends Widget_Base
         global $product;
         $settings = $this->get_settings();  
         add_filter( 'woocommerce_sale_flash', [ $this, 'flash_sale' ] ,9,3);  
-        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field($_GET['preview']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
+        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field(wp_unslash($_GET['preview'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended
         if (Plugin::instance()->editor->is_edit_mode() || $preview == 'true') {
             $this->product_page_script(); 
             $product = wc_get_product($settings['preview']);        

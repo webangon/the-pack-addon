@@ -5,6 +5,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\utils;
 
 if (!defined('ABSPATH')) {
@@ -42,9 +43,16 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1 = new \Elementor\Repeater();
+        $this->add_control(
+            'fi',
+            [
+                'label' => esc_html__('Icon', 'the-pack-addon'),
+                'type' => Controls_Manager::ICONS,
+                'label_block' => true,
+            ]
+        );
 
-        $repeater1->add_control(
+        $this->add_control(
             'fhead',
             [
                 'label' => esc_html__('Front Heading', 'the-pack-addon'),
@@ -54,7 +62,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'fdesc',
             [
                 'label' => esc_html__('Front Description', 'the-pack-addon'),
@@ -63,7 +71,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'ftype',
             [
                 'label' => esc_html__('Front background type', 'the-pack-addon'),
@@ -83,7 +91,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'fimgs',
             [
                 'type' => Controls_Manager::MEDIA,
@@ -98,7 +106,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'fclrs',
             [
                 'label' => esc_html__('Background color', 'the-pack-addon'),
@@ -109,7 +117,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'btn',
             [
                 'label' => esc_html__('Back button title', 'the-pack-addon'),
@@ -119,7 +127,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'url',
             [
                 'label' => esc_html__('Back button url', 'the-pack-addon'),
@@ -129,7 +137,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'btype',
             [
                 'label' => esc_html__('Back background type', 'the-pack-addon'),
@@ -149,7 +157,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'bimgs',
             [
                 'type' => Controls_Manager::MEDIA,
@@ -164,7 +172,7 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $repeater1->add_control(
+        $this->add_control(
             'bclrs',
             [
                 'label' => esc_html__('Background color', 'the-pack-addon'),
@@ -175,21 +183,6 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'items',
-            [
-                'type' => Controls_Manager::REPEATER,
-                'fields' => $repeater1->get_controls(),
-                'prevent_empty' => false,
-                'default' => [
-                    [
-                        'fhead' => esc_html__('Mr Wick', 'the-pack-addon'),
-                    ]
-                ],
-                'title_field' => '{{{fhead}}}',
-            ]
-        );
-
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -197,16 +190,6 @@ class thepack_flipcard extends Widget_Base
             [
                 'label' => esc_html__('General', 'the-pack-addon'),
                 'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'animation',
-            [
-                'label' => esc_html__('Animation', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => thepack_animations(),
-                'label_block' => true
             ]
         );
 
@@ -231,29 +214,15 @@ class thepack_flipcard extends Widget_Base
         );
 
         $this->add_responsive_control(
-            'width',
+            'gbrd',
             [
-                'label' => esc_html__('Column width', 'the-pack-addon'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => '33.33',
-                'selectors' => [
-                    '{{WRAPPER}} .tb-flip-outer' => 'width: {{VALUE}}%;',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'itse',
-            [
-                'label' => esc_html__('Item spacing', 'the-pack-addon'),
+                'label' => esc_html__('Border radius', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'selectors' => [
-                    '{{WRAPPER}} .tb-flip-outer' => 'padding: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .flip-wraper1' => 'margin-left: -{{SIZE}}{{UNIT}};margin-right: -{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tb-card-flipwr>div' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
-
         $this->add_control(
             'r1',
             [
@@ -266,7 +235,7 @@ class thepack_flipcard extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'fover',
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .tb-card-front::before',
             ]
@@ -284,11 +253,20 @@ class thepack_flipcard extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'bover',
-                'label' => esc_html__('Background', 'elementor'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .tb-card-back::before',
             ]
         );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'gbdx',
+                'label' => esc_html__('Background', 'the-pack-addon' ),
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .tb-card-flipwr>div',
+            ]
+        );        
 
         $this->end_controls_section();
 
@@ -314,7 +292,7 @@ class thepack_flipcard extends Widget_Base
         $this->add_control(
             'h_mr',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -332,6 +310,35 @@ class thepack_flipcard extends Widget_Base
             ]
         );
 
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_ikn',
+            [
+                'label' => esc_html__('Icon', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_responsive_control(
+            'ikfs',
+            [
+                'label' => esc_html__('Font size', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .flipicon' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'ik_clr',
+            [
+                'label' => esc_html__('Color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .flipicon' => 'color: {{VALUE}};',
+                ],
+            ]
+        );        
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -356,7 +363,7 @@ class thepack_flipcard extends Widget_Base
         $this->add_control(
             'q_pad',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -418,7 +425,7 @@ class thepack_flipcard extends Widget_Base
         $this->add_control(
             'bt_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -436,10 +443,9 @@ class thepack_flipcard extends Widget_Base
         require dirname(__FILE__) . '/view.php';
     }
 
-    private function content($content, $column)
+    private function content($item)
     {
-        $out1 = '';
-        foreach ($content as $item) {
+
             $heading = $item['fhead'] ? '<h3 class="heading">' . $item['fhead'] . '</h3>' : '';
             $desc = $item['fdesc'] ? '<p class="desc">' . $item['fdesc'] . '</p>' : '';
             $bg = $item['ftype'] == 'fimg' ? 'style="background-image:url(' . $item['fimgs']['url'] . ')"' : 'style="background:' . $item['fclrs'] . '"';
@@ -449,11 +455,12 @@ class thepack_flipcard extends Widget_Base
             $url = thepack_get_that_link($item['url']);
             $btn = $item['btn'] ? '<a ' . $url . ' class="tb-button">' . $item['btn'] . '</a>' : '';
 
-            $out1 .= '
-                <div class="tb-flip-outer ' . $column . '">
+            $out1 = ' 
+                <div class="tb-flip-outer">
                     <div class="tb-card-flipwr">
                         <div class="tb-card-front" ' . $bg . '>
                             <div class="tb-card-front-inner">
+                                '.thepack_icon_svg($item['fi'],'flipicon').'
                                 ' . $heading . '
                                 ' . $desc . '
                             </div>
@@ -466,7 +473,6 @@ class thepack_flipcard extends Widget_Base
                     </div>
                 </div>
             ';
-        }
 
         return thepack_build_html($out1);
     }

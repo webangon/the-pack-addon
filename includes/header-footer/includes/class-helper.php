@@ -307,79 +307,79 @@ if ( ! class_exists( 'LaStudio_Kit_Helper' ) ) {
                 }
             } elseif ( is_search() ) {
                 /* translators: %s: Search term. */
-                $title = sprintf( esc_html__( 'Search Results for: %s', 'thepack' ), get_search_query() );
+                $title = sprintf( esc_html__( 'Search Results for: %s', 'the-pack-addon'  ), get_search_query() );
 
                 if ( get_query_var( 'paged' ) ) {
                     /* translators: %s is the page number. */
-                    $title .= sprintf( esc_html__( '&nbsp;&ndash; Page %s', 'thepack' ), get_query_var( 'paged' ) );
+                    $title .= sprintf( esc_html__( '&nbsp;&ndash; Page %s', 'the-pack-addon'  ), get_query_var( 'paged' ) );
                 }
             } elseif ( is_category() ) {
                 $title = single_cat_title( '', false );
 
                 if ( $include_context ) {
                     /* translators: Category archive title. 1: Category name */
-                    $title = sprintf( esc_html__( 'Category: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Category: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_tag() ) {
                 $title = single_tag_title( '', false );
                 if ( $include_context ) {
                     /* translators: Tag archive title. 1: Tag name */
-                    $title = sprintf( esc_html__( 'Tag: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Tag: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_author() ) {
                 $title = '<span class="vcard">' . get_the_author() . '</span>';
 
                 if ( $include_context ) {
                     /* translators: Author archive title. 1: Author name */
-                    $title = sprintf( esc_html__( 'Author: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Author: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_year() ) {
-                $title = get_the_date( _x( 'Y', 'yearly archives date format', 'thepack' ) );
+                $title = get_the_date( _x( 'Y', 'yearly archives date format', 'the-pack-addon'  ) );
 
                 if ( $include_context ) {
                     /* translators: Yearly archive title. 1: Year */
-                    $title = sprintf( esc_html__( 'Year: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Year: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_month() ) {
-                $title = get_the_date( _x( 'F Y', 'monthly archives date format', 'thepack' ) );
+                $title = get_the_date( _x( 'F Y', 'monthly archives date format', 'the-pack-addon'  ) );
 
                 if ( $include_context ) {
                     /* translators: Monthly archive title. 1: Month name and year */
-                    $title = sprintf( esc_html__( 'Month: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Month: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_day() ) {
-                $title = get_the_date( _x( 'F j, Y', 'daily archives date format', 'thepack' ) );
+                $title = get_the_date( _x( 'F j, Y', 'daily archives date format', 'the-pack-addon'  ) );
 
                 if ( $include_context ) {
                     /* translators: Daily archive title. 1: Date */
-                    $title = sprintf( esc_html__( 'Day: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Day: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_tax( 'post_format' ) ) {
                 if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-                    $title = _x( 'Asides', 'post format archive title', 'thepack' );
+                    $title = _x( 'Asides', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-                    $title = _x( 'Galleries', 'post format archive title', 'thepack' );
+                    $title = _x( 'Galleries', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-                    $title = _x( 'Images', 'post format archive title', 'thepack' );
+                    $title = _x( 'Images', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-                    $title = _x( 'Videos', 'post format archive title', 'thepack' );
+                    $title = _x( 'Videos', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-                    $title = _x( 'Quotes', 'post format archive title', 'thepack' );
+                    $title = _x( 'Quotes', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-                    $title = _x( 'Links', 'post format archive title', 'thepack' );
+                    $title = _x( 'Links', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-                    $title = _x( 'Statuses', 'post format archive title', 'thepack' );
+                    $title = _x( 'Statuses', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-                    $title = _x( 'Audio', 'post format archive title', 'thepack' );
+                    $title = _x( 'Audio', 'post format archive title', 'the-pack-addon'  );
                 } elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-                    $title = _x( 'Chats', 'post format archive title', 'thepack' );
+                    $title = _x( 'Chats', 'post format archive title', 'the-pack-addon'  );
                 }
             } elseif ( is_post_type_archive() ) {
                 $title = post_type_archive_title( '', false );
 
                 if ( $include_context ) {
                     /* translators: Post type archive title. 1: Post type name */
-                    $title = sprintf( esc_html__( 'Archives: %s', 'thepack' ), $title );
+                    $title = sprintf( esc_html__( 'Archives: %s', 'the-pack-addon'  ), $title );
                 }
             } elseif ( is_tax() ) {
                 $title = single_term_title( '', false );
@@ -387,12 +387,12 @@ if ( ! class_exists( 'LaStudio_Kit_Helper' ) ) {
                 if ( $include_context ) {
                     $tax = get_taxonomy( get_queried_object()->taxonomy );
                     /* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
-                    $title = sprintf( esc_html__( '%1$s: %2$s', 'thepack' ), $tax->labels->singular_name, $title );
+                    $title = sprintf( esc_html__( '%1$s: %2$s', 'the-pack-addon'  ), $tax->labels->singular_name, $title );
                 }
             } elseif ( is_archive() ) {
-                $title = esc_html__( 'Archives', 'thepack' );
+                $title = esc_html__( 'Archives', 'the-pack-addon'  );
             } elseif ( is_404() ) {
-                $title = esc_html__( 'Page Not Found', 'thepack' );
+                $title = esc_html__( 'Page Not Found', 'the-pack-addon'  );
             } // End if().
 
             /**
@@ -435,6 +435,6 @@ if ( ! class_exists( 'LaStudio_Kit_Helper' ) ) {
  *
  * @return LaStudio_Kit_Helper
  */
-function lastudio_kit_helper() {
+function thepack_addon_kit_helper() {
 	return LaStudio_Kit_Helper::get_instance();
 }

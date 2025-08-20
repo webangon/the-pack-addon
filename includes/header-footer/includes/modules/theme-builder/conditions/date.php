@@ -20,7 +20,7 @@ class Date extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Date Archive', 'thepack' );
+		return __( 'Date Archive', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

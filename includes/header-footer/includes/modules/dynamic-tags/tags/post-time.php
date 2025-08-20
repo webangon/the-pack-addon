@@ -15,7 +15,7 @@ class Post_Time extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post Time', 'thepack' );
+		return esc_html__( 'Post Time', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -30,11 +30,11 @@ class Post_Time extends Tag {
 		$this->add_control(
 			'type',
 			[
-				'label' => esc_html__( 'Type', 'thepack' ),
+				'label' => esc_html__( 'Type', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'post_date_gmt' => esc_html__( 'Post Published', 'thepack' ),
-					'post_modified_gmt' => esc_html__( 'Post Modified', 'thepack' ),
+					'post_date_gmt' => esc_html__( 'Post Published', 'the-pack-addon'  ),
+					'post_modified_gmt' => esc_html__( 'Post Modified', 'the-pack-addon'  ),
 				],
 				'default' => 'post_date_gmt',
 			]
@@ -43,14 +43,14 @@ class Post_Time extends Tag {
 		$this->add_control(
 			'format',
 			[
-				'label' => esc_html__( 'Format', 'thepack' ),
+				'label' => esc_html__( 'Format', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => esc_html__( 'Default', 'thepack' ),
+					'default' => esc_html__( 'Default', 'the-pack-addon'  ),
 					'g:i a' => gmdate( 'g:i a' ),
 					'g:i A' => gmdate( 'g:i A' ),
 					'H:i' => gmdate( 'H:i' ),
-					'custom' => esc_html__( 'Custom', 'thepack' ),
+					'custom' => esc_html__( 'Custom', 'the-pack-addon'  ),
 				],
 				'default' => 'default',
 			]
@@ -59,9 +59,9 @@ class Post_Time extends Tag {
 		$this->add_control(
 			'custom_format',
 			[
-				'label' => esc_html__( 'Custom Format', 'thepack' ),
+				'label' => esc_html__( 'Custom Format', 'the-pack-addon'  ),
 				'default' => '',
-				'description' => sprintf( '<a href="https://go.elementor.com/wordpress-date-time/" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', 'thepack' ) ),
+				'description' => sprintf( '<a href="https://go.elementor.com/wordpress-date-time/" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', 'the-pack-addon'  ) ),
 				'condition' => [
 					'format' => 'custom',
 				],

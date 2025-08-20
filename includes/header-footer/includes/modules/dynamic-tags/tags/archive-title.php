@@ -15,7 +15,7 @@ class Archive_Title extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Archive Title', 'thepack' );
+		return esc_html__( 'Archive Title', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -29,7 +29,7 @@ class Archive_Title extends Tag {
 	public function render() {
 		$include_context = 'yes' === $this->get_settings( 'include_context' );
 
-		$title = lastudio_kit_helper()->get_page_title( $include_context );
+		$title = thepack_addon_kit_helper()->get_page_title( $include_context );
 
 		echo wp_kses_post( $title );
 	}
@@ -38,7 +38,7 @@ class Archive_Title extends Tag {
 		$this->add_control(
 			'include_context',
 			[
-				'label' => esc_html__( 'Include Context', 'thepack' ),
+				'label' => esc_html__( 'Include Context', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]

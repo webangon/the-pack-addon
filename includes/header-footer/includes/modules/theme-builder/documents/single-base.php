@@ -20,7 +20,7 @@ abstract class Single_Base extends Archive_Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Single', 'thepack' );
+		return __( 'Single', 'the-pack-addon'  );
 	}
 
 	public static function get_editor_panel_config() {
@@ -36,7 +36,7 @@ abstract class Single_Base extends Archive_Single_Base {
 	protected static function get_editor_panel_categories() {
 		$categories = [
 			'theme-elements-single' => [
-				'title' => __( 'Single', 'thepack' ),
+				'title' => __( 'Single', 'the-pack-addon'  ),
 			],
 		];
 
@@ -80,7 +80,7 @@ abstract class Single_Base extends Archive_Single_Base {
 			 */
 			if ( $requested_document && ! $requested_document instanceof Section && $requested_document->get_location() !== $this->get_location() ) {
 				//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo '<div class="elementor-theme-builder-content-area">' . __esc_html( 'Content Area', 'thepack' ) . '</div>';
+				echo '<div class="elementor-theme-builder-content-area">' . __esc_html( 'Content Area', 'the-pack-addon'  ) . '</div>';
 
 				return; 
 			}
@@ -128,10 +128,10 @@ abstract class Single_Base extends Archive_Single_Base {
 
 		return [
 			'single' => [
-				'label' => __( 'Single', 'thepack' ),
+				'label' => __( 'Single', 'the-pack-addon'  ),
 				'options' => $post_types_options,
 			],
-			'page/404' => __( '404', 'thepack' ),
+			'page/404' => __( '404', 'the-pack-addon'  ),
 		];
 	}
 
@@ -166,11 +166,11 @@ abstract class Single_Base extends Archive_Single_Base {
 
 		wp_localize_script( 'elementor-frontend', 'elementorPreviewErrorArgs', [
 			/* translators: %s: is the widget name. */
-			'headerMessage' => sprintf( __( 'The %s Widget was not found in your template.', 'thepack' ), $depended_widget_title ),
+			'headerMessage' => sprintf( __( 'The %s Widget was not found in your template.', 'the-pack-addon'  ), $depended_widget_title ),
 			/* translators: %1$s: is the widget name. %2$s: is the template name.  */
-			'message' => sprintf( __( 'You must include the %1$s Widget in your template (%2$s), in order for Elementor to work on this page.', 'thepack' ), $depended_widget_title, '<strong>' . static::get_title() . '</strong>' ),
+			'message' => sprintf( __( 'You must include the %1$s Widget in your template (%2$s), in order for Elementor to work on this page.', 'the-pack-addon'  ), $depended_widget_title, '<strong>' . static::get_title() . '</strong>' ),
 			'strings' => [
-				'confirm' => __( 'Edit Template', 'thepack' ),
+				'confirm' => __( 'Edit Template', 'the-pack-addon'  ),
 			],
 			'confirmURL' => $this->get_edit_url(),
 		] );

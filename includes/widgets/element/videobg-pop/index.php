@@ -130,9 +130,27 @@ class thepack_videobgpop extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'overlay_color',
-                'label' => esc_html__('Background', 'elementor'),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .vidbg',
+				'fields_options' => [
+					'background' => [
+						'label' => esc_html__( 'Background','the-pack-addon' ),
+					]
+				]                
+            ] 
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'hovbgx',
+                'types' => ['none', 'classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .vidbg:hover',
+				'fields_options' => [
+					'background' => [
+						'label' => esc_html__( 'Hover background','the-pack-addon' ),
+					]
+				]                
             ]
         );
 
@@ -144,6 +162,18 @@ class thepack_videobgpop extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .tpvideopop:after' => 'background: {{VALUE}};'
                 ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'bblr',
+            [
+                'label' => esc_html__('Background blur', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .vidbg' => 'backdrop-filter: blur({{SIZE}}{{UNIT}});',
+                ],
+
             ]
         );
 
@@ -244,7 +274,16 @@ class thepack_videobgpop extends Widget_Base
                 ],
             ]
         );
-
+        $this->add_control(
+            'icong_c',
+            [
+                'label' => esc_html__('Hover color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .vidbg:hover .tbicon' => 'color: {{VALUE}};'
+                ],
+            ]
+        );
         $this->add_control(
             'btn_size',
             [

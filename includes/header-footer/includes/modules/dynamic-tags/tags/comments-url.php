@@ -15,7 +15,7 @@ class Comments_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Comments URL', 'thepack' );
+		return esc_html__( 'Comments URL', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

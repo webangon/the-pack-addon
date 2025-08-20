@@ -15,7 +15,7 @@ class Post_Excerpt extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post Excerpt', 'thepack' );
+		return esc_html__( 'Post Excerpt', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -27,7 +27,7 @@ class Post_Excerpt extends Tag {
 		$this->add_control(
 			'max_length',
 			[
-				'label' => esc_html__( 'Excerpt Length', 'thepack' ),
+				'label' => esc_html__( 'Excerpt Length', 'the-pack-addon'  ),
 				'type' => Controls_Manager::NUMBER,
 			]
 		);
@@ -49,7 +49,7 @@ class Post_Excerpt extends Tag {
 		$max_length = (int) $settings['max_length'];
 		$excerpt = $post->post_excerpt;
 
-		$excerpt = lastudio_kit_helper()->trim_words( $excerpt, $max_length );
+		$excerpt = thepack_addon_kit_helper()->trim_words( $excerpt, $max_length );
 
 		echo wp_kses_post( $excerpt );
 	}

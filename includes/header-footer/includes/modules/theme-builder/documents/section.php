@@ -20,7 +20,7 @@ class Section extends Theme_Section_Document {
 	}
 
 	public static function get_title() {
-		return __( 'Section', 'thepack' );
+		return __( 'Section', 'the-pack-addon'  );
 	}
 
 	public static function get_properties() {
@@ -48,13 +48,13 @@ class Section extends Theme_Section_Document {
 		$this->start_controls_section(
 			'location_settings',
 			[
-				'label' => __( 'Location Settings', 'thepack' ),
+				'label' => __( 'Location Settings', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_SETTINGS,
 			]
 		);
 
 		$options = [
-			'' => __( 'Select', 'thepack' ),
+			'' => __( 'Select', 'the-pack-addon'  ),
 		];
 
 		foreach ( $locations as $location => $settings ) {
@@ -64,7 +64,7 @@ class Section extends Theme_Section_Document {
 		$this->add_control(
 			'location',
 			[
-				'label' => __( 'Location', 'thepack' ),
+				'label' => __( 'Location', 'the-pack-addon'  ),
 				'label_block' => true,
 				'type' => Controls_Manager::SELECT,
 				'default' => $this->get_location(),
@@ -78,7 +78,7 @@ class Section extends Theme_Section_Document {
 			[
 				'type' => Controls_Manager::BUTTON,
 				'label' => '',
-				'text' => __( 'Apply', 'thepack' ),
+				'text' => __( 'Apply', 'the-pack-addon'  ),
 				'separator' => 'none',
 				'event' => 'elementorThemeBuilder:ApplyPreview',
 			]

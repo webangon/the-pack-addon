@@ -1,10 +1,10 @@
 <?php
 
 $slider_options = [
-    'speed' => ($settings['auto'] ? $settings['speed']['size'] : ''),
+    'speed' => ($settings['auto'] ? esc_attr($settings['speed']['size']) : ''),
     'auto' => ('yes' === $settings['auto']),
-    'item' => ($settings['item'] ? $settings['item']['size'] : ''),
-    'itemtab' => ($settings['itemtab'] ? $settings['itemtab']['size'] : ''),
+    'item' => ($settings['item'] ? esc_attr($settings['item']['size']) : ''),
+    'itemtab' => ($settings['itemtab'] ? esc_attr($settings['itemtab']['size']) : ''),
     'fade' => ($settings['fade'] ? 'fade' : 'slide'),
 ];
 

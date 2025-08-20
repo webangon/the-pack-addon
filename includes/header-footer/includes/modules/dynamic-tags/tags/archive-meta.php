@@ -15,7 +15,7 @@ class Archive_Meta extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Archive Meta', 'thepack' );
+		return esc_html__( 'Archive Meta', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -56,7 +56,7 @@ class Archive_Meta extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => esc_html__( 'Meta Key', 'thepack' ),
+				'label' => esc_html__( 'Meta Key', 'the-pack-addon'  ),
 			]
 		);
 	}

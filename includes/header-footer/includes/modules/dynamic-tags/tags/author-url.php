@@ -24,7 +24,7 @@ class Author_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Author URL', 'thepack' );
+		return esc_html__( 'Author URL', 'the-pack-addon'  );
 	}
 
 	public function get_panel_template_setting_key() {
@@ -51,12 +51,12 @@ class Author_URL extends Data_Tag {
 		$this->add_control(
 			'url',
 			[
-				'label' => esc_html__( 'URL', 'thepack' ),
+				'label' => esc_html__( 'URL', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'archive',
 				'options' => [
-					'archive' => esc_html__( 'Author Archive', 'thepack' ),
-					'website' => esc_html__( 'Author Website', 'thepack' ),
+					'archive' => esc_html__( 'Author Archive', 'the-pack-addon'  ),
+					'website' => esc_html__( 'Author Website', 'the-pack-addon'  ),
 				],
 			]
 		);

@@ -50,6 +50,50 @@ class The_Pack_Circle_Text extends Widget_Base
                 'label_block' => true,
             ]
         );
+        $this->add_control(
+            'tmpl',
+            [
+                'label' => esc_html__('Data type', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'one' => [
+                        'title' => esc_html__('Image', 'the-pack-addon'),
+                        'icon' => 'eicon-tabs',
+                    ],
+                    'two' => [
+                        'title' => esc_html__('Icon', 'the-pack-addon'),
+                        'icon' => 'eicon-text-field',
+                    ]
+                ],
+                'default' => 'one',
+            ]
+        );
+        $this->add_control(
+            'img',
+            [
+                'label' => esc_html__('Image', 'thepackpro'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => Utils::get_placeholder_image_src(),
+                ],
+                'label_block' => true,
+                'condition' => [
+                    'tmpl' => 'one', 
+                ],                
+            ]
+        );
+
+        $this->add_control(
+            'ico',
+            [
+                'label' => esc_html__('Icon', 'thepackpro'),
+                'type' => Controls_Manager::ICONS,
+                'label_block' => true,
+                'condition' => [
+                    'tmpl' => 'two', 
+                ],                 
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -62,22 +106,165 @@ class The_Pack_Circle_Text extends Widget_Base
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
+            Group_Control_Background::get_type(),
             [
-                'name' => 'htyp',
-                'selector' => '{{WRAPPER}} .tp-circle-text text',
-                'label' => esc_html__('Typography', 'the-pack-addon'),
+                'name' => 'clr',
+                'selector' => '{{WRAPPER}} .tp-circle-txt',
+                'fields_options' => [
+                    'background' => [
+                        'label' => esc_html__('Background', 'the-pack-addon'),
+                    ]
+                ]            
             ]
         );
- 
-        $this->add_control(
-            'gclr',
+
+        $this->add_responsive_control(
+            'bdf',
             [
-                'label' => esc_html__('Color', 'the-pack-addon'),
+                'label' => esc_html__('Backdrop blur', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .tp-circle-txt' => 'backdrop-filter:blur({{SIZE}}{{UNIT}});-webkit-backdrop-filter:blur({{SIZE}}{{UNIT}});',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_ic',
+            [
+                'label' => esc_html__('Image/icon', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'iwh',
+            [
+                'label' => esc_html__('Wrapper Width & height', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 500,
+                    ],
+                ],
+                'default' => [
+                    'size' => 150,
+                ],                
+                'selectors' => [
+                    '{{WRAPPER}} .logo' => 'width:{{SIZE}}{{UNIT}};height:{{SIZE}}{{UNIT}};',
+                ],               
+            ]
+        );
+        $this->add_responsive_control(
+            'icfs',
+            [
+                'label' => esc_html__('Font size/Image height', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 500,
+                    ],
+                ],               
+                'selectors' => [
+                    '{{WRAPPER}} .logo img' => 'width:{{SIZE}}{{UNIT}};height:{{SIZE}}{{UNIT}};object-fit:cover;',
+                    '{{WRAPPER}} .logo i' => 'font-size:{{SIZE}}{{UNIT}};',
+                ],               
+            ]
+        );
+
+        $this->add_responsive_control(
+            'ipd',
+            [
+                'label' => esc_html__('Padding', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,               
+                'selectors' => [
+                    '{{WRAPPER}} .logo' => 'padding:{{SIZE}}{{UNIT}};',
+                ],               
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'igbg',
+                'selector' => '{{WRAPPER}} .logo',
+                'fields_options' => [
+                    'background' => [
+                        'label' => esc_html__('Background', 'the-pack-addon'),
+                    ]
+                ]            
+            ]
+        );
+        $this->add_control(
+            'ovtk',
+            [
+                'label' => esc_html__('Icon color', 'thepackpro'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .tp-circle-text text' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .logo i' => 'color: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_txt',
+            [
+                'label' => esc_html__('Text', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'wh',
+            [
+                'label' => esc_html__('Width & height', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 500,
+                    ],
+                ],
+                'default' => [
+                    'size' => 200,
+                ],                
+                'selectors' => [
+                    '{{WRAPPER}} .tp-circle-txt' => 'width:{{SIZE}}{{UNIT}};height:{{SIZE}}{{UNIT}};',
+                ],               
+            ]
+        );
+
+        do_action('the_pack_gradient_typo', $this,'td_','.text span');
+
+        $this->add_responsive_control(
+            'torig',
+            [
+                'label' => esc_html__('Text position', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 500,
+                    ],
+                ],
+                'default' => [
+                    'size' => 90,
+                ],                
+                'selectors' => [
+                    '{{WRAPPER}} .text span' => 'transform-origin: 0 {{SIZE}}{{UNIT}};',
+                ],               
+            ]
+        );
+        $this->add_responsive_control(
+            'tpd',
+            [
+                'label' => esc_html__('Padding', 'thepackpro'),
+                'type' => Controls_Manager::SLIDER,               
+                'selectors' => [
+                    '{{WRAPPER}} .tp-circle-txt' => 'padding:{{SIZE}}{{UNIT}};',
+                ],               
             ]
         );
 

@@ -22,7 +22,7 @@ class Author extends Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Author Archive', 'thepack' );
+		return __( 'Author Archive', 'the-pack-addon'  );
 	}
 
 	public function check( $args = null ) {

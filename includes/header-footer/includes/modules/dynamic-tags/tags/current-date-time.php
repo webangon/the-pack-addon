@@ -15,7 +15,7 @@ class Current_Date_Time extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Current Date Time', 'thepack' );
+		return esc_html__( 'Current Date Time', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -30,16 +30,16 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'date_format',
 			[
-				'label' => esc_html__( 'Date Format', 'thepack' ),
+				'label' => esc_html__( 'Date Format', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => esc_html__( 'Default', 'thepack' ),
-					'' => esc_html__( 'None', 'thepack' ),
+					'default' => esc_html__( 'Default', 'the-pack-addon'  ),
+					'' => esc_html__( 'None', 'the-pack-addon'  ),
 					'F j, Y' => gmdate( 'F j, Y' ),
 					'Y-m-d' => gmdate( 'Y-m-d' ),
 					'm/d/Y' => gmdate( 'm/d/Y' ),
 					'd/m/Y' => gmdate( 'd/m/Y' ),
-					'custom' => esc_html__( 'Custom', 'thepack' ),
+					'custom' => esc_html__( 'Custom', 'the-pack-addon'  ),
 				],
 				'default' => 'default',
 			]
@@ -48,11 +48,11 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'time_format',
 			[
-				'label' => esc_html__( 'Time Format', 'thepack' ),
+				'label' => esc_html__( 'Time Format', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => esc_html__( 'Default', 'thepack' ),
-					'' => esc_html__( 'None', 'thepack' ),
+					'default' => esc_html__( 'Default', 'the-pack-addon'  ),
+					'' => esc_html__( 'None', 'the-pack-addon'  ),
 					'g:i a' => gmdate( 'g:i a' ),
 					'g:i A' => gmdate( 'g:i A' ),
 					'H:i' => gmdate( 'H:i' ),
@@ -67,9 +67,9 @@ class Current_Date_Time extends Tag {
 		$this->add_control(
 			'custom_format',
 			[
-				'label' => esc_html__( 'Custom Format', 'thepack' ),
+				'label' => esc_html__( 'Custom Format', 'the-pack-addon'  ),
 				'default' => get_option( 'date_format' ) . ' ' . get_option( 'time_format' ),
-				'description' => sprintf( '<a href="https://go.elementor.com/wordpress-date-time/" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', 'thepack' ) ),
+				'description' => sprintf( '<a href="https://go.elementor.com/wordpress-date-time/" target="_blank">%s</a>', esc_html__( 'Documentation on date and time formatting', 'the-pack-addon'  ) ),
 				'condition' => [
 					'date_format' => 'custom',
 				],

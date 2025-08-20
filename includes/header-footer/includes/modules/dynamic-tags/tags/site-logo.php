@@ -15,7 +15,7 @@ class Site_Logo extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Site Logo', 'thepack' );
+		return esc_html__( 'Site Logo', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

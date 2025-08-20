@@ -229,7 +229,7 @@ class thepack_counter_2 extends Widget_Base
         $this->start_controls_tab(
             'fbtnct',
             [
-                'label' => esc_html__('Normal', 'xltab'),
+                'label' => esc_html__('Normal', 'the-pack-addon' ),
             ]
         );
 
@@ -237,7 +237,7 @@ class thepack_counter_2 extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'b1bg',
-                'label' => esc_html__('Background', 'xltab'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .tbinr',
             ]
@@ -246,7 +246,7 @@ class thepack_counter_2 extends Widget_Base
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'label' => esc_html__('Box shadow', 'xltab'),
+                'label' => esc_html__('Box shadow', 'the-pack-addon' ),
                 'name' => 'b1bxdw',
                 'selector' => '{{WRAPPER}} .tbinr',
             ]
@@ -256,7 +256,7 @@ class thepack_counter_2 extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'b1bdr',
-                'label' => esc_html__('Border', 'xltab'),
+                'label' => esc_html__('Border', 'the-pack-addon' ),
                 'selector' => '{{WRAPPER}} .tbinr',
             ]
         );
@@ -266,7 +266,7 @@ class thepack_counter_2 extends Widget_Base
         $this->start_controls_tab(
             'actnrml',
             [
-                'label' => esc_html__('Hover', 'xltab'),
+                'label' => esc_html__('Hover', 'the-pack-addon' ),
             ]
         );
 
@@ -274,7 +274,7 @@ class thepack_counter_2 extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'b1abg',
-                'label' => esc_html__('Background', 'xltab'),
+                'label' => esc_html__('Background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .tbinr:hover',
             ]
@@ -283,7 +283,7 @@ class thepack_counter_2 extends Widget_Base
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'label' => esc_html__('Box shadow', 'xltab'),
+                'label' => esc_html__('Box shadow', 'the-pack-addon' ),
                 'name' => 'b1abxdw',
                 'selector' => '{{WRAPPER}} .tbinr:hover',
             ]
@@ -293,7 +293,7 @@ class thepack_counter_2 extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'b1abdr',
-                'label' => esc_html__('Border', 'xltab'),
+                'label' => esc_html__('Border', 'the-pack-addon' ),
                 'selector' => '{{WRAPPER}} .tbinr:hover',
             ]
         );

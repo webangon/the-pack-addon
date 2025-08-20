@@ -37,8 +37,8 @@ if ($settings['query_type'] == 'individual') {
 $slider_options = [
     'arrows' => ('yes' === $settings['arrow']),
     'auto' => ('yes' === $settings['auto']),
-    'transition' => $settings['transition'],
-    'speed' => $settings['speed']['size'],
+    'transition' => esc_attr($settings['transition']),
+    'speed' => esc_attr($settings['speed']['size']),
 ];
 
 $previkn = $settings['picon']['value'] ? '<div class="khbprnx khbnxt"><i class="' . $settings['picon']['value'] . '"></i></div>' : '';
@@ -50,7 +50,7 @@ $dot     = $settings['dot'] ? '<div class="swiper-pagination"></div>' : '';
 $loop = new \WP_Query($query_args); ?>
 
 <div class="thepack-slider-four thepack-swiper swiper">
-  <?php echo '<div class="swiper-wrapper" data-slick =\''.wp_json_encode($slider_options).'\'>';?>
+  <?php echo '<div class="swiper-wrapper" data-slick =\''.wp_kses_post(wp_json_encode($slider_options)).'\'>';?>
       <?php if ($loop->have_posts()) : ?>
               <?php while ($loop->have_posts()) : $loop->the_post();
                ?>

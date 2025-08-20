@@ -12,7 +12,7 @@ class Single extends Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Single', 'thepack' );
+		return __( 'Single', 'the-pack-addon'  );
 	}
 
 	protected function get_remote_library_config() {

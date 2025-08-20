@@ -18,7 +18,7 @@ class Lightbox extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Lightbox', 'thepack' );
+		return esc_html__( 'Lightbox', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -36,15 +36,15 @@ class Lightbox extends Tag {
 		$this->add_control(
 			'type',
 			[
-				'label' => esc_html__( 'Type', 'thepack' ),
+				'label' => esc_html__( 'Type', 'the-pack-addon'  ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'video' => [
-						'title' => esc_html__( 'Video', 'thepack' ),
+						'title' => esc_html__( 'Video', 'the-pack-addon'  ),
 						'icon' => 'eicon-video-camera',
 					],
 					'image' => [
-						'title' => esc_html__( 'Image', 'thepack' ),
+						'title' => esc_html__( 'Image', 'the-pack-addon'  ),
 						'icon' => 'eicon-image-bold',
 					],
 				],
@@ -54,7 +54,7 @@ class Lightbox extends Tag {
 		$this->add_control(
 			'image',
 			[
-				'label' => esc_html__( 'Image', 'thepack' ),
+				'label' => esc_html__( 'Image', 'the-pack-addon'  ),
 				'type' => Controls_Manager::MEDIA,
 				'condition' => [
 					'type' => 'image',
@@ -65,7 +65,7 @@ class Lightbox extends Tag {
 		$this->add_control(
 			'video_url',
 			[
-				'label' => esc_html__( 'Video URL', 'thepack' ),
+				'label' => esc_html__( 'Video URL', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'condition' => [

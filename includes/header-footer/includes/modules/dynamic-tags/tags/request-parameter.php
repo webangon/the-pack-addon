@@ -15,7 +15,7 @@ class Request_Parameter extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Request Parameter', 'thepack' );
+		return esc_html__( 'Request Parameter', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -44,13 +44,13 @@ class Request_Parameter extends Tag {
 				if ( ! isset( $_POST[ $param_name ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 					return '';
 				}
-				$value = $_POST[ $param_name ]; // phpcs:ignore WordPress.Security.NonceVerification.Missing
-				break;
-			case 'GET':
+				$value = sanitize_text_field(wp_unslash($_POST[ $param_name ])); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+				break; 
+			case 'GET': 
 				if ( ! isset( $_GET[ $param_name ] ) ) { // phpcs:ignore
 					return '';
 				}
-				$value = $_GET[ $param_name ]; // phpcs:ignore
+				$value = sanitize_text_field(wp_unslash($_GET[ $param_name ])); // phpcs:ignore
 				break;
 			case 'QUERY_VAR':
 				$value = get_query_var( $param_name );
@@ -63,7 +63,7 @@ class Request_Parameter extends Tag {
 		$this->add_control(
 			'request_type',
 			[
-				'label'   => esc_html__( 'Type', 'thepack' ),
+				'label'   => esc_html__( 'Type', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'get',
 				'options' => [
@@ -76,7 +76,7 @@ class Request_Parameter extends Tag {
 		$this->add_control(
 			'param_name',
 			[
-				'label'   => esc_html__( 'Parameter Name', 'thepack' ),
+				'label'   => esc_html__( 'Parameter Name', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 			]
 		);

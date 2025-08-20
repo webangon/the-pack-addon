@@ -14,7 +14,12 @@
     align-items: center;
     justify-content: center;    
 }
-
+.tp-pos-rel{
+    position: relative;
+}
+.tp-no-overflow{
+    overflow: hidden;;
+}
 /*Button extra*/
 .elementor-button-wrapper .elementor-button-icon {
     display: flex;
@@ -47,8 +52,6 @@
     position: absolute;
 }
 
-.tp-flex-equal .tp-col {}
-
 .tp-flex-center {
     display: flex;
     justify-content: center;
@@ -63,10 +66,6 @@
     transition-duration: .35s;
     transition-property: transform;
     transition-timing-function: ease-out;
-}
-
-.elementor-widget-container {
-    position: relative;
 }
 
 .tp-img-maskyes {
@@ -266,6 +265,26 @@ img {
     -moz-transform: translateY(-3px);
     -o-transform: translateY(-3px);
     transform: translateY(-3px);
+}
+
+.tp-d-flex {
+    display: flex;
+}
+.tp-d-flex.tp-gutter {
+    flex-wrap: wrap;
+}
+.tp-gutter {
+    margin: -10px 0 0 -10px;
+}
+div[class^="tp-df-"] {
+    position: relative;
+}
+.tp-gutter>div[class^="tp-df-"] {
+    padding: 10px 0 0 10px;
+}
+.tp-df-33 {
+    flex: 0 0 33.33%;
+    width:33.33%;
 }
 
 .flexs {
@@ -997,8 +1016,6 @@ ul.price-list.list-button li:last-child {
     -webkit-animation: wbangonpreload 1s infinite linear forwards;
 }
 
-}
-
 @-webkit-keyframes wbangonpreload {
     from {
         background-position: -800px 0
@@ -1205,6 +1222,7 @@ ul.price-list.list-button li:last-child {
 }
 .tpswiper{
     display: none;
+    overflow:hidden;
 }
 .tpswiper.swiper-container-initialized{
     display: block;
@@ -1250,18 +1268,20 @@ ul.price-list.list-button li:last-child {
     right: 0px;
 }
 
-.tpswiper:hover .khbprnx {
+.tpswiper:hover:not(.arrow-disabled) .khbprnx {
     opacity: 1;
 }
 
 .tpswiper:hover .khbnxt {
-    left: 10px;
+    left: 10px; 
 }
 
 .tpswiper:hover .khbprev {
     right: 10px;
 }
-
+.tpswiper.swiper-vertical .swiper-slide {
+height: auto !important;margin-bottom: auto !important;
+}
 .tpswiper .swiper-pagination span {
     margin: 0 3px;
     width: 8px;
@@ -1280,7 +1300,6 @@ ul.price-list.list-button li:last-child {
 .tpswiper .swiper-pagination span.swiper-pagination-bullet-active {
     width: 20px;
     opacity: 1;
-    border-radius: 5px;
     background: red;
     box-shadow: none;
 }
@@ -1510,7 +1529,6 @@ ul.price-list.list-button li:last-child {
     opacity: 0;
     margin-top: 30px;
     transition: all 0.3s ease 0s;
-    box-shadow: 0 3.75rem 7.5rem 0 rgb(0 0 0 / 14%);
 }
 
 .tp-menu-wrap li:hover>.sub-menu {
@@ -1939,15 +1957,280 @@ ul.momenu-list{
 .swiper-button-next.prnx:after, .swiper-button-prev.prnx:after{
     display:none;
   }
+  .swiper-wrapper{
+    transition-timing-function: linear;  
+}
 
+/**/
+.tp-container-hoveryes::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 0;
+    width: 400%;
+    z-index: 0;
+    transition: all 0.35s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.tp-container-hoveryes:hover::after {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+}
+/**/
+.tp-has-beaf > .elementor-widget-container {
+    position: relative;
+}
 
-/*Dark mode*/
-.darkmode-layer,.darkmode-toggle {
-    z-index: 5;
+.tp-has-beaf > .elementor-widget-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
-.darkmode-ignore {
-    z-index: 6
+
+.tp-has-beaf > .elementor-widget-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
-.darkmode--activated .darkmode-ignore{
-    z-index: 6
+.tp-section-moving-yes{
+    animation: tpanimatedBackground 30s linear infinite;  
 }
+
+@keyframes tpanimatedBackground { from { background-position: 0 0; } to { background-position: 100% 0; } }
+
+/**/
+.tp_icon_slide_yes .elementor-icon{
+    display: inline-flex;
+    overflow: hidden;
+    position: relative;
+}
+.tp_icon_slide_yes .elementor-icon i:last-child {
+    position: absolute;
+    transform: translateX(-550%);
+}
+.tp_icon_slide_yes .elementor-icon:hover i:first-child {
+    transform: translateX(550%);
+}
+.tp_icon_slide_yes .elementor-icon:hover i:last-child {
+    transform: translateX(0);
+}
+.elementor-icon i{
+    transition: all 0.4s ease-in-out 0s;
+}
+
+/**/
+.tp_anim_border_yes>.elementor-widget-container {
+    --borderWidth: 15px;
+  }
+  .tp_anim_border_yes>.elementor-widget-container:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  
+  @keyframes animatedgradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+/*Blob*/
+  .elementor-widget-tp-blob{
+  --radius-1: 70%;
+  --radius-2: 30%;
+  --radius-3: 30%;
+  --radius-4: 70%;
+  --radius-5: 60%;
+  --radius-6: 40%;
+  --radius-7: 60%;
+  --radius-8: 40%;
+}
+
+/*Button hover*/
+.tp-btn-chover-yes a::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  line-height: 20em;
+  left: -1em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+}
+
+.tp-btn-chover-yes a:hover::before {
+  box-shadow: inset 0 0 0 10em green;
+}
+.tp-btn-chover-yes a span{
+  position:relative;
+}
+.tp-btn-chover-yes a{
+    position: relative;
+    overflow: hidden;  
+}
+
+/*Button hover slide*/
+.tp-btn-slthover-yes .elementor-button{
+    overflow: hidden;
+    position: relative;
+}
+.tp-btn-slthover-yes .elementor-button-text:last-child {
+    position: absolute;
+    transform: translateY(-550%);
+}
+.tp-btn-slthover-yes .elementor-button:hover .elementor-button-text:first-child {
+    transform: translateY(550%);
+}
+.tp-btn-slthover-yes .elementor-button:hover .elementor-button-text:last-child {
+    transform: translateY(0);
+}
+
+/*Btn hover slide text*/
+
+.elementor-button-text{
+transition: all 0.4s ease-in-out 0s;
+}
+.tp-btn-slthover-yes .elementor-button{
+    overflow: hidden;
+    position: relative;
+  
+}
+.tp-btn-slthover-yes .elementor-button-text:last-child {
+    position: absolute;
+    transform: translateY(-550%);
+}
+.tp-btn-slthover-yes .elementor-button:hover .elementor-button-text{
+    transform: translateY(550%);
+}
+.tp-btn-slthover-yes .elementor-button:hover .elementor-button-text:last-child {
+    transform: translateY(0);
+}
+
+/*Left icon zoom*/
+.tp-left-ex-yes .elementor-button{
+    z-index: 1;
+    position: relative;
+    font-size: 18px;
+    display: inline-block;
+    margin-left: 10px;  
+}
+.tp-left-ex-yes .elementor-button i
+ {
+    display: inline-flex;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    background: green;
+    color: white;
+    border-radius: 50%;
+    font-weight: 400;
+    margin-right: 0px;
+    transition: all 0.35s ease-in-out;
+    transform: scale(0);
+       align-items: center;
+    justify-content: center;
+}
+.tp-left-ex-yes .elementor-button::after {
+    position: absolute;
+    left: 0px;
+    top: 0;
+    content: "";
+    height: 60px;
+    width: 60px;
+    border: 1px solid #c2bfbf;
+    border-radius: 50%;
+    transition: all 0.35s ease-in-out;
+    transform: scale(1);
+    z-index: -1;
+}
+.tp-left-ex-yes .elementor-button:hover i
+ {
+    transform: scale(1);
+}
+.tp-left-ex-yes .elementor-button:hover .elementor-button-text{
+  left:0;
+}
+.tp-left-ex-yes .elementor-button .elementor-button-text {
+    transition: all 0.35s ease-in-out;
+    left: -50px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.tp-left-ex-yes .elementor-button-content-wrapper{
+     align-items: center; 
+}
+
+.elementor-motion-effects-element, .elementor-motion-effects-layer{
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  -o-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.33, 0.07, 1.03);
+  -o-transition-timing-function: cubic-bezier(0, 0.33, 0.07, 1.03);
+  transition-timing-function: cubic-bezier(0, 0.33, 0.07, 1.03);
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.elementor-motion-effects-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.elementor-motion-effects-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.elementor-motion-effects-perspective{
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+}
+.e-container .elementor-motion-effects-layer{
+  pointer-events: none;
+}
+/*.e-container.elementor-motion-effects-element-type-background:before {*/
+/*  z-index: 1;*/
+/*}*/
+/*.e-container.elementor-motion-effects-element-type-background > .elementor-element{*/
+/*  z-index: 1;*/
+/*}*/

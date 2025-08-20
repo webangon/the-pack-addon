@@ -15,7 +15,7 @@ class Archive_Description extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Archive Description', 'thepack' );
+		return esc_html__( 'Archive Description', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

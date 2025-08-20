@@ -4,10 +4,10 @@
 		$main_cls = 'swiper-wrapper tp-product-catalog';
 		$inclass = 'swiper-slide';
 		$slider_options = [
-			'item' => $settings['item']['size'],
-			'item_tab' => $settings['item_tab']['size'],
-			'speed' => $settings['speed']['size'],
-			'space' => $settings['space']['size'],
+			'item' => esc_attr($settings['item']['size']),
+			'item_tab' => esc_attr($settings['item_tab']['size']),
+			'speed' => esc_attr($settings['speed']['size']),
+			'space' => esc_attr($settings['space']['size']),
 			'auto' => ('yes' === $settings['auto']),
 			'center' => ('yes' === $settings['center']),
 		];	
@@ -28,7 +28,7 @@
 	}  
 
    if ($wp_query->have_posts()) {
-       echo '<div data-xld =\'' . wp_json_encode($slider_options) . '\' class="' . esc_attr($parent_cls) . '">';
+       echo '<div data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\' class="' . esc_attr($parent_cls) . '">';
        echo '<div class="' . esc_attr($main_cls) . '">';
        if ( wc_get_loop_prop( 'total' ) ) {
            while ( $wp_query->have_posts() ) {

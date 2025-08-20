@@ -1050,7 +1050,7 @@ class The_Pack_Woo_Archive_Product extends Widget_Base
 
             break;
             default:
-                return esc_html__( 'Read More', 'wctext' );
+                return esc_html__( 'Read More', 'the-pack-addon' );
 		}
     }
 
@@ -1074,7 +1074,7 @@ class The_Pack_Woo_Archive_Product extends Widget_Base
         $args['attributes']['data-icon'] = the_pack_render_icon($settings['crticon']); 
         return $args;        
     }  
-    
+
     protected function render()
     {
         $settings = $this->get_settings();
@@ -1141,7 +1141,6 @@ class The_Pack_Woo_Archive_Product extends Widget_Base
         if (Plugin::instance()->editor->is_edit_mode()) {
 			$wp_query = $main_query;
 			$post     = $main_post;
-			wp_reset_query();
 			wp_reset_postdata();            
         }
 

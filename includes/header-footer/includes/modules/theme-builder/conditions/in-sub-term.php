@@ -24,7 +24,7 @@ class In_Sub_Term extends In_Taxonomy {
 
 	public function get_label() {
 		/* translators: %s: Taxonomy label. */
-		return sprintf( __( 'In Child %s', 'thepack' ), $this->taxonomy->labels->name );
+		return sprintf( __( 'In Child %s', 'the-pack-addon'  ), $this->taxonomy->labels->name );
 	}
 
 	public function check( $args ) {

@@ -1,0 +1,29 @@
+ .tp-circle-txt {
+	position: relative;
+	border-radius: 100vmax;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tp-circle-txt .logo {
+	position: absolute;
+	border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;	
+}
+.tp-circle-txt .logo img{
+	border-radius: 50%;
+}
+.tp-circle-txt .text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: tp-rotate 8s linear infinite;
+}
+
+.tp-circle-txt .text span {
+	position: absolute;
+	left: 50%;
+}

@@ -25,7 +25,7 @@ class Internal_URL extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Internal URL', 'thepack' );
+		return esc_html__( 'Internal URL', 'the-pack-addon'  );
 	}
 
 	public function get_panel_template() {
@@ -57,18 +57,18 @@ class Internal_URL extends Data_Tag {
 
 	protected function register_controls() {
 		$this->add_control( 'type', [
-			'label' => esc_html__( 'Type', 'thepack' ),
+			'label' => esc_html__( 'Type', 'the-pack-addon'  ),
 			'type' => Controls_Manager::SELECT,
 			'options' => [
-				'post' => esc_html__( 'Content', 'thepack' ),
-				'taxonomy' => esc_html__( 'Taxonomy', 'thepack' ),
-				'attachment' => esc_html__( 'Media', 'thepack' ),
-				'author' => esc_html__( 'Author', 'thepack' ),
+				'post' => esc_html__( 'Content', 'the-pack-addon'  ),
+				'taxonomy' => esc_html__( 'Taxonomy', 'the-pack-addon'  ),
+				'attachment' => esc_html__( 'Media', 'the-pack-addon'  ),
+				'author' => esc_html__( 'Author', 'the-pack-addon'  ),
 			],
 		] );
 
 		$this->add_control( 'post_id', [
-			'label' => esc_html__( 'Search & Select', 'thepack' ),
+			'label' => esc_html__( 'Search & Select', 'the-pack-addon'  ),
 			'type' => QueryModule::QUERY_CONTROL_ID,
 			'options' => [],
 			'label_block' => true,
@@ -85,7 +85,7 @@ class Internal_URL extends Data_Tag {
 		] );
 
 		$this->add_control( 'taxonomy_id', [
-			'label' => esc_html__( 'Search & Select', 'thepack' ),
+			'label' => esc_html__( 'Search & Select', 'the-pack-addon'  ),
 			'type' => QueryModule::QUERY_CONTROL_ID,
 			'options' => [],
 			'label_block' => true,
@@ -99,7 +99,7 @@ class Internal_URL extends Data_Tag {
 		] );
 
 		$this->add_control( 'attachment_id', [
-			'label' => esc_html__( 'Search & Select', 'thepack' ),
+			'label' => esc_html__( 'Search & Select', 'the-pack-addon'  ),
 			'type' => QueryModule::QUERY_CONTROL_ID,
 			'options' => [],
 			'label_block' => true,
@@ -113,7 +113,7 @@ class Internal_URL extends Data_Tag {
 		] );
 
 		$this->add_control( 'author_id', [
-			'label' => esc_html__( 'Search & Select', 'thepack' ),
+			'label' => esc_html__( 'Search & Select', 'the-pack-addon'  ),
 			'type' => QueryModule::QUERY_CONTROL_ID,
 			'options' => [],
 			'label_block' => true,

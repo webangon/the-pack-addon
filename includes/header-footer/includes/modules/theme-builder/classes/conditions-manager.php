@@ -58,7 +58,7 @@ class Conditions_Manager {
 		$offset = 3;
 
 		$posts_columns = array_slice( $posts_columns, 0, $offset, true ) + [
-			'instances' => esc_html__( 'Instances', 'thepack' ),
+			'instances' => esc_html__( 'Instances', 'the-pack-addon'  ),
 		] + array_slice( $posts_columns, $offset, null, true );
 
 		return $posts_columns;
@@ -75,7 +75,7 @@ class Conditions_Manager {
 			// PHPCS - the method get_document_instances is safe.
 			echo implode( '<br />', $instances ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			echo esc_html__( 'None', 'thepack' );
+			echo esc_html__( 'None', 'the-pack-addon'  );
 		}
 	}
 
@@ -107,7 +107,7 @@ class Conditions_Manager {
 			return '';
 		}
 
-		return esc_html__( 'Elementor recognized that you have set this location for other templates: ', 'thepack' ) .
+		return esc_html__( 'Elementor recognized that you have set this location for other templates: ', 'the-pack-addon'  ) .
 			' ' .
 			implode( ', ', $conflicted );
 	}
@@ -402,7 +402,7 @@ class Conditions_Manager {
 		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET['theme_template_id'] ) ) {
 			//phpcs:disable WordPress.Security.NonceVerification.Recommended
-			$force_template_id = $_GET['theme_template_id'];
+			$force_template_id = sanitize_text_field(wp_unslash($_GET['theme_template_id']));  
 			$document = $theme_builder_module->get_document( $force_template_id );
 			// e.g. header / header
 			if ( $document && $location === $document->get_location() ) {

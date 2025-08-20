@@ -338,7 +338,7 @@ class thepack_carousel1 extends Widget_Base
         $this->add_control(
             'sxipd',
             [
-                'label' => esc_html__('Bottom padding', 'elementor'),
+                'label' => esc_html__('Bottom padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

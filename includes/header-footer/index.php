@@ -170,7 +170,7 @@ if(!class_exists('The_Pack_Kit')){
 
         public function is_elementor_preview(){
             //phpcs:disable WordPress.Security.NonceVerification.Recommended
-            return (!empty( $_GET['elementor_library'] ) && !empty( $_GET['preview_id'] ) && !empty( $_GET['preview'] ));
+            return (!empty( $_GET['elementor_library'] ) && !empty( $_GET['preview_id'] ) && !empty( sanitize_text_field(wp_unslash($_GET['preview']) )));
         }
 
         /**

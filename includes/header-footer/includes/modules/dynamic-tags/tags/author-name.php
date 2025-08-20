@@ -15,7 +15,7 @@ class Author_Name extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Author Name', 'thepack' );
+		return esc_html__( 'Author Name', 'the-pack-addon'  );
 	}
 
 	public function get_group() {

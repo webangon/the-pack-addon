@@ -1,10 +1,10 @@
 <?php
 
 $slider_options = [
-    'speed' => $settings['speed']['size'],
+    'speed' => esc_attr($settings['speed']['size']),
     'auto' => ('yes' === $settings['auto']),
     'vertical' => ('yes' === $settings['vert']),
-    'fade' => $settings['fade'],
+    'fade' => esc_attr($settings['fade']),
 ];
 
 $previkn = $settings['picon']['value'] ? '<div class="prev-img"><i class="' . $settings['picon']['value'] . '"></i></div>' : '';
@@ -22,7 +22,7 @@ foreach ($settings['galleries'] as $item) {
         ';
 }
 
-echo '<div data-xld =\'' . wp_json_encode($slider_options) . '\' class="tpsingle-slide ' . esc_attr($settings['pagityp']) . ' ' . esc_attr($settings['arrowtyp']) . '">';
+echo '<div data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\' class="tpsingle-slide ' . esc_attr($settings['pagityp']) . ' ' . esc_attr($settings['arrowtyp']) . '">';
 ?>
 <div class="swiper-container gallery-top">
     <div class="swiper-wrapper">

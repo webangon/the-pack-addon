@@ -1,32 +1,37 @@
 <?php
-$out1 = '';
-$i = 0;
-$big = ['1', '6', '7'];
-
+$out = '';
+$btnicon = the_pack_render_icon($settings['ikn'],'bticon tbtr');
+$swiper_opt = the_pack_swiper_markup($settings);
+$cls = $settings['disp']=='grid' ? 'tp-df-33' : 'swiper-slide';
 foreach ($settings['items'] as $item) {
-    $i++;
-    $bg = $item['fimgs']['id'] ? thepack_bg_images($item['fimgs']['id'], $item['img_size']) : '';
-    $name = $item['name'] ? '<h2 class="name">' . $item['name'] . '</h2>' : '';
-    $pos = $item['pos'] ? '<p class="pos">' . $item['pos'] . '</p>' : '';
     $link = thepack_get_that_link($item['url']);
-    $link = $item['url']['url'] ? '<a ' . $link . '"></a>' : '';
-
-    if (in_array($i, $big)) {
-        $cls = 'case-big ' . $settings['animation'];
-    } else {
-        $cls = 'case-small ' . $settings['animation'];
-    }
-
-    $out1 .= '
-        <div class="case-wrap tbtr ' . $cls . ' elementor-repeater-item-' . $item['_id'] . '">
-            <div ' . $bg . ' class="inner lazyload">
-                ' . $link . '
-                <div class="case-content">
-                    ' . $name . $pos . '
-                </div>
+    $btn = $link ? '<a ' . $link . ' class="link tp-dinflex two">'.$btnicon.'</a>' : '';
+    $ttl = $link ? '<h4 class="title"><a ' . $link . '>'.$item['name'].'</a></h4>' : '<h4 class="title">'.$item['name'].'</h4>';
+    $out .= '
+        <div class="'.$cls.' item"><div class="inner">
+            <div class="card-image-wrapper tbtr">
+                '.thepack_ft_images($item['img']['id'],'full').'
             </div>
+            <div class="service-card-content">
+                '.thepack_build_html($item['pos'],'p','desc').'
+                '.$ttl.'
+                '.$btn.'
+            </div></div>
         </div>
     ';
 }
-//phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-echo '<div class="tp-case-grid style-two tpoverflow">' . thepack_build_html($out1) . '</div>';
+if ($settings['disp'] == 'slider') {
+    echo '<div data-xld =\'' . wp_json_encode($swiper_opt['settings']) . '\' class="swiper tpswiper tp-img-card">
+            <div class="swiper-wrapper">'.$out.'</div>
+            '.$swiper_opt['nav'].'
+        </div>'; 
+} else {
+    echo '<div class="tp-d-flex tp-gutter tp-img-card">'.$out.'</div>';;
+}
+
+?>
+
+<style>
+ 
+
+</style>

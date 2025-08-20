@@ -266,7 +266,7 @@ class thepack_gallery_simple extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'overlay_color',
-                'label' => esc_html__('Overlay color', 'elementor'),
+                'label' => esc_html__('Overlay color', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .content-center',
             ]

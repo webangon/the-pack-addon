@@ -271,7 +271,7 @@ class thepack_testim_5 extends Widget_Base
         $this->add_responsive_control(
             'q_pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -283,7 +283,7 @@ class thepack_testim_5 extends Widget_Base
         $this->add_responsive_control(
             'q_mar',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -461,7 +461,7 @@ class thepack_testim_5 extends Widget_Base
         $this->add_control(
             'ng_mar',
             [
-                'label' => esc_html__('Name margin', 'elementor'),
+                'label' => esc_html__('Name margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

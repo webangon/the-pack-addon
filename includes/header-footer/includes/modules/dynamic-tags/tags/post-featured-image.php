@@ -24,7 +24,7 @@ class Post_Featured_Image extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Featured Image', 'thepack' );
+		return esc_html__( 'Featured Image', 'the-pack-addon'  );
 	}
 
 	public function get_value( array $options = [] ) {
@@ -46,7 +46,7 @@ class Post_Featured_Image extends Data_Tag {
 		$this->add_control(
 			'fallback',
 			[
-				'label' => esc_html__( 'Fallback', 'thepack' ),
+				'label' => esc_html__( 'Fallback', 'the-pack-addon'  ),
 				'type' => Controls_Manager::MEDIA,
 			]
 		);

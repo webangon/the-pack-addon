@@ -23,7 +23,7 @@ class Product_Search extends ThemeBuilder\Conditions\Condition_Base {
 	}
 
 	public function get_label() {
-		return __( 'Search Results', 'thepack' );
+		return __( 'Search Results', 'the-pack-addon'  );
 	}
 
 	public function check( $args ) {

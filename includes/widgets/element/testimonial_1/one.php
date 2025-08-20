@@ -1,19 +1,8 @@
 <?php
-$previkn = $settings['previkn'] ? '<div class="khbprnx khbnxt"><i class="' . $settings['previkn']['value'] . '"></i></div>' : '';
-$nextikn = $settings['nextikn'] ? '<div class="khbprnx khbprev"><i class="' . $settings['nextikn']['value'] . '"></i></div>' : '';
-
+$swiper_opt = the_pack_swiper_markup($settings);
 $quote_icon = $settings['quote_icon']['value'] ? '<i class="tpquote ' . $settings['quote_icon']['value'] . '"></i>' : '';
-
-$slider_options = [
-    'speed' => $settings['speed']['size'],
-    'item' => $settings['item']['size'],
-    'space' => $settings['space']['size'],
-    'itemtab' => $settings['itemtab']['size'],
-    'auto' => ('yes' === $settings['auto']),
-];
-
 $out1 = '';
-foreach ($settings['items'] as $item) {
+foreach ($settings['items'] as $item) {  
     $rating = $item['rating'] ? '<span class="tscore"><span style="width: ' . $item['rating']['size'] . '%"></span></span>' : '';
     $heading = $item['heading'] ? '<h3 class="heading">' . $item['heading'] . '</h3>' : '';
     $desc = $item['desc'] ? '<p class="desc">' . $item['desc'] . '</p>' : '';
@@ -43,15 +32,13 @@ foreach ($settings['items'] as $item) {
 
 ?> 
 
-<?php echo '<div class="swiper-container testimonial-1 tpswiper" data-xld =\'' . wp_json_encode($slider_options) . '\'>'; ?>
+<?php echo '<div class="swiper testimonial-1 tpswiper" data-xld =\'' . wp_kses_post(wp_json_encode($swiper_opt['settings'])) . '\'>'; ?>
 <div class="swiper-wrapper">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo thepack_build_html($out1); ?>
 </div>
-<div class="swiper-pagination"></div>
 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-<div class="tp-arrow"><?php echo thepack_build_html($previkn . $nextikn); ?></div>
+<?php echo $swiper_opt['nav']; ?>
 </div>
-
 
 

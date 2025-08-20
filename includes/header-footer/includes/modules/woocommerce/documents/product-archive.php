@@ -23,11 +23,11 @@ class Product_Archive extends Archive {
 	}
 
 	public static function get_title() {
-		return __( 'Products Archive', 'thepack' );
+		return __( 'Products Archive', 'the-pack-addon'  );
 	}
 
 	public static function get_plural_title() {
-		return __( 'Products Archives', 'thepack' );
+		return __( 'Products Archives', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -45,9 +45,9 @@ class Product_Archive extends Archive {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a Products Archive Template?', 'thepack' ),
-			'content' => __( 'A products archive template allows you to easily design the layout and style of your WooCommerce shop page or other product archive pages - those pages that show a list of products, which may be filtered by terms such as categories, tags, etc.', 'thepack' ),
-			'tip' => __( 'You can create multiple products archive templates, and assign each to different categories of products. This gives you the freedom to customize the appearance for each type of product being shown.', 'thepack' ),
+			'title' => __( 'What is a Products Archive Template?', 'the-pack-addon'  ),
+			'content' => __( 'A products archive template allows you to easily design the layout and style of your WooCommerce shop page or other product archive pages - those pages that show a list of products, which may be filtered by terms such as categories, tags, etc.', 'the-pack-addon'  ),
+			'tip' => __( 'You can create multiple products archive templates, and assign each to different categories of products. This gives you the freedom to customize the appearance for each type of product being shown.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-products-archive',
 			'video_url' => 'https://www.youtube.com/embed/cQLeirgkguA',
 		];
@@ -89,7 +89,7 @@ class Product_Archive extends Archive {
 
 		$post_type_object = get_post_type_object( $post_type );
 
-		$post_type_archives[ 'post_type_archive/' . $post_type ] = $post_type_object->label . ' ' . __( 'Archive', 'thepack' );
+		$post_type_archives[ 'post_type_archive/' . $post_type ] = $post_type_object->label . ' ' . __( 'Archive', 'the-pack-addon'  );
 
 		$post_type_taxonomies = get_object_taxonomies( $post_type, 'objects' );
 
@@ -99,18 +99,18 @@ class Product_Archive extends Archive {
 		] );
 
 		foreach ( $post_type_taxonomies as $slug => $object ) {
-			$taxonomies[ 'taxonomy/' . $slug ] = $object->label . ' ' . __( 'Archive', 'thepack' );
+			$taxonomies[ 'taxonomy/' . $slug ] = $object->label . ' ' . __( 'Archive', 'the-pack-addon'  );
 		}
 
 		$options = [
-			'search' => __( 'Search Results', 'thepack' ),
+			'search' => __( 'Search Results', 'the-pack-addon'  ),
 		];
 
 		$options += $taxonomies + $post_type_archives;
 
 		return [
 			'archive' => [
-				'label' => __( 'Archive', 'thepack' ),
+				'label' => __( 'Archive', 'the-pack-addon'  ),
 				'options' => $options,
 			],
 		];
@@ -125,11 +125,11 @@ class Product_Archive extends Archive {
 	protected static function get_editor_panel_categories() {
 		$categories = [
 			'woocommerce-elements-archive' => [
-				'title' => __( 'Product Archive', 'thepack' ),
+				'title' => __( 'Product Archive', 'the-pack-addon'  ),
 			],
 			// Move to top as active.
 			'woocommerce-elements' => [
-				'title' => __( 'WooCommerce', 'thepack' ),
+				'title' => __( 'WooCommerce', 'the-pack-addon'  ),
 				'active' => true,
 			],
 		];

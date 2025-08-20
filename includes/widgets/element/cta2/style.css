@@ -1,68 +1,54 @@
-.tbcta2wrap {
-    display: flex;
+.tp-service-hover-bg .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+     opacity: 0;
+    visibility: hidden;
+     
+}    
+.tp-service-hover-bg .bg img{
+object-fit: cover;  
+height: 100%;
+}
+.tp-service-hover-bg .bg::before {
+    content:"";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.tp-service-hover-bg:hover .tp-title{
+transform: translateX(10px);    
+}
+.tp-service-hover-bg:hover a{
+transform: translateX(-10px);    
+}
+.tp-service-hover-bg:hover .bg
+ {
+    transform: scale(1.1);
+    opacity: 1;
+    visibility: visible;
 }
 
-.tpcta2 .tpfirst {
-    flex: 0 0 auto;
-}
-
-.tpcta2 .socials li {
-    display: inline-block;
-}
-
-.tpcta2 .tpsecond {
-    flex: 0 0 auto;
-    display: flex;
+.tp-service-hover-bg .tp-content{
     align-items: center;
-    justify-content: center;
-}
+}    
 
-.tpcta2 .equalheightwidth {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tp-service-hover-bg .tp-desc{
+    flex: 1;    
+    justify-content: space-between;
 }
-
-.tpcta2 .tpflexvertical {
-    display: flex;
-    align-items: center;
+.tp-service-hover-bg .tp-desc .desc{
+    max-width: 450px;
 }
-
-.tpcta2 .tbcta2wrap ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.tpcta2 .inner {
-    display: inline-block;
-}
-
-.tpcta2 .iconbox .avatar {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: blanchedalmond;
-}
-
-.tpcta2 .iconbox .info {
-    text-align: right;
-}
-
-.tpcta2 .imagebox .info {
-    text-align: left;
-}
-
-@media (max-width: 767px) {
-    .tpcta2 .tbcta2wrap {
-        display: block;
-    }
-}
+.tp-service-hover-bg .tp-title{
+display: inline-flex;   
+    align-items: center; 
+        flex: 0 0 30%;
+    gap: 40px;
+}  

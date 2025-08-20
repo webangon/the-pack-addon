@@ -219,7 +219,7 @@ class thepack_fsrnslk extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'ovrly',
-                'label' => esc_html__('Overlay background', 'elementor'),
+                'label' => esc_html__('Overlay background', 'the-pack-addon' ),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .slide-bg-image:before',
             ]
@@ -369,7 +369,7 @@ class thepack_fsrnslk extends Widget_Base
         $this->add_control(
             'ttmrd',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -410,7 +410,7 @@ class thepack_fsrnslk extends Widget_Base
         $this->add_control(
             'dsmrd',
             [
-                'label' => esc_html__('Margin', 'elementor'),
+                'label' => esc_html__('Margin', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -544,7 +544,7 @@ class thepack_fsrnslk extends Widget_Base
         $this->add_control(
             'bt1pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -622,7 +622,7 @@ class thepack_fsrnslk extends Widget_Base
         $this->add_control(
             'bt2pad',
             [
-                'label' => esc_html__('Padding', 'elementor'),
+                'label' => esc_html__('Padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

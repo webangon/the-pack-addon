@@ -69,7 +69,7 @@ abstract class Theme_Document extends Library_Document {
 		$document_config = static::get_properties();
 
 		if ( true === $document_config['support_site_editor'] ) {
-			$panel_config['messages']['publish_notification'] = __( 'Congrats! Your Site Part is Live', 'thepack' );
+			$panel_config['messages']['publish_notification'] = __( 'Congrats! Your Site Part is Live', 'the-pack-addon'  );
 		}
 
 		return $panel_config;
@@ -127,7 +127,7 @@ abstract class Theme_Document extends Library_Document {
 		}
 
 		if ( ! $supported ) {
-			$label .= ' (' . __( 'Unsupported', 'thepack' ) . ')';
+			$label .= ' (' . __( 'Unsupported', 'the-pack-addon'  ) . ')';
 		}
 
 		return $label;
@@ -274,7 +274,7 @@ abstract class Theme_Document extends Library_Document {
 		$this->start_controls_section(
 			'preview_settings',
 			[
-				'label' => __( 'Preview Settings', 'thepack' ),
+				'label' => __( 'Preview Settings', 'the-pack-addon'  ),
 				'tab' => Controls_Manager::TAB_SETTINGS,
 			]
 		);
@@ -282,7 +282,7 @@ abstract class Theme_Document extends Library_Document {
 		$this->add_control(
 			'preview_type',
 			[
-				'label' => __( 'Preview Dynamic Content as', 'thepack' ),
+				'label' => __( 'Preview Dynamic Content as', 'the-pack-addon'  ),
 				'label_block' => true,
 				'type' => Controls_Manager::SELECT,
 				'default' => $this::get_preview_as_default(),
@@ -313,7 +313,7 @@ abstract class Theme_Document extends Library_Document {
 		$this->add_control(
 			'preview_search_term',
 			[
-				'label' => __( 'Search Term', 'thepack' ),
+				'label' => __( 'Search Term', 'the-pack-addon'  ),
 				'export' => false,
 				'condition' => [
 					'preview_type' => 'search',
@@ -325,10 +325,10 @@ abstract class Theme_Document extends Library_Document {
 			'apply_preview',
 			[
 				'type' => Controls_Manager::BUTTON,
-				'label' => __( 'Apply & Preview', 'thepack' ),
+				'label' => __( 'Apply & Preview', 'the-pack-addon'  ),
 				'label_block' => true,
 				'show_label' => false,
-				'text' => __( 'Apply & Preview', 'thepack' ),
+				'text' => __( 'Apply & Preview', 'the-pack-addon'  ),
 				'separator' => 'none',
 				'event' => 'elementorThemeBuilder:ApplyPreview',
 			]
@@ -368,7 +368,7 @@ abstract class Theme_Document extends Library_Document {
 		$this->add_control(
 			'content_wrapper_html_tag',
 			[
-				'label' => __( 'HTML Tag', 'thepack' ),
+				'label' => __( 'HTML Tag', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'div',
 				'options' => array_combine( $wrapper_tags, $wrapper_tags ),
@@ -393,7 +393,7 @@ abstract class Theme_Document extends Library_Document {
 
 		// Only proceed if the inheriting document has optional wrapper HTML tags to replace 'div'
 		if ( $has_wrapper_tags ) {
-			$wrapper_tag = lastudio_kit_helper()->validate_html_tag($settings['content_wrapper_html_tag']);
+			$wrapper_tag = thepack_addon_kit_helper()->validate_html_tag($settings['content_wrapper_html_tag']);
 		}
 
 		if ( ! $elements_data ) {

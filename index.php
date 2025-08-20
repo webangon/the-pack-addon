@@ -7,7 +7,7 @@ Author: Webangon
 Author URI: https://webangon.com
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Version: 2.1.2
+Version: 2.1.5
 Text Domain: the-pack-addon
 Domain Path: /languages/
 */
@@ -111,8 +111,14 @@ if (!class_exists('thepack_elementor_addon_widget')) {
             add_action('template_redirect', [self::$instance, 'template_preview'], 9);
             add_action('wp_footer', [$this, 'inject_pop_wrap']);
             add_filter('elementor/icons_manager/additional_tabs', [$this, 'icons_tabs']);
+            add_action( 'elementor/controls/register', array( $this, 'register_new_controls' ) );
             add_action('init', [$this, 'init']);
             add_action( 'plugin_action_links_'. plugin_basename( __FILE__ ), array( $this, 'my_plugin_action_links' ), 10 );
+        }
+
+        public function register_new_controls( $controls_manager ) {
+
+            require_once THE_PACK_PLUGIN_DIR . 'includes/extension/control/motion.php';
         }
 
         public function my_plugin_action_links( $links ) {
@@ -151,7 +157,7 @@ if (!class_exists('thepack_elementor_addon_widget')) {
         {
             $tabs['themify-icons'] = [
                 'name' => 'themify-icons',
-                'label' => esc_html__('Themify', 'icon-element'),
+                'label' => esc_html__('Themify', 'the-pack-addon' ),
                 'labelIcon' => 'ti-wand',
                 'prefix' => 'ti-',
                 'displayPrefix' => 'tivo',
@@ -160,14 +166,14 @@ if (!class_exists('thepack_elementor_addon_widget')) {
                 'ver' => '3.0.1',
             ];
 
-            $tabs['uicons'] = [
-                'name' => 'uicons',
-                'label' => esc_html__('Uicons', 'icon-element'),
-                'labelIcon' => 'fi-rr-0',
-                'prefix' => 'fi-rr-',
-                'displayPrefix' => 'uic',
-                'url' => THE_PACK_PLUGIN_URL . 'assets/iconfont/uicons/uicons.css',
-                'fetchJson' => THE_PACK_PLUGIN_URL . 'assets/iconfont/uicons/fonts/uicons.json',
+            $tabs['tpbootstrap'] = [
+                'name' => 'tpbootstrap',
+                'label' => esc_html__('Bootstrap', 'the-pack-addon' ),
+                'labelIcon' => 'bi-bootstrap',
+                'prefix' => 'bi-',
+                'displayPrefix' => 'tpbi',
+                'url' => THE_PACK_PLUGIN_URL . 'assets/iconfont/bootstrap/bootstrap.css',
+                'fetchJson' => THE_PACK_PLUGIN_URL . 'assets/iconfont/bootstrap/fonts/bootstrap.json',
                 'ver' => '3.0.1',
             ];
 
@@ -234,16 +240,15 @@ if (!class_exists('thepack_elementor_addon_widget')) {
             wp_enqueue_script('lazysizes', THE_PACK_PLUGIN_URL . 'assets/js/lazysizes.min.js', [], THE_PACK_PLUGIN_VERSION, true);
             wp_enqueue_script('jquery-nav', THE_PACK_PLUGIN_URL . 'assets/js/jquery.nav.js', [], THE_PACK_PLUGIN_VERSION, true);
             wp_enqueue_script('rellax', THE_PACK_PLUGIN_URL . 'assets/js/rellax.min.js', [], THE_PACK_PLUGIN_VERSION, true);
-            wp_enqueue_script('aos', THE_PACK_PLUGIN_URL . 'assets/js/aos.js', [], THE_PACK_PLUGIN_VERSION, true);
             wp_enqueue_script('tilt', THE_PACK_PLUGIN_URL . 'assets/js/tilt.jquery.min.js', [], THE_PACK_PLUGIN_VERSION, true);
             wp_enqueue_style('e-animations');
             $scripts = [
+                'scrollreveal',
                 'circle-progress',
                 'plyr',
                 'countdown',
                 'slick',
                 'beerslider',
-                'jarallax',
                 'flex-images',
                 'fitvideos',
                 'highlight'
@@ -268,7 +273,6 @@ if (!class_exists('thepack_elementor_addon_widget')) {
         public function thepack_frontend_styles()
         {
             wp_enqueue_style('thepack-shortcode', THE_PACK_PLUGIN_URL . 'assets/css/shortcode.css', [], THE_PACK_PLUGIN_VERSION);
-            wp_enqueue_style('aos', THE_PACK_PLUGIN_URL . 'assets/css/aos.css', [], THE_PACK_PLUGIN_VERSION);
             wp_enqueue_style('dashicons');
 
             $style = [

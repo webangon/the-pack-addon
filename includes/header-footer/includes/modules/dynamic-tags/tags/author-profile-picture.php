@@ -15,7 +15,7 @@ class Author_Profile_Picture extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Author Profile Picture', 'thepack' );
+		return esc_html__( 'Author Profile Picture', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -27,7 +27,7 @@ class Author_Profile_Picture extends Data_Tag {
 	}
 
 	public function get_value( array $options = [] ) {
-        lastudio_kit_helper()->set_global_authordata();
+        thepack_addon_kit_helper()->set_global_authordata();
 
 		return [
 			'id' => '',

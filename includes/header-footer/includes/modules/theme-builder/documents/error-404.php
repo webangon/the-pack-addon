@@ -16,7 +16,7 @@ class Error_404 extends Single_Base {
 	}
 
 	public static function get_title() {
-		return __( 'Error 404', 'thepack' );
+		return __( 'Error 404', 'the-pack-addon'  );
 	}
 
 	protected static function get_site_editor_icon() {
@@ -25,9 +25,9 @@ class Error_404 extends Single_Base {
 
 	protected static function get_site_editor_tooltip_data() {
 		return [
-			'title' => __( 'What is a 404 Page Template?', 'thepack' ),
-			'content' => __( 'A 404 page template allows you to easily design the layout and style of the page that is displayed when a visitor arrives at a page that does not exist.', 'thepack' ),
-			'tip' => __( 'Keep your site\'s visitors happy when they get lost by displaying your recent posts, a search bar, or any information that might help the user find what they were looking for.', 'thepack' ),
+			'title' => __( 'What is a 404 Page Template?', 'the-pack-addon'  ),
+			'content' => __( 'A 404 page template allows you to easily design the layout and style of the page that is displayed when a visitor arrives at a page that does not exist.', 'the-pack-addon'  ),
+			'tip' => __( 'Keep your site\'s visitors happy when they get lost by displaying your recent posts, a search bar, or any information that might help the user find what they were looking for.', 'the-pack-addon'  ),
 			'docs' => 'https://trk.elementor.com/app-theme-builder-error-404',
 			'video_url' => 'https://www.youtube.com/embed/ACCNp9tBMQg',
 		];
@@ -35,7 +35,7 @@ class Error_404 extends Single_Base {
 
 	public static function get_preview_as_options() {
 		return [
-			'page/404' => __( '404', 'thepack' ),
+			'page/404' => __( '404', 'the-pack-addon'  ),
 		];
 	}
 

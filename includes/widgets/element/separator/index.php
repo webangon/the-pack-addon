@@ -107,7 +107,7 @@ class thepack_sprtr extends Widget_Base
         $this->add_responsive_control(
             'i_pad',
             [
-                'label' => esc_html__('Inner padding', 'elementor'),
+                'label' => esc_html__('Inner padding', 'the-pack-addon' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

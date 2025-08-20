@@ -2,10 +2,10 @@
 
 $options = [
     'email' => encrypt_string($settings['emailto']),
-    'success' => $settings['success'],
-    'fail' => $settings['fail'],
-    'error' => $settings['error'],
-    'subject' => $settings['emailsub'],
+    'success' => esc_attr($settings['success']),
+    'fail' => esc_attr($settings['fail']),
+    'error' => esc_attr($settings['error']),
+    'subject' => esc_attr($settings['emailsub']),
 ];
 
 $content = '';
@@ -38,7 +38,7 @@ $bticon = $this->generate_icon($settings['btnik']);
 
 ?>
 
-<?php echo '<form class="tp-contact-wrap ' . esc_attr($icon_pos) . '" data-xld =\'' . wp_json_encode($options) . '\' novalidate>'; ?>
+<?php echo '<form class="tp-contact-wrap ' . esc_attr($icon_pos) . '" data-xld =\'' . wp_kses_post(wp_json_encode($options)) . '\' novalidate>'; ?>
 <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 <?php echo $content; ?>
 <div class='tp-form-btn'>

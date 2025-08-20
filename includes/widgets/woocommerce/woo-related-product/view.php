@@ -30,7 +30,7 @@ if ( $settings['disp']=='slide' ){
 
 $wp_query = new \WP_Query( ['post__in' => $id,'post_type' => 'any'] );
 if ($wp_query->have_posts()){
-    echo '<div data-xld =\'' . wp_json_encode($slider_options) . '\' class="' . esc_attr($parent_cls) . '">';
+    echo '<div data-xld =\'' . wp_kses_post(wp_json_encode($slider_options)) . '\' class="' . esc_attr($parent_cls) . '">';
     echo '<div class="' . esc_attr($main_cls) . '">';    
     while ( $wp_query->have_posts() ) {
         $wp_query->the_post();

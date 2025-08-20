@@ -15,7 +15,7 @@ class Post_Terms extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Post Terms', 'thepack' );
+		return esc_html__( 'Post Terms', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -46,7 +46,7 @@ class Post_Terms extends Tag {
 		 */
 		$taxonomy_filter_args = apply_filters( 'thepack-kit/dynamic_tags/post_terms/taxonomy_args', $taxonomy_filter_args );
 
-		$taxonomies = lastudio_kit_helper()->get_taxonomies( $taxonomy_filter_args, 'objects' );
+		$taxonomies = thepack_addon_kit_helper()->get_taxonomies( $taxonomy_filter_args, 'objects' );
 
 		$options = [];
 
@@ -57,7 +57,7 @@ class Post_Terms extends Tag {
 		$this->add_control(
 			'taxonomy',
 			[
-				'label' => esc_html__( 'Taxonomy', 'thepack' ),
+				'label' => esc_html__( 'Taxonomy', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SELECT,
 				'options' => $options,
 				'default' => 'post_tag',
@@ -67,7 +67,7 @@ class Post_Terms extends Tag {
 		$this->add_control(
 			'separator',
 			[
-				'label' => esc_html__( 'Separator', 'thepack' ),
+				'label' => esc_html__( 'Separator', 'the-pack-addon'  ),
 				'type' => Controls_Manager::TEXT,
 				'default' => ', ',
 			]
@@ -76,7 +76,7 @@ class Post_Terms extends Tag {
 		$this->add_control(
 			'link',
 			[
-				'label' => esc_html__( 'Link', 'thepack' ),
+				'label' => esc_html__( 'Link', 'the-pack-addon'  ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]

@@ -147,16 +147,6 @@ class thepack_list_item extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'ianim',
-            [
-                'label' => esc_html__('Animation', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
-                'options' => thepack_animations(),
-                'label_block' => true
-            ]
-        );
-
         $this->add_responsive_control(
             'btspf',
             [

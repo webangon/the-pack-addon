@@ -100,7 +100,7 @@ class The_Pack_Woo_Title_description extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field($_GET['preview']) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
+        $preview  = isset( $_GET['preview'] ) ? sanitize_text_field(wp_unslash($_GET['preview'])) : '';//phpcs:disable WordPress.Security.NonceVerification.Recommended 
         if (Plugin::instance()->editor->is_edit_mode() || $preview == 'true') {
             $product = wc_get_product($settings['preview']);        
         } else {

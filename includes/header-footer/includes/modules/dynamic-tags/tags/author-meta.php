@@ -15,7 +15,7 @@ class Author_Meta extends Tag {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Author Meta', 'thepack' );
+		return esc_html__( 'Author Meta', 'the-pack-addon'  );
 	}
 
 	public function get_group() {
@@ -45,7 +45,7 @@ class Author_Meta extends Tag {
 		$this->add_control(
 			'key',
 			[
-				'label' => esc_html__( 'Meta Key', 'thepack' ),
+				'label' => esc_html__( 'Meta Key', 'the-pack-addon'  ),
 			]
 		);
 	}
