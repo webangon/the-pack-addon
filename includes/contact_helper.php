@@ -47,7 +47,7 @@ function tp_process_contact_form()
         wp_die();
     } 
     //phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated
-    foreach ( sanitize_text_field(wp_unslash($_POST['data'])) as $item ) {
+    foreach ( wp_unslash($_POST['data']) as $item ) {
         $required = isset($item['required']) && empty($item['value']) ? 'yes' : '';
 
         if (isset($item['type']) == 'email') {

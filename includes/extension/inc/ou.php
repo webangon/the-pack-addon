@@ -496,7 +496,7 @@ class The_Pack_Overlay_Underlay
 
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}.tp-has-beaf > .elementor-widget-container:before' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;',
+                    '{{WRAPPER}}.tp-has-beaf > .elementor-widget-container:before' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;animation-timing-function: linear;',
                 ],
 
             ]
@@ -773,7 +773,7 @@ class The_Pack_Overlay_Underlay
 
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}.tp-has-beaf > .elementor-widget-container:after' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;',
+                    '{{WRAPPER}}.tp-has-beaf > .elementor-widget-container:after' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;animation-timing-function: linear;',
                 ],
 
             ]

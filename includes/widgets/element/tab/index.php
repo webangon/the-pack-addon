@@ -75,6 +75,14 @@ class thepack_img_acrdn extends Widget_Base
         );
 
         $repeater->add_control(
+            'icon',
+            [
+                'type' => Controls_Manager::ICONS,
+                'label' => esc_html__('Icon', 'the-pack-addon'),
+            ]
+        );
+
+        $repeater->add_control(
             'content',
             [
                 'label' => esc_html__('Content', 'the-pack-addon'),
@@ -144,107 +152,70 @@ class thepack_img_acrdn extends Widget_Base
             ]
         );
 
-        $this->add_responsive_control(
-            'wd',
-            [
-                'label' => esc_html__('Width', 'the-pack-addon'),
-                'type' => Controls_Manager::NUMBER,
-                'selectors' => [
-                    '{{WRAPPER}} .tp-tab-1 li' => 'width: {{VALUE}}%;',
-                ],
-            ]
-        );
+        do_action('the_pack_flex', $this,'gf_','.tp-tab',['']);
 
         $this->add_responsive_control(
-            'gsp',
+            'nvx',
             [
-                'label' => esc_html__('Spacing', 'the-pack-addon'),
+                'label' => esc_html__('Nav width', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 800,
+                        'step' => 1,
+                    ]
+                ],
+                'size_units' => ['px','%'],
                 'selectors' => [
-                    '{{WRAPPER}} .tp-tab-1 li' => 'padding:0px {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .two .tab-area:after' => 'left:{{SIZE}}{{UNIT}};width:calc(100% - {{SIZE}}{{UNIT}});',
-                    '{{WRAPPER}} .tp-tab-1 ul' => 'margin-left:-{{SIZE}}{{UNIT}};margin-right:-{{SIZE}}{{UNIT}};',
-                ]
+                    '{{WRAPPER}} .tab-area' => 'flex:0 0 {{SIZE}}{{UNIT}};',
+                ],
+
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_title',
+            'section_hdig',
+            [
+                'label' => esc_html__('Heading', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_responsive_control(
+            'fwhd',
+            [
+                'label' => esc_html__('Full width', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
+                'selectors' => [
+                    '{{WRAPPER}} li' => 'width: 100%;',
+                ],
+            ]
+        );
+        do_action('the_pack_flex', $this,'tt_','.tab-area',['']);
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_ttl',
             [
                 'label' => esc_html__('Title', 'the-pack-addon'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-
         $this->add_responsive_control(
-            't-algn',
-            [
-                'label' => esc_html__('Alignment', 'the-pack-addon'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'the-pack-addon'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-right',
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .tab-area' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            't_pad',
+            't-pad',
             [
                 'label' => esc_html__('Padding', 'the-pack-addon'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em'],
+                'size_units' => ['em', 'px'],
                 'selectors' => [
-                    '{{WRAPPER}} li span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 't_typ',
-                'label' => esc_html__('Typography', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}} li span',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'tbrd',
-            [
-                'label' => esc_html__('Border radius', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} li span' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'tbar',
-            [
-                'label' => esc_html__('Arrow size', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .one li span:before' => 'border-width: {{SIZE}}{{UNIT}};bottom:calc({{SIZE}}{{UNIT}}*-2)',
-                ]
-            ]
-        );
+        do_action('the_pack_flex', $this,'hdf_','li',['']);
 
         $this->start_controls_tabs('tctb');
 
@@ -254,38 +225,24 @@ class thepack_img_acrdn extends Widget_Base
                 'label' => esc_html__('Normal', 'the-pack-addon'),
             ]
         );
-
         $this->add_control(
-            't_clr',
-            [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .tab-area li span' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 't_bclr',
-                'label' => esc_html__('Border', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}} .tab-area li span',
-            ]
-        );
-
-        $this->add_control(
-            't_bg',
+            'ntbg',
             [
                 'label' => esc_html__('Background', 'the-pack-addon'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .tab-area li span' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} li' => 'background: {{VALUE}};',
                 ],
             ]
         );
-
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'nabdr',
+                'label' => esc_html__('Border', 'the-pack-addon'),
+                'selector' => '{{WRAPPER}} li',
+            ]
+        );        
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -294,44 +251,30 @@ class thepack_img_acrdn extends Widget_Base
                 'label' => esc_html__('Active', 'the-pack-addon'),
             ]
         );
-
         $this->add_control(
-            't_aclr',
-            [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .tab-area li.active span' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            't_abg',
+            'nthbg',
             [
                 'label' => esc_html__('Background', 'the-pack-addon'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .tab-area li.active span' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .one .tab-area li span:before' => 'border-color: {{VALUE}} transparent transparent;',
+                    '{{WRAPPER}} li.active' => 'background: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 't_abclr',
+                'name' => 'ntr',
                 'label' => esc_html__('Border', 'the-pack-addon'),
-                'selector' => '{{WRAPPER}} .tab-area li.active span',
+                'selector' => '{{WRAPPER}} li.active',
             ]
-        );
-
+        );        
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
 
         $this->start_controls_section(
             'section_desc',
@@ -431,38 +374,6 @@ class thepack_img_acrdn extends Widget_Base
             ]
         );
 
-        $this->add_responsive_control(
-            'st2uh',
-            [
-                'label' => esc_html__('Underline height', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .two .tab-area:after' => 'height:{{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'st2ubp',
-            [
-                'label' => esc_html__('Underline bottom position', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'selectors' => [
-                    '{{WRAPPER}} .two .tab-area:after' => 'bottom:-{{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'st2ubg',
-            [
-                'label' => esc_html__('Background', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .two .tab-area:after' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
 
         $this->end_controls_section();
     }

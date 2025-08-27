@@ -63,6 +63,7 @@ $cimg = $settings['cimg']['id'] ? thepack_ft_images($settings['cimg']['id'], 'fu
         transition: .34s;
         overflow: hidden;
         animation-iteration-count: infinite;
+        animation-timing-function: linear;
         width: inherit;
         height: inherit;
     }

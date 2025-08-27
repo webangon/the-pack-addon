@@ -1744,7 +1744,7 @@
             easing: 'ease',
             duration: 700,
             scale: 0,
-            reset: true,
+            reset: false,
         });
         sr.reveal('.reveal-top', {
             origin: 'top',

@@ -264,7 +264,7 @@ class Tp_Translate_Element
 
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-widget-container' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;',
+                    '{{WRAPPER}} .elementor-widget-container' => 'animation-duration: {{SIZE}}s;animation-iteration-count:infinite;animation-timing-function: linear;',
                 ],
 
             ]

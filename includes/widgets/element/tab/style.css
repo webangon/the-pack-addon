@@ -1,15 +1,10 @@
-.elementor-widget-tp_tab .tab-area li span{
-    display:block;
-  }
-  
-.tp-tab-1 .tab-area {
+
+  .tp-tab-1 .tab-area {
     margin: 0;
     padding: 0;
-    position: relative;
 }
 
 .tp-tab-1 .tab-area li {
-    display: inline-block;
     cursor: pointer;
 }
 
@@ -33,55 +28,3 @@
     margin: 0;
 }
 
-.tp-tab-1> li span {
-    cursor: pointer;
-    background-color: #ebf1f1;
-    padding: 0 23px;
-    -ms-transition: all 200ms linear 0ms;
-    -o-transition: all 200ms linear 0ms;
-    transition: all 200ms linear 0ms;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.tp-tab-1.one> .active span:before {
-    opacity: 1;
-}
-
-.tp-tab-1.one> li span:before {
-    content: '';
-    opacity: 0;
-    -webkit-transition: all 200ms linear 0ms;
-    -khtml-transition: all 200ms linear 0ms;
-    -moz-transition: all 200ms linear 0ms;
-    -ms-transition: all 200ms linear 0ms;
-    -o-transition: all 200ms linear 0ms;
-    transition: all 200ms linear 0ms;
-    width: 0;
-    height: 0;
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-    -khtml-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    -o-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    bottom: -20px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: black transparent transparent;
-    z-index: 1;
-}
-
-/*Style 2*/
-.tp-tab-1.two .tab-area:after {
-    content: "";
-    background: #000;
-    height: 2px;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-}

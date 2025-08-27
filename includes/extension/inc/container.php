@@ -340,8 +340,19 @@ class TP_Container_Extra
                     '{{WRAPPER}}' => 'backdrop-filter:blur({{SIZE}}{{UNIT}});-webkit-backdrop-filter:blur({{SIZE}}{{UNIT}});',
                 ],
             ]
-        );
+        ); 
 
+        $element->add_control(
+            'tphcok',
+            [
+                'label' => esc_html__('Hover text color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}:hover .elementor-widget-container>*' => 'color: {{VALUE}} !important;',
+                    '{{WRAPPER}}:hover .elementor-icon-box-content>*' => 'color: {{VALUE}} !important;',
+                ],
+            ]
+        );
         $element->end_controls_section();
         
     }

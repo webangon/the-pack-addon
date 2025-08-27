@@ -13,7 +13,8 @@
     animation-name: tp_scroll_anim;
     animation-duration: 2.2s;
     animation-timing-function: cubic-bezier(.15,.41,.69,.94);
-    animation-iteration-count: infinite;     
+    animation-iteration-count: infinite;   
+    animation-timing-function: linear;  
   }
   .scrollto-wrap .scroll-to{
     display: flex;
@@ -35,6 +36,7 @@
     animation-duration: 2.2s;
     animation-timing-function: cubic-bezier(.15,.41,.69,.94);
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
   @keyframes tp_scroll_anim {
     0% { opacity: 0; }

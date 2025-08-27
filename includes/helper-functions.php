@@ -678,7 +678,108 @@ function the_pack_swiper_markup($settings){
     return $out;
 
 }
- 
+add_action( 'the_pack_flex', 'tp_flex_control',10,4);
+
+function tp_flex_control($wb,$prefix,$selector,$support=[]){
+
+        $wb->add_responsive_control(
+            $prefix.'blk',
+            [
+                'label' => __('Flex direction', 'news-element'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'column' => [
+                        'title' => __('Column', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],
+                    'column-reverse' => [
+                        'title' => __('Column reverse', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],                    
+                    'row' => [
+                        'title' => __('Row', 'news-element'),
+                        'icon' => 'eicon-image-rollover',
+                    ],
+                    'row-reverse' => [
+                        'title' => __('Row reverse', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],
+                ],
+                'label_block' => true,
+                'selectors' => [
+                    '{{WRAPPER}} '.$selector => 'flex-direction: {{VALUE}};',
+                ],                
+            ]
+        );
+
+        $wb->add_responsive_control(
+            $prefix.'gp',
+            [
+                'label' => __( 'Gap', 'news-element' ),
+                'type' =>  Controls_Manager::SLIDER,
+                'size_units' => ['px','%'],
+                // 'condition' => [
+                //     $prefix.'blk' => 'column',
+                // ], 
+                'selectors' => [
+                    '{{WRAPPER}} '.$selector => 'gap: {{SIZE}}{{UNIT}};',
+                ],
+
+            ]
+        );
+
+        $wb->add_responsive_control(
+            $prefix.'ali',
+            [
+                'label' => __('Align items', 'news-element'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'center' => [
+                        'title' => __('Center', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],
+                    'flex-start' => [
+                        'title' => __('Start', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],                    
+                    'flex-end' => [
+                        'title' => __('End', 'news-element'),
+                        'icon' => 'eicon-image-rollover',
+                    ],
+                ],
+                'label_block' => true,
+                'selectors' => [
+                    '{{WRAPPER}} '.$selector => 'align-items: {{VALUE}};',
+                ],                
+            ]
+        );
+
+        $wb->add_responsive_control(
+            $prefix.'jst',
+            [
+                'label' => __('Justify content', 'news-element'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'center' => [
+                        'title' => __('Center', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],
+                    'flex-start' => [
+                        'title' => __('Start', 'news-element'),
+                        'icon' => ' eicon-document-file',
+                    ],                    
+                    'flex-end' => [
+                        'title' => __('End', 'news-element'),
+                        'icon' => 'eicon-image-rollover',
+                    ],
+                ],
+                'label_block' => true,
+                'selectors' => [
+                    '{{WRAPPER}} '.$selector => 'justify-content: {{VALUE}};',
+                ],                
+            ]
+        );
+}
 
 add_action( 'the_pack_typo', 'tp_typo_control',10,4);
 

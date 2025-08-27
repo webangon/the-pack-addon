@@ -135,7 +135,7 @@ class Tp_Blog_Gen extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-            'brg',   
+            'brgx',   
             [
                 'label' => esc_html__('Border radius', 'the-pack-addon'), 
                 'type' => Controls_Manager::SLIDER,  
