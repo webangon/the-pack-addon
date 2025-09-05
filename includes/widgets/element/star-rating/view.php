@@ -7,7 +7,7 @@ foreach ($settings['tabs'] as $a) {
 }
 ?>
 
-<div class="tp-star-rating tpoverflow">
+<div class="tp-star-rating tp-no-overflow">
     <ul>
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
         <?php echo thepack_build_html($tabti);?>

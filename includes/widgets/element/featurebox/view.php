@@ -9,7 +9,7 @@ foreach ($settings['lists'] as $a) {
 }
 ?>
 
-<ul class="tp-featurebox tpoverflow">
+<ul class="tp-featurebox tp-no-overflow">
     <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo thepack_build_html($html); ?>
 </ul>

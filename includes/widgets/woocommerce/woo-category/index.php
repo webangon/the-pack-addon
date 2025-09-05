@@ -319,7 +319,7 @@ class The_Pack_Woo_Category extends Widget_Base
                 'type' => Controls_Manager::SLIDER,
                 'selectors' => [
                     '{{WRAPPER}} .tp-category' => 'padding: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .tpoverflow.tp-category-wrap' => 'margin-left: -{{SIZE}}{{UNIT}};margin-right: -{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tp-no-overflow.tp-category-wrap' => 'margin-left: -{{SIZE}}{{UNIT}};margin-right: -{{SIZE}}{{UNIT}};',
                 ],
 
             ]

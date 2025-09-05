@@ -12,6 +12,6 @@ if ($settings['disp'] == 'slider') {
             </div>
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="tbteam1 tpoverflow">' . $this->content($settings['items'], $settings['disp']) . '</div>';
+    echo '<div class="tbteam1 tp-no-overflow">' . $this->content($settings['items'], $settings['disp']) . '</div>';
 }
   

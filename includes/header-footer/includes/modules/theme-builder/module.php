@@ -417,5 +417,12 @@ class Module extends \Elementor\Core\Base\Module {
 
 		// Common
 		add_filter( 'elementor/finder/categories', [ $this, 'add_finder_items' ] );
+        // Loading elementor packages.
+        $loader = thepack_kit()->plugin_path('includes/modules/theme-builder/assets/editor-v2/loader.php');
+
+        if ( file_exists( $loader ) ) {
+            require_once $loader;
+        }
+
 	}
 }

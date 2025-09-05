@@ -1,6 +1,6 @@
 <?php
 //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped 
-echo '<div class="flip-wraper1 tpoverflow">' .$this->content($settings). '</div>';
+echo '<div class="flip-wraper1 tp-no-overflow">' .$this->content($settings). '</div>';
 ?>
 
 

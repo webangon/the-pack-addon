@@ -16,7 +16,7 @@ foreach ($settings['items'] as $a) {
 }
 
 ?>
-<div class="minibox-1 tpoverflow">
+<div class="minibox-1 tp-no-overflow">
 	<?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php echo thepack_build_html($out); ?>
 </div>

@@ -52,7 +52,7 @@ class Tp_Circle_Dots extends Widget_Base {
         $this->add_responsive_control(
             'ht',   
             [
-                'label' => esc_html__('Height', 'the-pack-addon'), 
+                'label' => esc_html__('Height & width', 'the-pack-addon'), 
                 'type' => Controls_Manager::SLIDER,                    
                 'range' => [
                     'px' => [
@@ -62,6 +62,27 @@ class Tp_Circle_Dots extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .tp-circle-dot' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'gbrd',
+                'label' => esc_html__('Border', 'the-pack-addon'),
+                'selector' => '{{WRAPPER}} .tp-border',
+            ]
+        );        
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'bg',
+                'selector' => '{{WRAPPER}} .dots span',
+				'fields_options' => [
+					'background' => [
+						'label' => esc_html__( 'Dot Background','the-pack-addon' ),
+					]
+				]  
             ]
         );
         $this->end_controls_section();

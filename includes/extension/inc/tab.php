@@ -104,6 +104,28 @@ class The_Pack_Tab_Extra_Control
                 ],
             ]
         );
+        $element->add_responsive_control(
+            'tpttbg',
+            [
+                'label' => esc_html__('Title wrapper background', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .e-n-tabs-heading' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+        $element->add_responsive_control(
+            'tpttpd',
+            [
+                'label' => esc_html__('Title wrapper padding', 'the-pack-addon'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['em', 'px','%'],
+                'selectors' => [
+                    '{{WRAPPER}} .e-n-tabs-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $element->end_controls_section();
     }
 }

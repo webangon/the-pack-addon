@@ -192,20 +192,10 @@ class The_Pack_Heading_Extra_Control
         $element->add_control(
             'tvpos',
             [
-                'label' => esc_html__('Vertical align', 'the-pack-addon'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'center' => [
-                        'title' => esc_html__('Center', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-left',
-                    ],
-                    'flex-end' => [
-                        'title' => esc_html__('Right', 'the-pack-addon'),
-                        'icon' => 'eicon-h-align-right',
-                    ]
-                ],
+                'label' => esc_html__('Center text', 'the-pack-addon'),
+                'type' => Controls_Manager::SWITCHER,
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-heading-title' => 'align-items: {{VALUE}};display:flex;',
+                    '{{WRAPPER}} .elementor-heading-title' => 'align-items: center;display:inline-flex;justify-content: center;',
                 ]                
             ]
         );

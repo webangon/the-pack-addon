@@ -2,7 +2,7 @@
 $icon = $settings['icon']['value'] ? '<div class="icon"><i class="tbicon ' . $settings['icon']['value'] . '"></i></div>' : '';
 ?>
 
-<div class="tp-cta-link-wrap tpoverflow">
+<div class="tp-cta-link-wrap tp-no-overflow">
     <div class="tp-cta-link">
         <?php //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php echo thepack_build_html($icon); ?>

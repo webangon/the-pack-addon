@@ -46,8 +46,8 @@ $hide_thumb = isset($settings['hide_thumb']) ? $settings['hide_thumb'] : '';
 
 $loop = new \WP_Query($query_args); ?>  
 
-<div class="tp-grid-wrap tpoverflow">
-    <div class="inner tpoverflow masonwrp masonon">
+<div class="tp-grid-wrap tp-no-overflow">
+    <div class="inner tp-no-overflow masonwrp masonon">
 
 		<?php
 

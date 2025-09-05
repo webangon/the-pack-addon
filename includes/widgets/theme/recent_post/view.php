@@ -10,15 +10,17 @@ if ($settings['query_type'] == 'category') {
     $query_args = [
         'post_type' => 'post',
         'posts_per_page' => $per_page,
+    ]; 
+	if ($cat){
         //phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-        'tax_query' => [ 
-            [
-                'taxonomy' => 'category',
-                'field' => 'term_id',
-                'terms' => $cat,
-            ],
-        ],
-    ];
+		$query_args['tax_query'] = array(
+			array( 
+			'taxonomy' => 'category',
+			'field'    => 'term_id',
+			'terms' => $cat,
+			)
+		);
+	}      
 }
 
 if ($settings['query_type'] == 'individual') {
@@ -37,12 +39,12 @@ echo '<div class="tp-recent-post">';
 if ($loop->have_posts()) : ?>
 	<?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
-        <div class="item">
-            <div class="inner">
+        <div class="item"> 
+            <div class="inner tp-flex-equal">
     			<?php if (has_post_thumbnail() && $settings['show_img']) : ?>
-                    <div class="entry-media">
+                    <div class="entry-media tp-no-overflow">
                         <a class="post-featured" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-    						<?php the_post_thumbnail($img_size); ?>
+    						<?php echo thepack_ft_images(get_post_thumbnail_id($loop->ID),$img_size);?>
                         </a>
 
                     </div>
@@ -50,7 +52,7 @@ if ($loop->have_posts()) : ?>
                 <div class="grid-content">
     				<?php thepack_build_postmeta($meta, $excerpt = ''); ?>
                 </div>
-            </div>
+            </div> 
         </div>
 
 	<?php endwhile; ?>

@@ -39,7 +39,7 @@ if ($settings['display'] == 'carousel') {
     </div>
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="tb-imgbox1 tpoverflow">' .$this->content($settings['items'], $cls, $settings['bticon'], $settings['img_size']) . '</div>';
+    echo '<div class="tb-imgbox1 tp-no-overflow">' .$this->content($settings['items'], $cls, $settings['bticon'], $settings['img_size']) . '</div>';
 }
 
 ?>

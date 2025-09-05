@@ -160,7 +160,7 @@ class Tp_Blog_Gen extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'condition' => [
                     'obdr' => 'yes',
-                ],                
+                ],                 
                 'size_units' => ['em', 'px','%'],
                 'selectors' => [
                     '{{WRAPPER}}.elementor-widget-tp-blob' => '--radius-1: {{TOP}}{{UNIT}};--radius-2: {{RIGHT}}{{UNIT}};--radius-3: {{BOTTOM}}{{UNIT}};--radius-4: {{LEFT}}{{UNIT}};',

@@ -21,7 +21,7 @@ $options = [
     'next' => the_pack_render_icon($settings['nicon'])
 ];
 
-echo '<div class="thepack-product-images tpoverflow has-zoom" data-xld =\'' . wp_json_encode($options) . '\'>';
+echo '<div class="thepack-product-images tp-no-overflow has-zoom" data-xld =\'' . wp_json_encode($options) . '\'>';
 ?>
 	<?php woocommerce_show_product_sale_flash(); ?>
 	<?php woocommerce_show_product_images(); ?>

@@ -371,7 +371,7 @@ function thepack_overlay_link($url)
     $link = $url ? '<a ' . $target . ' class="tp-overlaylink" href="' . $url . '"></a>' : '';
 
     return $link; 
-}
+} 
 
 function thepack_ft_images($id = '', $thumb = '',$class='')
 {

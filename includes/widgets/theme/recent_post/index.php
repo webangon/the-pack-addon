@@ -346,14 +346,24 @@ class thepack_recent_post extends Widget_Base
                 'label' => esc_html__('Thumb', 'the-pack-addon'),
             ]
         );
+        $this->add_responsive_control(
+            'imggp',
+            [
+                'label' => esc_html__('Gap', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .inner' => 'gap: {{SIZE}}{{UNIT}}',
+                ],
 
+            ]
+        );
         $this->add_responsive_control(
             'imgwd',
             [
                 'label' => esc_html__('Width', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
                 'selectors' => [
-                    '{{WRAPPER}} .entry-media' => 'width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .entry-media' => 'flex:0 0 {{SIZE}}{{UNIT}}',
                 ],
 
             ]

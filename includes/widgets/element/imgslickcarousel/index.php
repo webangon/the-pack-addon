@@ -20,7 +20,7 @@ class thepack_slickcarousl extends Widget_Base
 
     public function get_title()
     {
-        return esc_html__('Image slide', 'the-pack-addon');
+        return esc_html__('Image Box', 'the-pack-addon');
     }
 
     public function get_icon()
@@ -38,7 +38,7 @@ class thepack_slickcarousl extends Widget_Base
         $this->start_controls_section(
             'section_pricing_table',
             [
-                'label' => esc_html__('Slides', 'the-pack-addon'),
+                'label' => esc_html__('Data', 'the-pack-addon'),
             ]
         );
 
@@ -50,37 +50,40 @@ class thepack_slickcarousl extends Widget_Base
                 'options' => [
                     'one' => [
                         'title' => esc_html__('One', 'the-pack-addon'),
-                        'icon' => 'fa fa-folder',
+                        'icon' => 'eicon-document-file',
                     ],
                     'two' => [
                         'title' => esc_html__('Two', 'the-pack-addon'),
-                        'icon' => 'fa fa-folder-o',
+                        'icon' => 'eicon-folder-o',
                     ],
-
-                    'three' => [
-                        'title' => esc_html__('Three', 'the-pack-addon'),
-                        'icon' => 'fa fa-folder-open',
-                    ],
-
+                    // 'three' => [
+                    //     'title' => esc_html__('Three', 'the-pack-addon'),
+                    //     'icon' => 'eicon-menu-toggle',
+                    // ],
                 ],
                 'default' => 'one',
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
-
-        $repeater->add_control(
-            'title',
+        $this->add_control(
+            'ttl',
             [
                 'type' => Controls_Manager::TEXT,
-                'label' => esc_html__('Label', 'the-pack-addon'),
+                'label' => esc_html__('Title', 'the-pack-addon'),
                 'label_block' => true,
-                'default' => 'Leader in Business',
+            ]
+        );
+        $this->add_control(
+            'dsc',
+            [
+                'type' => Controls_Manager::TEXTAREA,
+                'label' => esc_html__('Description', 'the-pack-addon'),
+                'label_block' => true,
             ]
         );
 
-        $repeater->add_control(
-            'bg',
+        $this->add_control(
+            'img',
             [
                 'type' => Controls_Manager::MEDIA,
                 'label' => esc_html__('Image', 'the-pack-addon'),
@@ -91,31 +94,34 @@ class thepack_slickcarousl extends Widget_Base
         );
 
         $this->add_control(
-            'lists',
+            'msk',
             [
-                'type' => Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'prevent_empty' => false,
-                'default' => [
-                    [
-                        'title' => esc_html__('Leader in Business', 'the-pack-addon'),
-                    ],
-                ],
-                'title_field' => '{{{ title }}}',
+                'type' => Controls_Manager::MEDIA,
+                'label_block' => true,
+                'label' => esc_html__('Mask image', 'the-pack-addon'),
+                'selectors' => array(
+                    '{{WRAPPER}} .imgwrap' => '-webkit-mask: url({{URL}}) no-repeat center / contain;',
+                )
             ]
         );
 
         $this->add_control(
-            'img_size',
+            'url',
             [
-                'label' => esc_html__('Image size', 'the-pack-addon'),
-                'type' => Controls_Manager::SELECT,
+                'label' => esc_html__('Link', 'the-pack-addon'),
+                'type' => Controls_Manager::URL,
                 'label_block' => true,
-                'options' => thepack_image_size_choose(),
-                'multiple' => false,
+                'placeholder' => esc_html__('http://your-link.com', 'the-pack-addon'),
             ]
         );
-
+        $this->add_control(
+            'btni',
+            [
+                'type' => Controls_Manager::ICONS,
+                'label' => esc_html__('Button icon', 'the-pack-addon'),
+                'label_block' => true,
+            ]
+        );        
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -125,425 +131,239 @@ class thepack_slickcarousl extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-
         $this->add_control(
-            'cmzm',
+            'hvthm',
             [
-                'label' => esc_html__('Center zoom factor', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 2,
-                        'step' => .05,
-                    ],
-                ], 
-                'size_units' => ['px'],
+                'label' => esc_html__('Theme color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .slick-current' => 'transform: scale({{SIZE}}) translateZ(0);-moz-transform: scale({{SIZE}}) translateZ(0);-webkit-transform: scale({{SIZE}}) translateZ(0);',
+                    '{{WRAPPER}} .tpigbx' => '--thmcol: {{VALUE}};',
+                ],
+            ]
+        ); 
+        $this->add_responsive_control(
+            'align',
+            [
+                'label' => esc_html__('Alignment', 'the-pack-addon'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'the-pack-addon'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'the-pack-addon'),
+                        'icon' => 'eicon-h-align-right',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .tpigbx' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );        
+        $this->add_responsive_control(
+            'gpd',
+            [
+                'label' => esc_html__('Padding', 'the-pack-addon'),
+                'type' => Controls_Manager::DIMENSIONS,              
+                'size_units' => ['em', 'px','%'],
+                'selectors' => [
+                    '{{WRAPPER}} .tpigbx' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ],
             ]
         );
-
         $this->add_control(
-            'amzm',
+            'gvbg',
             [
-                'label' => esc_html__('Zoom factor', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 1,
-                        'step' => .05,
-                    ],
-                ],
-                'size_units' => ['px'],
+                'label' => esc_html__('Background', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slide:not(.slick-current)' => 'transform: scale({{SIZE}}) translateZ(0);-moz-transform: scale({{SIZE}}) translateZ(0);-webkit-transform: scale({{SIZE}}) translateZ(0);',
+                    '{{WRAPPER}} .tpigbx' => 'background: {{VALUE}};',
                 ],
             ]
-        );
-
+        ); 
         $this->add_control(
-            'wrpmrg',
+            'gbdr',
             [
-                'label' => esc_html__('Wrapper negative margin', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => -1000,
-                        'max' => 300,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
+                'label' => esc_html__('Border color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .single-item' => 'margin-left: {{SIZE}}{{UNIT}};margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tpigbx' => 'border:1px solid {{VALUE}};',
                 ],
             ]
-        );
-
+        ); 
         $this->add_control(
-            'itmimr',
+            'gvbu',
             [
-                'label' => esc_html__('Item inner margin', 'the-pack-addon'),
+                'label' => esc_html__('Border radius', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 300,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slide' => 'margin: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tpigbx,{{WRAPPER}} .tpigbx.style-two::after' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
-        );
-
+        );        
+        $this->add_control(
+            'gbrq',
+            [
+                'label' => esc_html__('Overlay color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .tpigbx.style-two::after' => 'background:{{VALUE}};',
+                ],
+                'condition' => [
+                    'tmpl' => 'two',
+                ],                 
+            ]
+        );      
+        $this->add_control(
+            'gbwrq',
+            [
+                'label' => esc_html__('Hover text color', 'the-pack-addon'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .tpigbx.style-two:hover .com-text' => 'color:{{VALUE}};',
+                ],
+                'condition' => [
+                    'tmpl' => 'two',
+                ],                  
+            ]
+        );            
         $this->end_controls_section();
 
         $this->start_controls_section(
             'section_tmp2',
             [
-                'label' => esc_html__('Template Two', 'the-pack-addon'),
+                'label' => esc_html__('Image', 'the-pack-addon'),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'tmpl' => 'two',
-                ],
             ]
         );
-
         $this->add_responsive_control(
-            't2np',
+            'brg',
             [
-                'label' => esc_html__('Item Padding', 'the-pack-addon'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em'],
-
+                'label' => esc_html__('Padding', 'the-pack-addon'),
+                'type' => Controls_Manager::DIMENSIONS,              
+                'size_units' => ['em', 'px','%'],
                 'selectors' => [
-                    '{{WRAPPER}} .two .slick-slide' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .imgwrap' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ],
             ]
         );
-
         $this->add_control(
-            'tactbg',
-            [
-                'label' => esc_html__('Center background', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .two .slick-current' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            't2ap',
-            [
-                'label' => esc_html__('Center Padding', 'the-pack-addon'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em'],
-
-                'selectors' => [
-                    '{{WRAPPER}} .two .slick-center' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_caro',
-            [
-                'label' => esc_html__('Slider control', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'dot',
-            [
-                'label' => esc_html__('Display dot', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'auto',
-            [
-                'label' => esc_html__('Autoplay', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'nav',
-            [
-                'label' => esc_html__('Display arrow', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'mouse',
-            [
-                'label' => esc_html__('Mouse control', 'the-pack-addon'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'the-pack-addon'),
-                'label_off' => esc_html__('No', 'the-pack-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'item',
-            [
-                'label' => esc_html__('Item per slide', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 4,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 5,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-            ]
-        );
-
-        $this->add_control(
-            'item_tab',
-            [
-                'label' => esc_html__('Item per slide tablets', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 2,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 5,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-            ]
-        );
-
-        $this->add_control(
-            'speed',
-            [
-                'label' => esc_html__('Slide speed', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 2500,
-                ],
-                'condition' => [
-                    'auto' => 'yes',
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 8000,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-            ]
-        );
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_pagi',
-            [
-                'label' => esc_html__('Slider Pagination', 'the-pack-addon'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'nav' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'picon',
-            [
-                'type' => Controls_Manager::ICONS,
-                'label' => esc_html__('Prev icon', 'the-pack-addon'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'nicon',
-            [
-                'type' => Controls_Manager::ICONS,
-                'label' => esc_html__('Next icon', 'the-pack-addon'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'pgi_bg',
+            'cntbg',
             [
                 'label' => esc_html__('Background', 'the-pack-addon'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .slknav li' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .imgwrap' => 'background: {{VALUE}};',
                 ],
             ]
-        );
-
+        );    
         $this->add_control(
-            'pgi_c',
-            [
-                'label' => esc_html__('Color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .slknav li' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'pgwd',
-            [
-                'label' => esc_html__('Width and height', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                        'min' => 1,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-                'selectors' => [
-                    '{{WRAPPER}} .slknav li' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-                ],
-
-            ]
-        );
-
-        $this->add_responsive_control(
-            'lheight',
-            [
-                'label' => esc_html__('Line-height', 'the-pack-addon'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                        'min' => 1,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
-                'selectors' => [
-                    '{{WRAPPER}} .slknav li' => 'line-height: {{SIZE}}{{UNIT}};',
-                ],
-
-            ]
-        );
-
-        $this->add_responsive_control(
-            'pgbrad',
+            'ik_br',
             [
                 'label' => esc_html__('Border radius', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                        'min' => 1,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
                 'selectors' => [
-                    '{{WRAPPER}} .slknav li' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .imgwrap' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
-
             ]
         );
+        $this->add_control(
+            'ikg_br',
+            [
+                'label' => esc_html__('Image radius', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .imgwrap img' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_ttl',
+            [
+                'label' => esc_html__('Title', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        do_action('the_pack_typo', $this,'ttl_','.title',['margin']);
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_nav',
+            'section_dsc',
             [
-                'label' => esc_html__('Slider Navigation', 'the-pack-addon'),
+                'label' => esc_html__('Description', 'the-pack-addon'),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'dot' => 'yes',
-                ],
             ]
         );
 
+        do_action('the_pack_typo', $this,'dsc_','.desc',['margin']);
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_ibtn',
+            [
+                'label' => esc_html__('Button', 'the-pack-addon'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );      
         $this->add_responsive_control(
-            'navpos',
+            'bwh',
             [
-                'label' => esc_html__('Postion', 'the-pack-addon'),
+                'label' => esc_html__('Width and height', 'the-pack-addon'),
                 'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 300,
-                        'min' => -300,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px'],
                 'selectors' => [
-                    '{{WRAPPER}} .slick-dots' => 'bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .tpbtn' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
                 ],
-
             ]
         );
-
-        $this->add_control(
-            'navcol',
+        $this->add_responsive_control(
+            'bfs',
             [
-                'label' => esc_html__('Dot color', 'the-pack-addon'),
+                'label' => esc_html__('Font size', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .tpbtn' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );   
+        $this->add_control(
+            'htx',
+            [
+                'label' => esc_html__('Hover color', 'the-pack-addon'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .slick-dots li button' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .tpigbx:hover .tpbtn' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_control(
-            'navacol',
+            'btsp',
             [
-                'label' => esc_html__('Dot active color', 'the-pack-addon'),
-                'type' => Controls_Manager::COLOR,
+                'label' => esc_html__('Top spacing', 'the-pack-addon'),
+                'type' => Controls_Manager::SLIDER,
                 'selectors' => [
-                    '{{WRAPPER}} .slick-dots li.slick-active button' => 'box-shadow:0 0 0 2px {{VALUE}};background: #2220;',
+                    '{{WRAPPER}} .tpbtn' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
-
         $this->end_controls_section();
     }
 
     protected function render()
     {
         $settings = $this->get_settings();
-        require dirname(__FILE__) . '/view.php';
+        if (!preg_match("/[^[:alnum:]_\/-]/",$settings['tmpl'])) {
+            include plugin_dir_path(__FILE__) . $settings['tmpl'] . '.php';
+        }
     }
 }
 

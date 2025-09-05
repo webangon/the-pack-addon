@@ -65,5 +65,5 @@ if ($settings['disp'] == 'slider') {
         ';
 <?php } else {
     //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo '<div class="imgbx4wrap tpoverflow">' . thepack_build_html($out1) . '</div>';
+    echo '<div class="imgbx4wrap tp-no-overflow">' . thepack_build_html($out1) . '</div>';
 }

@@ -173,33 +173,6 @@
 
         });
     };
-    var SlickImgCar = function ($scope, $) {
-        $scope.find('.xldslickcarousel').each(function () {
-            var slider_elem = $(this).find('.single-item');
-            var settings = $(this).data('xld');
-            slider_elem.slick({
-                dots: settings['dot'],
-                arrows: settings['arrow'],
-                prevArrow: $(this).find('.prev'),
-                nextArrow: $(this).find('.next'),
-                slidesToShow: settings['item'],
-                autoplaySpeed: settings['speed'],
-                centerMode: true,
-                centerPadding: '0px',
-                autoplay: settings['auto'],
-            });
-            if (settings['mouse']) {
-                slider_elem.on('wheel', (function (e) {
-                    e.preventDefault();
-                    if (e.originalEvent.deltaY < 0) {
-                        $(this).slick('slickNext');
-                    } else {
-                        $(this).slick('slickPrev');
-                    }
-                }));
-            }
-        });
-    };
 
     var Testi5 = function ($scope, $) {
         $scope.find('.testi5-container').each(function () {
@@ -1661,7 +1634,6 @@
             'tp-carousel1': FolioCarousel,
             'tp-slidershop': FolioCarousel,
             'tp-typing1': Typing1,
-            'tp-slkcrsl': SlickImgCar,
             'wa-gallery': Gallery2,
             'tb_foliohvr': HvrFolio,
             'tb_team1': Testimonial,

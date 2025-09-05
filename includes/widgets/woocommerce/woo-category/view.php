@@ -2,7 +2,7 @@
  $terms = $settings['taxterm'];
  $out = '';
  if ( $settings['disp']=='slide' ){
-	$parent_cls = 'tpswiper tp-category-loop swiper tpoverflow';
+	$parent_cls = 'tpswiper tp-category-loop swiper tp-no-overflow';
 	$main_cls = 'swiper-wrapper';
 	$inclass = 'swiper-slide tp-category';
 	$slider_options = [
@@ -22,7 +22,7 @@
 } else { 
 	//
 	$parent_cls = 'tp-category-loop';
-	$main_cls = 'tpoverflow tp-category-wrap';
+	$main_cls = 'tp-no-overflow tp-category-wrap';
 	$inclass = 'tp-category';
 	$slider_options = [];
 	$nav = $dot = '';

@@ -22,7 +22,7 @@ if ( $settings['disp']=='slide' ){
     //
     $mason_grid = $settings['eq_ht'] ? ' tp-equal-height' : ' masonwrp masonon';
     $parent_cls = 'tp-woo-loop-1 woocommerce';
-    $main_cls = 'tpoverflow tp-product-catalog'.$mason_grid;
+    $main_cls = 'tp-no-overflow tp-product-catalog'.$mason_grid;
     $inclass = 'tp-product-1';
     $slider_options = [];
     $nav = $dot = '';
